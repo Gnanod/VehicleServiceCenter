@@ -14,6 +14,7 @@ public class Customer {
     String firstName;
     String lastName;
     String email;
+    String nic;
     String address;
     String birthday;
     String phoneNumber;
@@ -21,6 +22,14 @@ public class Customer {
     @JsonIgnore
     private Set<Vehicle> vehicleSet;
 
+
+    public String getNic() {
+        return nic;
+    }
+
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
 
     public Set<Vehicle> getVehicleSet() {
         return vehicleSet;
