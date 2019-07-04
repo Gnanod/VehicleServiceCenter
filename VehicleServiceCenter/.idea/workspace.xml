@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb1c48c-33e7-4250-b931-7ff9a8fb0e98" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/entity/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/BackEnd/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1349,7 +1353,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562266912087" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562269050353" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1414,15 +1418,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1562264412503</updated>
-      <workItem from="1562264415423" duration="2430000" />
+      <workItem from="1562264415423" duration="2885000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2430000" />
+    <option name="totallyTimeSpent" value="2885000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-10" y="-10" width="1386" height="788" extended-state="0" />
+    <frame x="-10" y="-10" width="1386" height="788" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" />
