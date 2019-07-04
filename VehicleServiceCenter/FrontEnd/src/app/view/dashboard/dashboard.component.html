@@ -1,0 +1,171 @@
+
+
+     
+            <div class="container-fluid">
+                <!-- your content here -->
+
+                <div class="alert alert-rose alert-with-icon" data-notify="container">
+                    <i class="material-icons" data-notify="icon">notifications</i>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <i class="material-icons">close</i>
+                    </button>
+                    <span data-notify="message"> Low Stocks </span>
+                </div>
+
+                <div class="col-xl-auto">
+                    <div class="card ">
+                        <div class="card-header ">
+                            <h4 class="card-title">TODAY'S STATISTICS
+                                <small class="description"></small>
+                            </h4>
+                        </div>
+                        <div class="card-body ">
+                            <div class="row">
+                                <div class="col-md-4 ml-auto mr-auto">
+                                    <div class="card card-stats" style="box-shadow:0 1px 6px">
+                                        <div class="card-header card-header-success card-header-icon">
+                                            <div class="card-icon">
+                                                <i class="material-icons">store</i>
+                                            </div>
+                                            <p class="card-category">Total Sales</p>
+                                            <h3 class="card-title">Rs. 39850</h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                                <i class="material-icons">date_range</i> For Today
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4 ml-auto mr-auto">
+                                    <div class="card card-stats" style="box-shadow:0 1px 6px">
+                                        <div class="card-header card-header-rose card-header-icon">
+                                            <div class="card-icon">
+                                                <i class="material-icons">equalizer</i>
+                                            </div>
+                                            <p class="card-category">Jobs</p>
+                                            <h3 class="card-title">12</h3>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="stats">
+                                                <i class="material-icons">local_offer</i> For Today
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12">
+                <div class="card ">
+                    <div class="card-header card-header-success card-header-icon">
+                        <div class="card-icon">
+                            <i class="material-icons">assignment</i>
+                        </div>
+                        <h4 class="card-title"></h4>
+                    </div>
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header card-header-icon card-header-info">
+                                        <div class="card-icon">
+                                            <i class="material-icons">timeline</i>
+                                        </div>
+                                        <h4 class="card-title">Jobs Graph
+                                            <small> This Week</small>
+                                        </h4>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="colouredRoundedLineChart" class="ct-chart"></div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="card card-chart">
+                                        <div class="card-header card-header-icon card-header-danger">
+                                            <div class="card-icon" >
+                                                <i class="material-icons" >pie_chart</i>
+                                            </div>
+                                            <h4 class="card-title">Pie Chart</h4>
+                                        </div>
+                                        <div class="card-body">
+                                            <div id="chartPreferences" class="ct-chart"><svg xmlns:ct="http://gionkunz.github.com/chartist-js/ct" width="100%" height="230px" class="ct-chart-pie" style="width: 100%; height: 230px;"><g class="ct-series ct-series-a"><path d="M40.531,195.187A110,110,0,1,0,115.831,5L115.831,115Z" class="ct-slice-pie" ct:value="62"></path></g><g class="ct-series ct-series-b"><path d="M75.338,12.725A110,110,0,0,0,40.811,195.449L115.831,115Z" class="ct-slice-pie" ct:value="32"></path></g><g class="ct-series ct-series-c"><path d="M115.831,5A110,110,0,0,0,74.981,12.867L115.831,115Z" class="ct-slice-pie" ct:value="6"></path></g><g><text dx="166.96895977561164" dy="135.24685039765728" text-anchor="middle" class="ct-label">62%</text><text dx="61.80545426167992" dy="104.6940276977852" text-anchor="middle" class="ct-label">32%</text><text dx="105.52528074954292" dy="60.974201209922136" text-anchor="middle" class="ct-label">6%</text></g></svg></div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <h6 class="card-category">Legend</h6>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <i class="fa fa-circle text-info"></i> Apple
+                                                    <i class="fa fa-circle text-warning"></i> Samsung
+                                                    <i class="fa fa-circle text-danger"></i> Windows Phone
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-6 col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-text card-header-warning">
+                            <div class="card-text">
+                                <h4 class="card-title">Employees Stats</h4>
+                                <p class="card-category">New employees on 15th September, 2016</p>
+                            </div>
+                        </div>
+
+                        <div class="card-body table-responsive">
+                            <table class="table table-hover">
+                                <thead class="text-warning">
+                                <tr><th>ID</th>
+                                    <th>Name</th>
+                                    <th>Salary</th>
+                                    <th>Country</th>
+                                </tr></thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Dakota Rice</td>
+                                    <td>$36,738</td>
+                                    <td>Niger</td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Minerva Hooper</td>
+                                    <td>$23,789</td>
+                                    <td>Curaçao</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>Sage Rodriguez</td>
+                                    <td>$56,142</td>
+                                    <td>Netherlands</td>
+                                </tr>
+                                <tr>
+                                    <td>4</td>
+                                    <td>Philip Chaney</td>
+                                    <td>$38,735</td>
+                                    <td>Korea, South</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
