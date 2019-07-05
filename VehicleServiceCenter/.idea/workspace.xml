@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1fb1c48c-33e7-4250-b931-7ff9a8fb0e98" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/entity/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/src/main/java/lk/vsc/entity/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/target/classes/lk/vsc/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/target/classes/lk/vsc/controller/CustomerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/target/classes/lk/vsc/entity/Customer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/target/classes/lk/vsc/entity/Customer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/target/classes/lk/vsc/service/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/target/classes/lk/vsc/service/CustomerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/target/classes/lk/vsc/service/impl/CustomerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/BackEnd/target/classes/lk/vsc/service/impl/CustomerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/FrontEnd/src/app/view/vehicle/vehicle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/FrontEnd/src/app/view/vehicle/vehicle.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../VehicleServiceCenterNew/FrontEnd/src/app/view/vehicle/vehicle.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../VehicleServiceCenterNew/FrontEnd/src/app/view/vehicle/vehicle.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/BackEnd/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,6 +18,7 @@
     <session id="1591878862">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
@@ -1354,7 +1353,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562270562455" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1562304984060" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -1428,7 +1427,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-10" y="-10" width="1386" height="788" extended-state="1" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" />
       <window_info id="Image Layers" />
@@ -1445,7 +1443,7 @@
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32874617" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32874617" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />

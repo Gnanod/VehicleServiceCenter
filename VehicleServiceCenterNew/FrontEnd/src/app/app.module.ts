@@ -10,6 +10,8 @@ import { VehicleComponent } from './view/vehicle/vehicle.component';
 import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { LoginComponent } from './view/login/login.component';
 import { SupplierComponent } from './view/supplier/supplier.component';
+import {HttpClientModule} from "@angular/common/http";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -24,7 +26,7 @@ import { SupplierComponent } from './view/supplier/supplier.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule, HttpClientModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
