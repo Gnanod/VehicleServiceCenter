@@ -8,9 +8,11 @@ import {DashboardComponent} from "./view/dashboard/dashboard.component";
 import {CustomerVehicleUpdateComponent} from "./view/customer-vehicle-update/customer-vehicle-update.component";
 import {SupplierComponent} from "./view/supplier/supplier.component";
 import {VehicleComponent} from "./view/vehicle/vehicle.component";
+import {LoginComponent} from "./view/login/login.component";
 
 const routes: Routes = [
     {
+
         path: 'main',
         component: MainComponent,
         children: [
@@ -37,8 +39,13 @@ const routes: Routes = [
 
         ]
     },
+
+    {
+      path:'login',
+      component: LoginComponent
+    },
     
-    {path: '', pathMatch: "full", redirectTo: '/main/employee'}
+    {path: '', pathMatch: "full", redirectTo: 'login'}
 ];
 
 @NgModule({
