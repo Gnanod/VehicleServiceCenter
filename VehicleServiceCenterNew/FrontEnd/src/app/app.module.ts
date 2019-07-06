@@ -11,9 +11,11 @@ import { DashboardComponent } from './view/dashboard/dashboard.component';
 import { LoginComponent } from './view/login/login.component';
 import { SupplierComponent } from './view/supplier/supplier.component';
 import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbAlertModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from "@angular/material";
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import {NgbAlertModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule,NgbModule,NgbPaginationModule, NgbAlertModule
+    AppRoutingModule, HttpClientModule, FormsModule,NgbModule,NgbPaginationModule, NgbAlertModule,ReactiveFormsModule,
+      BrowserAnimationsModule,MatButtonModule,MatSelectModule,  MatFormFieldModule,
+      MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
