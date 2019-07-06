@@ -50,31 +50,33 @@
                                 
                                
                                 <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                           
-                                                <label for="exampleFormControlSelect1">Vehicle Class</label>
-                                                <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
-                                                    <option>A1</option>
-                                                    <option>A</option>
-                                                    <option>B1</option>
-                                                    <option>B</option>
-                                                    <option>C1</option>
-                                                    <option>C</option>
-                                                    <option>CE</option>
-                                                    <option>D1</option>
-                                                    <option>D</option>
-                                                    <option>DE</option>
-                                                    <option>G1</option>
-                                                    <option>G</option>
-                                                    <option>J</option>
-                                                </select>
-                                            
-                                        </div>
+                                    <div class="col-md-11">
+                                        <mat-form-field>
+                                            <label for="exampleFormControlSelect1">Vehicle Class</label>
+                                            <br>
+                                            <!--<mat-label>Cars</mat-label>-->
+                                            <select matNativeControl required id="exampleFormControlSelect1">
+                                                <option>A1</option>
+                                                <option>A</option>
+                                                <option>B1</option>
+                                                <option>B</option>
+                                                <option>C1</option>
+                                                <option>C</option>
+                                                <option>CE</option>
+                                                <option>D1</option>
+                                                <option>D</option>
+                                                <option>DE</option>
+                                                <option>G1</option>
+                                                <option>G</option>
+                                                <option>J</option>
+                                               
+                                            </select>
+                                        </mat-form-field>
+                                       
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-11">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Model</label>
                                             <input type="email" class="form-control"  name="vehicleModel" [(ngModel)]="vehNgModel.vehicleModel">
@@ -84,7 +86,7 @@
                                 </div>
                                 <div class="row">
                                    
-                                    <div class="col-md-4">
+                                    <div class="col-md-7">
                                         <div class="form-group">
                                             <label ></label>
                                             <input placeholder="ManuFacture Date" class="form-control datetimepicker" type="text" ngbDatepicker #d="ngbDatepicker" >
@@ -200,13 +202,13 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Fist Name</label>
+                                        <label class="bmd-label-floating" name="firstName" [(ngModel)]="addCustomer.firstName">Fist Name</label>
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Last Name</label>
+                                        <label class="bmd-label-floating" name="lastName" [(ngModel)]="addCustomer.lastName">Last Name</label>
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
@@ -214,13 +216,13 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Email address</label>
-                                        <input type="email" class="form-control">
+                                        <label class="bmd-label-floating" name="email" [(ngModel)]="addCustomer.email">Email address</label>
+                                        <input type="email" class="form-control"> 
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating" >Nic</label>
+                                        <label class="bmd-label-floating" name="nic" [(ngModel)]="addCustomer.nic">Nic</label>
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
@@ -229,7 +231,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Adress</label>
+                                        <label class="bmd-label-floating" name="address" [(ngModel)]="addCustomer.address">Adress</label>
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
@@ -237,46 +239,28 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Birthday</label>
+                                        <label class="bmd-label-floating" name="birthday" [(ngModel)]="addCustomer.birthday">Birthday</label>
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Phone Number</label>
+                                        <label class="bmd-label-floating" name="phoneNumber"[(ngModel)]="addCustomer.phoneNumber">Phone Number</label>
                                         <input type="text" class="form-control">
                                     </div>
                                 </div>
 
                             </div>
 
-                            <button type="submit" class="btn btn-rose pull-right">Update Details</button>
+                            <button type="submit" class="btn btn-rose pull-right" (click)="addCustomerDetails()">Update Details</button>
                             <div class="clearfix"></div>
                         </form>
                     </div>
                 </div>
             </div>
 
-            <script>
+            
 
-                // -------------Date Time Picker----------
-                $('.datetimepicker').datetimepicker({
 
-                    format: 'MM/DD/YYYY',
-                    icons: {
-                        time: "fa fa-clock-o",
-                        date: "fa fa-calendar",
-                        up: "fa fa-chevron-up",
-                        down: "fa fa-chevron-down",
-                        previous: 'fa fa-chevron-left',
-                        next: 'fa fa-chevron-right',
-                        today: 'fa fa-screenshot',
-                        clear: 'fa fa-trash',
-                        close: 'fa fa-remove'
-                    }
-                });
-
-            </script>
-           
-   
-        
+            <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+            <script src="assets/js/plugins/bootstrap-selectpicker.js" ></script>
