@@ -3,7 +3,7 @@ import {Vehicle} from "./Vehicle";
 export class Customer {
     
     customerId: Number;
-    firstName: string;
+    firstName : string;
     lastName: string;
     email: string;
     nic: string;

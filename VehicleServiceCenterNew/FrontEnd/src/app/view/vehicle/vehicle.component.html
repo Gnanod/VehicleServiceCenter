@@ -19,16 +19,16 @@
                         <div class="card-body">
                             <form>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-11">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Customer Name</label>
-                                            <input type="text" class="form-control" name="customer" [(ngModel)]="vehNgModel.customer.firstName">
+                                            <input type="text" class="form-control" name="firstName" [(ngModel)]="cust.firstName">
                                             <!---->
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-11">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Vehicle Number</label>
                                             <input type="text" class="form-control" name="vehicleNumber" [(ngModel)]="vehNgModel.vehicleNumber">
@@ -38,7 +38,7 @@
                                 </div>
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-11">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Engine number</label>
                                             <input type="text" class="form-control" name="engineNumber" [(ngModel)]="vehNgModel.engineNumber">
@@ -46,35 +46,30 @@
                                         </div>
                                     </div>
                                     
-                                    
-                                    <!--<div class="col-md-6">-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label class="bmd-label-floating">Vehicle class</label>-->
-                                            <!--<input type="text" class="form-control" name="engineNumber" [(ngModel)]="vehNgModel.engineNumber">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
                                 </div>
                                 
+                               
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label for="exampleFormControlSelect1">Vehicle Class</label>
-                                            <!---->
-                                            <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1" name="vehicleClass" [(ngModel)]="vehNgModel.vehicleClass">
-                                                <option>A1</option>
-                                                <option>A</option>
-                                                <option>B1</option>
-                                                <option>B</option>
-                                                <option>C1</option>
-                                                <option>C</option>
-                                                <option>CE</option>
-                                                <option>D1</option>
-                                                <option>D</option>
-                                                <option>DE</option>
-                                                <option>G1</option>
-                                                <option>G</option>
-                                                <option>J</option>
-                                            </select>
+                                           
+                                                <label for="exampleFormControlSelect1">Vehicle Class</label>
+                                                <select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">
+                                                    <option>A1</option>
+                                                    <option>A</option>
+                                                    <option>B1</option>
+                                                    <option>B</option>
+                                                    <option>C1</option>
+                                                    <option>C</option>
+                                                    <option>CE</option>
+                                                    <option>D1</option>
+                                                    <option>D</option>
+                                                    <option>DE</option>
+                                                    <option>G1</option>
+                                                    <option>G</option>
+                                                    <option>J</option>
+                                                </select>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -86,37 +81,19 @@
                                             <!---->
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                   
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating" >Year of manufacture</label>
-                                            <input type="text" class="form-control datepicker datetimepicker" value="10/06/2018" name="yearOfManufacture" [(ngModel)]="vehNgModel.yearOfManufacture">
+                                            <label ></label>
+                                            <input placeholder="ManuFacture Date" class="form-control datetimepicker" type="text" ngbDatepicker #d="ngbDatepicker" >
+
                                         </div>
                                     </div>
+                                    <div class="col-md-1"><button class="btn btn-round" (click)="d.toggle()">SelectDate</button></div>
                                 </div>
-                                <!---->
-                                <!--<div class="row">-->
-                                    <!--<div class="col-md-12">-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label class="bmd-label-floating"></label>-->
-                                            <!--<input type="text" class="form-control">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <!--<div class="row">-->
-                                    <!--<div class="col-md-4">-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label class="bmd-label-floating">Birthday</label>-->
-                                            <!--<input type="text" class="form-control" name="yearOfManufacture" [(ngModel)]="vehNgModel.yearOfManufacture">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                    <!--<div class="col-md-4">-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label class="bmd-label-floating">Phone Number</label>-->
-                                            <!--<input type="text" class="form-control">-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-
-                                <!--</div>-->
+                                
 
                                 <button type="submit" class="btn btn-rose pull-right">Update Details</button>
                                 <div class="clearfix"></div>
@@ -280,7 +257,26 @@
                 </div>
             </div>
 
+            <script>
 
+                // -------------Date Time Picker----------
+                $('.datetimepicker').datetimepicker({
 
+                    format: 'MM/DD/YYYY',
+                    icons: {
+                        time: "fa fa-clock-o",
+                        date: "fa fa-calendar",
+                        up: "fa fa-chevron-up",
+                        down: "fa fa-chevron-down",
+                        previous: 'fa fa-chevron-left',
+                        next: 'fa fa-chevron-right',
+                        today: 'fa fa-screenshot',
+                        clear: 'fa fa-trash',
+                        close: 'fa fa-remove'
+                    }
+                });
+
+            </script>
+           
    
         
