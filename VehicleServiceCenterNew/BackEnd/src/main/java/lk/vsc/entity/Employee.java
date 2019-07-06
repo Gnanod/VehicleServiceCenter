@@ -17,6 +17,7 @@ public class Employee {
     String address;
     String birthday;
     String phoneNumber;
+    String nic;
 
 
     public int getEmployeeId() {

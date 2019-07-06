@@ -21,13 +21,13 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Fist Name</label>
-                                                <input type="text" class="form-control">
+                                                <input name="firstName" type="text" class="form-control" [(ngModel)] = "employee.firstName">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Last Name</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="lastName" [(ngModel)] = "employee.lastName">
                                             </div>
                                         </div>
                                     </div>
@@ -35,13 +35,13 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Email address</label>
-                                                <input type="email" class="form-control">
+                                                <input type="email" class="form-control" name="email" [(ngModel)] = "employee.email">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating" >Nic</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="nic" [(ngModel)] = "employee.nic">
                                             </div>
                                         </div>
                                     </div>
@@ -50,7 +50,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Adress</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="address" [(ngModel)] = "employee.address">
                                             </div>
                                         </div>
                                     </div>
@@ -58,19 +58,19 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Birthday</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="birthday" [(ngModel)] = "employee.birthday">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Phone Number</label>
-                                                <input type="text" class="form-control">
+                                                <input type="text" class="form-control" name="phoneNumber" [(ngModel)] = "employee.phoneNumber">
                                             </div>
                                         </div>
 
                                     </div>
 
-                                    <button type="submit" class="btn btn-rose pull-right">Save Details</button>
+                                    <button (click)="addEmpDetails()" type="submit" class="btn btn-rose pull-right">Save Details</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
