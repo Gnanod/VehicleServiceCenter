@@ -12,6 +12,9 @@ import { LoginComponent } from './view/login/login.component';
 import { SupplierComponent } from './view/supplier/supplier.component';
 import {HttpClientModule} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbAlertModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
+
 
 @NgModule({
   declarations: [
@@ -26,7 +29,7 @@ import {FormsModule} from "@angular/forms";
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, HttpClientModule, FormsModule
+    AppRoutingModule, HttpClientModule, FormsModule,NgbModule,NgbPaginationModule, NgbAlertModule
   ],
   providers: [],
   bootstrap: [AppComponent]
