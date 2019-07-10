@@ -2,11 +2,10 @@ import {Vehicle} from "./Vehicle";
 
 export class Customer {
     
-    customerId: Number;
+    nic: string;
     firstName : string;
     lastName: string;
     email: string;
-    nic: string;
     address: string;
     birthday: string;
     phoneNumber: string;

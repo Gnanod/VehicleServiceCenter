@@ -6,6 +6,186 @@
 
 
             <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-rose card-header-icon">
+                            <div class="card-icon">
+                                <i class="material-icons">search</i>
+                            </div>
+                            <h4 class="card-title">Search Customer</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="row" >
+
+                                <div class="col-md-4" style="margin-left: 150px">
+                                    <div class="form-group">
+                                        <label class="bmd-label-floating">Search By Name</label>
+                                        <input type="text" class="form-control" style="width: 300px" [(ngModel)]="searchCustomerName">
+                                    </div>
+                                </div>
+                                <div class="col-md-4" style="margin-left: -100px ;margin-top: 25px">
+                                    <button type="submit" class="btn btn-rose pull-right" (click)="searchByCustomerName()">   <i class="material-icons">search</i></button>
+                                </div>
+
+                            </div>
+
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                    <tr >
+                                        <th >Nic</th>
+                                        <th>Frist Name</th>
+                                        <th>Last Name</th>
+                                        <th >Email Address</th>
+                                        <th >Address</th>
+                                        <th >Birthday</th>
+                                        <th >Phone Number</th>
+                                        <th ></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                    <tr *ngIf="searchCustomerValuesIf;else elseBlock">
+                                        <td colspan="8" class="alert alert-danger" style="text-align: center">
+                                            Customer Not Found
+                                        </td>
+                                    </tr>
+
+                                    <ng-template #elseBlock>
+                                        <tr>
+                                            <td>
+                                                {{searchCustomerDetails .nic}}
+                                            </td>
+                                            <td>
+                                                {{searchCustomerDetails.firstName}}
+                                            </td>
+                                            <td>
+                                                {{searchCustomerDetails.lastName}}
+                                            </td>
+                                            <td>
+                                                {{searchCustomerDetails.email}}
+                                            </td>
+                                            <td>
+                                                {{searchCustomerDetails.address}}
+                                            </td>
+                                            <td>
+                                                {{searchCustomerDetails.birthday}}
+                                            </td>
+                                            <td>
+                                                {{searchCustomerDetails.phoneNumber}}
+                                            </td>
+                                            <td class="td-actions ">
+                                                <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteCustomer()">
+                                                    <i class="material-icons">close</i>
+                                                </button>
+                                            </td>
+                                        </tr>
+
+                                    </ng-template>
+
+                                    
+                                    <!--<tr >-->
+                                        <!--<td class="text-center">1</td>-->
+                                        <!--<td>Andrew Mike</td>-->
+                                        <!--<td>Develop</td>-->
+                                        <!--<td>2013</td>-->
+                                        <!--<td >&euro; 99,225</td>-->
+                                        <!--<td>Galle</td>-->
+                                        <!--<td>1995-07-14</td>-->
+                                        <!--<td>0772218111</td>-->
+                                        <!--<td class="td-actions ">-->
+                                            <!--<button type="button" rel="tooltip" class="btn btn-danger">-->
+                                                <!--<i class="material-icons">close</i>-->
+                                            <!--</button>-->
+                                        <!--</td>-->
+                                    <!--</tr>-->
+                                   
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-header card-header-icon card-header-rose">
+                            <div class="card-icon">
+                                <i class="material-icons">perm_identity</i>
+                            </div>
+                            <h4 class="card-title">Add Customer Details
+
+                            </h4>
+                        </div>
+                        <div class="card-body">
+                            <form>
+
+                                <div class="row">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" >Fist Name</label>
+                                            <input type="text" class="form-control" name="firstName" [(ngModel)]="addCustomer.firstName">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" >Last Name</label>
+                                            <input type="text" class="form-control" name="lastName" [(ngModel)]="addCustomer.lastName">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" >Email address</label>
+                                            <input type="email" class="form-control" name="email" [(ngModel)]="addCustomer.email">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" >Nic</label>
+                                            <input type="text" class="form-control" name="nic" [(ngModel)]="addCustomer.nic">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" >Adress</label>
+                                            <input type="text" class="form-control" name="address" [(ngModel)]="addCustomer.address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" >Birthday</label>
+                                            <input type="text" class="form-control" name="birthday" [(ngModel)]="addCustomer.birthday">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="bmd-label-floating" >Phone Number</label>
+                                            <input type="text" class="form-control" name="phoneNumber"[(ngModel)]="addCustomer.phoneNumber">
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <button type="submit" class="btn btn-rose pull-right" (click)="addCustomerDetails()">Update Details</button>
+                                <div class="clearfix"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header card-header-icon card-header-rose">
@@ -21,8 +201,8 @@
                                 <div class="row">
                                     <div class="col-md-11">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Customer Name</label>
-                                            <input type="text" class="form-control" name="firstName" [(ngModel)]="cust.firstName">
+                                            <label class="bmd-label-floating">Customer Nic</label>
+                                            <input type="text" class="form-control" name="nic" [(ngModel)]="cust.nic">
                                             <!---->
                                         </div>
                                     </div>
@@ -32,7 +212,7 @@
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Vehicle Number</label>
                                             <input type="text" class="form-control" name="vehicleNumber" [(ngModel)]="vehNgModel.vehicleNumber">
-                                          
+
                                         </div>
                                     </div>
                                 </div>
@@ -45,36 +225,39 @@
                                             <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
                                         </div>
                                     </div>
-                                    
+
                                 </div>
-                                
-                               
+
+                                <br>
                                 <div class="row">
                                     <div class="col-md-11">
-                                        <mat-form-field>
-                                            <label for="exampleFormControlSelect1">Vehicle Class</label>
-                                            <br>
-                                            <!--<mat-label>Cars</mat-label>-->
-                                            <select matNativeControl required id="exampleFormControlSelect1">
-                                                <option>A1</option>
-                                                <option>A</option>
-                                                <option>B1</option>
-                                                <option>B</option>
-                                                <option>C1</option>
-                                                <option>C</option>
-                                                <option>CE</option>
-                                                <option>D1</option>
-                                                <option>D</option>
-                                                <option>DE</option>
-                                                <option>G1</option>
-                                                <option>G</option>
-                                                <option>J</option>
-                                               
+                                        <!--<mat-form-field>-->
+                                            <label >Vehicle Class</label>
+                                        <br>
+                                        <div class="form-group">
+                                            <!--<label for="exampleFormControlSelect1">Example select</label>-->
+                                            <select class="form-control" id="exampleFormControlSelect1" [formControl]=" selectVehicleClass">
+                                                <option  value="B1"  >A1</option>
+                                                <option  value="B"  >A</option>
+                                                <option  value="B1"  >B1</option>
+                                                <option  value="B"  >B</option>
+                                                <option  value="C1" >C1</option>
+                                                <option  value="C">C</option>
+                                                <option  value="CE">CE</option>
+                                                <option  value="D1">D1</option>
+                                                <option  value="D">D</option>
+                                                <option  value="DE">DE</option>
+                                                <option value="G1">G1</option>
+                                                <option  value="G">G</option>
+                                                <option  value="J">J</option>
                                             </select>
-                                        </mat-form-field>
-                                       
+                                        </div>
+                                        
+
                                     </div>
                                 </div>
+                                <br>
+                                <br>
                                 <div class="row">
                                     <div class="col-md-11">
                                         <div class="form-group">
@@ -84,183 +267,39 @@
                                         </div>
                                     </div>
                                 </div>
+                                <br>
                                 <div class="row">
-                                   
+
+
+
+                                  
                                     <div class="col-md-7">
                                         <div class="form-group">
-                                            <label ></label>
-                                            <input placeholder="ManuFacture Date" class="form-control datetimepicker" type="text" ngbDatepicker #d="ngbDatepicker" >
-
+                                            <label >Manufacture Date</label>
+                                            <br>
+                                            <input  type="date"  class="form-control" name="yearOfManufacture" [(ngModel)]="stringDateModel" >
+                                           
                                         </div>
                                     </div>
-                                    <div class="col-md-1"><button class="btn btn-round" (click)="d.toggle()">SelectDate</button></div>
                                 </div>
-                                
 
-                                <button type="submit" class="btn btn-rose pull-right">Update Details</button>
+
+                                <button type="submit" class="btn btn-rose pull-right" (click)="addVehicleDetails()">Add Vehicle Details</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-header card-header-rose card-header-icon">
-                            <div class="card-icon">
-                                <i class="material-icons">search</i>
-                            </div>
-                            <h4 class="card-title">Search Customer</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row" >
-
-                                <div class="col-md-4" style="margin-left: 150px">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating">Search By Name</label>
-                                        <input type="text" class="form-control" style="width: 300px">
-                                    </div>
-                                </div>
-                                <div class="col-md-4" style="margin-left: -100px ;margin-top: 25px">
-                                    <button type="submit" class="btn btn-rose pull-right" >   <i class="material-icons">search</i></button>
-                                </div>
-
-                            </div>
-
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th class="text-center">#</th>
-
-                                        <th>Frist Name</th>
-                                        <th>Last Name</th>
-                                        <th >Email Address</th>
-                                        <th >Nic</th>
-                                        <th >Address</th>
-                                        <th >Birthday</th>
-                                        <th >Phone Number</th>
-                                        <th ></th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Andrew Mike</td>
-                                        <td>Develop</td>
-                                        <td>2013</td>
-                                        <td >&euro; 99,225</td>
-                                        <td>Galle</td>
-                                        <td>1995-07-14</td>
-                                        <td>0772218111</td>
-                                        <td class="td-actions ">
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Andrew Mike</td>
-                                        <td>Develop</td>
-                                        <td>2013</td>
-                                        <td >&euro; 99,225</td>
-                                        <td>Mathara</td>
-                                        <td>1995-06-14</td>
-                                        <td>0772228111</td>
-                                        <td class="td-actions ">
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-
             </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header card-header-icon card-header-rose">
-                        <div class="card-icon">
-                            <i class="material-icons">perm_identity</i>
-                        </div>
-                        <h4 class="card-title">Update Customer Details
-
-                        </h4>
-                    </div>
-                    <div class="card-body">
-                        <form>
-
-                            <div class="row">
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating" name="firstName" [(ngModel)]="addCustomer.firstName">Fist Name</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating" name="lastName" [(ngModel)]="addCustomer.lastName">Last Name</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating" name="email" [(ngModel)]="addCustomer.email">Email address</label>
-                                        <input type="email" class="form-control"> 
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating" name="nic" [(ngModel)]="addCustomer.nic">Nic</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating" name="address" [(ngModel)]="addCustomer.address">Adress</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating" name="birthday" [(ngModel)]="addCustomer.birthday">Birthday</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="bmd-label-floating" name="phoneNumber"[(ngModel)]="addCustomer.phoneNumber">Phone Number</label>
-                                        <input type="text" class="form-control">
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <button type="submit" class="btn btn-rose pull-right" (click)="addCustomerDetails()">Update Details</button>
-                            <div class="clearfix"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
+            
 
             
 
 
-            <!--	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
-            <script src="assets/js/plugins/bootstrap-selectpicker.js" ></script>
+            <!--&lt;!&ndash;	Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select &ndash;&gt;-->
+            <!--<script src="assets/js/plugins/bootstrap-selectpicker.js" ></script>-->
+<!--<script>-->
+    <!--$(function () {-->
+        <!--$('.selectpicker').selectpicker();-->
+    <!--});-->
+<!--</script>-->

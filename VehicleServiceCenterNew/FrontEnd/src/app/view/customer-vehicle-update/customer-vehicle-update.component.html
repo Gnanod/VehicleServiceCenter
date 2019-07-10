@@ -16,65 +16,76 @@
                                     <div class="col-md-4" style="margin-left: 250px">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Search By Vehicle Name</label>
-                                            <input type="text" class="form-control" style="width: 300px">
+                                            <input type="text" class="form-control" style="width: 300px" [(ngModel)]="searchVehicleNumber">
                                         </div>
                                     </div>
                                     <div class="col-md-4" style="margin-left: -200px ;margin-top: 25px">
-                                        <button type="submit" class="btn btn-rose pull-right" >   <i class="material-icons">search</i></button>
+                                        <button type="submit" class="btn btn-rose pull-right" (click)="searchVehicleDetailsByNumber()">   <i class="material-icons">search</i></button>
                                     </div>
 
                                 </div>
 
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table" id="vehicleTable">
                                         <thead>
                                         <tr>
-                                            <th class="text-center">#</th>
+                                            <!--<th class="text-center">#</th>-->
 
                                             <th>Name of the current owner</th>
-                                            <th>Vehicle Number</th>
-                                            <th>Engine number</th>
-                                            <th >Vehicle class</th>
-                                            <th >Model</th>
-                                            <th >Year of manufacture</th>
-                                            <th >Date of registration</th>
-                                            <th >Engine capacity</th>
-                                            <th >Fuel type</th>
-                                            <th >CR Type</th>
-                                            <th>Type of Body</th>
-                                        </tr>
+                                            <th class="text-center">Nic</th>
+                                            <th class="text-center">Vehicle Number</th>
+                                            <th class="text-center">Engine number</th>
+                                            <th class="text-center">Vehicle class</th>
+                                            <th class="text-center">Model</th>
+                                            <th class="text-center">Year of manufacture</th>
+                                            <!--<th >Date of registration</th>-->
+                                            <!--<th >Engine capacity</th>-->
+                                            <!--<th >Fuel type</th>-->
+                                            <!--<th >CR Type</th>-->
+                                            <!--<th>Type of Body</th>-->
+                                        <!--</tr>-->
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td class="text-center">1</td>
-                                            <td>Andrew Mike</td>
-                                            <td>Develop</td>
-                                            <td>2013</td>
-                                            <td >&euro; 99,225</td>
-                                            <td>Galle</td>
-                                            <td>1995-07-14</td>
-                                            <td>0772218111</td>
-                                            <td class="td-actions ">
-                                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                                    <i class="material-icons">close</i>
-                                                </button>
+                                        <tr *ngIf="searchVehicleValuesIf;else elseBlock">
+                                            <td colspan="8" class="alert alert-danger" style="text-align: center">
+                                                Vehicle Not Found
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td class="text-center">1</td>
-                                            <td>Andrew Mike</td>
-                                            <td>Develop</td>
-                                            <td>2013</td>
-                                            <td >&euro; 99,225</td>
-                                            <td>Mathara</td>
-                                            <td>1995-06-14</td>
-                                            <td>0772228111</td>
-                                            <td class="td-actions ">
-                                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                                    <i class="material-icons">close</i>
-                                                </button>
-                                            </td>
-                                        </tr>
+
+                                        <ng-template #elseBlock>
+                                            
+                                            <tr>
+                                                <td class="text-center">
+                                                    {{searchVehicleDetails.customer.firstName}}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{searchVehicleDetails.customer.nic}}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{searchVehicleDetails.vehicleId}}
+                                                </td >
+                                                
+                                                <td class="text-center">
+                                                    {{searchVehicleDetails.vehicleNumber}}
+                                                </td>
+                                                <td>
+                                                    {{searchVehicleDetails.vehicleClass}}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{searchVehicleDetails.vehicleModel}}
+                                                </td>
+                                                <td class="text-center">
+                                                    {{searchVehicleDetails.yearOfManufacture}}
+                                                </td >
+                                               
+                                                <td class="td-actions ">
+                                                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteCustomer()">
+                                                        <i class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                        </ng-template>
 
                                         </tbody>
                                     </table>
@@ -95,96 +106,103 @@
                             <div class="card-icon">
                                 <i class="material-icons">perm_identity</i>
                             </div>
-                            <h4 class="card-title">Add Vehicle Details
+                            <h4 class="card-title">Update Vehicle Details
 
                             </h4>
                         </div>
                         <div class="card-body">
                             <form>
                                 <div class="row">
-                                    <div class="col-md-6">
+                                    <div class="col-md-11">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Vehicle Number</label>
-                                            <input type="text" class="form-control" disabled>
+                                            <label >Customer Nic</label>
+                                            <br>
+                                            <input type="text" class="form-control" value="{{searchVehicleDetails.customer?.nic}}" >
+                                            <!---->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <div class="form-group">
+                                            <label >Vehicle Number</label>
+                                            <br>
+                                            <input type="text" id="vehicleNumber" class="form-control" name="vehicleNumber" value="{{searchVehicleDetails.vehicleId}}">
+
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
 
-                                    <div class="col-md-6">
+                                    <div class="col-md-11">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Engine number</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-                                <!--<div class="row">-->
-                                    <!--<div class="col-md-6">-->
-                                        <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<label class="bmd-label-floating">Vehicle class</label>&ndash;&gt;-->
-                                        <!--&lt;!&ndash;<input type="text" class="form-control">&ndash;&gt;-->
-                                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                                        <!--<div class="form-group">-->
-                                            <!--<label for="exampleFormControlSelect1">Vehicle Class</label>-->
-                                            <!--<select class="form-control selectpicker" data-style="btn btn-link" id="exampleFormControlSelect1">-->
-                                                <!--<option>A1</option>-->
-                                                <!--<option>A</option>-->
-                                                <!--<option>B1</option>-->
-                                                <!--<option>B</option>-->
-                                                <!--<option>C1</option>-->
-                                                <!--<option>C</option>-->
-                                                <!--<option>CE</option>-->
-                                                <!--<option>D1</option>-->
-                                                <!--<option>D</option>-->
-                                                <!--<option>DE</option>-->
-                                                <!--<option>G1</option>-->
-                                                <!--<option>G</option>-->
-                                                <!--<option>J</option>-->
-                                            <!--</select>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
-                                <!--</div>-->
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">Model</label>
-                                            <input type="email" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating" >Year of manufacture</label>
-                                            <input type="text" class="form-control datepicker datetimepicker" value="10/06/2018">
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating"></label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">Birthday</label>
-                                            <input type="text" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">Phone Number</label>
-                                            <input type="text" class="form-control">
+                                            <label >Engine number</label>
+                                            <br>
+                                            <input type="text" id="engineNumber" class="form-control" name="engineNumber" value="{{searchVehicleDetails.engineNumber}}">
+                                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <button type="submit" class="btn btn-rose pull-right">Update Details</button>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <!--<mat-form-field>-->
+                                        <label >Vehicle Class</label>
+                                        <br>
+                                        <div class="form-group">
+                                            <!--<label for="exampleFormControlSelect1">Example select</label>-->
+                                            <select class="form-control" id="vehicleClass" >
+                                                <option  value="B1"  >A1</option>
+                                                <option  value="B"  >A</option>
+                                                <option  value="B1"  >B1</option>
+                                                <option  value="B"  >B</option>
+                                                <option  value="C1" >C1</option>
+                                                <option  value="C">C</option>
+                                                <option  value="CE">CE</option>
+                                                <option  value="D1">D1</option>
+                                                <option  value="D">D</option>
+                                                <option  value="DE">DE</option>
+                                                <option value="G1">G1</option>
+                                                <option  value="G">G</option>
+                                                <option  value="J">J</option>
+                                            </select>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                                <br>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-11">
+                                        <div class="form-group">
+                                            <label >Model</label>
+                                            <br>
+                                            <input type="email" class="form-control" id="vehicleModel" name="vehicleModel" value="{{searchVehicleDetails.vehicleModel}}" >
+                                            <!---->
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+
+
+
+
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                            <label >Manufacture Date</label>
+                                            <br>
+                                            <input  type="date"  class="form-control" id="year" name="yearOfManufacture" value="{{searchVehicleDetails.yearOfManufacture}}" >
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <button type="submit" class="btn btn-rose pull-right" (click)="addVehicleDetails()">Add Vehicle Details</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>
@@ -202,41 +220,38 @@
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">Customer Id</label>
-                                            <input type="text" class="form-control" disabled>
-                                        </div>
-                                    </div>
-                                </div>
+                         
+
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Fist Name</label>
-                                            <input type="text" class="form-control">
+                                            <label  >Fist Name</label>
+                                            <br>
+                                            <input type="text" class="form-control" name="firstName" value="{{searchVehicleDetails.customer?.firstName}}"[(ngModel)]="updateCustomerDetails.firstName">
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Last Name</label>
-                                            <input type="text" class="form-control">
+                                            <label  >Last Name</label>
+                                            <br>
+                                            <input type="text" class="form-control" name="lastName"   value="{{searchVehicleDetails.customer?.lastName}}"[(ngModel)]="updateCustomerDetails.lastName">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
+                                    <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Email address</label>
-                                            <input type="email" class="form-control">
+                                            <label  >Email address</label>
+                                            <br>
+                                            <input type="email" class="form-control" name="email" value="{{searchVehicleDetails.customer?.email}}" [(ngModel)]="updateCustomerDetails.email">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating" >Nic</label>
-                                            <input type="text" class="form-control">
+                                            <label  >Nic</label>
+                                            <br>
+                                            <input type="text" class="form-control" name="nic" value="{{searchVehicleDetails.customer?.nic}}" [(ngModel)]="updateCustomerDetails.nic">
                                         </div>
                                     </div>
                                 </div>
@@ -244,35 +259,66 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Adress</label>
-                                            <input type="text" class="form-control">
+                                            <label  >Adress</label>
+                                            <br>
+                                            <input type="text" class="form-control" name="address"  value="{{searchVehicleDetails.customer?.address}}" [(ngModel)]="updateCustomerDetails.address">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Birthday</label>
-                                            <input type="text" class="form-control">
+                                            <label  >Birthday</label>
+                                            <br>
+                                            <input type="text" class="form-control" name="birthday"  value="{{searchVehicleDetails.customer?.birthday}}" [(ngModel)]="updateCustomerDetails.birthday">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Phone Number</label>
-                                            <input type="text" class="form-control">
+                                            <label  >Phone Number</label>
+                                            <br>
+                                            <input type="text" class="form-control" name="phoneNumber" value="{{searchVehicleDetails.customer?.phoneNumber}}" [(ngModel)]="updateCustomerDetails.phoneNumber">
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <button type="submit" class="btn btn-rose pull-right">Update Details</button>
+                                <button type="submit" class="btn btn-rose pull-right" (click)="UpdateCustomerDetails()">Update Details</button>
                                 <div class="clearfix"></div>
-                            </form>
+                           
                         </div>
                     </div>
                 </div>
             </div>
 
        
-        
+        <!--<script>-->
+            <!--var table = document.getElementById('vehicleTable');-->
+            <!--for(var i = 1; i < table.rows.length; i++)-->
+            <!--{-->
+                <!---->
+                <!--//for(var j=1;j<table.column.longth;j++){-->
+                <!--table.rows[i].onclick = function()-->
+               <!---->
+                <!--{-->
+                    <!--//rIndex = this.rowIndex;-->
+                    <!--console.log('FFFf');-->
+                    <!--document.getElementById("vehicleNumber").value = this.cells[0].innerHTML;-->
+                    <!--document.getElementById("nic").value = this.cells[1].innerHTML;-->
+                    <!--document.getElementById("vehicleNumber").value = this.cells[2].innerHTML;-->
+                    <!--document.getElementById("engineNumber").value =this.cells[3].innerHTML;-->
+                    <!--document.getElementById("vehicleClass").value=this.cells[4].innerHTML;-->
+                    <!--document.getElementById("vehicleModel").value=this.cells[5].innerHTML;-->
+                    <!--document.getElementById("year").value=this.cells[6].innerHTML;-->
+                   <!---->
+                    <!---->
+
+                   <!---->
+                <!--};-->
+                <!---->
+
+
+
+            <!--}-->
+        <!--</script>-->
 

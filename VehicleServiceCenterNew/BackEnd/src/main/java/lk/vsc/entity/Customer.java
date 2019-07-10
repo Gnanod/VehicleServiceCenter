@@ -1,6 +1,8 @@
 package lk.vsc.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -9,19 +11,17 @@ import java.util.Set;
 public class Customer {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int customerId;
+    String nic;
     String firstName;
     String lastName;
     String email;
-    String nic;
     String address;
     String birthday;
     String phoneNumber;
-    @OneToMany(cascade = CascadeType.PERSIST,mappedBy = "customer")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "customer")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Set<Vehicle> vehicleSet;
-
 
     public String getNic() {
         return nic;
@@ -29,22 +29,6 @@ public class Customer {
 
     public void setNic(String nic) {
         this.nic = nic;
-    }
-
-    public Set<Vehicle> getVehicleSet() {
-        return vehicleSet;
-    }
-
-    public void setVehicleSet(Set<Vehicle> vehicleSet) {
-        this.vehicleSet = vehicleSet;
-    }
-
-    public int getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(int customerId) {
-        this.customerId = customerId;
     }
 
     public String getFirstName() {
@@ -93,6 +77,13 @@ public class Customer {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-        
+    }
+
+    public Set<Vehicle> getVehicleSet() {
+        return vehicleSet;
+    }
+
+    public void setVehicleSet(Set<Vehicle> vehicleSet) {
+        this.vehicleSet = vehicleSet;
     }
 }

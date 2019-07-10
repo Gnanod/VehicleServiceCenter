@@ -1,15 +1,15 @@
 package lk.vsc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Vehicle {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int vehicleId;
     private String vehicleNumber;
     private String engineNumber;
@@ -18,7 +18,8 @@ public class Vehicle {
     private String yearOfManufacture;
   
     @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
+    //@OnDelete(action = OnDeleteAction.CASCADE)
+    @JoinColumn(nullable = false)
     private Customer customer;
 
     public int getVehicleId() {

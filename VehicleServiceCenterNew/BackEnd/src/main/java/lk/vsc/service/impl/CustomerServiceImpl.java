@@ -27,4 +27,26 @@ public class CustomerServiceImpl implements CustomerService {
         
         return customerRepository.findAll();
     }
+
+    @Override
+    public Customer searchByCustomerName(String name) {
+        
+        return customerRepository.searchByCustomerName(name);
+        
+    }
+
+    @Override
+    public void deleteCustomer(String nic) {
+       customerRepository.deleteById(nic);
+    }
+
+    @Override
+    public Customer updateCustomer(Customer customer) {
+        return customerRepository.save(customer);
+    }
+
+    @Override
+    public Customer findByCustomerId(String nic) {
+        return customerRepository.findCustomerDetails(nic);
+    }
 }
