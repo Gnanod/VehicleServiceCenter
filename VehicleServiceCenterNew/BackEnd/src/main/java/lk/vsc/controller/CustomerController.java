@@ -31,4 +31,35 @@ public class CustomerController {
         
         return customerService.getAllCustomers();
     }
+
+    
+    @GetMapping(value = "/searchByCustomerName/{name}")
+    public Customer searchByCustomerName(@PathVariable String name){
+        return customerService.searchByCustomerName(name);
+    }
+
+
+    @DeleteMapping("/deleteCustomer/{nic}")
+    void deleteCustomer(@PathVariable String nic) {
+        customerService.deleteCustomer(nic);
+    }
+    
+    //@PutMapping("/updateCustomer/{nic}")
+    @PostMapping(value = "/updateCustomer")
+    public Customer updateCustomer(@RequestBody Customer customer){
+
+//        System.out.println("Nicccc"+nic);
+//        Customer  cus = customerService.findByCustomerId(nic);
+//        
+//        
+//        cus.setAddress(customer.getAddress());
+//        cus.setBirthday(customer.getBirthday());
+//        cus.setEmail(customer.getEmail());
+//        cus.setFirstName(customer.getFirstName());
+//        cus.setLastName(customer.getLastName());
+//        cus.setPhoneNumber(customer.getPhoneNumber());
+        
+        return customerService.updateCustomer(customer);
+        
+    }
 }
