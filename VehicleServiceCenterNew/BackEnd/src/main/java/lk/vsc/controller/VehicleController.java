@@ -37,8 +37,19 @@ public class VehicleController {
     }
 
 
+    @PostMapping(value = "/updateVehicleDetails")
+    public Vehicle updateVehicleDetails(@RequestBody Vehicle vehicle){
+
+        return vehicleService.updateVehicle(vehicle);
+
+    }
 //    @DeleteMapping("/deleteVehicle/{nic}")
 //    void deleteVehicleById(@PathVariable int vehicleId) {
 //        vehicleService.deleteCustomer(vehicleId);
 //    }
+
+    @DeleteMapping("/deleteVehicle/{vehicleId}")
+    void deleteVehicleById(@PathVariable int vehicleId) {
+        vehicleService.deleteVehicleById(vehicleId);
+    }
 }

@@ -19,32 +19,86 @@ export class CustomerVehicleUpdateComponent implements OnInit {
 
     searchVehicleValuesIf = true;
     searchVehicleDetails : Vehicle = new Vehicle();
-    updateVehicleDetails : Vehicle = new Vehicle();
-    updateCustomerDetails : Customer = new Customer();
-    searchVehicleNumber :string;
     
-    searchVehicleDetailsByNumber(){
-      console.log('GGGGGGGGG');
-      this.vehicleService.searchVehicleDetails(this.searchVehicleNumber).subscribe((result)=>{
-       
+    updateVehicleDetails : Vehicle = new Vehicle();
+    inputFieldCustomer :Customer = new Customer();
+    // updateCustomerDetails : Customer = new Customer();
+    searchVehicleNumber :string;
 
-          if(result==null){
-              this.searchVehicleValuesIf=true;
+    searchVehicleDetailsByNumber(event: any){
+        this.vehicleService.searchVehicleDetails(this.searchVehicleNumber).subscribe((result)=>{
 
-          }else{
-              this.searchVehicleValuesIf=false;
-              this.searchVehicleDetails=result;
-              console.log('GGGGGGGG'+this.searchVehicleDetails.customer.phoneNumber)
-          }
-      });
+
+            if(result==null){
+                this.searchVehicleValuesIf=true;
+
+            }else{
+                
+                this.searchVehicleValuesIf=false;
+                this.searchVehicleDetails=result;
+                this.inputFieldCustomer=result.customer;
+
+            }
+        });
     }
+    
+    // searchVehicleDetailsByNumber(){
+    //
+    //   this.vehicleService.searchVehicleDetails(this.searchVehicleNumber).subscribe((result)=>{
+    //
+    //
+    //       if(result==null){
+    //           this.searchVehicleValuesIf=true;
+    //
+    //       }else{
+    //           this.searchVehicleValuesIf=false;
+    //           this.searchVehicleDetails=result;
+    //           this.inputFieldCustomer=result.customer;
+    //
+    //       }
+    //   });
+    // }
 
     UpdateCustomerDetails(){
-
-        this.customerService.UpdateCustomerDetails(this.updateCustomerDetails).subscribe((result)=>{
+      
+        this.customerService.UpdateCustomerDetails(this.inputFieldCustomer).subscribe((result)=>{
+            
+            
             
             if(result!=null){
+                
                 alert("Cutomer Updated SuccessFully");
+                
+            }
+            
+            
+        });
+    }
+    
+    UpdateVehicleDetails(){
+        
+        this.vehicleService.UpdateVehicleDetails(this.searchVehicleDetails).subscribe((result)=>{
+
+            if(result!=null){
+                
+                alert("Vehicle Updated SuccessFully");
+                
+            }
+            
+        });
+    }
+
+    deleteVehicle(){
+        this.vehicleService.deleteVehicle(this.searchVehicleDetails.vehicleId).subscribe((result)=>{
+
+            if(result==null){
+
+                alert('Vehicle Deleted SuccessFully');
+
+            }else{
+
+                alert('Vehicle Deleted Fail');
+
             }
         });
     }

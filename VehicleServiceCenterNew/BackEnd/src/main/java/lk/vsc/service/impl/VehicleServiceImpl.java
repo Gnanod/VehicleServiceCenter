@@ -50,6 +50,20 @@ public class VehicleServiceImpl implements VehicleService{
     public Vehicle searchByVehicleNumber(String vehicleNumber) {
         return vehicleRepository.searchByVehicleNum(vehicleNumber);
     }
+
+    @Override
+    public Vehicle updateVehicle(Vehicle vehicle) {
+        
+        return vehicleRepository.save(vehicle);
+        
+    }
+
+    @Override
+    public void deleteVehicleById(int vehicleId) {
+        
+         vehicleRepository.deleteById(vehicleId);
+         
+    }
 //
 //    @Override
 //    public Vehicle searchByVehicleNumber(String vehicleNumber) {
