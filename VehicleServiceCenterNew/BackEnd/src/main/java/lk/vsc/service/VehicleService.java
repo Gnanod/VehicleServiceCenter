@@ -13,6 +13,10 @@ public interface VehicleService {
 
     Vehicle searchByVehicleNumber(String vehicleNumber);
 
+    Vehicle updateVehicle(Vehicle vehicle);
+
+    void deleteVehicleById(int vehicleId);
+
 //   Vehicle searchByVehicleNumber(String vehicleNumber);
 
 //    void deleteCustomer(int vehicleId);

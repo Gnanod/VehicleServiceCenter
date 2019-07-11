@@ -38,4 +38,6 @@ export class CustomerService {
         return this.http.post<Customer>(environment.backend_url + URL + '/updateCustomer',updateCustomerDetails);
 
     }
+
+    
 }
