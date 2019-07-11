@@ -27,4 +27,22 @@ public class EmployeeController {
 
     }
 
+    @PostMapping(value = "/updateEmployee")
+    public Employee updateEmployee(@RequestBody Employee employee){
+
+//        System.out.println("Nicccc"+nic);
+//        Employee  cus = employeeService.findByEmployeeId(nic);
+//        
+//        
+//        cus.setAddress(employee.getAddress());
+//        cus.setBirthday(employee.getBirthday());
+//        cus.setEmail(employee.getEmail());
+//        cus.setFirstName(employee.getFirstName());
+//        cus.setLastName(employee.getLastName());
+//        cus.setPhoneNumber(employee.getPhoneNumber());
+
+        return employeeService.updateEmployee(employee);
+
+    }
+
 }

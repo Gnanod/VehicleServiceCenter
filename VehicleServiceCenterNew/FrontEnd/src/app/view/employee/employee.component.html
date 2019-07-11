@@ -20,7 +20,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Fist Name</label>
+                                                <label class="bmd-label-floating">First Name</label>
                                                 <input name="firstName" type="text" class="form-control" [(ngModel)] = "employee.firstName">
                                             </div>
                                         </div>
@@ -96,7 +96,7 @@
                                 <div class="col-md-4" style="margin-left: 450px">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Search By Name</label>
-                                        <input type="text" class="form-control" style="width: 600px">
+                                        <input type="text" class="form-control" style="width: 600px" (keyup)="searchEmployeeDetailsByNumber()" [(ngModel)]="searchEmployeeNumber">
                                     </div>
                                 </div>
                                 <div class="col-md-4" style="margin-left: -300px ;margin-top: 25px">
@@ -121,39 +121,49 @@
                                         <th ></th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                  <tbody>
+                                  <tr *ngIf="searchVehicleValuesIf;else elseBlock">
+                                    <td colspan="8" class="alert alert-danger" style="text-align: center">
+                                      Vehicle Not Found
+                                    </td>
+                                  </tr>
+
+                                  <ng-template #elseBlock>
+
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Andrew Mike</td>
-                                        <td>Develop</td>
-                                        <td>2013</td>
-                                        <td >&euro; 99,225</td>
-                                        <td>Galle</td>
-                                        <td>1995-07-14</td>
-                                        <td>0772218111</td>
-                                        <td class="td-actions ">
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Andrew Mike</td>
-                                        <td>Develop</td>
-                                        <td>2013</td>
-                                        <td >&euro; 99,225</td>
-                                        <td>Mathara</td>
-                                        <td>1995-06-14</td>
-                                        <td>0772228111</td>
-                                        <td class="td-actions ">
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.firstName}}
+                                      </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.lastName}}
+                                      </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.email}}
+                                      </td >
+
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.nic}}
+                                      </td>
+                                      <td>
+                                        {{searchEmployeeDetails.address}}
+                                      </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.birthday}}
+                                      </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.phoneNumber}}
+                                      </td >
+
+                                      <td class="td-actions ">
+                                        <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteEmployee()">
+                                          <i class="material-icons">close</i>
+                                        </button>
+                                      </td>
                                     </tr>
 
-                                    </tbody>
+                                  </ng-template>
+
+                                  </tbody>
                                 </table>
                             </div>
                         </div>
@@ -192,7 +202,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating">Fist Name</label>
-                                            <input type="text" class="form-control">
+                                            <input type="text" class="form-control" >
                                         </div>
                                     </div>
                                     <div class="col-md-6">

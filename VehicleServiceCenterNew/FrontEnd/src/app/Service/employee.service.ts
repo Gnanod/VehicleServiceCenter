@@ -18,4 +18,19 @@ export class EmployeeService {
     return this.http.post<Employee>(environment.backend_url + URL + '/addEmployee', employee);
 
   }
+
+  UpdateEmployeeDetails(updateEmployeeDetails: Employee) {
+
+
+    // return this.http.put<Employee>(environment.backend_url + URL + '/updateEmployee/'+updateEmployeeDetails.nic,updateEmployeeDetails);
+    return this.http.post<Employee>(environment.backend_url + URL + '/updateEmployee',updateEmployeeDetails);
+
+  }
+
+  searchEmployeeDetails(searchEmployeeNumber: number) {
+
+    console.log('DDD'+environment.backend_url + URL + '/searchByEmployeeNumber/'+searchEmployeeNumber);
+    return this.http.get<Employee>(environment.backend_url + URL + '/searchByEmployeeNumber/'+searchEmployeeNumber);
+
+  }
 }
