@@ -22,6 +22,19 @@ export class EmployeeComponent implements OnInit {
   updateEmployeeDetails : Employee = new Employee();
   searchEmployeeNumber : number;
 
+  UpdateEmployeeDetails(){
+
+    this.employeeService.UpdateEmployeeDetails(this.searchEmployeeDetails).subscribe((result)=>{
+
+      if(result!=null){
+
+        alert("Employee Updated SuccessFully");
+
+      }
+
+    });
+  }
+
   searchEmployeeDetailsByNumber(){
     this.employeeService.searchEmployeeDetails(this.searchEmployeeNumber).subscribe((result)=>{
 
@@ -49,6 +62,21 @@ export class EmployeeComponent implements OnInit {
     })
 
 
+  }
+
+  deleteEmployee(){
+    this.employeeService.deleteEmployee(this.searchEmployeeNumber).subscribe((result)=>{
+
+      if(result==null){
+
+        alert('Employee Deleted SuccessFully');
+
+      }else{
+
+        alert('Employee Deleted Fail');
+
+      }
+    });
   }
 
   ngOnInit() {

@@ -21,9 +21,9 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/deleteEmployee/{id}")
-    public void deleteEmployee(@PathVariable Employee employee){
+    public void deleteEmployee(@PathVariable int id){
 
-         employeeService.deleteEmployee(employee);
+         employeeService.deleteEmployee(id);
 
     }
 
@@ -44,5 +44,12 @@ public class EmployeeController {
         return employeeService.updateEmployee(employee);
 
     }
+
+    @GetMapping(value = "/searchByEmployeeNumber/{employeeId}")
+    public Employee searchByEmployeeNumber(@PathVariable int employeeId){
+        return employeeService.searchByEmployeeNumber(employeeId);
+    }
+
+
 
 }

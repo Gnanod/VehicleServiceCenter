@@ -1,9 +1,10 @@
 package lk.vsc.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
 
 @Entity
 public class Employee {
@@ -18,6 +19,7 @@ public class Employee {
     String birthday;
     String phoneNumber;
     String nic;
+
 
 
     public int getEmployeeId() {

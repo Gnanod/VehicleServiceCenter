@@ -21,13 +21,19 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public void deleteEmployee(Employee employee) {
-        employeeRepository.deleteById(employee.getEmployeeId());
+    public void deleteEmployee(int employee) {
+        employeeRepository.deleteById(employee);
     }
 
     @Override
     public Employee updateEmployee(Employee employee) {
         return employeeRepository.save(employee);
+    }
+
+    @Override
+    public Employee searchByEmployeeNumber(int employeeId) {
+
+        return employeeRepository.searchByEmployeeNumber(employeeId);
     }
 
 
