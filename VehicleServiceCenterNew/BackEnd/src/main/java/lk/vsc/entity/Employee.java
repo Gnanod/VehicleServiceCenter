@@ -1,9 +1,10 @@
 package lk.vsc.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
 
 @Entity
 public class Employee {
@@ -35,6 +36,7 @@ public class Employee {
     public void setPassword(String password) {
         this.password = password;
     }
+
 
     public int getEmployeeId() {
         return employeeId;

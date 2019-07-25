@@ -20,7 +20,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Fist Name</label>
+                                                <label class="bmd-label-floating">First Name</label>
                                                 <input name="firstName" type="text" class="form-control" [(ngModel)] = "employee.firstName">
                                             </div>
                                         </div>
@@ -96,7 +96,7 @@
                                 <div class="col-md-4" style="margin-left: 450px">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Search By Name</label>
-                                        <input type="text" class="form-control" style="width: 600px">
+                                        <input type="text" class="form-control" style="width: 600px" (keyup)="searchEmployeeDetailsByNumber($event)" [(ngModel)]="searchEmployeeNumber">
                                     </div>
                                 </div>
                                 <div class="col-md-4" style="margin-left: -300px ;margin-top: 25px">
@@ -121,39 +121,49 @@
                                         <th ></th>
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                  <tbody>
+                                  <tr *ngIf="searchEmployeeValuesIf;else elseBlock">
+                                    <td colspan="8" class="alert alert-danger" style="text-align: center">
+                                      Employee Not Found
+                                    </td>
+                                  </tr>
+
+                                  <ng-template #elseBlock>
+
                                     <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Andrew Mike</td>
-                                        <td>Develop</td>
-                                        <td>2013</td>
-                                        <td >&euro; 99,225</td>
-                                        <td>Galle</td>
-                                        <td>1995-07-14</td>
-                                        <td>0772218111</td>
-                                        <td class="td-actions ">
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td class="text-center">1</td>
-                                        <td>Andrew Mike</td>
-                                        <td>Develop</td>
-                                        <td>2013</td>
-                                        <td >&euro; 99,225</td>
-                                        <td>Mathara</td>
-                                        <td>1995-06-14</td>
-                                        <td>0772228111</td>
-                                        <td class="td-actions ">
-                                            <button type="button" rel="tooltip" class="btn btn-danger">
-                                                <i class="material-icons">close</i>
-                                            </button>
-                                        </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.firstName}}
+                                      </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.lastName}}
+                                      </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.email}}
+                                      </td >
+
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.nic}}
+                                      </td>
+                                      <td>
+                                        {{searchEmployeeDetails.address}}
+                                      </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.birthday}}
+                                      </td>
+                                      <td class="text-center">
+                                        {{searchEmployeeDetails.phoneNumber}}
+                                      </td >
+
+                                      <td class="td-actions ">
+                                        <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteEmployee()">
+                                          <i class="material-icons">close</i>
+                                        </button>
+                                      </td>
                                     </tr>
 
-                                    </tbody>
+                                  </ng-template>
+
+                                  </tbody>
                                 </table>
                             </div>
                         </div>
@@ -182,8 +192,8 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Employee Id</label>
-                                            <input type="text" class="form-control" disabled>
+                                            <label  >Employee Id</label>
+                                            <input type="text" class="form-control" name="employeeId" id="employeeId" [(ngModel)]="searchEmployeeDetails.employeeId" >
                                         </div>
                                     </div>
                                 </div>
@@ -191,28 +201,28 @@
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Fist Name</label>
-                                            <input type="text" class="form-control">
+                                            <label >Fist Name</label>
+                                            <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="searchEmployeeDetails.firstName" >
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Last Name</label>
-                                            <input type="text" class="form-control">
+                                            <label >Last Name</label>
+                                            <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="searchEmployeeDetails.lastName">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Email address</label>
-                                            <input type="email" class="form-control">
+                                            <label >Email address</label>
+                                            <input type="email" class="form-control" name="email" id="email" [(ngModel)]="searchEmployeeDetails.email">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating" >Nic</label>
-                                            <input type="text" class="form-control">
+                                            <label  >Nic</label>
+                                            <input type="text" class="form-control" name="nic" id="nic" [(ngModel)]="searchEmployeeDetails.nic">
                                         </div>
                                     </div>
                                 </div>
@@ -220,28 +230,28 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Adress</label>
-                                            <input type="text" class="form-control">
+                                            <label >Address</label>
+                                            <input type="text" class="form-control" name="address" id="address" [(ngModel)]="searchEmployeeDetails.address">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Birthday</label>
-                                            <input type="text" class="form-control">
+                                            <label >Birthday</label>
+                                            <input type="text" class="form-control" name="birthday" id="birthday" [(ngModel)]="searchEmployeeDetails.birthday">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Phone Number</label>
-                                            <input type="text" class="form-control">
+                                            <label >Phone Number</label>
+                                            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" [(ngModel)]="searchEmployeeDetails.phoneNumber">
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <button type="submit" class="btn btn-rose pull-right">Update Details</button>
+                                <button type="submit" class="btn btn-rose pull-right" (click)="UpdateEmployeeDetails()"> Update Details</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>

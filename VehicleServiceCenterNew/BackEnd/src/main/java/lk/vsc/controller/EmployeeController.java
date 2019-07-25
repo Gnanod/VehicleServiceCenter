@@ -21,10 +21,35 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/deleteEmployee/{id}")
-    public void deleteEmployee(@PathVariable Employee employee){
+    public void deleteEmployee(@PathVariable int id){
 
-         employeeService.deleteEmployee(employee);
+         employeeService.deleteEmployee(id);
 
     }
+
+    @PostMapping(value = "/updateEmployee")
+    public Employee updateEmployee(@RequestBody Employee employee){
+
+//        System.out.println("Nicccc"+nic);
+//        Employee  cus = employeeService.findByEmployeeId(nic);
+//        
+//        
+//        cus.setAddress(employee.getAddress());
+//        cus.setBirthday(employee.getBirthday());
+//        cus.setEmail(employee.getEmail());
+//        cus.setFirstName(employee.getFirstName());
+//        cus.setLastName(employee.getLastName());
+//        cus.setPhoneNumber(employee.getPhoneNumber());
+
+        return employeeService.updateEmployee(employee);
+
+    }
+
+    @GetMapping(value = "/searchByEmployeeNumber/{employeeId}")
+    public Employee searchByEmployeeNumber(@PathVariable int employeeId){
+        return employeeService.searchByEmployeeNumber(employeeId);
+    }
+
+
 
 }

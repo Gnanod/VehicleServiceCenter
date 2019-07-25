@@ -20,28 +20,22 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="bmd-label-floating">Fist Name</label>
-                                    <input type="text" class="form-control">
+                                    <label class="bmd-label-floating" >Agent Name</label>
+                                    <input type="text" class="form-control" name="agentName" [(ngModel)]="supplier.agentName">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="bmd-label-floating">Last Name</label>
-                                    <input type="text" class="form-control">
+                                    <label class="bmd-label-floating">Email</label>
+                                    <input type="text" class="form-control" name="email" [(ngModel)]="supplier.email">
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
-                                    <label class="bmd-label-floating">Email address</label>
-                                    <input type="email" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating" >Nic</label>
-                                    <input type="text" class="form-control">
+                                    <label class="bmd-label-floating" >Phone Number</label>
+                                    <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="supplier.phoneNumber">
                                 </div>
                             </div>
                         </div>
@@ -50,35 +44,22 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label class="bmd-label-floating">Company</label>
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" name="companyName" [(ngModel)]="supplier.companyName">
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Company Address</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Birthday</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label class="bmd-label-floating">Phone Number</label>
-                                    <input type="text" class="form-control">
-                                </div>
-                            </div>
-
                         </div>
 
-                        <button type="submit" class="btn btn-rose pull-right">Save Details</button>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <label class="bmd-label-floating">Address</label>
+                            <input type="text" class="form-control" name="address" [(ngModel)]="supplier.address">
+                          </div>
+                        </div>
+                      </div>
+
+
+                        <button (click)="addSupplierDetails()" type="submit" class="btn btn-rose pull-right">Save Details</button>
                         <div class="clearfix"></div>
                     </form>
                 </div>
@@ -119,49 +100,50 @@
                         <tr>
                             <th class="text-center">#</th>
 
-                            <th>Frist Name</th>
-                            <th>Last Name</th>
+                            <th>Agent Name</th>
+                            <th>Company Name</th>
                             <th >Email Address</th>
-                            <th >Nic</th>
-                            <th >Compnay</th>
-                            <th >Company Address</th>
-                            <th >Birthday</th>
+                            <th >Address</th>
                             <th >Phone Number</th>
                             <th ></th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td class="text-center">1</td>
-                            <td>Andrew Mike</td>
-                            <td>Develop</td>
-                            <td>2013</td>
-                            <td >&euro; 99,225</td>
-                            <td>Galle</td>
-                            <td>1995-07-14</td>
-                            <td>0772218111</td>
-                            <td class="td-actions ">
-                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                    <i class="material-icons">close</i>
-                                </button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="text-center">1</td>
-                            <td>Andrew Mike</td>
-                            <td>Develop</td>
-                            <td>2013</td>
-                            <td >&euro; 99,225</td>
-                            <td>Mathara</td>
-                            <td>1995-06-14</td>
-                            <td>0772228111</td>
-                            <td class="td-actions ">
-                                <button type="button" rel="tooltip" class="btn btn-danger">
-                                    <i class="material-icons">close</i>
-                                </button>
-                            </td>
+                        <tr *ngIf="searchSupplierValuesIf;else elseBlock">
+                          <td colspan="8" class="alert alert-danger" style="text-align: center">
+                            Supplier Not Found
+                          </td>
                         </tr>
 
+                        <ng-template #elseBlock>
+
+                          <tr>
+                            <td class="text-center">
+                              {{searchSupplierDetails.agentName}}
+                            </td>
+                            <td class="text-center">
+                              {{searchSupplierDetails.companyName}}
+                            </td>
+                            <td class="text-center">
+                              {{searchSupplierDetails.email}}
+                            </td >
+
+                            <td class="text-center">
+                              {{searchSupplierDetails.address}}
+                            </td>
+                            <td>
+                              {{searchSupplierDetails.phoneNumber}}
+                            </td>
+
+
+                            <td class="td-actions ">
+                              <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteSupplier()">
+                                <i class="material-icons">close</i>
+                              </button>
+                            </td>
+                          </tr>
+
+                        </ng-template>
                         </tbody>
                     </table>
                 </div>
