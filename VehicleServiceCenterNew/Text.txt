@@ -1,0 +1,1 @@
+insert into employee values(0,'AA','BB','1995gnanod@gmail.com','Gnanod','chathuramadu','951960055V','0772218111','123');

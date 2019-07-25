@@ -35,7 +35,9 @@ public class CustomerController {
     
     @GetMapping(value = "/searchByCustomerName/{name}")
     public Customer searchByCustomerName(@PathVariable String name){
+        
         return customerService.searchByCustomerName(name);
+        
     }
 
 

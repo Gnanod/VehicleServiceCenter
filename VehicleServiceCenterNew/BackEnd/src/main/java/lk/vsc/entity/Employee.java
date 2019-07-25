@@ -18,7 +18,23 @@ public class Employee {
     String birthday;
     String phoneNumber;
     String nic;
+    String password;
 
+    public String getNic() {
+        return nic;
+    }
+
+    public void setNic(String nic) {
+        this.nic = nic;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
     public int getEmployeeId() {
         return employeeId;

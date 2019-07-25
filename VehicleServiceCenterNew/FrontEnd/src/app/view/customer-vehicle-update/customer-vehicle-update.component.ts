@@ -30,6 +30,7 @@ export class CustomerVehicleUpdateComponent implements OnInit {
 
 
             if(result==null){
+                
                 this.searchVehicleValuesIf=true;
 
             }else{
@@ -94,7 +95,7 @@ export class CustomerVehicleUpdateComponent implements OnInit {
             if(result==null){
 
                 alert('Vehicle Deleted SuccessFully');
-
+                this.searchVehicleDetails = new Vehicle();
             }else{
 
                 alert('Vehicle Deleted Fail');
@@ -102,4 +103,6 @@ export class CustomerVehicleUpdateComponent implements OnInit {
             }
         });
     }
+    
+    
 }

@@ -1,0 +1,32 @@
+diff a/VehicleServiceCenterNew/.idea/workspace.xml b/VehicleServiceCenterNew/.idea/workspace.xml	(rejected hunks)
+@@ -706,30 +706,10 @@
+     <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/Service/employee.service.ts">
+       <provider selected="true" editor-type-id="text-editor" />
+     </entry>
+-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/resources/application.properties">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="85">
+-          <caret line="5" selection-start-line="5" selection-end-line="5" selection-end-column="66" />
+-        </state>
+-      </provider>
+-    </entry>
+     <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/VehicleRepository.java">
+       <provider selected="true" editor-type-id="text-editor">
+         <state relative-caret-position="170">
+           <caret line="12" selection-start-line="12" selection-end-line="12" />
+-          <folding>
+-            <element signature="imports" expanded="true" />
+-          </folding>
+-        </state>
+-      </provider>
+-    </entry>
+-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/Vehicle.java">
+-      <provider selected="true" editor-type-id="text-editor">
+-        <state relative-caret-position="153">
+-          <caret line="13" column="32" selection-start-line="13" selection-start-column="19" selection-end-line="13" selection-end-column="32" />
+-          <folding>
+-            <element signature="imports" expanded="true" />
+-          </folding>
+         </state>
+       </provider>
+     </entry>

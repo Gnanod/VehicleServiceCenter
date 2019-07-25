@@ -37,6 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public void deleteCustomer(String nic) {
+        
        customerRepository.deleteById(nic);
     }
 
