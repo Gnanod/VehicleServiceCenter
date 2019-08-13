@@ -16,6 +16,7 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbAlertModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from "@angular/material";
+import { JoborderComponent } from './view/joborder/joborder.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} fr
     VehicleComponent,
     DashboardComponent,
     LoginComponent,
-    SupplierComponent
+    SupplierComponent,
+    JoborderComponent
   ],
   imports: [
     BrowserModule,
