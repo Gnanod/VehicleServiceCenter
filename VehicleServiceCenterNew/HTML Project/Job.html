@@ -26,193 +26,547 @@
 </head>
 
 <body>
-<div class="wrapper ">
-        <div class="content">
-            <div class="container-fluid">
-                <!-- your content here -->
-                <div class="col-md-9" style="align">
-                    <div _ngcontent-qmr-c2="" class="card ">
-                        <div _ngcontent-qmr-c2="" class="card-header card-header-success card-header-icon">
-                            <div _ngcontent-qmr-c2="" class="card-icon"><i _ngcontent-qmr-c2=""
-                                                                           class="material-icons">assignment</i>
+<div class="content">
+    <div class="container-fluid">
+        <!-- your content here -->
+        <div class="col-md-12">
+            <button class="btn btn-danger">
+                <div class="card-icon"><i class="material-icons">arrow_back</i>
+                </div>
+            </button>
+
+        </div>
+        <b class="caret"> <p  class="text text-xl-center" style="font-size: xx-large"> JOB ORDER </p></b>
+
+        <div class="card ">
+            <div  class="card-header card-header-info card-header-icon">
+                <div  class="card-icon"><i class="material-icons">details</i>
+                </div>
+                <h4 class="card-title"></h4></div>
+            <div  class="card-body ">
+
+                <p>CUSTOMER DETAILS</p>
+
+                <div  class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label >Customer ID</label>
+                            <br>
+                            <input type="text" id="custId" class="form-control" name="engineNumber" >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-group">
+                            <label >Customer Name</label>
+                            <br>
+                            <input type="text" id="custName" class="form-control" name="engineNumber">
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label >Customer Phone Number</label>
+                            <br>
+                            <input type="text" id="custPhoneNum" class="form-control" name="engineNumber" >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+                    </div>
+                </div>
+
+                <div  class="row">
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label >Customer Email</label>
+                            <br>
+                            <input type="text" id="custEmail" class="form-control" name="engineNumber"  >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label >Customer Address</label>
+                            <br>
+                            <input type="text" id="custAddress" class="form-control" name="engineNumber" >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+                    </div>
+                </div>
+
+                <p>VEHICLE DETAILS</p>
+
+                <div  class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label >Vehicle ID</label>
+                            <br>
+                            <input type="text" id="vehiId" class="form-control" name="engineNumber" >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label >Vehilce Number</label>
+                            <br>
+                            <input type="text" id="vehiNumber" class="form-control" name="engineNumber">
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label >Engine Number</label>
+                            <br>
+                            <input type="text" id="vehiEngineNumber" class="form-control" name="engineNumber" >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+                    </div>
+                </div>
+
+                <div  class="row">
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label>Vehicle Class</label>
+                            <br>
+                            <input type="text" id="vehiClass" class="form-control" name="engineNumber"  >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label >Make</label>
+                            <br>
+                            <input type="text" id="vehiMake" class="form-control" name="engineNumber" >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label >Model</label>
+                            <br>
+                            <input type="text" id="vehiModel" class="form-control" name="engineNumber" >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <div class="form-group">
+                            <label >Year</label>
+                            <br>
+                            <input type="text" id="vehiYear" class="form-control" name="engineNumber" >
+                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Detailing Job start -->
+        <div class="col-md-12">
+            <div _ngcontent-qmr-c2="" class="card  ">
+                <div _ngcontent-qmr-c2="" class="card-header card-header-success card-header-icon ">
+                    <div _ngcontent-qmr-c2="" class="card-icon"><i _ngcontent-qmr-c2=""
+                                                                   class="material-icons">assignment</i>
+                    </div>
+                    <h4 _ngcontent-qmr-c2="" class="card-title"></h4></div>
+                <div _ngcontent-qmr-c2="" class="card-body ">
+                    <div _ngcontent-qmr-c2="" class="row">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <form class="form-inline ml-auto">
+                                            <div class="form-group bmd-form-group">
+                                                <input type="text" class="form-control" placeholder="Search Job">
+                                            </div>
+                                            <button type="submit" class="btn btn-raised btn-fab btn-round">
+                                                <i class="material-icons">search</i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="dropdown">
+                                            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                Make <!-- Current make data-->
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="dropdown">
+                                            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                Model <!-- Current make data-->
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="dropdown">
+                                            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                Item/Job <!-- Current make data-->
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <button  class="btn btn-success"
+                                                 rel="tooltip" type="button"><i
+                                                class="material-icons">add</i>
+                                        </button>
+                                    </div>
+
+                                </div>
                             </div>
-                            <h4 _ngcontent-qmr-c2="" class="card-title"></h4></div>
-                        <div _ngcontent-qmr-c2="" class="card-body ">
-                            <div _ngcontent-qmr-c2="" class="row">
+                        </div>
 
 
+                        <div  class="col-md-12">
+                            <div  class="card">
+                                <div
+                                        class="card-header card-header-rose card-header-icon">
 
+                                    <h4  class="card-title"><b>Detailing Jobs</b></h4></div>
+                                <div  class="card-body">
+                                    <div  class="row">
+
+                                    </div>
+                                    <div  class="table-responsive">
+                                        <table  class="table">
+                                            <thead >
+                                            <tr >
+                                                <th  class="text-center">#</th>
+                                                <th > Description </th>
+                                                <th >Make</th>
+                                                <th >Model</th>
+                                                <th >Item</th>
+                                                <th >Price</th>
+                                                <th ></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody >
+                                            <tr >
+                                                <td  class="text-center">1</td>
+                                                <td >Front Carpet</td>
+                                                <td >
+                                                    <div class="dropdown">
+                                                        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                            For Audi <!-- Current make data-->
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#">Action</a></li>
+                                                            <li><a href="#">Another action</a></li>
+                                                            <li><a href="#">Something else here</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Separated link</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">One more separated link</a></li>
+                                                        </ul>
+                                                    </div>                  </td>
+
+                                                <td >
+                                                    <div class="dropdown">
+                                                        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                            A3 <!-- Current model data-->
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#">Action</a></li>
+                                                            <li><a href="#">Another action</a></li>
+                                                            <li><a href="#">Something else here</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Separated link</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">One more separated link</a></li>
+                                                        </ul>
+                                                    </div></td>
+                                                <td >
+                                                    <div class="dropdown">
+                                                        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                            AudiA3FRC32<!-- Current item data-->
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#">Action</a></li>
+                                                            <li><a href="#">Another action</a></li>
+                                                            <li><a href="#">Something else here</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Separated link</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">One more separated link</a></li>
+                                                        </ul>
+                                                    </div></td>
+
+                                                <td >Rs. 29500</td>
+                                                <td  class="td-actions ">
+                                                    <button  class="btn btn-danger"
+                                                             rel="tooltip" type="button"><i
+                                                            class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr >
+                                                <td  class="text-center">1</td>
+                                                <td >Rim Cups</td>
+                                                <td >For Audi</td>
+                                                <td >A4</td>
+                                                <td >Falken 2232</td>
+                                                <td >Rs. 29500</td>
+                                                <td  class="td-actions ">
+                                                    <button  class="btn btn-danger"
+                                                             rel="tooltip" type="button"><i
+                                                            class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- lube job starts here-->
+        <div class="col-md-12">
+            <div  class="card">
+                <div  class="card-header card-header-success card-header-icon ">
+                    <div  class="card-icon"><i  class="material-icons">assignment</i>
+                    </div>
+                    <h4  class="card-title"></h4></div>
+                <div class="card-body ">
+                    <div class="row">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <form class="form-inline ml-auto">
+                                            <div class="form-group bmd-form-group">
+                                                <input type="text" class="form-control" placeholder="Search Lube Type">
+                                            </div>
+                                            <button type="submit" class="btn btn-raised btn-fab btn-round">
+                                                <i class="material-icons">search</i>
+                                            </button>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="dropdown">
+                                            <a href="#3" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                Item <!-- Item description-->
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#3">Action</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#3">Separated link</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#3">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"> Change
+                                                <span class="circle">
+                                                        <span class="check"></span>
+                                                      </span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"> Top-Up
+                                                <span class="circle">
+                                                        <span class="check"></span>
+                                                      </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <div class="dropdown">
+                                            <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                Item/Job <!-- Current make data-->
+                                                <b class="caret"></b>
+                                            </a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">Action</a></li>
+                                                <li><a href="#">Another action</a></li>
+                                                <li><a href="#">Something else here</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">Separated link</a></li>
+                                                <li class="divider"></li>
+                                                <li><a href="#">One more separated link</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <button  class="btn btn-success"
+                                                 rel="tooltip" type="button"><i
+                                                class="material-icons">add</i>
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div  class="col-md-12">
+                            <div  class="card">
+                                <div
+                                        class="card-header card-header-rose card-header-icon">
+
+                                    <h4  class="card-title"><b>Lube Jobs</b></h4></div>
+                                <div  class="card-body">
+                                    <div  class="row">
+
+                                    </div>
+                                    <div  class="table-responsive">
+                                        <table  class="table">
+                                            <thead >
+                                            <tr >
+                                                <th  class="text-center">#</th>
+                                                <th > Lube category </th>
+                                                <th >Item Used</th>
+                                                <th >Change/Top-Up</th>
+                                                <th >Quantity</th>
+                                                <th >Price</th>
+                                                <th ></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody >
+                                            <tr >
+                                                <td  class="text-center">1</td>
+                                                <td >Engine Oil</td>
+                                                <td >
+                                                    <div class="dropdown">
+                                                        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
+                                                            Caltex0012 <!-- Current make data-->
+                                                            <b class="caret"></b>
+                                                        </a>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="#">Valvoline0231</a></li>
+                                                            <li><a href="#">Mobil322</a></li>
+                                                            <li><a href="#">ValvolineEng23</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">Separated link</a></li>
+                                                            <li class="divider"></li>
+                                                            <li><a href="#">One more separated link</a></li>
+                                                        </ul>
+                                                    </div>                  </td>
+
+                                                <td >
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="exampleRadios" id="change1"
+                                                                   value="option1"> Change
+                                                            <span class="circle">
+                                                                <span class="check"></span>
+                                                              </span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <label class="form-check-label">
+                                                            <input class="form-check-input" type="radio"
+                                                                   name="exampleRadios" id="topup1"
+                                                                   value="option2"> Top-Up
+                                                            <span class="circle">
+                                                                <span class="check"></span>
+                                                              </span>
+                                                        </label>
+                                                    </div></td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <input type="text" id="lubeQuantity" class="form-text" name="engineNumber" >
+                                                    </div>
+                                                </td>
+
+                                                <td >Rs. 2400</td>
+                                                <td  class="td-actions ">
+                                                    <button  class="btn btn-danger"
+                                                             rel="tooltip" type="button"><i
+                                                            class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr >
+                                                <td  class="text-center">1</td>
+                                                <td >Rim Cups</td>
+                                                <td >For Audi</td>
+                                                <td >A4</td>
+                                                <td >Falken 2232</td>
+                                                <td >Rs. 29500</td>
+                                                <td  class="td-actions ">
+                                                    <button  class="btn btn-danger"
+                                                             rel="tooltip" type="button"><i
+                                                            class="material-icons">close</i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
-
-                <!-- Detailing Job start -->
-                    <div class="col-md-12 ">
-                        <div _ngcontent-qmr-c2="" class="card  ">
-                            <div _ngcontent-qmr-c2="" class="card-header card-header-success card-header-icon ">
-                                <div _ngcontent-qmr-c2="" class="card-icon"><i _ngcontent-qmr-c2=""
-                                                                               class="material-icons">assignment</i>
-                                </div>
-                                <h4 _ngcontent-qmr-c2="" class="card-title"></h4></div>
-                            <div _ngcontent-qmr-c2="" class="card-body ">
-                                <div _ngcontent-qmr-c2="" class="row">
-
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="col-md-3">
-
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div _ngcontent-qmr-c3="" class="col-md-12">
-                                        <div _ngcontent-qmr-c3="" class="card">
-                                            <div _ngcontent-qmr-c3=""
-                                                 class="card-header card-header-rose card-header-icon">
-
-                                                <h4 _ngcontent-qmr-c3="" class="card-title"><b>Detailing Jobs</b></h4></div>
-                                            <div _ngcontent-qmr-c3="" class="card-body">
-                                                <div _ngcontent-qmr-c3="" class="row">
-
-                                                </div>
-                                                <div _ngcontent-qmr-c3="" class="table-responsive">
-                                                    <table _ngcontent-qmr-c3="" class="table">
-                                                        <thead _ngcontent-qmr-c3="">
-                                                        <tr _ngcontent-qmr-c3="">
-                                                            <th _ngcontent-qmr-c3="" class="text-center">#</th>
-                                                            <th _ngcontent-qmr-c3=""> Description </th>
-                                                            <th _ngcontent-qmr-c3="">Make</th>
-                                                            <th _ngcontent-qmr-c3="">Model</th>
-                                                            <th _ngcontent-qmr-c3="">Item</th>
-                                                            <th _ngcontent-qmr-c3="">Price</th>
-                                                            <th _ngcontent-qmr-c3=""></th>
-                                                        </tr>
-                                                        </thead>
-                                                        <tbody _ngcontent-qmr-c3="">
-                                                        <tr _ngcontent-qmr-c3="">
-                                                            <td _ngcontent-qmr-c3="" class="text-center">1</td>
-                                                            <td _ngcontent-qmr-c3="">Front Carpet</td>
-                                                            <td _ngcontent-qmr-c3="">
-                                                                        <div class="dropdown">
-                                                                        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                                                            For Audi <!-- Current make data-->
-                                                                            <b class="caret"></b>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                                                            <li><a href="#">Action</a></li>
-                                                                            <li><a href="#">Another action</a></li>
-                                                                            <li><a href="#">Something else here</a></li>
-                                                                            <li class="divider"></li>
-                                                                            <li><a href="#">Separated link</a></li>
-                                                                            <li class="divider"></li>
-                                                                            <li><a href="#">One more separated link</a></li>
-                                                                        </ul>
-                                                                    </div>                  </td>
-
-                                                            <td _ngcontent-qmr-c3="">
-                                                                        <div class="dropdown">
-                                                                        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                                                           A3 <!-- Current model data-->
-                                                                            <b class="caret"></b>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                                                            <li><a href="#">Action</a></li>
-                                                                            <li><a href="#">Another action</a></li>
-                                                                            <li><a href="#">Something else here</a></li>
-                                                                            <li class="divider"></li>
-                                                                            <li><a href="#">Separated link</a></li>
-                                                                            <li class="divider"></li>
-                                                                            <li><a href="#">One more separated link</a></li>
-                                                                        </ul>
-                                                                    </div></td>
-                                                            <td _ngcontent-qmr-c3="">
-                                                                        <div class="dropdown">
-                                                                        <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                                                            AudiA3FRC32<!-- Current item data-->
-                                                                            <b class="caret"></b>
-                                                                        </a>
-                                                                        <ul class="dropdown-menu">
-                                                                            <li><a href="#">Action</a></li>
-                                                                            <li><a href="#">Another action</a></li>
-                                                                            <li><a href="#">Something else here</a></li>
-                                                                            <li class="divider"></li>
-                                                                            <li><a href="#">Separated link</a></li>
-                                                                            <li class="divider"></li>
-                                                                            <li><a href="#">One more separated link</a></li>
-                                                                        </ul>
-                                                                    </div></td>
-
-                                                            <td _ngcontent-qmr-c3="">Rs. 29500</td>
-                                                            <td _ngcontent-qmr-c3="" class="td-actions ">
-                                                                <button _ngcontent-qmr-c3="" class="btn btn-danger"
-                                                                        rel="tooltip" type="button"><i
-                                                                        _ngcontent-qmr-c3="" class="material-icons">close</i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        <tr _ngcontent-qmr-c3="">
-                                                            <td _ngcontent-qmr-c3="" class="text-center">1</td>
-                                                            <td _ngcontent-qmr-c3="">Rim Cups</td>
-                                                            <td _ngcontent-qmr-c3="">For Audi</td>
-                                                            <td _ngcontent-qmr-c3="">A4</td>
-                                                            <td _ngcontent-qmr-c3="">Falken 2232</td>
-                                                            <td _ngcontent-qmr-c3="">Rs. 29500</td>
-                                                            <td _ngcontent-qmr-c3="" class="td-actions ">
-                                                                <button _ngcontent-qmr-c3="" class="btn btn-danger"
-                                                                        rel="tooltip" type="button"><i
-                                                                        _ngcontent-qmr-c3="" class="material-icons">close</i>
-                                                                </button>
-                                                            </td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
         </div>
-        <!-- your content end here -->
+
+
+        <!--container fluid over-->
     </div>
-
-
-</div>
 </div>
 
 
-<footer class="footer">
-    <div class="container-fluid">
-        <nav class="float-left">
-            <ul>
-                <li>
-                    <a href="https://www.creative-tim.com">
-                        Creative Tim
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <div class="copyright float-right">
-            &copy;
-            <script>
-                document.write(new Date().getFullYear())
-            </script>
-            , made with <i class="material-icons">favorite</i> by
-            <a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.
-        </div>
-        <!-- your footer here -->
-    </div>
-</footer>
-</div>
-</div>
+
+
+
+
+
+
 
 <!--   Core JS Files   -->
 <script src="assets/js/core/jquery.min.js" type="text/javascript"></script>
