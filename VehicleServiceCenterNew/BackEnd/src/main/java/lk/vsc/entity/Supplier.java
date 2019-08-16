@@ -5,6 +5,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Supplier {
@@ -16,6 +17,10 @@ public class Supplier {
     String email;
     String address;
     String phoneNumber;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "supplier")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Set<Stock> stock;
 
     public int getSupplierId() {
         return supplierId;
@@ -65,6 +70,11 @@ public class Supplier {
         this.phoneNumber = phoneNumber;
     }
 
+    public Set<Stock> getStock() {
+        return stock;
+    }
 
-
+    public void setStock(Set<Stock> stock) {
+        this.stock = stock;
+    }
 }

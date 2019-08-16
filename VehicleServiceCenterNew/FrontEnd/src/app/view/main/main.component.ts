@@ -35,6 +35,8 @@ export class MainComponent implements OnInit {
             this.headerText = "AddVehicle";
         } else if(this.router.url== '/main/supplier'){
             this.headerText="Supplier";
+        } else if(this.router.url=='/main/StockManagement'){
+          this.headerText="Stock Management";
         }
 
     }
@@ -51,6 +53,9 @@ export class MainComponent implements OnInit {
             this.router.navigate(['/main/customerVehicle'])
         }else  if(button == "Supplier"){
             this.router.navigate(['/main/supplier'])
+        }else if(button == "Stock Management"){
+          this.router.navigate(['/main/StockManagement'])
+
         }
     }
 }

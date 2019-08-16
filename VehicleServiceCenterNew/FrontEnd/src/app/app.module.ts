@@ -16,6 +16,8 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgbAlertModule, NgbPaginationModule} from "@ng-bootstrap/ng-bootstrap";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from "@angular/material";
+import { StockDetailsComponent } from './view/stock-details/stock-details.component';
+import {DatePipe} from "@angular/common";
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} fr
     VehicleComponent,
     DashboardComponent,
     LoginComponent,
-    SupplierComponent
+    SupplierComponent,
+    StockDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,9 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} fr
       BrowserAnimationsModule,MatButtonModule,MatSelectModule,  MatFormFieldModule,
       MatInputModule
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -9,6 +9,7 @@ import {CustomerVehicleUpdateComponent} from "./view/customer-vehicle-update/cus
 import {SupplierComponent} from "./view/supplier/supplier.component";
 import {VehicleComponent} from "./view/vehicle/vehicle.component";
 import {LoginComponent} from "./view/login/login.component";
+import {StockDetailsComponent} from "./view/stock-details/stock-details.component";
 
 const routes: Routes = [
     {
@@ -35,6 +36,10 @@ const routes: Routes = [
             {
                 path :"supplier",
                 component : SupplierComponent
+            },
+            {
+              path :"StockManagement",
+              component : StockDetailsComponent
             }
 
         ]

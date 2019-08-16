@@ -38,4 +38,17 @@ export class SupplierService {
   searchSupplierDetails(searchSupplierNumber: number) {
     return this.http.get<Supplier>(environment.backend_url + URL + '/searchBySupplierNumber/'+searchSupplierNumber);
   }
+
+
+  getAllSupplier(){
+
+    return this.http.get<Array<Supplier>>(environment.backend_url + URL + '/getAllSupplier');
+
+  }
+
+  getSuppliersNames(companyName:string) {
+
+    return this.http.get<Array<Supplier>>(environment.backend_url + URL + '/getSuppliersNames/'+companyName);
+
+  }
 }

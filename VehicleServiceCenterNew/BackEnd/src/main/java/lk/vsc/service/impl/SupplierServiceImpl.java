@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class SupplierServiceImpl implements SupplierService {
 
@@ -34,6 +37,40 @@ public class SupplierServiceImpl implements SupplierService {
     public Supplier searchBySupplierNumber(int supplierId) {
 
         return supplierRepository.searchBySupplierNumber(supplierId);
+    }
+
+    @Override
+    public List<Supplier> getAllSupplier() {
+
+        List<Object[]> companies = supplierRepository.findAllCompanies();
+        
+        List<Supplier> s1 = new ArrayList<>();
+
+        for (Object s2[] :companies) {
+
+            Supplier s3 = new Supplier();
+            s3.setCompanyName(s2[0].toString());
+            s1.add(s3);
+        }
+        return s1;
+
+    }
+
+    @Override
+    public List<Supplier> getSupplierNames(String supplierCompany) {
+
+        List<Object[]> suppliers =  supplierRepository.getSupplierNames(supplierCompany);
+
+        List<Supplier> s1 = new ArrayList<>();
+
+        for (Object s2[] :suppliers) {
+
+            Supplier s3 = new Supplier();
+            s3.setCompanyName(s2[0].toString());
+            s1.add(s3);
+
+        }
+        return s1;
     }
 
 

@@ -1,0 +1,28 @@
+import { Injectable } from '@angular/core';
+import {Item} from "../Model/Item";
+import {MakeModel} from "../Model/MakeModel";
+import {environment} from "../../environments/environment";
+import {HttpClient} from "@angular/common/http";
+
+const URL = '/ItemController';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ItemService {
+
+  constructor(private http: HttpClient) { }
+
+  addItemsToDB(item: Item) {
+console.log('hhhhh'+item.makeModelDetails[0].makeModel);
+    return this.http.post<Item>(environment.backend_url + URL+"/addItemDB",item);
+
+  }
+
+  searchItemDetailsByName(searchItemName: string) {
+
+    return this.http.get<Item>(environment.backend_url + URL+"/getItemDetailsByName/"+searchItemName);
+
+
+  }
+}

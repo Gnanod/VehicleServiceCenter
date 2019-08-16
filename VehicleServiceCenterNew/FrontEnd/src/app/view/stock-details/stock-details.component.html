@@ -1,0 +1,613 @@
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-rose">
+          <div class="card-icon">
+            <i class="material-icons">perm_identity</i>
+          </div>
+          <h4 class="card-title">Add Item Details
+
+          </h4>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Item Name</label>
+                <input type="text" class="form-control"  [(ngModel)]="itemName" >
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label >Select Make</label>
+                <br>
+                <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">
+
+                  <option value="Any">Any</option>
+                  <option >Abarth</option>
+                  <option>Acura</option>
+                  <option>Alfa Romeo</option>
+                  <option>Ambassador</option>
+                  <option>Aprilia</option>
+                  <option>Audi</option>
+                  <option>Austin</option>
+                  <option>Bajaj</option>
+                  <option>BMW</option>
+                  <option>Cadillac</option>
+                  <option>Caterpillar</option>
+                  <option>Nissan</option>
+                  <option>Suzuki</option>
+                  <option>Toyota</option>
+                  <option>Honda</option>
+                  <option>530i</option>
+
+
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label >Select Model</label>
+                <select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel">
+                  <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-rose pull-right" (click)="addToItemsTable()">Add To Table</button>
+          <!--<button type="submit" class="btn btn-rose pull-right" (click)="addItemsToDB()">Save Details</button>-->
+          <div class="clearfix"></div>
+
+          <div class="row">
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                <th>
+                  Name Of Item
+                </th>
+                <th>
+                  Name Of Make
+                </th>
+                <th>
+                  Name Of Model
+                </th>
+                <th>
+                  Model Id
+                </th>
+
+                </thead>
+                <tbody>
+
+                <tr  *ngFor="let item of insertItemToTable  ">
+
+                  <td>
+                    {{item.item.itemName}}
+                  </td>
+                  <td>
+                    {{item.makeModel.makeName}}
+                  </td>
+                  <td>
+                    {{item.makeModel.modelName}}
+                  </td>
+                  <td>
+                    {{item.makeModel.makeModelId}}
+                  </td>
+                  <td class="td-actions ">
+                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteItemTableRow(item.makeModel.modelName)">
+                      <i class="material-icons">close</i>
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-rose pull-right" (click)="addItemsToDB()">Save Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-rose">
+          <div class="card-icon">
+            <i class="material-icons">perm_identity</i>
+          </div>
+          <h4 class="card-title">Add Vehicle Type
+
+          </h4>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label >Select Make</label>
+                <br>
+                <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >
+
+                  <option>Any</option>
+                  <option>Abarth</option>
+                  <option>Acura</option>
+                  <option>Alfa Romeo</option>
+                  <option>Ambassador</option>
+                  <option>Aprilia</option>
+                  <option>Audi</option>
+                  <option>Austin</option>
+                  <option>Bajaj</option>
+                  <option>BMW</option>
+                  <option>Cadillac</option>
+                  <option>Caterpillar</option>
+                  <option>Nissan</option>
+                  <option>Suzuki</option>
+                  <option>Toyota</option>
+                  <option>Honda</option>
+                  <option>530i</option>
+
+
+                </select>
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating"   >Model Name</label>
+                <!--<select class="form-control " data-style="select-with-transition"  >-->
+                  <!--<option *ngFor="let model of searchMakesByModel" [ngValue]="model">{{model.makeName}}</option>-->
+                <!--</select>-->
+                <input type="text" class="form-control"  [(ngModel)]="addTableModel" >
+
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+
+                <button type="submit" class="btn btn-rose pull-right" (click)="addToTable()">Add To Table</button>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                <th>
+                  Name Of Make
+                </th>
+                <th>
+                  Name Of Model
+                </th>
+
+
+                </thead>
+                <tbody>
+
+                <tr  *ngFor="let brandMake of tableMakeModel  ">
+
+                  <td>
+                    {{brandMake.makeName}}
+                  </td>
+                  <td>
+                    {{brandMake.modelName}}
+                  </td>
+
+                  <td class="td-actions ">
+                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(brandMake.modelName)">
+                      <i class="material-icons">close</i>
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-rose pull-right" (click)="addMakeModelDetails()">Save Details</button>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-md-12">
+    <div class="card">
+
+
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-icon card-header-rose">
+        <div class="card-icon">
+          <i class="material-icons">perm_identity</i>
+        </div>
+        <h4 class="card-title">Add Stock Details
+
+        </h4>
+      </div>
+      <br>
+      <br>
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label >Select Supplier Company</label>
+              <br>
+
+              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedSupplierCompany"#mySelect1 (change)="getSuppliersNames(mySelect1.value)" >
+                <option  *ngFor="let sup of suppliers  ">{{sup.companyName}}</option>
+
+              </select>
+            </div>
+
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <label >Select Supplier Name</label>
+              <br>
+              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedsupplierName" >
+
+                <option  *ngFor="let names of suppliersNames  ">{{names.companyName}}</option>
+
+              </select >
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+
+          <!--<div class="col-sm-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>Barcode</label>-->
+              <!--&lt;!&ndash;<input type="text" class="form-control" (keyup)="searchItemDetailsByBarcode($event)" [(ngModel)]="seachItemBarcode">&ndash;&gt;-->
+              <!--<input type="text" class="form-control" >-->
+
+            <!--</div>-->
+          <!--</div>-->
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>Item Name</label>
+              <input type="text" class="form-control" name="itemName"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemName" (keyup)="searchItemDetailsByName($event)" >
+            </div>
+          </div>
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>Buying Price</label>
+              <input type="text" class="form-control" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchBuyingPrice">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>Item Id</label>
+              <input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemDetails.itemId">
+            </div>
+          </div>
+          <!--<div class="col-sm-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>WholeSalePrice</label>-->
+              <!--&lt;!&ndash;<input type="text" class="form-control" name="wholeSalePrice" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchWholeSalePrice">&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+
+
+
+
+
+        </div>
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>Retail Price</label>
+              <input type="text" class="form-control" name="retailPrice"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchRetailPrice">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>Quantity</label>
+              <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="itemQuantity">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label>Quantity On Hand</label>
+              <input type="text" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.quantityOnHand">
+            </div>
+          </div>
+          <!--<div class="col-sm-2">-->
+          <!---->
+          <!--</div>-->
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-rose pull-right" (click)="addToItemTable()">Add To Table</button>
+
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+              <th>
+                ItemId
+              </th>
+              <th>
+                ItemName
+              </th>
+              <th>
+                Selling Price
+              </th>
+              <th>
+                BuyingPrice
+              </th>
+              <th>
+                Quantity
+              </th>
+
+
+              </thead>
+              <tbody>
+
+              <tr *ngFor="let items of itemsTable async" [attr.id]="items.item.barCode">
+                <td>
+                  {{items.item.itemId}}
+                </td>
+                <td>
+                  {{items.item.itemName}}
+                </td>
+                <td>
+                  {{items.item.quantityOfPrice}}
+                </td>
+                <td>
+                  {{items.quantity}}
+                </td>
+                <td>
+                  {{items.buyingPrice}}
+                </td>
+
+                <td class="td-actions ">
+                  <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(items.item.barCode)">
+                    <i class="material-icons">close</i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Amount</label>
+              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="totAmount">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-2">
+            <button type="submit" class="btn btn-rose pull-right" (click)="saveStock()">Save Details</button>
+          </div>
+        </div>
+
+      </div>
+
+
+      <!--<div class="card-body">-->
+      <!--<form>-->
+      <!--<div class="row">-->
+
+
+      <!--</div>-->
+      <!--<div class="row">-->
+      <!--<div class="col-md-6">-->
+      <!--<div class="form-group">-->
+      <!--<label class="bmd-label-floating">Employee Id</label>-->
+      <!--<input type="text" class="form-control" disabled>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">-->
+
+      <!--<div class="col-md-6">-->
+      <!--<div class="form-group">-->
+      <!--<label class="bmd-label-floating">Fist Name</label>-->
+      <!--<input type="text" class="form-control">-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-md-6">-->
+      <!--<div class="form-group">-->
+      <!--<label class="bmd-label-floating">Last Name</label>-->
+      <!--<input type="text" class="form-control">-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">-->
+      <!--<div class="col-md-4">-->
+      <!--<div class="form-group">-->
+      <!--<label class="bmd-label-floating">Email address</label>-->
+      <!--<input type="email" class="form-control">-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-md-4">-->
+      <!--<div class="form-group">-->
+      <!--<label class="bmd-label-floating" >Nic</label>-->
+      <!--<input type="text" class="form-control">-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--<div class="row">-->
+      <!--<div class="col-md-12">-->
+      <!--<div class="form-group">-->
+      <!--<label class="bmd-label-floating">Adress</label>-->
+      <!--<input type="text" class="form-control">-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="row">-->
+      <!--<div class="col-md-4">-->
+      <!--<div class="form-group">-->
+      <!--<label class="bmd-label-floating">Birthday</label>-->
+      <!--<input type="text" class="form-control">-->
+      <!--</div>-->
+      <!--</div>-->
+      <!--<div class="col-md-4">-->
+      <!--<div class="form-group">-->
+      <!--<label class="bmd-label-floating">Phone Number</label>-->
+      <!--<input type="text" class="form-control">-->
+      <!--</div>-->
+      <!--</div>-->
+
+      <!--</div>-->
+
+      <!--<button type="submit" class="btn btn-rose pull-right">Update Details</button>-->
+      <!--<div class="clearfix"></div>-->
+      <!--</form>-->
+      <!--</div>-->
+    </div>
+  </div>
+
+</div>
+
+<!--<div class="row">-->
+
+  <!--<div class="col-md-12">-->
+    <!--<div class="card">-->
+      <!--<div class="card-header card-header-rose card-header-icon">-->
+        <!--<div class="card-icon">-->
+          <!--<i class="material-icons">search</i>-->
+        <!--</div>-->
+        <!--<h4 class="card-title">Search  Vehicle</h4>-->
+      <!--</div>-->
+      <!--<div class="card-body">-->
+        <!--<div class="row" >-->
+
+          <!--<div class="col-md-4" style="margin-left: 250px">-->
+            <!--<div class="form-group">-->
+              <!--<label class="bmd-label-floating">Search By Item Name</label>-->
+              <!--<input type="text" class="form-control" style="width: 300px" (keyup)="searchItemByName($event)" [(ngModel)]="searchitembyname">-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-4" style="margin-left: -200px ;margin-top: 25px">-->
+            <!--<button type="submit" class="btn btn-rose pull-right" (click)="searchVehicleDetailsByNumber()" >   <i class="material-icons">search</i></button>-->
+          <!--</div>-->
+          <!--&lt;!&ndash;(click)="searchVehicleDetailsByNumber()"&ndash;&gt;-->
+        <!--</div>-->
+
+        <!--<div class="table-responsive">-->
+          <!--<table class="table" id="vehicleTable">-->
+            <!--<thead class=" text-primary">-->
+            <!--<th>-->
+              <!--BarCode-->
+            <!--</th>-->
+            <!--<th>-->
+              <!--WholeSalePrice-->
+            <!--</th>-->
+            <!--<th>-->
+              <!--RetailPrice-->
+            <!--</th>-->
+            <!--<th>-->
+              <!--BuyingPrice-->
+            <!--</th>-->
+            <!--<th>-->
+              <!--QuantityOnHand-->
+            <!--</th>-->
+            <!--</thead>-->
+            <!--<tbody>-->
+            <!--<tr *ngIf="searchItemValuesIf;else elseBlock">-->
+              <!--<td colspan="8" class="alert alert-danger" style="text-align: center">-->
+                <!--Item Not Found-->
+              <!--</td>-->
+            <!--</tr>-->
+
+            <!--<ng-template #elseBlock>-->
+
+              <!--<tr *ngFor="let item of searchItemDetails">-->
+                <!--<td class="text-center">-->
+                  <!--{{item.barCode}}-->
+                <!--</td>-->
+                <!--<td class="text-center">-->
+                  <!--{{item.wholeSalePrice}}-->
+                <!--</td>-->
+                <!--<td class="text-center">-->
+                  <!--{{item.retailPrice}}-->
+                <!--</td >-->
+
+                <!--<td class="text-center">-->
+
+                <!--</td>-->
+                <!--<td>-->
+                  <!--{{item.itemQty}}-->
+                <!--</td>-->
+
+
+                <!--<td class="td-actions ">-->
+                  <!--<button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteVehicle()">-->
+                    <!--<i class="material-icons">close</i>-->
+                  <!--</button>-->
+                <!--</td>-->
+              <!--</tr>-->
+
+            <!--</ng-template>-->
+
+            <!--</tbody>-->
+          <!--</table>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+
+<!--</div>-->

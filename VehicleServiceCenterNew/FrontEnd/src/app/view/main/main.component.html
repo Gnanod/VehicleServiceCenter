@@ -57,6 +57,13 @@
                         <p #supplier>Supplier</p>
                     </a>
                 </li>
+
+              <li class="nav-item" [ngClass]="{'active': headerText=='Stock Management'}" (click)="changeRoute(StockManagement.innerHTML)">
+                <a class="nav-link">
+                  <i class="material-icons">perm_identity</i>
+                  <p #StockManagement>Stock Management</p>
+                </a>
+              </li>
                 
                 <li class="nav-item ">
                     <a class="nav-link" href="job">

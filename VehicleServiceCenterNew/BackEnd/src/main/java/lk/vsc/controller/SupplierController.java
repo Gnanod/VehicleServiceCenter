@@ -5,6 +5,8 @@ import lk.vsc.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping(value = "SupplierController")
@@ -30,17 +32,6 @@ public class SupplierController {
     @PostMapping(value = "/updateSupplier")
     public Supplier updateSupplier(@RequestBody Supplier supplier){
 
-//        System.out.println("Nicccc"+nic);
-//        Supplier  cus = supplierService.findBySupplierId(nic);
-//        
-//        
-//        cus.setAddress(supplier.getAddress());
-//        cus.setBirthday(supplier.getBirthday());
-//        cus.setEmail(supplier.getEmail());
-//        cus.setFirstName(supplier.getFirstName());
-//        cus.setLastName(supplier.getLastName());
-//        cus.setPhoneNumber(supplier.getPhoneNumber());
-
         return supplierService.updateSupplier(supplier);
 
     }
@@ -50,6 +41,17 @@ public class SupplierController {
         return supplierService.searchBySupplierNumber(supplierId);
     }
 
+    @GetMapping(value ="/getAllSupplier")
+    public List<Supplier> getAllVehicle(){
 
+        return supplierService.getAllSupplier();
+    }
+
+
+
+    @GetMapping(value = "/getSuppliersNames/{supplierCompany}")
+    public List<Supplier> getSupplierNames(@PathVariable String supplierCompany){
+        return supplierService.getSupplierNames(supplierCompany);
+    }
 
 }
