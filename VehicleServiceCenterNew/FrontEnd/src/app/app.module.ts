@@ -18,6 +18,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} from "@angular/material";
 import { StockDetailsComponent } from './view/stock-details/stock-details.component';
 import {DatePipe} from "@angular/common";
+import { JoborderComponent } from './view/joborder/joborder.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import {DatePipe} from "@angular/common";
     LoginComponent,
     SupplierComponent,
     StockDetailsComponent
+    JoborderComponent
   ],
   imports: [
     BrowserModule,
