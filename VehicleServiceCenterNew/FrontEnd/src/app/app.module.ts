@@ -31,7 +31,7 @@ import { JoborderComponent } from './view/joborder/joborder.component';
     DashboardComponent,
     LoginComponent,
     SupplierComponent,
-    StockDetailsComponent
+    StockDetailsComponent,
     JoborderComponent
   ],
   imports: [
