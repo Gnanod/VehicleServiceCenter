@@ -7,6 +7,7 @@ import org.springframework.data.repository.query.Param;
 
 public interface LoginRepository extends JpaRepository<Employee,Integer> {
 
+
     @Query(value = "select nic from Employee where nic = :userNic and password = :userPassword")
     Object loginFunction(@Param("userNic") String userNic,@Param("userPassword") String userPassword);
     

@@ -26,6 +26,14 @@ public class StockController {
 
     }
 
+
+    @GetMapping(value = "/getLowStockLevelReport")
+    public Item getItems(){
+
+        return stockService.getLowStockLevelReport();
+    }
+
+
 }
 
 

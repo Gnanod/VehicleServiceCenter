@@ -64,7 +64,13 @@
                   <p #StockManagement>Stock Management</p>
                 </a>
               </li>
-                
+
+              <li class="nav-item" [ngClass]="{'active': headerText=='Service Management'}" (click)="changeRoute(ServiceManagement.innerHTML)">
+                <a class="nav-link">
+                  <i class="material-icons">perm_identity</i>
+                  <p #ServiceManagement>Service Management</p>
+                </a>
+              </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="job">
                         <i class="material-icons">widgets</i>
@@ -73,10 +79,30 @@
                 </li>
                 
                 <li class="nav-item ">
-                    <a class="nav-link" href="job">
+
+
+                    <a class="nav-link" href="#formsExamples1" data-toggle="collapse">
                         <i class="material-icons">widgets</i>
-                        <p> Report </p>
+                        <p> Report
+                          <b class="caret"></b>
+                        </p>
                     </a>
+
+                  <div class="collapse" id="formsExamples1">
+                    <ul class="nav">
+
+                      <li class="nav-item " [ngClass]="{'active': headerText=='SearchVehicle'}" (click)="changeRoute(LowStockLevel.innerHTML)">
+                        <a class="nav-link" >
+                          <span class="sidebar-mini"> LSL </span>
+                          <span class="sidebar-normal" #LowStockLevel>Low Stock Level</span>
+                        </a>
+                      </li>
+
+
+
+
+                    </ul>
+                  </div>
                 </li>
              
             </ul>

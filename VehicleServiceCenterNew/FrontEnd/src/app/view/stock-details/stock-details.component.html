@@ -1,256 +1,5 @@
 
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header card-header-icon card-header-info">
-          <div class="card-icon">
-            <i class="material-icons">perm_identity</i>
-          </div>
-          <h4 class="card-title">Add Item Details
-
-          </h4>
-        </div>
-        <div class="card-body">
-
-          <div class="row">
-
-
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="bmd-label-floating">Item Name</label>
-                <input type="text" class="form-control"  [(ngModel)]="itemName" >
-              </div>
-            </div>
-
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label >Select Make</label>
-                <br>
-                <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">
-
-                  <option value="Any">Any</option>
-                  <option >Abarth</option>
-                  <option>Acura</option>
-                  <option>Alfa Romeo</option>
-                  <option>Ambassador</option>
-                  <option>Aprilia</option>
-                  <option>Audi</option>
-                  <option>Austin</option>
-                  <option>Bajaj</option>
-                  <option>BMW</option>
-                  <option>Cadillac</option>
-                  <option>Caterpillar</option>
-                  <option>Nissan</option>
-                  <option>Suzuki</option>
-                  <option>Toyota</option>
-                  <option>Honda</option>
-                  <option>530i</option>
-
-
-                </select>
-              </div>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label >Select Model</label>
-                <select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel">
-                  <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>
-                </select>
-              </div>
-
-            </div>
-          </div>
-
-          <button type="submit" class="btn btn-behance pull-right" (click)="addToItemsTable()">Add To Table</button>
-          <!--<button type="submit" class="btn btn-rose pull-right" (click)="addItemsToDB()">Save Details</button>-->
-          <div class="clearfix"></div>
-
-          <div class="row">
-
-            <div class="table-responsive">
-              <table class="table">
-                <thead class=" text-primary">
-                <th>
-                  Name Of Item
-                </th>
-                <th>
-                  Name Of Make
-                </th>
-                <th>
-                  Name Of Model
-                </th>
-                <th>
-                  Model Id
-                </th>
-
-                </thead>
-                <tbody>
-
-                <tr  *ngFor="let item of insertItemToTable  ">
-
-                  <td>
-                    {{item.item.itemName}}
-                  </td>
-                  <td>
-                    {{item.makeModel.makeName}}
-                  </td>
-                  <td>
-                    {{item.makeModel.modelName}}
-                  </td>
-                  <td>
-                    {{item.makeModel.makeModelId}}
-                  </td>
-                  <td class="td-actions ">
-                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteItemTableRow(item.makeModel.modelName)">
-                      <i class="material-icons">close</i>
-                    </button>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-          <button type="submit" class="btn btn-behance pull-right" (click)="addItemsToDB()">Save Details</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-6">
-      <div class="card">
-        <div class="card-header card-header-icon card-header-info">
-          <div class="card-icon">
-            <i class="material-icons">perm_identity</i>
-          </div>
-          <h4 class="card-title">Add Vehicle Type
-
-          </h4>
-        </div>
-        <div class="card-body">
-
-          <div class="row">
-
-
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label >Select Make</label>
-                <br>
-                <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >
-
-                  <option>Any</option>
-                  <option>Abarth</option>
-                  <option>Acura</option>
-                  <option>Alfa Romeo</option>
-                  <option>Ambassador</option>
-                  <option>Aprilia</option>
-                  <option>Audi</option>
-                  <option>Austin</option>
-                  <option>Bajaj</option>
-                  <option>BMW</option>
-                  <option>Cadillac</option>
-                  <option>Caterpillar</option>
-                  <option>Nissan</option>
-                  <option>Suzuki</option>
-                  <option>Toyota</option>
-                  <option>Honda</option>
-                  <option>530i</option>
-
-
-                </select>
-              </div>
-
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="bmd-label-floating"   >Model Name</label>
-                <!--<select class="form-control " data-style="select-with-transition"  >-->
-                  <!--<option *ngFor="let model of searchMakesByModel" [ngValue]="model">{{model.makeName}}</option>-->
-                <!--</select>-->
-                <input type="text" class="form-control"  [(ngModel)]="addTableModel" >
-
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-
-                <button type="submit" class="btn btn-behance pull-right" (click)="addToTable()">Add To Table</button>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-
-            <div class="table-responsive">
-              <table class="table">
-                <thead class=" text-primary">
-                <th>
-                  Name Of Make
-                </th>
-                <th>
-                  Name Of Model
-                </th>
-
-
-                </thead>
-                <tbody>
-
-                <tr  *ngFor="let brandMake of tableMakeModel  ">
-
-                  <td>
-                    {{brandMake.makeName}}
-                  </td>
-                  <td>
-                    {{brandMake.modelName}}
-                  </td>
-
-                  <td class="td-actions ">
-                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(brandMake.modelName)">
-                      <i class="material-icons">close</i>
-                    </button>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-          <button type="submit" class="btn btn-behance pull-right" (click)="addMakeModelDetails()">Save Details</button>
-
-
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-
-<div class="row">
-
-  <div class="col-md-12">
-    <div class="card">
-
-
-    </div>
-  </div>
-
-</div>
-
 <div class="row">
   <div class="col-md-12">
     <div class="card">
@@ -298,12 +47,12 @@
         <div class="row">
 
           <!--<div class="col-sm-2">-->
-            <!--<div class="form-group">-->
-              <!--<label>Barcode</label>-->
-              <!--&lt;!&ndash;<input type="text" class="form-control" (keyup)="searchItemDetailsByBarcode($event)" [(ngModel)]="seachItemBarcode">&ndash;&gt;-->
-              <!--<input type="text" class="form-control" >-->
+          <!--<div class="form-group">-->
+          <!--<label>Barcode</label>-->
+          <!--&lt;!&ndash;<input type="text" class="form-control" (keyup)="searchItemDetailsByBarcode($event)" [(ngModel)]="seachItemBarcode">&ndash;&gt;-->
+          <!--<input type="text" class="form-control" >-->
 
-            <!--</div>-->
+          <!--</div>-->
           <!--</div>-->
           <div class="col-sm-3">
             <div class="form-group">
@@ -315,7 +64,7 @@
           <div class="col-sm-3">
             <div class="form-group">
               <label>Buying Price</label>
-              <input type="text" class="form-control" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchBuyingPrice">
+              <input type="number" class="form-control" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchBuyingPrice">
             </div>
           </div>
           <div class="col-sm-3">
@@ -325,10 +74,10 @@
             </div>
           </div>
           <!--<div class="col-sm-2">-->
-            <!--<div class="form-group">-->
-              <!--<label>WholeSalePrice</label>-->
-              <!--&lt;!&ndash;<input type="text" class="form-control" name="wholeSalePrice" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchWholeSalePrice">&ndash;&gt;-->
-            <!--</div>-->
+          <!--<div class="form-group">-->
+          <!--<label>WholeSalePrice</label>-->
+          <!--&lt;!&ndash;<input type="text" class="form-control" name="wholeSalePrice" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchWholeSalePrice">&ndash;&gt;-->
+          <!--</div>-->
           <!--</div>-->
 
 
@@ -340,19 +89,19 @@
           <div class="col-sm-3">
             <div class="form-group">
               <label>Retail Price</label>
-              <input type="text" class="form-control" name="retailPrice"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchRetailPrice">
+              <input type="number" class="form-control" name="retailPrice"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchRetailPrice">
             </div>
           </div>
           <div class="col-sm-3">
             <div class="form-group">
               <label>Quantity</label>
-              <input type="text" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="itemQuantity">
+              <input type="number" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="itemQuantity">
             </div>
           </div>
           <div class="col-sm-3">
             <div class="form-group">
               <label>Quantity On Hand</label>
-              <input type="text" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.quantityOnHand">
+              <input type="number" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.quantityOnHand">
             </div>
           </div>
           <!--<div class="col-sm-2">-->
@@ -379,13 +128,18 @@
               <th>
                 Selling Price
               </th>
-              <th>
-                BuyingPrice
-              </th>
+
               <th>
                 Quantity
               </th>
 
+              <th>
+                BuyingPrice
+              </th>
+
+              <th>
+                Quantity On Hand
+              </th>
 
               </thead>
               <tbody>
@@ -406,9 +160,12 @@
                 <td>
                   {{items.buyingPrice}}
                 </td>
+                <td>
+                  {{items.item.quantityOnHand}}
+                </td>
 
                 <td class="td-actions ">
-                  <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(items.item.barCode)">
+                  <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(items.item.itemId)">
                     <i class="material-icons">close</i>
                   </button>
                 </td>
@@ -523,6 +280,274 @@
   </div>
 
 </div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-info">
+          <div class="card-icon">
+            <i class="material-icons">perm_identity</i>
+          </div>
+          <h4 class="card-title">Add Item Details
+
+          </h4>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+
+
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Item Name</label>
+                <input type="text" class="form-control"  [(ngModel)]="itemName" >
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Stock Level</label>
+                <input type="text" class="form-control"  [(ngModel)]="stockLevel" >
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label >Select Make</label>
+                <br>
+                <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">
+
+                  <option value="Any">Any</option>
+                  <option >Abarth</option>
+                  <option>Acura</option>
+                  <option>Alfa Romeo</option>
+                  <option>Ambassador</option>
+                  <option>Aprilia</option>
+                  <option>Audi</option>
+                  <option>Austin</option>
+                  <option>Bajaj</option>
+                  <option>BMW</option>
+                  <option>Cadillac</option>
+                  <option>Caterpillar</option>
+                  <option>Nissan</option>
+                  <option>Suzuki</option>
+                  <option>Toyota</option>
+                  <option>Honda</option>
+                  <option>530i</option>
+
+
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label >Select Model</label>
+                <select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel">
+                  <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-behance pull-right" (click)="addToItemsTable()">Add To Table</button>
+          <!--<button type="submit" class="btn btn-rose pull-right" (click)="addItemsToDB()">Save Details</button>-->
+          <div class="clearfix"></div>
+
+          <div class="row">
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                <th>
+                  Name Of Item
+                </th>
+                <th>
+                  Name Of Make
+                </th>
+                <th>
+                  Name Of Model
+                </th>
+                <th>
+                  Model Id
+                </th>
+                <th>
+                  Stock Level
+                </th>
+                </thead>
+                <tbody>
+
+                <tr  *ngFor="let item of insertItemToTable  ">
+
+                  <td>
+                    {{item.item.itemName}}
+                  </td>
+                  <td>
+                    {{item.makeModel.makeName}}
+                  </td>
+                  <td>
+                    {{item.makeModel.modelName}}
+                  </td>
+                  <td>
+                    {{item.makeModel.makeModelId}}
+                  </td>
+                  <td>
+                    {{item.stockLevel}}
+                  </td>
+                  <td class="td-actions ">
+                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteItemTableRow(item.makeModel.modelName)">
+                      <i class="material-icons">close</i>
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-behance pull-right" (click)="addItemsToDB()">Save Details</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-info">
+          <div class="card-icon">
+            <i class="material-icons">perm_identity</i>
+          </div>
+          <h4 class="card-title">Add Vehicle Type
+
+          </h4>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label >Select Make</label>
+                <br>
+                <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >
+
+                  <option>Any</option>
+                  <option>Abarth</option>
+                  <option>Acura</option>
+                  <option>Alfa Romeo</option>
+                  <option>Ambassador</option>
+                  <option>Aprilia</option>
+                  <option>Audi</option>
+                  <option>Austin</option>
+                  <option>Bajaj</option>
+                  <option>BMW</option>
+                  <option>Cadillac</option>
+                  <option>Caterpillar</option>
+                  <option>Nissan</option>
+                  <option>Suzuki</option>
+                  <option>Toyota</option>
+                  <option>Honda</option>
+                  <option>530i</option>
+
+
+                </select>
+
+              </div>
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Model Name</label>
+
+                <input  type="text"   class="form-control "  [(ngModel)]="addTableModel" >
+                <!--<small [class.d-none]="name.valid || name.untouched" ]>Model Name Is required</small>-->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+
+                <button type="submit" class="btn btn-behance pull-right" (click)="addToTable()">Add To Table</button>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                <th>
+                  Name Of Make
+                </th>
+                <th>
+                  Name Of Model
+                </th>
+
+
+                </thead>
+                <tbody>
+
+                <tr  *ngFor="let brandMake of tableMakeModel  ">
+
+                  <td>
+                    {{brandMake.makeName}}
+                  </td>
+                  <td>
+                    {{brandMake.modelName}}
+                  </td>
+
+                  <td class="td-actions ">
+                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(brandMake.modelName)">
+                      <i class="material-icons">close</i>
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-behance pull-right" (click)="addMakeModelDetails()">Save Details</button>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-md-12">
+    <div class="card">
+
+
+    </div>
+  </div>
+
+</div>
+
+
 
 <!--<div class="row">-->
 

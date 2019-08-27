@@ -21,7 +21,8 @@ export class VehicleComponent implements OnInit {
   searchCustomerName :string ;
   searchCustomerValuesIf = true;
   searchCustomerDetails : Customer = new Customer();
-  
+  nic :string;
+
   constructor(private customerService :CustomerService,private vehicleService :VehicleService) {
       this.selectVehicleClass.setValue('A');
   }
@@ -44,7 +45,12 @@ export class VehicleComponent implements OnInit {
 
     addVehicleDetails(){
 
-    this.vehNgModel.customer=this.cust;
+    let customer : Customer = new Customer();
+
+    customer.nic=this.nic;
+    console.log("Nic"+this.nic);
+    
+    this.vehNgModel.customer=customer;
     this.vehNgModel.yearOfManufacture=this.stringDateModel.toString();
     
     this.vehicleService.addVehicle(this.vehNgModel).subscribe((result)=>{

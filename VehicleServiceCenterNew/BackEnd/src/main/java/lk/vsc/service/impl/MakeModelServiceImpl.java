@@ -20,6 +20,7 @@ public class MakeModelServiceImpl implements MakeModelService {
         for (MakeModel s1:makeModels) {
 
            m1=makeModelRepository.save(s1);
+
         }
         return m1;
     }

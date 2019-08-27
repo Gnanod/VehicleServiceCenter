@@ -6,4 +6,6 @@ import lk.vsc.entity.Stock;
 public interface StockService {
 
    String addStock(Stock stock);
+
+    Item getLowStockLevelReport();
 }

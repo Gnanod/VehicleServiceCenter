@@ -32,6 +32,8 @@ export class StockDetailsComponent implements OnInit {
   tableMakeModel :Array<MakeModel> = new Array<MakeModel>();
   searchMakesByModel :Array<MakeModel>= new Array<MakeModel>();
 
+  itemsArray :Array<Item> = new Array<Item>();
+
   //Insert Item
   insertItemModel:string;
   itemName:string;
@@ -51,6 +53,8 @@ export class StockDetailsComponent implements OnInit {
   searchRetailPrice:string;
   itemQuantity:string;
   itemDetailsQtyOnHand:string;
+  stockLevel :number;
+
 
   //SearchItemDetails
   searchItemDetails :Item = new Item();
@@ -66,7 +70,12 @@ export class StockDetailsComponent implements OnInit {
     console.log("selectedmake"+this.selectedMake);
     makeModel.makeName=this.selectedMake;
     makeModel.modelName=this.addTableModel;
-    this.tableMakeModel.push(makeModel);
+
+    if(this.selectedMake !=null && this.addTableModel!=null){
+
+      this.tableMakeModel.push(makeModel);
+    }
+
 
   }
 
@@ -84,17 +93,31 @@ export class StockDetailsComponent implements OnInit {
     item.itemId = this.searchItemDetails.itemId;
     item.quantityOfPrice= parseFloat(this.searchRetailPrice);
 
+    // item.stockLevel = this.searchItemDetails.stockLevel;
+    let qty:number=parseFloat( this.itemQuantity + this.searchItemDetails.quantityOnHand );
+
+    console.log("JJJJ"+qty);
+
+    item.quantityOnHand=parseFloat(this.itemQuantity+this.searchItemDetails.quantityOnHand);
+
     stockItemDetails.item=item;
     stockItemDetails.quantity=parseFloat(this.itemQuantity);
 
-    let amount :number;
-    amount = this.totAmount+(stockItemDetails.buyingPrice*stockItemDetails.quantity);
-    console.log("amount"+amount);
 
-    let stringAmount :string=amount.toString();
-    this.totAmount=parseFloat(stringAmount);
 
-    this.itemsTable.push(stockItemDetails);
+
+
+    if(this.searchItemName !=null && this.searchItemDetails.itemId !=null && this.searchRetailPrice !=null && this.itemQuantity !=null ){
+
+      this.itemsTable.push(stockItemDetails);
+      let amount :number;
+      amount = this.totAmount+(stockItemDetails.buyingPrice*stockItemDetails.quantity);
+      console.log("amount"+amount);
+      let stringAmount :string=amount.toString();
+      this.totAmount=parseFloat(stringAmount);
+    }
+
+
 
 
   }
@@ -106,26 +129,42 @@ export class StockDetailsComponent implements OnInit {
 
     let item :Item = new Item();
     item.itemName=this.itemName;
+    console.log("JJJJ"+this.stockLevel);
+    itemMakeModel.stockLevel=this.stockLevel;
+    //item.stockLevel = this.stockLevel;
 
     let makeModel :MakeModel = new MakeModel();
     makeModel.modelName=this.insertItemModel;
     makeModel.makeName=this.insertselectedMake;
 
     //makeModel.makeModelId=2;
-    this.make_model_service.searchMakeModelId(this.insertItemModel,this.insertselectedMake).subscribe((result)=>{
+    if(this.insertItemModel!=null &&this.insertselectedMake !=null ){
 
-      if(result!=null){
+      this.make_model_service.searchMakeModelId(this.insertItemModel,this.insertselectedMake).subscribe((result)=>{
+
+        if(result!=null){
 
 
-        makeModel.makeModelId=parseInt(result);
+          makeModel.makeModelId=parseInt(result);
 
-      }
-    });
+        }
+      });
+
+    }
+
 
 
     itemMakeModel.item=item;
     itemMakeModel.makeModel=makeModel;
-    this.insertItemToTable.push(itemMakeModel);
+
+    if(this.itemName !=null && this.insertselectedMake !=null && this.insertItemModel !=null ){
+
+      this.insertItemToTable.push(itemMakeModel);
+
+
+    }
+
+
 
   }
 
@@ -138,9 +177,15 @@ export class StockDetailsComponent implements OnInit {
   }
   deleteRow(id){
 
-    for(let i = 0; i < this.tableMakeModel.length; ++i){
-      if (this.tableMakeModel[i].modelName === id) {
-        this.tableMakeModel.splice(i,1);
+    for(let i = 0; i <  this.itemsTable.length; ++i){
+      if ( this.itemsTable[i].item.itemId === id) {
+
+      let buyingPrice : number =  this.itemsTable[i].buyingPrice;
+      let quantity :number =  this.itemsTable[i].quantity;
+      let totAmount = buyingPrice * quantity ;
+        this.totAmount = this.totAmount - totAmount;
+        this.itemsTable.splice(i,1);
+
       }
     }
 
@@ -154,7 +199,7 @@ export class StockDetailsComponent implements OnInit {
 
         alert('Makes Added SuccessFully');
         this.addTableModel=null;
-
+        this.tableMakeModel=null;
       }
     });
   }
@@ -176,19 +221,25 @@ export class StockDetailsComponent implements OnInit {
 
   addItemsToDB(){
 
+
+
     let item:Item = new Item();
     item.itemName=this.itemName;
+   // item.stockLevel=this.stockLevel;
    // item.itemId=1;
     item.makeModelDetails=this.insertItemToTable;
+
     // item.make=this.insertselectedMake;
     // item.model=this.insertItemModel;
+
 
     this.itemService.addItemsToDB(item).subscribe((result)=>{
 
       if(result!=null){
 
         alert('Added Successfully');
-
+        this.insertItemToTable = null;
+        this.itemName = null;
       }
 
     });
@@ -227,7 +278,8 @@ export class StockDetailsComponent implements OnInit {
 
         if(result==null){
 
-          this.searchItemDetails.quantityOnHand=10;
+          alert('Item Not Found ')
+         // this.searchItemDetails.quantityOnHand=10;
 
         }else{
           // this.searchItemValuesIf=false;
@@ -246,22 +298,31 @@ export class StockDetailsComponent implements OnInit {
     let stock :Stock = new Stock ();
 
     let supplier : Supplier = new Supplier();
-    supplier.supplierId = 1;
+    //supplier.supplierI`d = 1;
     stock.supplier=supplier;
     stock.payment=this.totAmount;
     stock.date =this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     stock.stockItemDetails = this.itemsTable;
 
-  this.stockService.addStock(stock).subscribe((result)=>{
+    this.stockService.addStock(stock).subscribe((result)=>{
 
-    if(result !=null){
+      if(result !=null){
 
-      console.log("LLLL"+result)
-      alert("Stock Added Successfully");
+        console.log("LLLL"+result)
+        alert("Stock Added Successfully");
 
-    }
+          this.itemsTable = null;
+          this.searchItemName = null;
+          this.searchItemDetails.itemId = null;
+          this.searchRetailPrice = null;
+          this.itemQuantity = null;
+          this.totAmount=null;
+          this.searchBuyingPrice = null;
+          this.searchItemDetails.quantityOnHand = null;
 
-  });
+        }
+
+    });
   }
 
 
