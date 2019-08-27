@@ -37,6 +37,10 @@ const routes: Routes = [
                 path :'supplier',
                 component : SupplierComponent
             },
+          {
+            path :'joborder',
+            component : JoborderComponent
+          },
             {
               path :"StockManagement",
               component : StockDetailsComponent
@@ -50,10 +54,7 @@ const routes: Routes = [
       path:'login',
       component: LoginComponent
     },
-  {
-    path :'joborder',
-    component : JoborderComponent
-  },
+
     {
       path: '', pathMatch: "full", redirectTo: 'login'
     }

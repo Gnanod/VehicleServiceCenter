@@ -7,6 +7,7 @@ export class Vehicle {
     vehicleNumber: string;
     engineNumber: string;
     vehicleClass: string;
+    vehicleMake: string;
     vehicleModel: string;
     yearOfManufacture:string;
     customer: Customer;
