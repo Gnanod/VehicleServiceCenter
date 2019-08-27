@@ -19,6 +19,7 @@ import {MatButtonModule, MatFormFieldModule, MatInputModule, MatSelectModule} fr
 import { StockDetailsComponent } from './view/stock-details/stock-details.component';
 import {DatePipe} from "@angular/common";
 import { JoborderComponent } from './view/joborder/joborder.component';
+import { ServiceManagementComponent } from './view/service-management/service-management.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { JoborderComponent } from './view/joborder/joborder.component';
     LoginComponent,
     SupplierComponent,
     StockDetailsComponent,
-    JoborderComponent
+    JoborderComponent,
+    ServiceManagementComponent
   ],
   imports: [
     BrowserModule,

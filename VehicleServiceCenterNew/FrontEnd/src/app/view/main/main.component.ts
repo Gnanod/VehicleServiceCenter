@@ -37,6 +37,8 @@ export class MainComponent implements OnInit {
             this.headerText="Supplier";
         } else if(this.router.url=='/main/StockManagement'){
           this.headerText="Stock Management";
+        } else if(this.router.url == '/main/ServiceManagement'){
+          this.headerText="Service Management"
         }
 
     }
@@ -55,6 +57,10 @@ export class MainComponent implements OnInit {
             this.router.navigate(['/main/supplier'])
         }else if(button == "Stock Management"){
           this.router.navigate(['/main/StockManagement'])
+
+        }else if(button == 'Service Management'){
+
+          this.router.navigate(['/main/ServiceManagement'])
 
         }
     }

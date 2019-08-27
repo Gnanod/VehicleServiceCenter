@@ -6,5 +6,5 @@ export class MakeModelDetail {
   makeModelDetailID: number;
   makeModel: MakeModel;
   item: Item;
-
+  stockLevel :number;
 }

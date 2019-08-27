@@ -21,6 +21,15 @@ public class MakeModelDetails {
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
     private Item item;
+    private double stockLevel;
+
+    public double getStockLevel() {
+        return stockLevel;
+    }
+
+    public void setStockLevel(double stockLevel) {
+        this.stockLevel = stockLevel;
+    }
 
     public int getMakeModelDetailID() {
         return makeModelDetailID;

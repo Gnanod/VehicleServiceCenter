@@ -11,6 +11,7 @@ import {VehicleComponent} from "./view/vehicle/vehicle.component";
 import {LoginComponent} from "./view/login/login.component";
 import {StockDetailsComponent} from "./view/stock-details/stock-details.component";
 import {JoborderComponent} from "./view/joborder/joborder.component";
+import {ServiceManagementComponent} from "./view/service-management/service-management.component";
 
 const routes: Routes = [
     {
@@ -38,9 +39,16 @@ const routes: Routes = [
                 component : SupplierComponent
             },
             {
+
               path :"StockManagement",
               component : StockDetailsComponent
-              }
+
+            },
+            {
+              path :"ServiceManagement",
+              component : ServiceManagementComponent
+
+            }
 
 
         ]

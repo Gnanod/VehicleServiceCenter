@@ -17,6 +17,7 @@ public class Item {
     private double quantityOnHand;
     private double quantityOfPrice;
 
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
     @OnDelete(action = OnDeleteAction.CASCADE)
     //@JsonIgnore
@@ -30,6 +31,8 @@ public class Item {
     public int getItemId() {
         return itemId;
     }
+
+
 
     public void setItemId(int itemId) {
 
