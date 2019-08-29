@@ -25,6 +25,10 @@ export class StockDetailsComponent implements OnInit {
     this.getAllItems();
   }
 
+   /////////////Search Item
+
+  searchStockItemName : string;
+  selectedItem:Item = new Item();
 
   selectModel:string;
   addTableModel:string;
@@ -58,6 +62,7 @@ export class StockDetailsComponent implements OnInit {
 
   //SearchItemDetails
   searchItemDetails :Item = new Item();
+  searchItemDetailsArray : Array<Item> = new Array<Item>();
 
 //addItemsTable
   itemsTable : Array<StockItemDetail> = new Array<StockItemDetail>();
@@ -89,7 +94,7 @@ export class StockDetailsComponent implements OnInit {
     stockItemDetails.buyingPrice=parseFloat(this.searchBuyingPrice);
 
     let item : Item = new Item();
-    item.itemName= this.searchItemName;
+    item.itemName= this.selectedItem.itemName;
     item.itemId = this.searchItemDetails.itemId;
     item.quantityOfPrice= parseFloat(this.searchRetailPrice);
 
@@ -107,7 +112,7 @@ export class StockDetailsComponent implements OnInit {
 
 
 
-    if(this.searchItemName !=null && this.searchItemDetails.itemId !=null && this.searchRetailPrice !=null && this.itemQuantity !=null ){
+    if(this.selectedItem.itemName !=null && this.searchItemDetails.itemId !=null && this.searchRetailPrice !=null && this.itemQuantity !=null ){
 
       this.itemsTable.push(stockItemDetails);
       let amount :number;
@@ -271,24 +276,63 @@ export class StockDetailsComponent implements OnInit {
   searchItemDetailsByName(event: any){
 
 
-    if(this.searchItemName.length!=0){
+    if(this.searchStockItemName.length !=0){
 
-      console.log(this.searchItemName);
-      this.itemService.searchItemDetailsByName(this.searchItemName).subscribe((result)=>{
 
-        if(result==null){
+      this.itemService.getItemDetailsByName(this.searchStockItemName).subscribe((result)=>{
+        if(result.length==0){
 
-          alert('Item Not Found ')
-         // this.searchItemDetails.quantityOnHand=10;
+          this.searchItemDetailsArray=null;
 
-        }else{
+          this.selectedItem=null;
+          this.getAllItemDetailsToUI("K");
+          //  alert('Item Not Found ')
+          // this.searchItemDetails.quantityOnHand=10;
+
+        } else {
           // this.searchItemValuesIf=false;
-          this.searchItemDetails=result;
+          //this.searchItemDetails = result;
+          this.searchItemDetailsArray=result;
+
+          this.selectedItem=result[0];
 
         }
       });
-    }else{
+    }
 
+
+
+    // if(this.searchItemName.length!=0){
+    //
+    //   console.log(this.searchItemName);
+    //   this.itemService.searchItemDetailsByName(this.searchItemName).subscribe((result)=>{
+    //
+    //     if(result==null){
+    //
+    //     //  alert('Item Not Found ')
+    //      // this.searchItemDetails.quantityOnHand=10;
+    //
+    //     }else{
+    //       // this.searchItemValuesIf=false;
+    //       this.searchItemDetails=result;
+    //
+    //     }
+    //   });
+    // }else{
+    //
+    // }
+
+  }
+
+  getAllItemDetailsToUI(value :string){
+
+    console.log("Error")
+    this.searchItemDetails = this.selectedItem;
+
+    if(value=="K"){
+      console.log("Error7879")
+      this.searchItemDetails.itemId=parseFloat("0");
+      this.searchItemDetails.quantityOnHand=parseFloat("0");
     }
 
   }

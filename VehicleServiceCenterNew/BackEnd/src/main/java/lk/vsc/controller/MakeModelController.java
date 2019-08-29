@@ -27,7 +27,7 @@ public class MakeModelController {
 
     }
 
-    @GetMapping(value = "/addMakeModel/{modelName}")
+    @GetMapping(value = "/getMakeModel/{modelName}")
     public List<MakeModel> getModelsByMake(@PathVariable String modelName){
         System.out.println("GGGGG"+modelName);
         List<MakeModel>l1= makeModelService.getModelsByMake(modelName);

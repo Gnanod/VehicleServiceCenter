@@ -23,6 +23,18 @@ console.log('hhhhh'+item.makeModelDetails[0].makeModel);
 
     return this.http.get<Item>(environment.backend_url + URL+"/getItemDetailsByName/"+searchItemName);
 
+  }
+
+  // searchItem(searchItem: string, insertItemModel: string, insertselectedMake: string) {
+  //
+  //   return this.http.get<Item>(environment.backend_url + URL+"/getItemDetailsByName/"+searchItemName);
+  //
+  //
+  // }
+
+  getItemDetailsByName(searchStockItemName: string) {
+
+    return this.http.get<Array<Item>>(environment.backend_url + URL+"/getItemDetailsByNameToArray/"+searchStockItemName);
 
   }
 }

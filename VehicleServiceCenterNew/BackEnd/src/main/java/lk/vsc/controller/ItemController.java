@@ -34,4 +34,10 @@ public class ItemController {
         return itemService.getItems(itemName);
     }
 
+    @GetMapping(value = "/getItemDetailsByNameToArray/{itemName}")
+    public List<Item> getItemsToArray(@PathVariable String itemName){
+
+        return itemService.getItemsToArray(itemName);
+    }
+
 }

@@ -22,7 +22,8 @@ export class MakeModelService {
 
   getMakeModelDetails(selectModel: string) {
 
-    return this.http.get<Array<MakeModel>>(environment.backend_url + URL+"/addMakeModel/"+selectModel);
+    console.log("KKKKKKKKKKKKKKKKKKKKKK"+environment.backend_url + URL+"/getMakeModel/"+selectModel);
+    return this.http.get<Array<MakeModel>>(environment.backend_url + URL+"/getMakeModel/"+selectModel);
 
   }
 

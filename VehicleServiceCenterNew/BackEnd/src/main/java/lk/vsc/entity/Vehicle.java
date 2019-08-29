@@ -5,6 +5,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Vehicle {
@@ -21,6 +22,12 @@ public class Vehicle {
     //@OnDelete(action = OnDeleteAction.CASCADE)
     @JoinColumn(nullable = false)
     private Customer customer;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "vehicle")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Set<JobOrder> jobOrder;
+
 
     public int getVehicleId() {
         return vehicleId;
