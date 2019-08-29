@@ -1,12 +1,8 @@
-import {MakeModel} from "./MakeModel";
-import {ModelServiceDetails} from "./ModelServiceDetails";
-
-
 export class Services{
-
-
   serviceId: number;
+  serviceName: string;
+  serviceDesc: string;
+  vehicleClass: string;
   servicePrice: number;
-  modelServiceDetails: Array<ModelServiceDetails>
 
 }

@@ -4,6 +4,7 @@ import {Vehicle} from "../../Model/Vehicle";
 import {CustomerService} from "../../Service/customer.service";
 import {FormControl} from "@angular/forms";
 import {VehicleService} from "../../Service/vehicle.service";
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-vehicle',
@@ -12,6 +13,7 @@ import {VehicleService} from "../../Service/vehicle.service";
 })
 export class VehicleComponent implements OnInit {
 
+  faCoffee = faCoffee;
   cust :Customer = new Customer();
   vehNgModel :Vehicle = new Vehicle();
   addCustomer : Customer = new Customer();

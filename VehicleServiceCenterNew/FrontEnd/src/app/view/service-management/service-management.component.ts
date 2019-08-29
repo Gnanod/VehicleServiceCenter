@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MakeModelService} from "../../Service/make-model.service";
-import {MakeModel} from "../../Model/MakeModel";
-import {MakeModelDetail} from "../../Model/MakeModelDetail";
-import {Item} from "../../Model/Item";
-import {ModelServiceDetails} from "../../Model/ModelServiceDetails";
+import {ServicesService} from "../../Service/services.service";
 import {Services} from "../../Model/Services";
 
 @Component({
@@ -13,65 +9,28 @@ import {Services} from "../../Model/Services";
 })
 export class ServiceManagementComponent implements OnInit {
 
-  constructor(private make_model_service: MakeModelService) {
+  private services : Services = new Services();
+
+
+  constructor(private servicesService: ServicesService) {
   }
 
   ngOnInit() {
   }
 
-  serviceName: string;
-  insertselectedMake: string;
-  insertItemModel: string;
-  searchMakesByModel: Array<MakeModel> = new Array<MakeModel>();
-  servicePrice :number;
+  addService() {
+
+    this.servicesService.addService(this.services).subscribe((result) => {
 
 
-  getMakeModelDetails(value: string) {
-
-
-    this.make_model_service.getMakeModelDetails(value).subscribe((result) => {
-
+      console.log("Nic"+this.services.serviceDesc);
       if (result != null) {
-
-        this.searchMakesByModel = result;
-        //this.addTableModel=null;
-
+        alert("Added Successfully");
       }
-    });
 
+    })
   }
 
-  addToItemsTable() {
-
-    let serviceMakeModel: ModelServiceDetails = new ModelServiceDetails();
 
 
-
-    let makeModel: MakeModel = new MakeModel();
-    makeModel.modelName = this.insertItemModel;
-    makeModel.makeName = this.insertselectedMake;
-
-    let service : Services =new Services();
-   // service.servicePrice = this.servicePrice;
-
-    serviceMakeModel.makeModel = makeModel;
-    serviceMakeModel.services = service;
-
-    //makeModel.makeModelId=2;
-
-    if (this.insertItemModel != null && this.insertselectedMake != null) {
-
-      this.make_model_service.searchMakeModelId(this.insertItemModel, this.insertselectedMake).subscribe((result) => {
-
-        if (result != null) {
-
-
-          makeModel.makeModelId = parseInt(result);
-
-
-        }
-      });
-
-    }
-  }
 }

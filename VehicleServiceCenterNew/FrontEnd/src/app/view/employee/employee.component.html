@@ -5,7 +5,7 @@
                         <div class="card">
                             <div class="card-header card-header-icon card-header-info">
                                 <div class="card-icon">
-                                    <i class="material-icons">perm_identity</i>
+                                  <i class="fas fa-users"></i>
                                 </div>
                                 <h4 class="card-title">Add Employee Details
 
@@ -86,7 +86,7 @@
                     <div class="card">
                         <div class="card-header card-header-info card-header-icon">
                             <div class="card-icon">
-                                <i class="material-icons">search</i>
+                              <i class="fas fa-users"></i>
                             </div>
                             <h4 class="card-title">Search Employee</h4>
                         </div>
@@ -95,12 +95,12 @@
 
                                 <div class="col-md-4" style="margin-left: 450px">
                                     <div class="form-group">
-                                        <label class="bmd-label-floating">Search By Name</label>
+                                        <label class="bmd-label-floating"><i class="fas fa-search"></i>Search By Name</label>
                                         <input type="text" class="form-control" style="width: 600px" (keyup)="searchEmployeeDetailsByNumber($event)" [(ngModel)]="searchEmployeeNumber">
                                     </div>
                                 </div>
                                 <div class="col-md-4" style="margin-left: -300px ;margin-top: 25px">
-                                    <button type="submit" class="btn btn-behance pull-right" >   <i class="material-icons">search</i></button>
+                                    <button type="submit" class="btn btn-behance pull-right" >   <i class="fas fa-search"></i></button>
                                 </div>
 
                             </div>
@@ -156,7 +156,7 @@
 
                                       <td class="td-actions ">
                                         <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteEmployee()">
-                                          <i class="material-icons">close</i>
+
                                         </button>
                                       </td>
                                     </tr>
@@ -177,7 +177,7 @@
                     <div class="card">
                         <div class="card-header card-header-icon card-header-info">
                             <div class="card-icon">
-                                <i class="material-icons">perm_identity</i>
+                              <i class="fas fa-users"></i>
                             </div>
                             <h4 class="card-title">Update Employee Details
 

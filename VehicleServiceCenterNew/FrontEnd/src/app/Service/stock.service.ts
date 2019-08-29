@@ -16,9 +16,6 @@ export class StockService {
   constructor(private http: HttpClient) { }
 
   addStock(stock: Stock) {
-
-
-
     return this.http.post<string>(environment.backend_url + URL + '/addStock',stock);
 
   }

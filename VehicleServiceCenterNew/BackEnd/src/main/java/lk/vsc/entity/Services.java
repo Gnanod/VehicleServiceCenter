@@ -1,23 +1,29 @@
 package lk.vsc.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Services {
 
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int serviceId;
+    String serviceDesc;
+    String serviceName;
+    String vehicleClass;
     double servicePrice;
 
-    @OneToMany( mappedBy = "makeModel")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Set<ModelServiceDetails> modelServiceDetails;
+    public String getVehilceClass() {
+        return vehicleClass;
+    }
+
+    public void setVehilceClass(String vehicleClass) {
+        this.vehicleClass = vehicleClass;
+    }
 
     public int getServiceId() {
         return serviceId;
@@ -35,11 +41,20 @@ public class Services {
         this.servicePrice = servicePrice;
     }
 
-    public Set<ModelServiceDetails> getModelServiceDetails() {
-        return modelServiceDetails;
+    public String getServiceDesc() {
+        return serviceDesc;
     }
 
-    public void setModelServiceDetails(Set<ModelServiceDetails> modelServiceDetails) {
-        this.modelServiceDetails = modelServiceDetails;
+
+    public void setServiceDesc(String serviceDesc) {
+        this.serviceDesc = serviceDesc;
+    }
+
+    public String getServiceName() {
+        return serviceName;
+    }
+
+    public void setServiceName(String serviceName) {
+        this.serviceName = serviceName;
     }
 }

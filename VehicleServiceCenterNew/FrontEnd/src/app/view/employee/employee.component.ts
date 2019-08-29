@@ -23,7 +23,6 @@ export class EmployeeComponent implements OnInit {
   searchEmployeeNumber : number;
 
   UpdateEmployeeDetails(){
-
     this.employeeService.UpdateEmployeeDetails(this.searchEmployeeDetails).subscribe((result)=>{
 
       if(result!=null){

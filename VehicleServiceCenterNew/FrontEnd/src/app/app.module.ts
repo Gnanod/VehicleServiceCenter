@@ -20,6 +20,8 @@ import { StockDetailsComponent } from './view/stock-details/stock-details.compon
 import {DatePipe} from "@angular/common";
 import { JoborderComponent } from './view/joborder/joborder.component';
 import { ServiceManagementComponent } from './view/service-management/service-management.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
 
 
 @NgModule({
@@ -40,7 +42,7 @@ import { ServiceManagementComponent } from './view/service-management/service-ma
     BrowserModule,
     AppRoutingModule, HttpClientModule, FormsModule,NgbModule,NgbPaginationModule, NgbAlertModule,ReactiveFormsModule,
       BrowserAnimationsModule,MatButtonModule,MatSelectModule,  MatFormFieldModule,
-      MatInputModule
+      MatInputModule,FontAwesomeModule
   ],
   providers: [
     DatePipe

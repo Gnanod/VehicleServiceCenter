@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Employee} from "../Model/Employee";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
-import {Customer} from "../Model/Customer";
+
 
 const URL = '/EmployeeController';
 

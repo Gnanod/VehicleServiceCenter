@@ -13,19 +13,20 @@
             <ul class="nav">
                 <li class="nav-item" [ngClass]="{'active': headerText=='Dashboard'}" (click)="changeRoute(dashboard.innerHTML)">
                     <a class="nav-link">
-                        <i class="material-icons">dashboard</i>
-                        <p #dashboard>Dashboard</p>
+                      <i class="fas fa-home"></i>
+
+                      <p #dashboard>Dashboard</p>
                     </a>
                 </li>
                 <li class="nav-item" [ngClass]="{'active': headerText=='Employees'}" (click)="changeRoute(employee.innerHTML)">
                     <a class="nav-link">
-                        <i class="material-icons">perm_identity</i>
+                      <i class="fas fa-users"></i>
                         <p #employee>Employees</p>
                     </a>
                 </li>
                 <li class="nav-item ">
                     <a class="nav-link" data-toggle="collapse" href="#formsExamples">
-                        <i class="material-icons">content_paste</i>
+                      <i class="fas fa-car"></i>
                         <p> Customer Vehicle Details
                             <b class="caret"></b>
                         </p>
@@ -53,27 +54,28 @@
                 
                 <li class="nav-item" [ngClass]="{'active': headerText=='Supplier'}" (click)="changeRoute(supplier.innerHTML)">
                     <a class="nav-link">
-                        <i class="material-icons">perm_identity</i>
+                      <i class="fas fa-truck-moving"></i>
                         <p #supplier>Supplier</p>
                     </a>
                 </li>
 
               <li class="nav-item" [ngClass]="{'active': headerText=='Stock Management'}" (click)="changeRoute(StockManagement.innerHTML)">
                 <a class="nav-link">
-                  <i class="material-icons">perm_identity</i>
+                  <i class="fas fa-box-open"></i>
                   <p #StockManagement>Stock Management</p>
                 </a>
               </li>
 
               <li class="nav-item" [ngClass]="{'active': headerText=='Service Management'}" (click)="changeRoute(ServiceManagement.innerHTML)">
                 <a class="nav-link">
-                  <i class="material-icons">perm_identity</i>
+                  <i class="fas fa-shower"></i>
                   <p #ServiceManagement>Service Management</p>
                 </a>
               </li>
                 <li class="nav-item ">
                     <a class="nav-link" href="job">
-                        <i class="material-icons">widgets</i>
+                      <i class="fas fa-receipt"></i>
+
                         <p> JobOrder </p>
                     </a>
                 </li>
@@ -82,7 +84,7 @@
 
 
                     <a class="nav-link" href="#formsExamples1" data-toggle="collapse">
-                        <i class="material-icons">widgets</i>
+                      <i class="fas fa-clipboard-list"></i>
                         <p> Report
                           <b class="caret"></b>
                         </p>
