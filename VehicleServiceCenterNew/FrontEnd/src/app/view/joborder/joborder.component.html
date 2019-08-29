@@ -160,72 +160,137 @@
                       <div class="card">
                         <div class="card-body">
                           <div class="row">
+
+                            <div class="col-md-2">
+                              <!--<div class="form-group">-->
+                                <!--<label >Select Make jjjjjj</label>-->
+                                <!--<br>-->
+                                <!--<select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">-->
+
+                                  <!--<option value="Any">Any</option>-->
+                                  <!--<option >Abarth</option>-->
+                                  <!--<option>Acura</option>-->
+                                  <!--<option>Alfa Romeo</option>-->
+                                  <!--<option>Ambassador</option>-->
+                                  <!--<option>Aprilia</option>-->
+                                  <!--<option>Audi</option>-->
+                                  <!--<option>Austin</option>-->
+                                  <!--<option>Bajaj</option>-->
+                                  <!--<option>BMW</option>-->
+                                  <!--<option>Cadillac</option>-->
+                                  <!--<option>Caterpillar</option>-->
+                                  <!--<option>Nissan</option>-->
+                                  <!--<option>Suzuki</option>-->
+                                  <!--<option>Toyota</option>-->
+                                  <!--<option>Honda</option>-->
+                                  <!--<option>530i</option>-->
+
+
+                                <!--</select>-->
+                              <!--</div>-->
+
+                              <div class="form-group">
+                                <label >Select Makelllll</label>
+                                <br>
+                                <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">
+
+                                  <option value="Any">Any</option>
+                                  <option >Abarth</option>
+                                  <option>Acura</option>
+                                  <option>Alfa Romeo</option>
+                                  <option>Ambassador</option>
+                                  <option>Aprilia</option>
+                                  <option>Audi</option>
+                                  <option>Austin</option>
+                                  <option>Bajaj</option>
+                                  <option>BMW</option>
+                                  <option>Cadillac</option>
+                                  <option>Caterpillar</option>
+                                  <option>Nissan</option>
+                                  <option>Suzuki</option>
+                                  <option>Toyota</option>
+                                  <option>Honda</option>
+                                  <option>530i</option>
+
+
+                                </select>
+                              </div>
+                            </div>
+                            <!--<div class="row">-->
+                              <div class="col-md-2">
+                                <div class="form-group">
+                                  <label >Select Model</label>
+                                  <select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel">
+                                    <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>
+                                  </select>
+                                </div>
+
+                              </div>
+                            <!--</div>-->
+                            <!--<div class="col-md-2">-->
+                              <!--<div class="form-group">-->
+                                <!--<label >Select Model</label>-->
+                                <!--<select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel">-->
+                                  <!--<option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>-->
+                                <!--</select>-->
+                              <!--</div>-->
+                            <!--</div>-->
+
+                            <br>
+                            <br>
                             <div class="col-md-3">
-                              <form class="form-inline ml-auto">
-                                <div class="form-group bmd-form-group">
-                                  <input type="text" class="form-control" placeholder="Search Job">
+                                <div class="form-group">
+                                  <label> Search Item</label>
+                                  <br>
+                                  <input type="text" class="form-control" placeholder="Search Item"  [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem" (keyup)="searchItemDetailsByName($event)">
                                 </div>
                                 <button type="submit" class="btn btn-raised btn-fab btn-round">
                                   <i class="fas fa-search"></i>
                                 </button>
                               </form>
                             </div>
+
                             <div class="col-md-2">
-                              <div class="dropdown">
-                                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                  Make <!-- Current make data-->
-                                  <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Action</a></li>
-                                  <li><a href="#">Another action</a></li>
-                                  <li><a href="#">Something else here</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#">Separated link</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#">One more separated link</a></li>
-                                </ul>
-                              </div>
+
+                              <div class="form-group">
+                                <label >Select Item</label>                                                                             <!--<div class="dropdown">-->
+                                <select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemName" #mySelect1 (change)="getUnitPrice(mySelect1.value)">          <!--<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">-->
+                                  <option *ngFor="let make of searchItemDetails" [value]="make.itemName">{{make.itemName}}</option>       <!--Item/Job &lt;!&ndash; Current make data&ndash;&gt;-->
+                                </select>                                                                                                    <!--<b class="caret"></b>-->
+                              </div>                                                                                                       <!--</a>-->
+
                             </div>
-                            <div class="col-md-2">
-                              <div class="dropdown">
-                                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                  Model <!-- Current make data-->
-                                  <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Action</a></li>
-                                  <li><a href="#">Another action</a></li>
-                                  <li><a href="#">Something else here</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#">Separated link</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#">One more separated link</a></li>
-                                </ul>
+
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Unit Price</label>
+                                <br>
+                                <input type="text" class="form-control" placeholder="Unit Price"  [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice" >
                               </div>
                             </div>
 
-                            <div class="col-md-2">
-                              <div class="dropdown">
-                                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                  Item/Job <!-- Current make data-->
-                                  <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Action</a></li>
-                                  <li><a href="#">Another action</a></li>
-                                  <li><a href="#">Something else here</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#">Separated link</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#">One more separated link</a></li>
-                                </ul>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Item Id</label>
+                                <br>
+                                <input type="text" class="form-control" placeholder="Item Id"  [ngModelOptions]="{standalone: true}" [(ngModel)]="itemId" >
                               </div>
                             </div>
+
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Quantity</label>
+                                <br>
+                                <input type="text" class="form-control" placeholder="Quantity"  [ngModelOptions]="{standalone: true}" [(ngModel)]="quantity" >
+                              </div>
+                            </div>
+                            `
 
                             <div class="col-md-2">
                               <button  class="btn btn-success"
                                        rel="tooltip" type="button"><i class="fas fa-plus"></i>
+                              <button  class="btn btn-success" rel="tooltip" type="button" (click)="addItemToTable()"><i
+                                class="material-icons">add</i>
                               </button>
                             </div>
 
@@ -248,91 +313,39 @@
                               <table  class="table">
                                 <thead >
                                 <tr >
-                                  <th  class="text-center">#</th>
-                                  <th > Description </th>
+                                  <th >Item Description </th>
                                   <th >Make</th>
                                   <th >Model</th>
-                                  <th >Item</th>
+                                  <th> Quantity</th>
                                   <th >Price</th>
                                   <th ></th>
                                 </tr>
                                 </thead>
                                 <tbody >
-                                <tr >
-                                  <td  class="text-center">1</td>
-                                  <td >Front Carpet</td>
-                                  <td >
-                                    <div class="dropdown">
-                                      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                        For Audi <!-- Current make data-->
-                                        <b class="caret"></b>
-                                      </a>
-                                      <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">One more separated link</a></li>
-                                      </ul>
-                                    </div>                  </td>
+                                <tr *ngFor="let items of jobOrderItemDetailsArray async" >
+                                  <td>
+                                    {{items.item.itemName}}
+                                  </td>
+                                  <td>
+                                    {{items.make}}
+                                  </td>
+                                  <td>
+                                    {{items.model}}
+                                  </td>
+                                  <td>
+                                    {{items.qty}}
+                                  </td>
+                                  <td>
+                                    {{items.price}}
+                                  </td>
 
-                                  <td >
-                                    <div class="dropdown">
-                                      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                        A3 <!-- Current model data-->
-                                        <b class="caret"></b>
-                                      </a>
-                                      <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">One more separated link</a></li>
-                                      </ul>
-                                    </div></td>
-                                  <td >
-                                    <div class="dropdown">
-                                      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                        AudiA3FRC32<!-- Current item data-->
-                                        <b class="caret"></b>
-                                      </a>
-                                      <ul class="dropdown-menu">
-                                        <li><a href="#">Action</a></li>
-                                        <li><a href="#">Another action</a></li>
-                                        <li><a href="#">Something else here</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">One more separated link</a></li>
-                                      </ul>
-                                    </div></td>
-
-                                  <td >Rs. 29500</td>
-                                  <td  class="td-actions ">
-                                    <button  class="btn btn-danger"
-                                             rel="tooltip" type="button"><i
-                                      class="material-icons">close</i>
+                                  <td class="td-actions ">
+                                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(items.item.itemId)">
+                                      <i class="material-icons">close</i>
                                     </button>
                                   </td>
                                 </tr>
-                                <tr >
-                                  <td  class="text-center">1</td>
-                                  <td >Rim Cups</td>
-                                  <td >For Audi</td>
-                                  <td >A4</td>
-                                  <td >Falken 2232</td>
-                                  <td >Rs. 29500</td>
-                                  <td  class="td-actions ">
-                                    <button  class="btn btn-danger"
-                                             rel="tooltip" type="button"><i
-                                      class="material-icons">close</i>
-                                    </button>
-                                  </td>
-                                </tr>
+
                                 </tbody>
                               </table>
                             </div>
@@ -341,12 +354,32 @@
                       </div>
 
                     </div>
+
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-1"></div>
+
+
+                      <div class="col-sm-2">
+                        <div class="form-group">
+                          <label>Amount</label>
+                          <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="totAmount">
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="link2">
               <!-- lube job starts here-->
+
+
+
+
+
+              <!--&lt;!&ndash;/////////////////////////////&ndash;&gt; Lube Job-->
               <div class="col-md-12">
                 <div  class="card">
                   <div  class="card-header card-header-success card-header-icon ">
@@ -368,33 +401,68 @@
                                   <i class="fas fa-search"></i>
                                 </button>
                               </form>
+                              <div class="form-group">
+                                <label >Select Make</label>
+                                <br>
+                                <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake1" #mySelect (change)="getMakeModelDetails1(mySelect.value)">
+
+                                  <option value="Any">Any</option>
+                                  <option >Abarth</option>
+                                  <option>Acura</option>
+                                  <option>Alfa Romeo</option>
+                                  <option>Ambassador</option>
+                                  <option>Aprilia</option>
+                                  <option>Audi</option>
+                                  <option>Austin</option>
+                                  <option>Bajaj</option>
+                                  <option>BMW</option>
+                                  <option>Cadillac</option>
+                                  <option>Caterpillar</option>
+                                  <option>Nissan</option>
+                                  <option>Suzuki</option>
+                                  <option>Toyota</option>
+                                  <option>Honda</option>
+                                  <option>530i</option>
+
+
+                                </select>
+                              </div>
                             </div>
                             <div class="col-md-2">
                               <div class="form-group">
-                                <label >Lube</label>
+                                <label >Select Model</label>
+                                <select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel1">
+                                  <option *ngFor="let make of searchMakesByModel1" [value]="make.modelName">{{make.modelName}}</option>
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label> Search Item</label>
                                 <br>
-                                <input type="text" id="lubeadded" class="form-control" name="engineNumber" >
+                                <input type="text" class="form-control" placeholder="Search Item"  [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem1" (keyup)="searchItemDetailsByName1($event)">
                               </div>
                             </div>
+
                             <div class="col-md-2">
-                              <div class="dropdown">
-                                <a href="#3" class="btn dropdown-toggle" data-toggle="dropdown">
-                                  Item <!-- Item description-->
-                                  <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#3">Action</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#3">Separated link</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#3">One more separated link</a></li>
-                                </ul>
-                              </div>
+
+                              <div class="form-group">
+                                <label >Select Item</label>                                                                             <!--<div class="dropdown">-->
+                                <select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemName1" #mySelect1 (change)="getUnitPrice1(mySelect1.value)">          <!--<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">-->
+                                  <option *ngFor="let make of searchItemDetails1" [value]="make.itemName">{{make.itemName}}</option>       <!--Item/Job &lt;!&ndash; Current make data&ndash;&gt;-->
+                                </select>                                                                                                    <!--<b class="caret"></b>-->
+                              </div>                                                                                                       <!--</a>-->
+
                             </div>
+
+
+
+
                             <div class="col-md-2">
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1"> Change
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="Change" [(ngModel)]="type" checked> Change
                                   <span class="circle">
                                                         <span class="check"></span>
                                                       </span>
@@ -402,35 +470,36 @@
                               </div>
                               <div class="form-check">
                                 <label class="form-check-label">
-                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"> Top-Up
+                                  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Top Up" [(ngModel)]="type" > Top-Up
                                   <span class="circle">
                                                         <span class="check"></span>
                                                       </span>
                                 </label>
                               </div>
+
                             </div>
 
-                            <div class="col-md-2">
-                              <div class="dropdown">
-                                <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                  Item/Job <!-- Current make data-->
-                                  <b class="caret"></b>
-                                </a>
-                                <ul class="dropdown-menu">
-                                  <li><a href="#">Action</a></li>
-                                  <li><a href="#">Another action</a></li>
-                                  <li><a href="#">Something else here</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#">Separated link</a></li>
-                                  <li class="divider"></li>
-                                  <li><a href="#">One more separated link</a></li>
-                                </ul>
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Quantity</label>
+                                <br>
+                                <input type="text" class="form-control" placeholder="Quantity"  [ngModelOptions]="{standalone: true}" [(ngModel)]="quantity1" >
                               </div>
                             </div>
 
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Unit Price</label>
+                                <br>
+                                <input type="text" class="form-control" placeholder="Unit Price"  [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice1" >
+                              </div>
+                            </div>
+
+
+
+
                             <div class="col-md-2">
-                              <button  class="btn btn-success"
-                                       rel="tooltip" type="button"><i
+                              <button  class="btn btn-success" rel="tooltip" type="button" (click)="addToItemsTable1()"><i
                                 class="material-icons">add</i>
                               </button>
                             </div>
@@ -454,82 +523,40 @@
                               <table  class="table">
                                 <thead >
                                 <tr >
-                                  <th  class="text-center">#</th>
-                                  <th > Lube category </th>
-                                  <th >Item Used</th>
-                                  <th >Change/Top-Up</th>
-                                  <th >Quantity</th>
+                                  <th >Item Description </th>
+                                  <th >Make</th>
+                                  <th>Change-Top-Up</th>
+                                  <th >Model</th>
+                                  <th> Quantity</th>
                                   <th >Price</th>
                                   <th ></th>
                                 </tr>
                                 </thead>
                                 <tbody >
-                                <tr >
-                                  <td  class="text-center">1</td>
-                                  <td >Engine Oil</td>
-                                  <td >
-                                    <div class="dropdown">
-                                      <a href="#" class="btn dropdown-toggle" data-toggle="dropdown">
-                                        Caltex0012 <!-- Current make data-->
-                                        <b class="caret"></b>
-                                      </a>
-                                      <ul class="dropdown-menu">
-                                        <li><a href="#">Valvoline0231</a></li>
-                                        <li><a href="#">Mobil322</a></li>
-                                        <li><a href="#">ValvolineEng23</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">Separated link</a></li>
-                                        <li class="divider"></li>
-                                        <li><a href="#">One more separated link</a></li>
-                                      </ul>
-                                    </div>                  </td>
 
-                                  <td >
-                                    <div class="form-check">
-                                      <label class="form-check-label">
-                                        <input class="form-check-input" type="radio"
-                                               name="exampleRadios" id="change1"
-                                               value="option1"> Change
-                                        <span class="circle">
-                                                                <span class="check"></span>
-                                                              </span>
-                                      </label>
-                                    </div>
-                                    <div class="form-check">
-                                      <label class="form-check-label">
-                                        <input class="form-check-input" type="radio"
-                                               name="exampleRadios" id="topup1"
-                                               value="option2"> Top-Up
-                                        <span class="circle">
-                                                                <span class="check"></span>
-                                                              </span>
-                                      </label>
-                                    </div></td>
+                                <tr *ngFor="let items of lubejobOrderItemDetailsArray1 async" >
                                   <td>
-                                    <div class="form-group">
-                                      <input type="text" id="lubeQuantity" class="form-text" name="engineNumber" >
-                                    </div>
+                                    {{items.item.itemName}}
+                                  </td>
+                                  <td>
+                                    {{items.make}}
+                                  </td>
+                                  <td>
+                                    {{items.lubeJobType}}
+                                  </td>
+                                  <td>
+                                    {{items.model}}
+                                  </td>
+                                  <td>
+                                    {{items.qty}}
+                                  </td>
+                                  <td>
+                                    {{items.price}}
                                   </td>
 
-                                  <td >Rs. 2400</td>
-                                  <td  class="td-actions ">
-                                    <button  class="btn btn-danger"
-                                             rel="tooltip" type="button"><i
-                                      class="material-icons">close</i>
-                                    </button>
-                                  </td>
-                                </tr>
-                                <tr >
-                                  <td  class="text-center">1</td>
-                                  <td >Rim Cups</td>
-                                  <td >For Audi</td>
-                                  <td >A4</td>
-                                  <td >Falken 2232</td>
-                                  <td >Rs. 29500</td>
-                                  <td  class="td-actions ">
-                                    <button  class="btn btn-danger"
-                                             rel="tooltip" type="button"><i
-                                      class="material-icons">close</i>
+                                  <td class="td-actions ">
+                                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(items.item.itemId)">
+                                      <i class="material-icons">close</i>
                                     </button>
                                   </td>
                                 </tr>
@@ -539,13 +566,51 @@
                           </div>
                         </div>
                       </div>
+
+
                     </div>
+
+
                   </div>
                 </div>
               </div>
             </div>
             <div class="tab-pane" id="link3">
 
+<<<<<<< HEAD
+=======
+            </div>
+          </div>
+
+          <!--<div class="row">-->
+            <!--<div class="col-sm-4"></div>-->
+            <!--<div class="col-sm-4"></div>-->
+            <!--<div class="col-sm-1"></div>-->
+
+
+            <!--<div class="col-sm-2">-->
+              <!--<div class="form-group">-->
+                <!--<label>Amount</label>-->
+                <!--<input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="totAmount1">-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-1"></div>
+
+            <div class="col-sm-3">
+            <button type="submit" class="btn btn-behance pull-right" (click)="addJobOrderToDatabase()">Save Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+>>>>>>> 140bdd5919d8c476de88bd97466f9427072b9a5f
 
 
             </div>

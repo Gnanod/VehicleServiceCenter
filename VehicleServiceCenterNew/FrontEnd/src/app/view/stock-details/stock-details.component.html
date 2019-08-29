@@ -21,7 +21,7 @@
               <label >Select Supplier Company</label>
               <br>
 
-              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedSupplierCompany"#mySelect1 (change)="getSuppliersNames(mySelect1.value)" >
+              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedSupplierCompany" #mySelect1 (change)="getSuppliersNames(mySelect1.value)" >
                 <option  *ngFor="let sup of suppliers  ">{{sup.companyName}}</option>
 
               </select>
@@ -33,7 +33,7 @@
             <div class="form-group">
               <label >Select Supplier Name</label>
               <br>
-              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedsupplierName" >
+              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedsupplierName" #mySelect2 (change)="getSuppliersNames(mySelect1.value)">
 
                 <option  *ngFor="let names of suppliersNames  ">{{names.companyName}}</option>
 
@@ -54,42 +54,82 @@
 
           <!--</div>-->
           <!--</div>-->
+          <!--<div class="col-sm-3">-->
+            <!--<div class="form-group">-->
+              <!--<label>Item Name</label>-->
+              <!--<input type="text" class="form-control" name="itemName"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemName" (keyup)="searchItemDetailsByName($event)" >-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-3">-->
+            <!--<div class="form-group">-->
+              <!--<label> Search Item</label>-->
+              <!--<br>-->
+              <!--<input type="text" class="form-control" placeholder="Search Item"  [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem1" (keyup)="searchItemDetailsByName1($event)">-->
+            <!--</div>-->
+          <!--</div>-->
           <div class="col-sm-3">
             <div class="form-group">
-              <label>Item Name</label>
-              <input type="text" class="form-control" name="itemName"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemName" (keyup)="searchItemDetailsByName($event)" >
+              <br>
+              <br>
+              <label style="margin-top: 10px">Search Item</label>
+              <input type="text" class="form-control" name="Search Item" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchStockItemName" (keyup)="searchItemDetailsByName($event)" style="margin-top: -12px">
             </div>
           </div>
 
-          <div class="col-sm-3">
+          <div class="col-md-3">
             <div class="form-group">
+              <label >Select Item Name</label>
+
+              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedItem" #mySelect2 (change)="getAllItemDetailsToUI(mySelect2.value)">
+
+                <option  *ngFor="let itemsS of searchItemDetailsArray  " [ngValue]="itemsS">{{itemsS.itemName}}</option>
+
+              </select >
+
+            </div>
+
+          </div>
+          <!--<div class="col-md-2">-->
+
+            <!--<div class="form-group">-->
+              <!--<label >Select Item</label>                                                                             &lt;!&ndash;<div class="dropdown">&ndash;&gt;-->
+              <!--<select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemName1" #mySelect1 (change)="getUnitPrice1(mySelect1.value)">          &lt;!&ndash;<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">&ndash;&gt;-->
+                <!--<option *ngFor="let make of searchItemDetails1" [value]="make.itemName">{{make.itemName}}</option>       &lt;!&ndash;Item/Job &lt;!&ndash; Current make data&ndash;&gt;&ndash;&gt;-->
+              <!--</select>                                                                                                    &lt;!&ndash;<b class="caret"></b>&ndash;&gt;-->
+            <!--</div>                                                                                                       &lt;!&ndash;</a>&ndash;&gt;-->
+
+          <!--</div>-->
+
+
+          <div class="col-sm-3">
+            <br>
+            <div class="form-group" style="margin-top: -12px">
+              <br>
+
               <label>Buying Price</label>
-              <input type="number" class="form-control" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchBuyingPrice">
+              <input type="number" class="form-control" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchBuyingPrice" style="margin-top: 4px">
             </div>
           </div>
           <div class="col-sm-3">
-            <div class="form-group">
+            <br>
+            <div class="form-group" style="margin-top: -12px">
+
+              <br>
               <label>Item Id</label>
-              <input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemDetails.itemId">
+              <input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemDetails.itemId" style="margin-top: 4px">
+              <!--<input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedItem.itemId" style="margin-top: 4px">-->
+
             </div>
           </div>
-          <!--<div class="col-sm-2">-->
-          <!--<div class="form-group">-->
-          <!--<label>WholeSalePrice</label>-->
-          <!--&lt;!&ndash;<input type="text" class="form-control" name="wholeSalePrice" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchWholeSalePrice">&ndash;&gt;-->
-          <!--</div>-->
-          <!--</div>-->
-
-
-
-
 
         </div>
         <div class="row">
           <div class="col-sm-3">
             <div class="form-group">
               <label>Retail Price</label>
+              <!--<input type="number" class="form-control" name="retailPrice"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchRetailPrice">-->
               <input type="number" class="form-control" name="retailPrice"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchRetailPrice">
+
             </div>
           </div>
           <div class="col-sm-3">

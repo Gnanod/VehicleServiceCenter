@@ -5,6 +5,8 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -25,8 +27,13 @@ public class Item {
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "item")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    @JsonIgnore
+  //  @JsonIgnore
     private Set<StockItemDetails> stockItemDetails;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "item")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    //@JsonIgnore
+    private List<JobOrderItemDetails> jobOrderItemDetails;
 
     public int getItemId() {
         return itemId;
@@ -82,9 +89,14 @@ public class Item {
     }
 
     public void setStockItemDetails(Set<StockItemDetails> stockItemDetails) {
-
-
-
         this.stockItemDetails = stockItemDetails;
+    }
+
+    public List<JobOrderItemDetails> getJobOrderItemDetails() {
+        return jobOrderItemDetails;
+    }
+
+    public void setJobOrderItemDetails(List<JobOrderItemDetails> jobOrderItemDetails) {
+        this.jobOrderItemDetails = jobOrderItemDetails;
     }
 }

@@ -1,5 +1,6 @@
 package lk.vsc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -15,7 +16,9 @@ public class Stock {
     private String date;
     private double payment;
     @ManyToOne
+    @JsonIgnore
     private Supplier supplier;
+
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "stock")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<StockItemDetails> stockItemDetails;
