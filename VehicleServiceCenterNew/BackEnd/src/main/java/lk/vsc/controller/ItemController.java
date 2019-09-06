@@ -23,6 +23,7 @@ public class ItemController {
     @PostMapping(value = "/addItemDB")
     public Item addItem(@RequestBody Item item){
 
+        System.out.println("GGG"+item.getStockLevel());
         Set<MakeModelDetails> l1 = item.getMakeModelDetails();
 
         return  itemService.addItem(item);
@@ -31,11 +32,16 @@ public class ItemController {
 
     @GetMapping(value = "/getItemDetailsByName/{itemName}")
     public Item getItems(@PathVariable String itemName){
+
+        Item i = itemService.getItems(itemName);
+        System.out.println("JJJJJJJJJ"+i.getStockLevel());
         return itemService.getItems(itemName);
     }
 
     @GetMapping(value = "/getItemDetailsByNameToArray/{itemName}")
     public List<Item> getItemsToArray(@PathVariable String itemName){
+
+        List<Item> i = itemService.getItemsToArray(itemName);
 
         return itemService.getItemsToArray(itemName);
     }

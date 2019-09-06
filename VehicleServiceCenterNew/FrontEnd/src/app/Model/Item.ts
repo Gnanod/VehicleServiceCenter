@@ -10,7 +10,7 @@ export class Item{
   quantityOfPrice:number;
   makeModelDetails:Array<MakeModelDetail>;
   stockItemDetails:Array<StockItemDetail>;
-
+  stockLevel :number;
 
 
 }

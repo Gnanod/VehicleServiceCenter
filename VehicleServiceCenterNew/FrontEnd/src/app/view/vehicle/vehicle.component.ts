@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {Customer} from "../../Model/Customer";
 import {Vehicle} from "../../Model/Vehicle";
 import {CustomerService} from "../../Service/customer.service";
-import {FormControl} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {VehicleService} from "../../Service/vehicle.service";
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+import {MakeModel} from "../../Model/MakeModel";
+import {MakeModelService} from "../../Service/make-model.service";
 
 @Component({
   selector: 'app-vehicle',
@@ -25,7 +27,30 @@ export class VehicleComponent implements OnInit {
   searchCustomerDetails : Customer = new Customer();
   nic :string;
 
-  constructor(private customerService :CustomerService,private vehicleService :VehicleService) {
+  form1 = new FormGroup({
+
+    fName:new FormControl('',Validators.required),
+    lName:new FormControl('',Validators.required),
+    email:new FormControl('',[Validators.required,Validators.email]),
+    nic: new FormControl('', Validators.required),
+    address:new FormControl('',Validators.required),
+    birthday:new FormControl('',Validators.required),
+     phoneNumber:new FormControl('',[Validators.required,Validators.maxLength(10)]),
+
+  });
+
+  form = new FormGroup({
+    nic1: new FormControl('', Validators.required),
+    vehicleNumber: new FormControl('', Validators.required),
+    engineNumber: new FormControl('', Validators.required),
+    vehicleClass: new FormControl('', Validators.required),
+    vehicleMake: new FormControl('', Validators.required),
+    vehicleModel: new FormControl('', Validators.required),
+    yearOfManufacture: new FormControl('', Validators.required),
+  })
+
+
+  constructor(private customerService :CustomerService,private vehicleService :VehicleService,private make_model_service :MakeModelService) {
       this.selectVehicleClass.setValue('A');
   }
 
@@ -40,6 +65,8 @@ export class VehicleComponent implements OnInit {
         if(result!=null){
           
           alert('Customer Added SuccessFully');
+          this.addCustomer = new Customer();
+          this.form1.reset();
           
         }
       });
@@ -54,10 +81,14 @@ export class VehicleComponent implements OnInit {
     
     this.vehNgModel.customer=customer;
     this.vehNgModel.yearOfManufacture=this.stringDateModel.toString();
-    
+
+    this.vehNgModel.vehicleMake=this.insertselectedMake;
+
     this.vehicleService.addVehicle(this.vehNgModel).subscribe((result)=>{
         if(result!=null){
            alert('Vehicle Added SuccessFully');
+           this.vehNgModel = new Vehicle();
+           this.form.reset();
         }
     })
     
@@ -99,6 +130,27 @@ export class VehicleComponent implements OnInit {
         });
     }
     
-    
+
+
+    /////////////////////////////Select Model according to the Make  ///////////////////
+
+  insertItemModel:string;
+  searchMakesByModel :Array<MakeModel>= new Array<MakeModel>();
+  insertselectedMake:string;
+
+  getMakeModelDetails(value :string){
+
+
+    this.make_model_service.getMakeModelDetails(value).subscribe((result)=>{
+
+      if(result!=null){
+
+        this.searchMakesByModel=result;
+        //this.addTableModel=null;
+
+      }
+    });
+
+  }
 
 }

@@ -248,16 +248,14 @@
                             <br>
                             <div class="col-md-3">
                               <div class="form-group">
-                                <label> Search Item</label>
+                                <label style="margin-top: 15px"> Search Item</label>
                                 <br>
                                 <input type="text" class="form-control" placeholder="Search Item"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem"
-                                       (keyup)="searchItemDetailsByName($event)">
+                                       (keyup)="searchItemDetailsByName($event)" style="margin-top: 9px">
                               </div>
-                              <button type="submit" class="btn btn-raised btn-fab btn-round">
-                                <i class="fas fa-search"></i>
-                              </button>
-                              
+
+
                             </div>
 
                             <div class="col-md-2">
@@ -278,10 +276,10 @@
 
                             <div class="col-md-3">
                               <div class="form-group">
-                                <label>Unit Price</label>
+                                <label style="margin-top: 15px">Unit Price</label>
                                 <br>
                                 <input type="text" class="form-control" placeholder="Unit Price"
-                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice">
+                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice" style="margin-top: 9px" disabled>
                               </div>
                             </div>
 
@@ -290,7 +288,7 @@
                                 <label>Item Id</label>
                                 <br>
                                 <input type="text" class="form-control" placeholder="Item Id"
-                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="itemId">
+                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="itemId" disabled>
                               </div>
                             </div>
 
@@ -302,13 +300,18 @@
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="quantity">
                               </div>
                             </div>
-                            `
+                            <div class="col-md-3">
+                              <div class="form-group">
+                                <label>Quantity On Hand</label>
+                                <br>
+                                <input type="text" class="form-control" placeholder="Quantity"
+                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="qunatityOnHand">
+                              </div>
+                            </div>
 
                             <div class="col-md-2">
-                              <button class="btn btn-success" rel="tooltip" type="button"><i class="fas fa-plus"></i>
-                              </button>
-                              <button class="btn btn-success" rel="tooltip" type="button" (click)="addItemToTable()"><i
-                                class="material-icons">add</i>
+                              <button class="btn btn-success" rel="tooltip" type="button" (click)="addItemToTable()">
+                                Add Detailing Jobs
                               </button>
                             </div>
 
@@ -380,16 +383,26 @@
                       <div class="col-sm-1"></div>
 
 
-                      <div class="col-sm-2">
-                        <div class="form-group">
-                          <label>Amount</label>
-                          <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
-                                 [(ngModel)]="totAmount">
-                        </div>
-                      </div>
+
                     </div>
                   </div>
                 </div>
+
+                <div class="row">
+
+                  <div class="col-sm-10">
+
+                  </div>
+                  <div class="col-sm-2">
+                    <div class="form-group">
+                      <label>Amount</label>
+                      <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                             [(ngModel)]="totAmount">
+                    </div>
+                  </div>
+
+                </div>
+
               </div>
             </div>
             <div class="tab-pane" id="link2">
@@ -410,14 +423,7 @@
                         <div class="card-body">
                           <div class="row">
                             <div class="col-md-2">
-                              <form class="form-inline ml-auto">
-                                <div class="form-group bmd-form-group">
-                                  <input type="text" class="form-control" placeholder="Search Lube Type">
-                                </div>
-                                <button type="submit" class="btn btn-raised btn-fab btn-round">
-                                  <i class="fas fa-search"></i>
-                                </button>
-                              </form>
+
                               <div class="form-group">
                                 <label>Select Make</label>
                                 <br>
@@ -460,12 +466,13 @@
                             </div>
 
                             <div class="col-md-3">
+
                               <div class="form-group">
-                                <label> Search Item</label>
+                                <label style="margin-top: 15px"> Search Item</label>
                                 <br>
                                 <input type="text" class="form-control" placeholder="Search Item"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem1"
-                                       (keyup)="searchItemDetailsByName1($event)">
+                                       (keyup)="searchItemDetailsByName1($event)" style="margin-top: 10px">
                               </div>
                             </div>
 
@@ -488,7 +495,7 @@
 
                             <div class="col-md-2">
                               <div class="form-check">
-                                <label class="form-check-label">
+                                <label class="form-check-label" style="margin-top: 15px">
                                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
                                          value="Change" [(ngModel)]="type" checked> Change
                                   <span class="circle">
@@ -529,8 +536,7 @@
 
                             <div class="col-md-2">
                               <button class="btn btn-success" rel="tooltip" type="button" (click)="addToItemsTable1()">
-                                <i
-                                  class="material-icons">add</i>
+                           ADDS
                               </button>
                             </div>
 
@@ -593,11 +599,30 @@
                                 </tr>
                                 </tbody>
                               </table>
+
+
                             </div>
                           </div>
                         </div>
                       </div>
 
+
+
+
+                    </div>
+
+                    <div class="row">
+
+                      <div class="col-sm-10">
+
+                      </div>
+                      <div class="col-sm-2">
+                        <div class="form-group">
+                          <label>Amount</label>
+                          <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                                 [(ngModel)]="totAmount">
+                        </div>
+                      </div>
 
                     </div>
 
@@ -626,6 +651,7 @@
           <!--</div>-->
           <!--</div>-->
 
+
           <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4"></div>
@@ -635,6 +661,7 @@
               <button type="submit" class="btn btn-behance pull-right" (click)="addJobOrderToDatabase()">Save Details
               </button>
             </div>
+
           </div>
         </div>
       </div>

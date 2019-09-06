@@ -79,6 +79,9 @@ export class JoborderComponent implements OnInit {
   customeraddress: string;
   customeremail: string;
 
+
+  qunatityOnHand :number;
+
   searchVehicleDetailsByNumber(){
     this.vehicleservice.searchVehicleDetails(this.searchVehicleNumber).subscribe((result)=>{
       if (result == null) {
@@ -216,6 +219,7 @@ console.log("JJJJ"+this.insertselectedMake);
 
         this.unitPrice =this.item.quantityOfPrice;
         this.itemId = this.item.itemId;
+        // console.log("JJJJJJ"+this.item.quantityOnHand)
       }
     });
 
@@ -245,12 +249,14 @@ console.log("JJJJ"+this.insertselectedMake);
 
   addItemToTable(){
 
+
+
+
     let jobOrderItemDetails : JobOrderItemDetails = new JobOrderItemDetails();
 
     let item : Item = new Item();
     item.itemName= this.insertItemName;
-    item.itemId = this.itemId
-
+    item.itemId = this.itemId;
 
     //item.quantityOfPrice= parseFloat(this.searchRetailPrice);
     let price = this.quantity *  this.unitPrice;
@@ -264,8 +270,23 @@ console.log("JJJJ"+this.insertselectedMake);
     this.totAmount += (this.quantity *  this.unitPrice);
    //jobOrderItemDetails. =this.totAmount;
 
+    if(this.quantity !=null && this.insertselectedMake !=null && this.insertItemModel !=null && this.itemId !=null){
 
-    this.jobOrderItemDetailsArray.push(jobOrderItemDetails);
+      this.jobOrderItemDetailsArray.push(jobOrderItemDetails);
+
+      this.itemId=null;
+      this.insertselectedMake = null;
+      this.quantity=null;
+      this.unitPrice=null;
+      this.searchItem=null;
+      this.searchMakesByModel = null;
+      this.searchItemDetails = new Array<Item>();
+
+
+    }
+
+
+
     //jobOrderItemDetails.
 
 
@@ -274,30 +295,42 @@ console.log("JJJJ"+this.insertselectedMake);
   addToItemsTable1(){
 
 
-    let jobOrderItemDetails : JobOrderItemDetails = new JobOrderItemDetails();
 
-    let item : Item = new Item();
-    item.itemName= this.insertItemName1;
-    item.itemId = this.itemId;
+    if(this.quantity1 != null && this.insertItemName1 != null && this.insertselectedMake1!=null && this.insertItemModel1 !=null){
+
+
+      let jobOrderItemDetails : JobOrderItemDetails = new JobOrderItemDetails();
+
+      let item : Item = new Item();
+      item.itemName= this.insertItemName1;
+      item.itemId = this.itemId;
+
+      let price = this.quantity1 *  this.unitPrice1;
+
+      jobOrderItemDetails.qty=this.quantity1;
+      jobOrderItemDetails.make=this.insertselectedMake1;
+      jobOrderItemDetails.model= this.insertItemModel1;
+      jobOrderItemDetails.price=price;
+      jobOrderItemDetails.item = item;
+      jobOrderItemDetails.lubeJobType = this.type;
+
+      this.totAmount1 += (this.quantity1 *  this.unitPrice1);
+      //jobOrderItemDetails. =this.totAmount;
+      this.totAmount += this.totAmount1;
+      this.lubejobOrderItemDetailsArray1.push(jobOrderItemDetails);
+
+
+    }else{
+      this.totAmount1 = 0;
+    }
+
+
 
     // item.itemId = this.itemId
 
 
     //item.quantityOfPrice= parseFloat(this.searchRetailPrice);
-    let price = this.quantity1 *  this.unitPrice1;
 
-    jobOrderItemDetails.qty=this.quantity1;
-    jobOrderItemDetails.make=this.insertselectedMake1;
-    jobOrderItemDetails.model= this.insertItemModel1;
-    jobOrderItemDetails.price=price;
-    jobOrderItemDetails.item = item;
-    jobOrderItemDetails.lubeJobType = this.type;
-
-    this.totAmount1 += (this.quantity1 *  this.unitPrice1);
-    //jobOrderItemDetails. =this.totAmount;
-
-
-    this.lubejobOrderItemDetailsArray1.push(jobOrderItemDetails);
     //jobOrderItemDetails.
 
 
@@ -320,7 +353,8 @@ console.log("JJJJ"+this.insertselectedMake);
 
     jobOrder.date=this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     jobOrder.vehicle = vehicle;
-    jobOrder.total = this.totAmount+ this.totAmount1;
+    jobOrder.total = this.totAmount;
+
     jobOrder.employeeName = "FFFFFFF";
 
 
@@ -335,18 +369,26 @@ console.log("JJJJ"+this.insertselectedMake);
 
 
 
-    this.jobOrderService.addJobOrder(jobOrderDto).subscribe((result)=>{
+    if(this.lubejobOrderItemDetailsArray1.length!=0 ||this.jobOrderItemDetailsArray.length!=0){
+
+      this.jobOrderService.addJobOrder(jobOrderDto).subscribe((result)=>{
 
 
-      if(result !=null){
+        if(result !=null){
 
-        console.log("LLLL"+result)
-        alert("Stock Added Successfully");
+          console.log("LLLL"+result)
+          alert("Stock Added Successfully");
 
 
-      }
+        }
 
-    });
+      });
+    }else{
+
+      alert("Please Add Jobs TO Table");
+
+    }
+
 
 
   }

@@ -6,5 +6,5 @@ public interface EmployeeService {
     Employee addEmployee(Employee employee);
     void deleteEmployee(int employee);
     Employee updateEmployee(Employee employee);
-    Employee searchByEmployeeNumber(int employeeId);
+    Employee searchByEmployeeNumber(String employeeId);
 }

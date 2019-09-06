@@ -61,9 +61,11 @@ public class JobOrderServiceImpl implements JobOrderService {
 
         JobOrder s1=jobOrderRepository.save(j1);
         if (s1 != null) {
-            return "Y";
+            return "9";
         }else{
+
             return null;
+
         }
 
     }

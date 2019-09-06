@@ -76,9 +76,7 @@ public class JobOrderController {
         }
 
         j1.setJobOrderItemDetails(s3);
-        System.out.println("HHHHHHH"+j1.getDate());
-        System.out.println("HHHHHHH"+j1.getEmployeeName());
-       System.out.println("HHHHHHH"+j1.getVehicle().getVehicleId());
+
 //
 //        for (JobOrderItemDetails f : s3){
 //            System.out.println("dddddd"+f.getItem().getItemId());

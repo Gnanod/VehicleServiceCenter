@@ -46,12 +46,17 @@ public class SupplierServiceImpl implements SupplierService {
         
         List<Supplier> s1 = new ArrayList<>();
 
-        for (Object s2[] :companies) {
+        if(companies.size()!=0){
+            for (Object s2[] :companies) {
 
-            Supplier s3 = new Supplier();
-            s3.setCompanyName(s2[0].toString());
-            s1.add(s3);
+                Supplier s3 = new Supplier();
+                s3.setCompanyName(s2[0].toString());
+                s1.add(s3);
+            }
+        }else{
+            System.out.println( "GGGGGGGGG"+companies);
         }
+
         return s1;
 
     }

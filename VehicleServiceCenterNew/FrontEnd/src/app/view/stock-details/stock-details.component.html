@@ -116,7 +116,7 @@
 
               <br>
               <label>Item Id</label>
-              <input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemDetails.itemId" style="margin-top: 4px">
+              <input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemDetails.itemId" style="margin-top: 4px" disabled>
               <!--<input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedItem.itemId" style="margin-top: 4px">-->
 
             </div>
@@ -141,7 +141,7 @@
           <div class="col-sm-3">
             <div class="form-group">
               <label>Quantity On Hand</label>
-              <input type="number" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.quantityOnHand">
+              <input type="number" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.quantityOnHand" disabled>
             </div>
           </div>
           <!--<div class="col-sm-2">-->
@@ -244,78 +244,6 @@
       </div>
 
 
-      <!--<div class="card-body">-->
-      <!--<form>-->
-      <!--<div class="row">-->
-
-
-      <!--</div>-->
-      <!--<div class="row">-->
-      <!--<div class="col-md-6">-->
-      <!--<div class="form-group">-->
-      <!--<label class="bmd-label-floating">Employee Id</label>-->
-      <!--<input type="text" class="form-control" disabled>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div class="row">-->
-
-      <!--<div class="col-md-6">-->
-      <!--<div class="form-group">-->
-      <!--<label class="bmd-label-floating">Fist Name</label>-->
-      <!--<input type="text" class="form-control">-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div class="col-md-6">-->
-      <!--<div class="form-group">-->
-      <!--<label class="bmd-label-floating">Last Name</label>-->
-      <!--<input type="text" class="form-control">-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div class="row">-->
-      <!--<div class="col-md-4">-->
-      <!--<div class="form-group">-->
-      <!--<label class="bmd-label-floating">Email address</label>-->
-      <!--<input type="email" class="form-control">-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div class="col-md-4">-->
-      <!--<div class="form-group">-->
-      <!--<label class="bmd-label-floating" >Nic</label>-->
-      <!--<input type="text" class="form-control">-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-
-      <!--<div class="row">-->
-      <!--<div class="col-md-12">-->
-      <!--<div class="form-group">-->
-      <!--<label class="bmd-label-floating">Adress</label>-->
-      <!--<input type="text" class="form-control">-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div class="row">-->
-      <!--<div class="col-md-4">-->
-      <!--<div class="form-group">-->
-      <!--<label class="bmd-label-floating">Birthday</label>-->
-      <!--<input type="text" class="form-control">-->
-      <!--</div>-->
-      <!--</div>-->
-      <!--<div class="col-md-4">-->
-      <!--<div class="form-group">-->
-      <!--<label class="bmd-label-floating">Phone Number</label>-->
-      <!--<input type="text" class="form-control">-->
-      <!--</div>-->
-      <!--</div>-->
-
-      <!--</div>-->
-
-      <!--<button type="submit" class="btn btn-rose pull-right">Update Details</button>-->
-      <!--<div class="clearfix"></div>-->
-      <!--</form>-->
-      <!--</div>-->
     </div>
   </div>
 
@@ -589,92 +517,4 @@
 
 
 
-<!--<div class="row">-->
 
-  <!--<div class="col-md-12">-->
-    <!--<div class="card">-->
-      <!--<div class="card-header card-header-rose card-header-icon">-->
-        <!--<div class="card-icon">-->
-          <!--<i class="material-icons">search</i>-->
-        <!--</div>-->
-        <!--<h4 class="card-title">Search  Vehicle</h4>-->
-      <!--</div>-->
-      <!--<div class="card-body">-->
-        <!--<div class="row" >-->
-
-          <!--<div class="col-md-4" style="margin-left: 250px">-->
-            <!--<div class="form-group">-->
-              <!--<label class="bmd-label-floating">Search By Item Name</label>-->
-              <!--<input type="text" class="form-control" style="width: 300px" (keyup)="searchItemByName($event)" [(ngModel)]="searchitembyname">-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-md-4" style="margin-left: -200px ;margin-top: 25px">-->
-            <!--<button type="submit" class="btn btn-rose pull-right" (click)="searchVehicleDetailsByNumber()" >   <i class="material-icons">search</i></button>-->
-          <!--</div>-->
-          <!--&lt;!&ndash;(click)="searchVehicleDetailsByNumber()"&ndash;&gt;-->
-        <!--</div>-->
-
-        <!--<div class="table-responsive">-->
-          <!--<table class="table" id="vehicleTable">-->
-            <!--<thead class=" text-primary">-->
-            <!--<th>-->
-              <!--BarCode-->
-            <!--</th>-->
-            <!--<th>-->
-              <!--WholeSalePrice-->
-            <!--</th>-->
-            <!--<th>-->
-              <!--RetailPrice-->
-            <!--</th>-->
-            <!--<th>-->
-              <!--BuyingPrice-->
-            <!--</th>-->
-            <!--<th>-->
-              <!--QuantityOnHand-->
-            <!--</th>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr *ngIf="searchItemValuesIf;else elseBlock">-->
-              <!--<td colspan="8" class="alert alert-danger" style="text-align: center">-->
-                <!--Item Not Found-->
-              <!--</td>-->
-            <!--</tr>-->
-
-            <!--<ng-template #elseBlock>-->
-
-              <!--<tr *ngFor="let item of searchItemDetails">-->
-                <!--<td class="text-center">-->
-                  <!--{{item.barCode}}-->
-                <!--</td>-->
-                <!--<td class="text-center">-->
-                  <!--{{item.wholeSalePrice}}-->
-                <!--</td>-->
-                <!--<td class="text-center">-->
-                  <!--{{item.retailPrice}}-->
-                <!--</td >-->
-
-                <!--<td class="text-center">-->
-
-                <!--</td>-->
-                <!--<td>-->
-                  <!--{{item.itemQty}}-->
-                <!--</td>-->
-
-
-                <!--<td class="td-actions ">-->
-                  <!--<button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteVehicle()">-->
-                    <!--<i class="material-icons">close</i>-->
-                  <!--</button>-->
-                <!--</td>-->
-              <!--</tr>-->
-
-            <!--</ng-template>-->
-
-            <!--</tbody>-->
-          <!--</table>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
-  <!--</div>-->
-
-<!--</div>-->

@@ -1,6 +1,7 @@
 package lk.vsc.service.impl;
 
 import jdk.nashorn.internal.parser.JSONParser;
+import lk.vsc.DTO.LowStockLevelDTO;
 import lk.vsc.entity.Item;
 import lk.vsc.entity.Stock;
 import lk.vsc.entity.StockItemDetails;
@@ -11,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
@@ -33,6 +35,7 @@ public class StockServiceImpl implements StockService {
                for (StockItemDetails s1: stockItemDetails
                     ) {
                    Item i = s1.getItem();
+                   System.out.println("GGGGGGGKKKKKKKK"+i.getStockLevel());
                    itemRepository.save(i);
                    System.out.println("OOO"+i.getItemId());
                    System.out.println("PP"+i.getItemName());
@@ -47,11 +50,26 @@ public class StockServiceImpl implements StockService {
     }
 
     @Override
-    public Item getLowStockLevelReport() {
+    public List<LowStockLevelDTO> getLowStockLevelReport() {
 
-       // List<Object[]> companies = stockRepository.getLowStockLevelReport();
+      List<Object[]> lowStock = stockRepository.getLowStockLevelReport();
+
+        List<LowStockLevelDTO> d = new ArrayList<LowStockLevelDTO>();
+        for ( Object ob []: lowStock
+             ) {
+
+            LowStockLevelDTO d1 = new LowStockLevelDTO();
 
 
-        return null;
+            d1.setItemName(ob[0].toString());
+            d1.setMakeName(ob[1].toString());
+            d1.setModelName(ob[2].toString());
+            d1.setQtyOnHand(Double.parseDouble(ob[3].toString()));
+
+            d.add(d1);
+        }
+
+
+        return d;
     }
 }

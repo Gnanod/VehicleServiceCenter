@@ -1,6 +1,7 @@
 package lk.vsc.controller;
 
 
+import lk.vsc.DTO.LowStockLevelDTO;
 import lk.vsc.entity.Item;
 import lk.vsc.entity.MakeModelDetails;
 import lk.vsc.entity.Stock;
@@ -8,6 +9,7 @@ import lk.vsc.service.StockService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Set;
 
 @CrossOrigin
@@ -28,8 +30,8 @@ public class StockController {
 
 
     @GetMapping(value = "/getLowStockLevelReport")
-    public Item getItems(){
-
+    public List<LowStockLevelDTO> getItems(){
+        System.out.println("stock Level");
         return stockService.getLowStockLevelReport();
     }
 

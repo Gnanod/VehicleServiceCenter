@@ -98,7 +98,15 @@ export class StockDetailsComponent implements OnInit {
     item.itemId = this.searchItemDetails.itemId;
     item.quantityOfPrice= parseFloat(this.searchRetailPrice);
 
+    console.log('DDDDDStockLevel'+this.searchItemDetails.stockLevel);
+
+
+
+    item.stockLevel=this.searchItemDetails.stockLevel;
     // item.stockLevel = this.searchItemDetails.stockLevel;
+
+    console.log("Gnanod Stock :"+ item.stockLevel)
+
     let qty:number=parseFloat( this.itemQuantity + this.searchItemDetails.quantityOnHand );
 
     console.log("JJJJ"+qty);
@@ -115,11 +123,20 @@ export class StockDetailsComponent implements OnInit {
     if(this.selectedItem.itemName !=null && this.searchItemDetails.itemId !=null && this.searchRetailPrice !=null && this.itemQuantity !=null ){
 
       this.itemsTable.push(stockItemDetails);
+      this.searchItemDetailsArray = new Array<Item>();
+      this.searchStockItemName = null;
       let amount :number;
       amount = this.totAmount+(stockItemDetails.buyingPrice*stockItemDetails.quantity);
       console.log("amount"+amount);
       let stringAmount :string=amount.toString();
       this.totAmount=parseFloat(stringAmount);
+
+      this.searchItemName = null;
+      this.searchItemDetails.itemId = null;
+      this.searchRetailPrice = null;
+      this.itemQuantity = null;
+      this.searchBuyingPrice = null;
+      this.searchItemDetails.quantityOnHand = null;
     }
 
 
@@ -174,11 +191,13 @@ export class StockDetailsComponent implements OnInit {
   }
 
   deleteItemTableRow(id){
+
    for(let i = 0; i < this.insertItemToTable.length; ++i){
       if (this.insertItemToTable[i].makeModel.modelName === id) {
         this.insertItemToTable.splice(i,1);
       }
     }
+
   }
   deleteRow(id){
 
@@ -198,15 +217,24 @@ export class StockDetailsComponent implements OnInit {
 
   addMakeModelDetails(){
 
-    this.make_model_service.addMakeModelDetails(this.tableMakeModel).subscribe((result)=>{
+    if( this.tableMakeModel.length!=0){
 
-      if(result!=null){
+      this.make_model_service.addMakeModelDetails(this.tableMakeModel).subscribe((result)=>{
 
-        alert('Makes Added SuccessFully');
-        this.addTableModel=null;
-        this.tableMakeModel=null;
-      }
-    });
+        if(result!=null){
+
+          alert('Makes Added SuccessFully');
+          this.addTableModel=null;
+          this.tableMakeModel=null;
+        }
+      });
+
+    }else{
+
+      alert('Please Add Models To Table');
+
+    }
+
   }
 
   getMakeModelDetails(value :string){
@@ -227,27 +255,33 @@ export class StockDetailsComponent implements OnInit {
   addItemsToDB(){
 
 
+if( this.insertItemToTable.length!=0){
+  let item:Item = new Item();
+  item.itemName=this.itemName;
+  item.stockLevel=this.stockLevel;
+  // item.stockLevel=this.stockLevel;
+  // item.itemId=1;
+  item.makeModelDetails=this.insertItemToTable;
 
-    let item:Item = new Item();
-    item.itemName=this.itemName;
-   // item.stockLevel=this.stockLevel;
-   // item.itemId=1;
-    item.makeModelDetails=this.insertItemToTable;
-
-    // item.make=this.insertselectedMake;
-    // item.model=this.insertItemModel;
+  // item.make=this.insertselectedMake;
+  // item.model=this.insertItemModel;
 
 
-    this.itemService.addItemsToDB(item).subscribe((result)=>{
+  this.itemService.addItemsToDB(item).subscribe((result)=>{
 
-      if(result!=null){
+    if(result!=null){
 
-        alert('Added Successfully');
-        this.insertItemToTable = null;
-        this.itemName = null;
-      }
+      alert('Added Successfully');
+      this.insertItemToTable = null;
+      this.itemName = null;
+      this.totAmount=0;
+    }
 
-    });
+  });
+}else {
+  alert('Please Add Items To Table')
+}
+
 
 
 
@@ -280,11 +314,12 @@ export class StockDetailsComponent implements OnInit {
 
 
       this.itemService.getItemDetailsByName(this.searchStockItemName).subscribe((result)=>{
-        if(result.length==0){
+
+        if(result==null){
 
           this.searchItemDetailsArray=null;
 
-          this.selectedItem=null;
+          this.selectedItem.itemId=0;
           this.getAllItemDetailsToUI("K");
           //  alert('Item Not Found ')
           // this.searchItemDetails.quantityOnHand=10;
@@ -292,10 +327,13 @@ export class StockDetailsComponent implements OnInit {
         } else {
           // this.searchItemValuesIf=false;
           //this.searchItemDetails = result;
+
+
+
           this.searchItemDetailsArray=result;
 
           this.selectedItem=result[0];
-
+          console.log("StockLevelItem :"+this.selectedItem.stockLevel);
         }
       });
     }
@@ -329,8 +367,10 @@ export class StockDetailsComponent implements OnInit {
     console.log("Error")
     this.searchItemDetails = this.selectedItem;
 
+    console.log("QuantityStockLevel"+this.searchItemDetails.stockLevel);
+    console.log("QuantityStockLevel"+this.searchItemDetails.quantityOnHand);
     if(value=="K"){
-      console.log("Error7879")
+
       this.searchItemDetails.itemId=parseFloat("0");
       this.searchItemDetails.quantityOnHand=parseFloat("0");
     }
@@ -348,14 +388,16 @@ export class StockDetailsComponent implements OnInit {
     stock.date =this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     stock.stockItemDetails = this.itemsTable;
 
-    this.stockService.addStock(stock).subscribe((result)=>{
+    if(this.itemsTable.length!=0){
+      this.stockService.addStock(stock).subscribe((result)=>{
 
-      if(result !=null){
+        if(result !=null){
 
-        console.log("LLLL"+result)
-        alert("Stock Added Successfully");
+          alert("Stock Added Successfully");
 
-          this.itemsTable = null;
+          this.itemsTable = new Array<StockItemDetail>();
+
+
           this.searchItemName = null;
           this.searchItemDetails.itemId = null;
           this.searchRetailPrice = null;
@@ -366,7 +408,15 @@ export class StockDetailsComponent implements OnInit {
 
         }
 
-    });
+      });
+
+    }else{
+
+      alert('Please Add Items To Table');
+
+    }
+
+
   }
 
 
