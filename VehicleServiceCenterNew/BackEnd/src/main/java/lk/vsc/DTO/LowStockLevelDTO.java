@@ -1,6 +1,8 @@
 package lk.vsc.DTO;
 
 public class LowStockLevelDTO {
+
+
     private String itemName;
     private String makeName;
     private String modelName;

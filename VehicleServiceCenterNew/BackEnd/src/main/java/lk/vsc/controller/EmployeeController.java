@@ -5,6 +5,8 @@ import lk.vsc.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @RestController
 @RequestMapping(value = "EmployeeController")
@@ -50,6 +52,9 @@ public class EmployeeController {
         return employeeService.searchByEmployeeNumber(employeeId);
     }
 
-
+    @GetMapping(value = "/getAllEmplyess")
+    public List<Employee> getAllEmployee(){
+        return employeeService.getAllEmployee();
+    }
 
 }

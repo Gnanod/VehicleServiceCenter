@@ -230,19 +230,12 @@
                                   <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">
                                     {{make.modelName}}
                                   </option>
+
                                 </select>
                               </div>
 
                             </div>
-                            <!--</div>-->
-                            <!--<div class="col-md-2">-->
-                            <!--<div class="form-group">-->
-                            <!--<label >Select Model</label>-->
-                            <!--<select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel">-->
-                            <!--<option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>-->
-                            <!--</select>-->
-                            <!--</div>-->
-                            <!--</div>-->
+
 
                             <br>
                             <br>
@@ -264,7 +257,7 @@
                                 <label>Select Item</label><!--<div class="dropdown">-->
                                 <select class="form-control " data-style="select-with-transition"
                                         [(ngModel)]="insertItemName" #mySelect1
-                                        (change)="getUnitPrice(mySelect1.value)">
+                                        (change)="getUnitPrice()">
                                   <!--<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">-->
                                   <option *ngFor="let make of searchItemDetails" [value]="make.itemName">
                                     {{make.itemName}}
@@ -300,17 +293,10 @@
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="quantity">
                               </div>
                             </div>
-                            <div class="col-md-3">
-                              <div class="form-group">
-                                <label>Quantity On Hand</label>
-                                <br>
-                                <input type="text" class="form-control" placeholder="Quantity"
-                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="qunatityOnHand">
-                              </div>
-                            </div>
+
 
                             <div class="col-md-2">
-                              <button class="btn btn-success" rel="tooltip" type="button" (click)="addItemToTable()">
+                              <button class="btn btn-success" rel="tooltip" type="button" (click)="addItemToTable()" style="margin-top: 20px">
                                 Add Detailing Jobs
                               </button>
                             </div>
@@ -334,6 +320,7 @@
                               <table class="table">
                                 <thead>
                                 <tr>
+                                  <th>Item ID</th>
                                   <th>Item Description</th>
                                   <th>Make</th>
                                   <th>Model</th>
@@ -344,6 +331,10 @@
                                 </thead>
                                 <tbody>
                                 <tr *ngFor="let items of jobOrderItemDetailsArray async">
+
+                                  <td>
+                                    {{items.item.itemId}}
+                                  </td>
                                   <td>
                                     {{items.item.itemName}}
                                   </td>
@@ -413,7 +404,7 @@
               <div class="col-md-12">
                 <div class="card">
                   <div class="card-header card-header-success card-header-icon ">
-                    <div class="card-icon"><i class="material-icons">assignment</i>
+                    <div _ngcontent-qmr-c2="" class="card-icon"><i class="fas fa-store"></i>
                     </div>
                     <h4 class="card-title"></h4></div>
                   <div class="card-body ">
@@ -529,13 +520,13 @@
                                 <label>Unit Price</label>
                                 <br>
                                 <input type="text" class="form-control" placeholder="Unit Price"
-                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice1">
+                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice1" disabled>
                               </div>
                             </div>
 
 
                             <div class="col-md-2">
-                              <button class="btn btn-success" rel="tooltip" type="button" (click)="addToItemsTable1()">
+                              <button class="btn btn-success" rel="tooltip" type="button" (click)="addToItemsTable1()" style="margin-top: 20px">
                            ADDS
                               </button>
                             </div>
@@ -592,7 +583,7 @@
 
                                   <td class="td-actions ">
                                     <button type="button" rel="tooltip" class="btn btn-danger"
-                                            (click)="deleteRow(items.item.itemId)">
+                                            (click)="deleteRow1(items.item.itemId)">
                                       <i class="material-icons">close</i>
                                     </button>
                                   </td>
@@ -637,19 +628,6 @@
             </div>
           </div>
 
-          <!--<div class="row">-->
-          <!--<div class="col-sm-4"></div>-->
-          <!--<div class="col-sm-4"></div>-->
-          <!--<div class="col-sm-1"></div>-->
-
-
-          <!--<div class="col-sm-2">-->
-          <!--<div class="form-group">-->
-          <!--<label>Amount</label>-->
-          <!--<input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="totAmount1">-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
 
 
           <div class="row">

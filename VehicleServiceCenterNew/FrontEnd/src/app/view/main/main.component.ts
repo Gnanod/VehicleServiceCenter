@@ -62,6 +62,15 @@ export class MainComponent implements OnInit {
 
           this.router.navigate(['/main/ServiceManagement'])
 
+        }else if(button == 'LowStockLevel'){
+
+          this.router.navigate(['/main/LowStockLevel'])
+
+        }else if (button == 'JobOrder'){
+
+          this.router.navigate(['joborder'])
+
         }
+
     }
 }

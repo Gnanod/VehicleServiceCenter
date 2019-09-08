@@ -8,6 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -34,6 +36,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     public Employee searchByEmployeeNumber(String employeeId) {
 
         return employeeRepository.searchByEmployeeNumber(employeeId);
+    }
+
+    @Override
+    public List<Employee> getAllEmployee() {
+        return employeeRepository.findAll();
     }
 
 

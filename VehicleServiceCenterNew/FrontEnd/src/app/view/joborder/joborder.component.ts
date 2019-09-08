@@ -62,6 +62,7 @@ export class JoborderComponent implements OnInit {
   searchVehicleNumber : string;
 
   searchItemDetails : Array<Item> = new Array<Item>();
+
   searchItemDetails1 :Array<Item> = new Array<Item>();
 
 
@@ -78,7 +79,7 @@ export class JoborderComponent implements OnInit {
   customerphone: string;
   customeraddress: string;
   customeremail: string;
-
+  vehicleId :Number;
 
   qunatityOnHand :number;
 
@@ -105,7 +106,7 @@ export class JoborderComponent implements OnInit {
         this.vehicleNumber = this.searchVehicleDetails.vehicleNumber;
         this.engineNumber = this.searchVehicleDetails.engineNumber;
         this.vehicleClass = this.searchVehicleDetails.vehicleClass;
-
+        this.vehicleId = this.searchVehicleDetails.vehicleId;
         this.vehicleMake = this.searchVehicleDetails.vehicleMake;
         this.vehicleModel = this.searchVehicleDetails.vehicleModel;
         this.yearOfManufacture = this.searchVehicleDetails.yearOfManufacture;
@@ -160,20 +161,37 @@ console.log("JJJJ"+this.insertselectedMake);
 
       this.jobOrderService.searchItem(this.searchItem,this.insertItemModel,this.insertselectedMake).subscribe((result)=>{
 
+
+        if(result.length==0){
+          this.quantity=null;
+          this.unitPrice=null;
+        }
         if(result==null){
 
          // alert('Item Not Found ')
           // this.searchItemDetails.quantityOnHand=10;
+          this.quantity=null;
+          this.unitPrice=null;
 
         }else{
           // this.searchItemValuesIf=false;
           this.searchItemDetails=result;
-          let item : Item  = this.searchItemDetails[0];
+
+          // console.log("JJJJJJJJJJJ"+this.searchItemDetails[0].itemName);
+          // console.log("jjjjjjjjjjj"+this.searchItem)
+          // // if(this.searchItemDetails[0].itemName==this.searchItem){
+          //
+          //   this.unitPrice =this.searchItemDetails[0].quantityOfPrice;
+          //   this.itemId = this.searchItemDetails[0].itemId;
+          // }
+          // let item : Item  = this.searchItemDetails[0];
         //  this.searchItem = item.itemName;
         }
       });
     }else{
-
+      this.itemId=null;
+      this.unitPrice=null;
+      this.searchItemDetails=null;
     }
 
   }
@@ -194,7 +212,9 @@ console.log("JJJJ"+this.insertselectedMake);
         }else{
           // this.searchItemValuesIf=false;
           this.searchItemDetails1=result;
-
+          // item.itemName=this.item.itemName;
+          // item.stockLevel=this.item.stockLevel;
+          // item.quantityOnHand = this.item.quantityOnHand - this.quantity;
         }
       });
     }else{
@@ -204,7 +224,7 @@ console.log("JJJJ"+this.insertselectedMake);
   }
 
 
-  getUnitPrice(value: string) {
+  getUnitPrice() {
 
     this.jobOrderService.searchUnitPrice(this.insertItemName).subscribe((result)=>{
 
@@ -216,10 +236,12 @@ console.log("JJJJ"+this.insertselectedMake);
       }else{
         // this.searchItemValuesIf=false;
         this.item = result;
-
         this.unitPrice =this.item.quantityOfPrice;
         this.itemId = this.item.itemId;
-        // console.log("JJJJJJ"+this.item.quantityOnHand)
+
+       // console.log("OOOOOOOO"+this.item.quantityOnHand)
+       //  console.log("0000000000"+this.item.stockLevel)
+        //console.log("000000000"+this.qunatityOnHand)
       }
     });
 
@@ -241,7 +263,7 @@ console.log("JJJJ"+this.insertselectedMake);
         this.item1 = result;
 
         this.unitPrice1 =this.item1.quantityOfPrice;
-       // this.itemId = this.itemId;
+        this.itemId = this.item1.itemId;
       }
     });
 
@@ -257,7 +279,17 @@ console.log("JJJJ"+this.insertselectedMake);
     let item : Item = new Item();
     item.itemName= this.insertItemName;
     item.itemId = this.itemId;
+    item.quantityOfPrice=this.unitPrice;
+    item.itemName=this.item.itemName;
+    item.stockLevel=this.item.stockLevel;
+    item.quantityOnHand = this.item.quantityOnHand - this.quantity;
 
+    // console.log("ItemUpdate"+this.item.stockLevel)
+    // console.log("ItemUpdate"+this.item.quantityOnHand)
+    // console.log("ItemUpdate"+this.item.itemName)
+    // console.log("ItemUpdate"+this.unitPrice)
+
+    //console.log("ItemUpdate"+)
     //item.quantityOfPrice= parseFloat(this.searchRetailPrice);
     let price = this.quantity *  this.unitPrice;
 
@@ -267,12 +299,19 @@ console.log("JJJJ"+this.insertselectedMake);
     jobOrderItemDetails.price=price;
     jobOrderItemDetails.item = item;
 
-    this.totAmount += (this.quantity *  this.unitPrice);
+
    //jobOrderItemDetails. =this.totAmount;
 
     if(this.quantity !=null && this.insertselectedMake !=null && this.insertItemModel !=null && this.itemId !=null){
 
-      this.jobOrderItemDetailsArray.push(jobOrderItemDetails);
+
+      if(this.item.quantityOnHand<this.quantity){
+        alert('Low Quantity Cant Add Item to This Table')
+      }else{
+        this.totAmount += (this.quantity *  this.unitPrice);
+        this.jobOrderItemDetailsArray.push(jobOrderItemDetails);
+      }
+
 
       this.itemId=null;
       this.insertselectedMake = null;
@@ -300,10 +339,13 @@ console.log("JJJJ"+this.insertselectedMake);
 
 
       let jobOrderItemDetails : JobOrderItemDetails = new JobOrderItemDetails();
-
       let item : Item = new Item();
       item.itemName= this.insertItemName1;
       item.itemId = this.itemId;
+      item.quantityOfPrice=this.unitPrice1;
+      item.itemName=this.item1.itemName;
+      item.stockLevel=this.item1.stockLevel;
+      item.quantityOnHand = this.item1.quantityOnHand - this.quantity1;
 
       let price = this.quantity1 *  this.unitPrice1;
 
@@ -314,10 +356,23 @@ console.log("JJJJ"+this.insertselectedMake);
       jobOrderItemDetails.item = item;
       jobOrderItemDetails.lubeJobType = this.type;
 
-      this.totAmount1 += (this.quantity1 *  this.unitPrice1);
-      //jobOrderItemDetails. =this.totAmount;
-      this.totAmount += this.totAmount1;
-      this.lubejobOrderItemDetailsArray1.push(jobOrderItemDetails);
+
+
+      if(this.item1.quantityOnHand<this.quantity1){
+
+        alert('Low Quantity Cant Add Item to This Table');
+
+      }else{
+
+        this.totAmount1 += (this.quantity1 *  this.unitPrice1);
+
+        //jobOrderItemDetails. =this.totAmount;
+
+        this.totAmount += this.totAmount1;
+        this.lubejobOrderItemDetailsArray1.push(jobOrderItemDetails);
+
+      }
+
 
 
     }else{
@@ -342,15 +397,9 @@ console.log("JJJJ"+this.insertselectedMake);
 
     let jobOrder :JobOrder = new JobOrder();
 
-
-
-
     let vehicle :Vehicle = new Vehicle();
 
-
-
-    vehicle.vehicleId= parseInt("1");
-
+    vehicle.vehicleId= this.vehicleId;
     jobOrder.date=this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     jobOrder.vehicle = vehicle;
     jobOrder.total = this.totAmount;
@@ -358,9 +407,6 @@ console.log("JJJJ"+this.insertselectedMake);
     jobOrder.employeeName = "FFFFFFF";
 
 
-    // this.lubejobOrderItemDetailsArray1.forEach(function (value) {
-    //   console.log(value);
-    // });
 
     let jobOrderDto : JobOrderDTO = new JobOrderDTO();
     jobOrderDto.jobOrder = jobOrder;
@@ -368,28 +414,72 @@ console.log("JJJJ"+this.insertselectedMake);
     jobOrderDto.jobOrderItemDetailsArray1 = this.lubejobOrderItemDetailsArray1;
 
 
+    if(this.vehicleId != null){
 
-    if(this.lubejobOrderItemDetailsArray1.length!=0 ||this.jobOrderItemDetailsArray.length!=0){
+      if(this.lubejobOrderItemDetailsArray1.length!=0 ||this.jobOrderItemDetailsArray.length!=0){
 
-      this.jobOrderService.addJobOrder(jobOrderDto).subscribe((result)=>{
-
-
-        if(result !=null){
-
-          console.log("LLLL"+result)
-          alert("Stock Added Successfully");
+        this.jobOrderService.addJobOrder(jobOrderDto).subscribe((result)=>{
 
 
-        }
+          if(result !=null){
 
-      });
+            console.log("LLLL"+result)
+            alert("Stock Added Successfully");
+            this.lubejobOrderItemDetailsArray1 = null;
+            this.jobOrderItemDetailsArray = null;
+
+          }
+
+        });
+      }else{
+
+        alert("Please Add Jobs TO Table");
+
+      }
+
     }else{
 
-      alert("Please Add Jobs TO Table");
-
+      alert("Please Add Vehicle Details")
     }
 
 
+
+
+  }
+
+
+  deleteRow(id){
+
+    for(let i = 0; i <  this.jobOrderItemDetailsArray.length; ++i){
+      if ( this.jobOrderItemDetailsArray[i].item.itemId === id) {
+
+        let buyingPrice : number =  this.jobOrderItemDetailsArray[i].item.quantityOfPrice;
+        let quantity :number =  this.jobOrderItemDetailsArray[i].qty;
+        let totAmount :number = buyingPrice * quantity ;
+
+        this.totAmount = this.totAmount - totAmount;
+        this.jobOrderItemDetailsArray.splice(i,1);
+
+      }
+    }
+
+  }
+
+  deleteRow1(id){
+
+    for(let i = 0; i <  this.lubejobOrderItemDetailsArray1.length; ++i){
+
+      if ( this.lubejobOrderItemDetailsArray1[i].item.itemId === id) {
+
+        let buyingPrice : number =  this.lubejobOrderItemDetailsArray1[i].item.quantityOfPrice;
+        let quantity :number =  this.lubejobOrderItemDetailsArray1[i].qty;
+        let totAmount :number = buyingPrice * quantity ;
+        this.totAmount = this.totAmount - totAmount;
+        this.lubejobOrderItemDetailsArray1.splice(i,1);
+
+
+      }
+    }
 
   }
 }

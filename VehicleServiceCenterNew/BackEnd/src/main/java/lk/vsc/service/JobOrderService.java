@@ -11,4 +11,10 @@ public interface JobOrderService {
     Item searchUnitPrice(String itemName);
 
     String setJobOrder(JobOrder j1);
+
+    double getTotalSales();
+
+    double getTodayJobCount();
+
+    double getMonthlyTotalSales();
 }
