@@ -21,7 +21,7 @@ import {JobOrderDTO} from "../../DTO/JoOrderDTO";
 export class JoborderComponent implements OnInit {
 
   private joborder: JobOrder = new JobOrder();
-  constructor(private joborderservice : JoborderService
+  public constructor(private joborderservice : JoborderService
   ,private vehicleservice : VehicleService,private make_model_service :MakeModelService , private  itemService:ItemService ,private jobOrderService :JoborderService,private datePipe :DatePipe) { }
 
 ///////////////////

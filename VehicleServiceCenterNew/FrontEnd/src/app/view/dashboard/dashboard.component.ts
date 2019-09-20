@@ -10,7 +10,7 @@ import {Customer} from "../../Model/Customer";
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private jobOrderService :JoborderService) { }
+  public constructor(private jobOrderService :JoborderService) { }
 
   ngOnInit() {
     this.getTotalSales();

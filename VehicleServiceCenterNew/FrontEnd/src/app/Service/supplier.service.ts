@@ -11,7 +11,7 @@ const URL = '/SupplierController';
 export class SupplierService {
 
 
-  constructor(private http: HttpClient) { }
+  public constructor(private http: HttpClient) { }
 
   addSupplier(supplier: Supplier) {
 

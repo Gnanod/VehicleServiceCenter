@@ -13,7 +13,7 @@ const URL = '/JobOrderController';
 })
 export class JoborderService {
 
-  constructor(private http: HttpClient) { }
+  public constructor(private http: HttpClient) { }
 
   searchItem(searchItem: string, insertItemModel: string, insertselectedMake: string) {
 

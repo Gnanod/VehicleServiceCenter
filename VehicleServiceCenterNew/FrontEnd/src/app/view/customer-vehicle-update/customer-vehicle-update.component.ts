@@ -14,7 +14,7 @@ import {MakeModelService} from "../../Service/make-model.service";
 })
 export class CustomerVehicleUpdateComponent implements OnInit {
 
-  constructor(private vehicleService :VehicleService,private customerService : CustomerService,private make_model_service :MakeModelService) { }
+  public constructor(private vehicleService :VehicleService,private customerService : CustomerService,private make_model_service :MakeModelService) { }
 
   ngOnInit() {
   }

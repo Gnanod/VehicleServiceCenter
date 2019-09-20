@@ -2,9 +2,12 @@ import { Injectable } from '@angular/core';
 import {Employee} from "../Model/Employee";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {Login} from "../Model/Login";
 
 
 const URL = '/EmployeeController';
+
+const URL1 = '/LoginController'
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +15,7 @@ const URL = '/EmployeeController';
 export class EmployeeService {
 
 
-  constructor(private http: HttpClient) { }
+  public constructor(private http: HttpClient) { }
 
   addEmployee(employee: Employee) {
 
@@ -39,5 +42,12 @@ export class EmployeeService {
   searchEmployeeDetails(searchEmployeeNumber: string) {
 
     return this.http.get<Employee>(environment.backend_url + URL + '/searchByEmployeeNumber/'+searchEmployeeNumber);
+  }
+
+  LoginDetail(loginDet: Login) {
+
+    return this.http.post<Login>(environment.backend_url + URL1 + '/addLogin/',loginDet);
+
+
   }
 }

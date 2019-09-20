@@ -68,9 +68,9 @@ const routes: Routes = [
     path :"joborder",
     component : JoborderComponent
   },
-    {
+  {
       path: '', pathMatch: "full", redirectTo: 'login'
-    }
+  }
 ];
 
 @NgModule({

@@ -19,7 +19,7 @@ import {StockService} from "../../Service/stock.service";
 })
 export class StockDetailsComponent implements OnInit {
 
-  constructor(private make_model_service :MakeModelService,private itemService :ItemService,private supplierService:SupplierService,private datePipe :DatePipe,private stockService:StockService) { }
+  public constructor(private make_model_service :MakeModelService,private itemService :ItemService,private supplierService:SupplierService,private datePipe :DatePipe,private stockService:StockService) { }
 
   ngOnInit() {
     this.getAllItems();

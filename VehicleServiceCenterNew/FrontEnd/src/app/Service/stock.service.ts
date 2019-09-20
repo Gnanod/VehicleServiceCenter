@@ -16,7 +16,7 @@ const URL ='/StockController';
 })
 export class StockService {
 
-  constructor(private http: HttpClient) { }
+  public constructor(private http: HttpClient) { }
 
   addStock(stock: Stock) {
 

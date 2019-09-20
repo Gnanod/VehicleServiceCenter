@@ -12,7 +12,7 @@ export class ServiceManagementComponent implements OnInit {
   private services : Services = new Services();
 
 
-  constructor(private servicesService: ServicesService) {
+  public constructor(private servicesService: ServicesService) {
   }
 
   ngOnInit() {

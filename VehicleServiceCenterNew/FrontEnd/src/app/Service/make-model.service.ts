@@ -11,7 +11,7 @@ const URL ='/MakeModelController';
 })
 export class MakeModelService {
 
-  constructor(private http :HttpClient) { }
+  public constructor(private http :HttpClient) { }
 
 
   addMakeModelDetails(tableMakeModel: Array<MakeModel>) {

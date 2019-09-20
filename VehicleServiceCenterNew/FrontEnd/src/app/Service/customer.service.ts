@@ -10,7 +10,7 @@ const URL ='/CustomerController';
 })
 export class CustomerService {
 
-  constructor(private http :HttpClient) { }
+  public constructor(private http :HttpClient) { }
 
     addCustomerDetails(addCustomer: Customer) {
 

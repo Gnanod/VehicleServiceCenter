@@ -1,15 +1,16 @@
 package lk.vsc.repository;
 
 import lk.vsc.entity.Employee;
+import lk.vsc.entity.Login;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-public interface LoginRepository extends JpaRepository<Employee,Integer> {
+public interface LoginRepository extends JpaRepository<Login,Integer> {
 
 
-    @Query(value = "select nic from Employee where nic = :userNic and password = :userPassword")
-    Object loginFunction(@Param("userNic") String userNic,@Param("userPassword") String userPassword);
+    @Query(value = "select type from Login where userName = :userName and password = :password")
+    Object loginFunction(@Param("userName") String userName,@Param("password") String password);
     
     
 }

@@ -9,7 +9,7 @@ import {LowStockLevelDTO} from "../../DTO/LowStockLevelDTO";
 })
 export class LowStockLevelComponent implements OnInit {
 
-  constructor(private stockService:StockService) { }
+  public constructor(private stockService:StockService) { }
 
   LowStockLevel :Array<LowStockLevelDTO> = new Array<LowStockLevelDTO>();
 

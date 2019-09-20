@@ -22,7 +22,7 @@ export class SupplierComponent implements OnInit {
 
   private supplier: Supplier = new Supplier();
 
-  constructor(private supplierService: SupplierService) { }
+  public constructor(private supplierService: SupplierService) { }
 
   searchSupplierValuesIf = true;
   searchSupplierDetails : Supplier = new Supplier();

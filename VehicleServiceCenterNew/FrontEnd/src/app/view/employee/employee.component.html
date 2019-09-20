@@ -300,3 +300,88 @@
                 </div>
 
             </div>
+
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-header card-header-icon card-header-info">
+                      <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                      </div>
+                      <h4 class="card-title">Login Details
+
+                      </h4>
+                    </div>
+                    <div class="card-body">
+                      <!--<form  name="form" >-->
+                        <div class="row">
+
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">User Name</label>
+                              <input name="loginUserName" type="text" class="form-control" [(ngModel)] = "loginUserName" >
+                              <!--<div *ngIf="validFirstNameIf;" style="color: red" >Name Must Be Fill</div>-->
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Password</label>
+                              <input type="password" class="form-control" name="loginPassword" [(ngModel)] = "loginPassword" >
+                              <!--<div *ngIf="validLastNameIf;" style="color: red"> Last Name Must Be Fill</div>-->
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Confirm Password</label>
+                              <input type="password" class="form-control" name="confirmPassword" [(ngModel)] = "confirmPassword" >
+                              <div *ngIf="validPasswordIf;" style="color: red">Password Is Not Matched</div>
+
+                            </div>
+                          </div>
+
+                        </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <!--<mat-form-field>-->
+                          <label >Login type</label>
+                          <br>
+                          <div class="form-group">
+                            <!--<label for="exampleFormControlSelect1">Example select</label>-->
+                            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="type" >
+                              <option  value="Admin">Admin</option>
+                              <option  value="Cashier" >Cashier</option>
+                            </select>
+
+                          </div>
+
+
+                        </div>
+                      </div>
+
+
+
+
+
+                        <button  type="submit" class="btn btn pull-right" (click)="addLoginDetails()">Save Details</button>
+                        <div class="clearfix"></div>
+                      <!--</form>-->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
