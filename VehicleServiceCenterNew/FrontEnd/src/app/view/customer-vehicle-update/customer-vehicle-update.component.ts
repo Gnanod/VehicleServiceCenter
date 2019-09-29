@@ -3,6 +3,9 @@ import {Vehicle} from "../../Model/Vehicle";
 import {CustomerService} from "../../Service/customer.service";
 import {VehicleService} from "../../Service/vehicle.service";
 import {Customer} from "../../Model/Customer";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {MakeModel} from "../../Model/MakeModel";
+import {MakeModelService} from "../../Service/make-model.service";
 
 @Component({
   selector: 'app-customer-vehicle-update',
@@ -11,10 +14,36 @@ import {Customer} from "../../Model/Customer";
 })
 export class CustomerVehicleUpdateComponent implements OnInit {
 
-  constructor(private vehicleService :VehicleService,private customerService : CustomerService) { }
+  public constructor(private vehicleService :VehicleService,private customerService : CustomerService,private make_model_service :MakeModelService) { }
 
   ngOnInit() {
   }
+
+
+  customerNic :string;
+
+  form = new FormGroup({
+    nic1: new FormControl('', Validators.required),
+    vehicleNumber: new FormControl('', Validators.required),
+    engineNumber: new FormControl('', Validators.required),
+    vehicleClass: new FormControl('', Validators.required),
+    vehicleMake: new FormControl('', Validators.required),
+    vehicleModel: new FormControl('', Validators.required),
+    yearOfManufacture: new FormControl('', Validators.required),
+  });
+
+  form1 = new FormGroup({
+
+    fName:new FormControl('',Validators.required),
+    lName:new FormControl('',Validators.required),
+    email:new FormControl('',[Validators.required,Validators.email]),
+    nic: new FormControl('', Validators.required),
+    address:new FormControl('',Validators.required),
+    birthday:new FormControl('',Validators.required),
+    phoneNumber:new FormControl('',[Validators.required,Validators.maxLength(10)]),
+
+  });
+
 
 
     searchVehicleValuesIf = true;
@@ -39,6 +68,7 @@ export class CustomerVehicleUpdateComponent implements OnInit {
                 this.searchVehicleDetails=result;
                 this.inputFieldCustomer=result.customer;
 
+              this.customerNic=this.searchVehicleDetails.customer.nic;
             }
         });
     }
@@ -69,7 +99,10 @@ export class CustomerVehicleUpdateComponent implements OnInit {
             if(result!=null){
                 
                 alert("Cutomer Updated SuccessFully");
-                
+                this.inputFieldCustomer=new Customer();
+              this.searchVehicleDetails = new Vehicle();
+              this.form1.reset();
+
             }
             
             
@@ -77,13 +110,17 @@ export class CustomerVehicleUpdateComponent implements OnInit {
     }
     
     UpdateVehicleDetails(){
-        
+
+        this.searchVehicleDetails.customer.nic=this.customerNic;
         this.vehicleService.UpdateVehicleDetails(this.searchVehicleDetails).subscribe((result)=>{
 
             if(result!=null){
                 
                 alert("Vehicle Updated SuccessFully");
-                
+           //   this.inputFieldCustomer = this.searchVehicleDetails.customer;
+              this.searchVehicleDetails = new Vehicle();
+              this.searchVehicleDetails.customer=new Customer();
+              this.form.reset();
             }
             
         });
@@ -103,6 +140,26 @@ export class CustomerVehicleUpdateComponent implements OnInit {
             }
         });
     }
-    
-    
+
+  /////////////////////////////Select Model according to the Make  ///////////////////
+
+  insertItemModel:string;
+  searchMakesByModel :Array<MakeModel>= new Array<MakeModel>();
+  insertselectedMake:string;
+
+  getMakeModelDetails(value :string){
+
+
+    this.make_model_service.getMakeModelDetails(value).subscribe((result)=>{
+
+      if(result!=null){
+
+        this.searchMakesByModel=result;
+        //this.addTableModel=null;
+
+      }
+    });
+
+  }
+
 }

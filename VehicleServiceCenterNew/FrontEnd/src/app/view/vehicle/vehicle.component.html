@@ -21,11 +21,11 @@
                                 <div class="col-md-4" style="margin-left: 150px">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Search By Name</label>
-                                        <input type="text" class="form-control" style="width: 300px" [(ngModel)]="searchCustomerName">
+                                        <input type="text" class="form-control" style="width: 340px" [(ngModel)]="searchCustomerName">
                                     </div>
                                 </div>
-                                <div class="col-md-4" style="margin-left: -100px ;margin-top: 25px">
-                                    <button type="submit" class="btn btn-behance  pull-right" (click)="searchByCustomerName()">   <i class="material-icons">search</i></button>
+                                <div class="col-md-4" style="margin-left: -300px ;margin-top: 0px">
+                                    <button type="submit" class="btn btn-behance  pull-right" (click)="searchByCustomerName()">    <i class="fas fa-search"></i></button>
                                 </div>
 
                             </div>
@@ -118,41 +118,57 @@
                     <div class="card">
                         <div class="card-header card-header-icon card-header-info ">
                             <div class="card-icon">
-                                <i class="material-icons">perm_identity</i>
-                            </div>
+                              <i class="fas fa-users"></i>                            </div>
                             <h4 class="card-title">Add Customer Details
 
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form>
+
+                          <form name="form1" [formGroup]="form1">
 
                                 <div class="row">
 
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating" >Fist Name</label>
-                                            <input type="text" class="form-control" name="firstName" [(ngModel)]="addCustomer.firstName">
+                                            <label  >Fist Name</label>
+                                            <input type="text" class="form-control" name="firstName" [(ngModel)]="addCustomer.firstName" formControlName="fName" [ngClass]="{'is-invalid':form1.get('fName').touched && form1.get('fName').invalid }" >
+                                            <div class="invalid-feedback"  *ngIf="form1.get('fName').touched  && form1.get('fName').invalid">
+                                              First Name Is Empty
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label class="bmd-label-floating" >Last Name</label>
-                                            <input type="text" class="form-control" name="lastName" [(ngModel)]="addCustomer.lastName">
+                                          <input type="text" class="form-control" name="lastName" [(ngModel)]="addCustomer.lastName" formControlName="lName" [ngClass]="{'is-invalid':form1.get('lName').touched && form1.get('lName').invalid }">
+                                          <div class="invalid-feedback"  *ngIf="form1.get('lName').touched  && form1.get('lName').invalid">
+                                            Last Name Is Empty
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating" >Email address</label>
-                                            <input type="email" class="form-control" name="email" [(ngModel)]="addCustomer.email">
+                                            <label  >Email address</label>
+
+                                          <input type="text" class="form-control" name="email" [(ngModel)]="addCustomer.email" formControlName="email" [ngClass]="{'is-invalid':form1.get('email').touched && form1.get('email').invalid }">
+                                          <div class="invalid-feedback"  *ngIf="form1.get('email').touched  && form1.get('email').invalid">
+                                            <div  *ngIf="form1.get('email').errors.required">Email Field Is Empty</div>
+                                            <div *ngIf="form1.get('email').errors.email" >Email Is Not Valid</div>
+                                          </div>
+                                            <!--<input type="email" class="form-control" name="email" [(ngModel)]="addCustomer.email">-->
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating" >Nic</label>
-                                            <input type="text" class="form-control" name="nic" [(ngModel)]="addCustomer.nic">
+                                            <label  >Nic</label>
+                                          <input type="text" class="form-control" name="nic" id="nic" [(ngModel)]="addCustomer.nic" formControlName="nic" [ngClass]="{'is-invalid':form1.get('nic').touched && form1.get('nic').invalid }">
+                                          <div class="invalid-feedback"  *ngIf="form1.get('nic').touched  && form1.get('nic').invalid">
+                                            NIC Is Empty
+                                          </div>
+                                            <!--<input type="text" class="form-control" name="nic" [(ngModel)]="addCustomer.nic">-->
                                         </div>
                                     </div>
                                 </div>
@@ -160,28 +176,45 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating" >Adress</label>
-                                            <input type="text" class="form-control" name="address" [(ngModel)]="addCustomer.address">
+                                            <label >Adress</label>
+                                            <!--<input type="text" class="form-control" name="address" [(ngModel)]="addCustomer.address">-->
+                                          <input type="text" class="form-control" name="address" [(ngModel)]="addCustomer.address" formControlName="address" [ngClass]="{'is-invalid':form1.get('address').touched && form1.get('address').invalid }">
+
+                                          <div class="invalid-feedback"  *ngIf="form1.get('address').touched  && form1.get('address').invalid">
+                                            <div  *ngIf="form1.get('address').errors.required">Address Field Is Empty</div>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating" >Birthday</label>
-                                            <input type="text" class="form-control" name="birthday" [(ngModel)]="addCustomer.birthday">
+                                            <label >Birthday</label>
+                                            <!--<input type="date" class="form-control" name="birthday" [(ngModel)]="addCustomer.birthday">-->
+                                          <input type="date" class="form-control" name="birthday" [(ngModel)]="addCustomer.birthday" formControlName="birthday" [ngClass]="{'is-invalid':form1.get('birthday').touched && form1.get('birthday').invalid }">
+
+                                          <div class="invalid-feedback"  *ngIf="form1.get('birthday').touched  && form1.get('birthday').invalid">
+                                            <div  *ngIf="form1.get('birthday').errors.required">Birthday Field Is Empty</div>
+                                          </div>
+
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating" >Phone Number</label>
-                                            <input type="text" class="form-control" name="phoneNumber"[(ngModel)]="addCustomer.phoneNumber">
+                                            <label >Phone Number</label>
+                                            <!--<input type="text" class="form-control" name="phoneNumber"[(ngModel)]="addCustomer.phoneNumber">-->
+                                          <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="addCustomer.phoneNumber" formControlName="phoneNumber" [ngClass]="{'is-invalid':form1.get('phoneNumber').touched && form1.get('phoneNumber').invalid}">
+
+                                          <div class="invalid-feedback"  *ngIf="form1.get('phoneNumber').touched  && form1.get('phoneNumber').invalid">
+                                            <div  *ngIf="form1.get('phoneNumber').errors.required">Phone Number Field Is Empty</div>
+                                            <div  *ngIf="form1.get('phoneNumber').errors.maxlength">Phone Number Must Be in 10 Digits</div>
+                                          </div>
                                         </div>
                                     </div>
 
                                 </div>
 
-                                <button type="submit" class="btn btn-behance   pull-right" (click)="addCustomerDetails()">Update Details</button>
+                                <button type="submit" class="btn btn-behance   pull-right" (click)="addCustomerDetails()" [disabled]="!form1.valid">Save Customer Details</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>
@@ -191,19 +224,24 @@
                     <div class="card">
                         <div class="card-header card-header-icon card-header-info">
                             <div class="card-icon">
-                                <i class="material-icons">perm_identity</i>
+                              <i class="fas fa-truck"></i>
                             </div>
                             <h4 class="card-title">Add Vehicle Details
 
                             </h4>
                         </div>
                         <div class="card-body">
-                            <form>
+                            <form name="form1" [formGroup]="form">
                                 <div class="row">
                                     <div class="col-md-11">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Customer Nic</label>
-                                            <input type="text" class="form-control" name="nic" [(ngModel)]="nic">
+                                            <label>Customer Nic</label>
+
+<br>
+                                          <input type="text" class="form-control" name="nic"[(ngModel)]="nic" formControlName="nic1" [ngClass]="{'is-invalid':form.get('nic1').touched && form.get('nic1').invalid }">
+                                          <div class="invalid-feedback"  *ngIf="form.get('nic1').touched  && form.get('nic1').invalid">
+                                            NIC Field Is Empty
+                                          </div>
                                             <!---->
                                         </div>
                                     </div>
@@ -211,9 +249,13 @@
                                 <div class="row">
                                     <div class="col-md-11">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Vehicle Number</label>
-                                            <input type="text" class="form-control" name="vehicleNumber" [(ngModel)]="vehNgModel.vehicleNumber">
-
+                                            <label >Vehicle Number</label>
+                                            <!--<input type="text" class="form-control" name="vehicleNumber" [(ngModel)]="vehNgModel.vehicleNumber">-->
+<br>
+                                          <input type="text" class="form-control" name="vehicleNumber"[(ngModel)]="vehNgModel.vehicleNumber" formControlName="vehicleNumber" [ngClass]="{'is-invalid':form.get('vehicleNumber').touched && form.get('vehicleNumber').invalid }">
+                                          <div class="invalid-feedback"  *ngIf="form.get('vehicleNumber').touched  && form.get('vehicleNumber').invalid">
+                                            VehicleNumber Field Is Empty
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -221,9 +263,13 @@
 
                                     <div class="col-md-11">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Engine number</label>
-                                            <input type="text" class="form-control" name="engineNumber" [(ngModel)]="vehNgModel.engineNumber">
-                                            <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+                                            <label >Engine number</label>
+                                            <!--<input type="text" class="form-control" name="engineNumber" [(ngModel)]="vehNgModel.engineNumber">-->
+                                         <br>
+                                          <input type="text" class="form-control" name="engineNumber"[(ngModel)]="vehNgModel.engineNumber" formControlName="engineNumber" [ngClass]="{'is-invalid':form.get('engineNumber').touched && form.get('engineNumber').invalid }">
+                                          <div class="invalid-feedback"  *ngIf="form.get('engineNumber').touched  && form.get('engineNumber').invalid">
+                                            EngineNumber Field Is Empty
+                                          </div>
                                         </div>
                                     </div>
 
@@ -237,9 +283,9 @@
                                         <br>
                                         <div class="form-group">
                                             <!--<label for="exampleFormControlSelect1">Example select</label>-->
-                                            <select class="form-control" id="exampleFormControlSelect1" [formControl]=" selectVehicleClass">
-                                                <option  value="B1"  >A1</option>
-                                                <option  value="B"  >A</option>
+                                            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="vehNgModel.vehicleClass" formControlName="vehicleClass" [ngClass]="{'is-invalid':form.get('vehicleClass').touched && form.get('vehicleClass').invalid }">
+                                                <option  value="A1"  >A1</option>
+                                                <option  value="A"  >A</option>
                                                 <option  value="B1"  >B1</option>
                                                 <option  value="B"  >B</option>
                                                 <option  value="C1" >C1</option>
@@ -252,23 +298,81 @@
                                                 <option  value="G">G</option>
                                                 <option  value="J">J</option>
                                             </select>
+                                          <div class="invalid-feedback"  *ngIf="form.get('vehicleClass').touched  && form.get('vehicleClass').invalid" >
+                                            Vehicle Class Field Is Empty
+                                          </div>
                                         </div>
                                         
 
                                     </div>
                                 </div>
+                              <br>
+<br>
+                          <div class="row">
+                            <div class="col-md-6">
+                              <label >Select Make</label>
+                              <div class="form-group">
+
                                 <br>
                                 <br>
-                                <div class="row">
-                                    <div class="col-md-11">
-                                        <div class="form-group">
-                                            <label class="bmd-label-floating">Model</label>
-                                            <input type="email" class="form-control"  name="vehicleModel" [(ngModel)]="vehNgModel.vehicleModel">
-                                            <!---->
-                                        </div>
-                                    </div>
+                                <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)" formControlName="vehicleMake" [ngClass]="{'is-invalid':form.get('vehicleMake').touched && form.get('vehicleMake').invalid }">
+
+                                  <option value="Any">Any</option>
+                                  <option >Abarth</option>
+                                  <option>Acura</option>
+                                  <option>Alfa Romeo</option>
+                                  <option>Ambassador</option>
+                                  <option>Aprilia</option>
+                                  <option>Audi</option>
+                                  <option>Austin</option>
+                                  <option>Bajaj</option>
+                                  <option>BMW</option>
+                                  <option>Cadillac</option>
+                                  <option>Caterpillar</option>
+                                  <option>Nissan</option>
+                                  <option>Suzuki</option>
+                                  <option>Toyota</option>
+                                  <option>Honda</option>
+                                  <option>530i</option>
+
+
+                                </select>
+
+                                <div class="invalid-feedback"  *ngIf="form.get('vehicleMake').touched  && form.get('vehicleMake').invalid" >
+                                  Vehicle Make Field Is Empty
                                 </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-6">
+                              <label >Select Model</label>
+                              <div class="form-group">
+
+                                <select class="form-control " data-style="select-with-transition"  [(ngModel)]="vehNgModel.vehicleModel" formControlName="vehicleModel" [ngClass]="{'is-invalid':form.get('vehicleModel').touched && form.get('vehicleModel').invalid }">
+                                  <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>
+                                </select>
+                                <div class="invalid-feedback"  *ngIf="form.get('vehicleModel').touched  && form.get('vehicleModel').invalid" >
+                                  Vehicle Model Field Is Empty
+                                </div>
+                              </div>
+
+                            </div>
+                          </div>
+
+                                <!--<div class="row">-->
+                                    <!--<div class="col-md-11">-->
+                                        <!--<div class="form-group">-->
+                                            <!--<label class="bmd-label-floating">Model</label>-->
+                                            <!--<input type="email" class="form-control"  name="vehicleModel" [(ngModel)]="vehNgModel.vehicleModel">-->
+                                            <!--&lt;!&ndash;&ndash;&gt;-->
+                                        <!--</div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
                                 <br>
+                              <br>
                                 <div class="row">
 
 
@@ -276,16 +380,28 @@
                                   
                                     <div class="col-md-7">
                                         <div class="form-group">
-                                            <label >Manufacture Date</label>
-                                            <br>
-                                            <input  type="date"  class="form-control" name="yearOfManufacture" [(ngModel)]="stringDateModel" >
-                                           
+                                            <!--<label >Manufacture Date</label>-->
+                                            <!--<br>-->
+                                            <!--&lt;!&ndash;<input  type="date"  class="form-control" name="yearOfManufacture" [(ngModel)]="stringDateModel" >&ndash;&gt;-->
+                                          <!--<input type="date" class="form-control" name="yearOfManufacture" [(ngModel)]="stringDateModel" formControlName="yearOfManu" [ngClass]="{'is-invalid':form.get('yearOfManu').touched && form.get('yearOfManu').invalid }">-->
+
+                                          <!--<div class="invalid-feedback"  *ngIf="form.get('yearOfManu').touched  && form.get('yearOfManu').invalid">-->
+                                            <!--<div  *ngIf="form.get('yearOfManu').errors.required">Manufacture Date Is Empty</div>-->
+                                          <!--</div>-->
+                                          <label >Manufacture Date</label>
+                                          <br>
+                                          <!--<input type="date" class="form-control" name="birthday" [(ngModel)]="addCustomer.birthday">-->
+                                          <input type="date" class="form-control" name="yearOfManufacture" [(ngModel)]="stringDateModel" formControlName="yearOfManufacture" [ngClass]="{'is-invalid':form.get('yearOfManufacture').touched && form.get('yearOfManufacture').invalid }">
+
+                                          <div class="invalid-feedback"  *ngIf="form.get('yearOfManufacture').touched  && form.get('yearOfManufacture').invalid">
+                                            <div  *ngIf="form.get('yearOfManufacture').errors.required">Manufacture Date Field Is Empty</div>
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
 
 
-                                <button type="submit" class="btn btn-behance  pull-right" (click)="addVehicleDetails()">Add Vehicle Details</button>
+                                <button type="submit" class="btn btn-behance  pull-right" (click)="addVehicleDetails()" [disabled]="!form.valid">Add Vehicle Details</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>

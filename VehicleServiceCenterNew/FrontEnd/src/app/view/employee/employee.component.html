@@ -12,7 +12,7 @@
                                 </h4>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form  name="form" >
                                     <div class="row">
 
 
@@ -21,13 +21,15 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">First Name</label>
-                                                <input name="firstName" type="text" class="form-control" [(ngModel)] = "employee.firstName">
+                                                <input name="firstName" type="text" class="form-control" [(ngModel)] = "employee.firstName" (keyup)="validEmployee($event)">
+                                                <div *ngIf="validFirstNameIf;" style="color: red" >Name Must Be Fill</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Last Name</label>
-                                                <input type="text" class="form-control" name="lastName" [(ngModel)] = "employee.lastName">
+                                                <input type="text" class="form-control" name="lastName" [(ngModel)] = "employee.lastName" (keyup)="validEmployee1($event)">
+                                              <div *ngIf="validLastNameIf;" style="color: red"> Last Name Must Be Fill</div>
                                             </div>
                                         </div>
                                     </div>
@@ -35,13 +37,17 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Email address</label>
-                                                <input type="email" class="form-control" name="email" [(ngModel)] = "employee.email">
+                                                <input type="email" class="form-control" name="email" [(ngModel)] = "employee.email" (keyup)="validEmployee2($event)">
+                                              <div *ngIf="validemailIf;" style="color: red">Email Must Be Fill</div>
+
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating" >Nic</label>
-                                                <input type="text" class="form-control" name="nic" [(ngModel)] = "employee.nic">
+                                                <input type="text" class="form-control" name="nic" [(ngModel)] = "employee.nic" (keyup)="validEmployee3($event)">
+                                              <div *ngIf="valideNicIf;" style="color: red">Nic Must Be Fill</div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -49,8 +55,10 @@
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="bmd-label-floating">Adress</label>
-                                                <input type="text" class="form-control" name="address" [(ngModel)] = "employee.address">
+                                                <label class="bmd-label-floating">Address</label>
+                                                <input type="text" class="form-control" name="address" [(ngModel)] = "employee.address" (keyup)="validateEmploye4($event)">
+                                              <div *ngIf="validAddressIf;" style="color: red">Address Must Be Fill</div>
+
                                             </div>
                                         </div>
                                     </div>
@@ -58,19 +66,22 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Birthday</label>
-                                                <input type="text" class="form-control" name="birthday" [(ngModel)] = "employee.birthday">
+                                                <input type="text" class="form-control" name="birthday" [(ngModel)] = "employee.birthday" (keyup)="validateEmploye5($event)">
+                                              <div *ngIf="validBirthdayIf;"style="color: red" >Birthday Must Be Fill</div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Phone Number</label>
-                                                <input type="text" class="form-control" name="phoneNumber" [(ngModel)] = "employee.phoneNumber">
+                                                <input type="text" class="form-control" name="phoneNumber" [(ngModel)] = "employee.phoneNumber" (keyup)="validateEmployee6($event)">
+                                              <div *ngIf="validPhoneNumberIf;" style="color: red">Phone Number Must Be Fill</div>
+                                              <!--<div *ngIf="validPhoneNumberLength;" style="color: red"> Phone Number is Invalid</div>-->
                                             </div>
                                         </div>
 
                                     </div>
 
-                                    <button (click)="addEmpDetails()" type="submit" class="btn btn pull-right">Save Details</button>
+                                    <button (click)="addEmpDetails()" type="submit" class="btn btn pull-right" >Save Details</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
@@ -96,10 +107,10 @@
                                 <div class="col-md-4" style="margin-left: 450px">
                                     <div class="form-group">
                                         <label class="bmd-label-floating"><i class="fas fa-search"></i>Search By Name</label>
-                                        <input type="text" class="form-control" style="width: 600px" (keyup)="searchEmployeeDetailsByNumber($event)" [(ngModel)]="searchEmployeeNumber">
+                                        <input type="text" class="form-control" style="width: 300px" (keyup)="searchEmployeeDetailsByNumber($event)" [(ngModel)]="searchEmployeeNumber">
                                     </div>
                                 </div>
-                                <div class="col-md-4" style="margin-left: -300px ;margin-top: 25px">
+                                <div class="col-md-4" style="margin-left: -300px ;margin-top: 0px">
                                     <button type="submit" class="btn btn-behance pull-right" >   <i class="fas fa-search"></i></button>
                                 </div>
 
@@ -183,32 +194,42 @@
 
                             </h4>
                         </div>
+
+
                         <div class="card-body">
-                            <form>
-                                <div class="row">
+                            <form [formGroup]="form1" name="form1" >
 
-
+                              <div class="row">
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label  >Employee Id</label>
-                                            <input type="text" class="form-control" name="employeeId" id="employeeId" [(ngModel)]="searchEmployeeDetails.employeeId" >
+                                            <input type="text" class="form-control" name="employeeId" id="employeeId" [(ngModel)]="searchEmployeeDetails.employeeId" disabled formControlName="empId1">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="row">
 
+
+
+
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label >Fist Name</label>
-                                            <input type="text" class="form-control" name="firstName" id="firstName" [(ngModel)]="searchEmployeeDetails.firstName" >
+                                            <input type="text" class="form-control" name="empName1" id="firstName" [(ngModel)]="searchEmployeeDetails.firstName" formControlName="empName1" [ngClass]="{'is-invalid':form1.get('empName1').touched && form1.get('empName1').invalid }" >
+                                          <div class="invalid-feedback"  *ngIf="form1.get('empName1').touched  && form1.get('empName1').invalid">
+                                            First Name Is Empty
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label >Last Name</label>
-                                            <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="searchEmployeeDetails.lastName">
+                                            <input type="text" class="form-control" name="lastName" id="lastName" [(ngModel)]="searchEmployeeDetails.lastName" formControlName="lastName1" [ngClass]="{'is-invalid':form1.get('lastName1').touched && form1.get('lastName1').invalid }">
+                                          <div class="invalid-feedback"  *ngIf="form1.get('lastName1').touched  && form1.get('lastName1').invalid">
+                                            Last Name Is Empty
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -216,13 +237,21 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label >Email address</label>
-                                            <input type="email" class="form-control" name="email" id="email" [(ngModel)]="searchEmployeeDetails.email">
+                                            <input type="email" class="form-control" name="email1" id="email" [(ngModel)]="searchEmployeeDetails.email" formControlName="email1" [ngClass]="{'is-invalid':form1.get('email1').touched && form1.get('email1').invalid }">
+                                          <div class="invalid-feedback"  *ngIf="form1.get('email1').touched  && form1.get('email1').invalid">
+                                            <div  *ngIf="form1.get('email1').errors.required">Email Field Is Empty</div>
+                                            <div *ngIf="form1.get('email1').errors.email" >Email Is Not Valid</div>
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label  >Nic</label>
-                                            <input type="text" class="form-control" name="nic" id="nic" [(ngModel)]="searchEmployeeDetails.nic">
+                                            <input type="text" class="form-control" name="nic1" id="nic" [(ngModel)]="searchEmployeeDetails.nic" formControlName="nic1" [ngClass]="{'is-invalid':form1.get('nic1').touched && form1.get('nic1').invalid }">
+                                          <div class="invalid-feedback"  *ngIf="form1.get('nic1').touched  && form1.get('nic1').invalid">
+                                            NIC Is Empty
+                                          </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -231,7 +260,10 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label >Address</label>
-                                            <input type="text" class="form-control" name="address" id="address" [(ngModel)]="searchEmployeeDetails.address">
+                                            <input type="text" class="form-control" name="address1" id="address" [(ngModel)]="searchEmployeeDetails.address" formControlName="address1" [ngClass]="{'is-invalid':form1.get('address1').touched && form1.get('address1').invalid}">
+                                          <div class="invalid-feedback"  *ngIf="form1.get('address1').touched  && form1.get('address1').invalid">
+                                            Address Is Empty
+                                          </div>
                                         </div>
                                     </div>
                                 </div>
@@ -239,23 +271,117 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label >Birthday</label>
-                                            <input type="text" class="form-control" name="birthday" id="birthday" [(ngModel)]="searchEmployeeDetails.birthday">
+                                            <input type="text" class="form-control" name="birthday" id="birthday" [(ngModel)]="searchEmployeeDetails.birthday" formControlName="birthday1" [ngClass]="{'is-invalid':form1.get('birthday1').touched && form1.get('birthday1').invalid}">
+                                          <div class="invalid-feedback"  *ngIf="form1.get('birthday1').touched  && form1.get('birthday1').invalid">
+                                            Birthday Is Empty
+                                          </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label >Phone Number</label>
-                                            <input type="text" class="form-control" name="phoneNumber" id="phoneNumber" [(ngModel)]="searchEmployeeDetails.phoneNumber">
-                                        </div>
+                                          <input type="text" class="form-control" name="phoneNumber1" [(ngModel)]="searchEmployeeDetails.phoneNumber" formControlName="phoneNumber1" [ngClass]="{'is-invalid':form1.get('phoneNumber1').touched && form1.get('phoneNumber1').invalid}">
+
+                                          <div class="invalid-feedback"  *ngIf="form1.get('phoneNumber1').touched  && form1.get('phoneNumber1').invalid">
+                                            <div  *ngIf="form1.get('phoneNumber1').errors.required">Phone Number Field Is Empty</div>
+                                            <div  *ngIf="form1.get('phoneNumber1').errors.maxlength">Phone Number Must Be in 10 Digits</div>
+                                          </div>
+
+                                          </div>
                                     </div>
 
                                 </div>
 
-                                <button type="submit" class="btn btn-behance pull-right" (click)="UpdateEmployeeDetails()"> Update Details</button>
+                                <button type="submit" class="btn btn-behance pull-right" (click)="UpdateEmployeeDetails()" [disabled]="!form1.valid"> Update Details</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>
                     </div>
                 </div>
+
+            </div>
+
+
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-8">
+                  <div class="card">
+                    <div class="card-header card-header-icon card-header-info">
+                      <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                      </div>
+                      <h4 class="card-title">Login Details
+
+                      </h4>
+                    </div>
+                    <div class="card-body">
+                      <!--<form  name="form" >-->
+                        <div class="row">
+
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">User Name</label>
+                              <input name="loginUserName" type="text" class="form-control" [(ngModel)] = "loginUserName" >
+                              <!--<div *ngIf="validFirstNameIf;" style="color: red" >Name Must Be Fill</div>-->
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Password</label>
+                              <input type="password" class="form-control" name="loginPassword" [(ngModel)] = "loginPassword" >
+                              <!--<div *ngIf="validLastNameIf;" style="color: red"> Last Name Must Be Fill</div>-->
+                            </div>
+                          </div>
+
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label class="bmd-label-floating">Confirm Password</label>
+                              <input type="password" class="form-control" name="confirmPassword" [(ngModel)] = "confirmPassword" >
+                              <div *ngIf="validPasswordIf;" style="color: red">Password Is Not Matched</div>
+
+                            </div>
+                          </div>
+
+                        </div>
+
+                      <div class="row">
+                        <div class="col-md-6">
+                          <!--<mat-form-field>-->
+                          <label >Login type</label>
+                          <br>
+                          <div class="form-group">
+                            <!--<label for="exampleFormControlSelect1">Example select</label>-->
+                            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="type" >
+                              <option  value="Admin">Admin</option>
+                              <option  value="Cashier" >Cashier</option>
+                            </select>
+
+                          </div>
+
+
+                        </div>
+                      </div>
+
+
+
+
+
+                        <button  type="submit" class="btn btn pull-right" (click)="addLoginDetails()">Save Details</button>
+                        <div class="clearfix"></div>
+                      <!--</form>-->
+                    </div>
+                  </div>
+                </div>
+
+              </div>
 
             </div>

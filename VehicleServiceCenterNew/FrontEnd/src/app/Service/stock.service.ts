@@ -4,6 +4,9 @@ import {HttpClient} from "@angular/common/http";
 
 import {MakeModel} from "../Model/MakeModel";
 import {environment} from "../../environments/environment";
+import {Supplier} from "../Model/Supplier";
+import {LowStockLevelComponent} from "../view/low-stock-level/low-stock-level.component";
+import {LowStockLevelDTO} from "../DTO/LowStockLevelDTO";
 
 
 const URL ='/StockController';
@@ -13,10 +16,17 @@ const URL ='/StockController';
 })
 export class StockService {
 
-  constructor(private http: HttpClient) { }
+  public constructor(private http: HttpClient) { }
 
   addStock(stock: Stock) {
+
     return this.http.post<string>(environment.backend_url + URL + '/addStock',stock);
+
+  }
+
+  lowStock(){
+
+    return this.http.get<Array<LowStockLevelDTO>>(environment.backend_url + URL + '/getLowStockLevelReport/');
 
   }
 }

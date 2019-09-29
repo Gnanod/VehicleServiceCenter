@@ -17,7 +17,7 @@
 
                       <p #dashboard>Dashboard</p>
                         <!--<i class="material-icons">dashboard</i>-->
-                        <p #dashboard>Dashboard</p>
+                        <!--<p #dashboard>Dashboard</p>-->
                     </a>
                 </li>
                 <li class="nav-item" [ngClass]="{'active': headerText=='Employees'}" (click)="changeRoute(employee.innerHTML)">
@@ -74,11 +74,11 @@
                   <p #ServiceManagement>Service Management</p>
                 </a>
               </li>
-                <li class="nav-item ">
+                <li class="nav-item " [ngClass]="{'active': headerText=='JobOrder Management'}" (click)="changeRoute(jobOrderManagement.innerHTML)">
                     <a class="nav-link" href="job">
                       <i class="fas fa-receipt"></i>
 
-                        <p> JobOrder </p>
+                        <p #jobOrderManagement>JobOrder</p>
                     </a>
                 </li>
                 
@@ -98,7 +98,7 @@
                       <li class="nav-item " [ngClass]="{'active': headerText=='SearchVehicle'}" (click)="changeRoute(LowStockLevel.innerHTML)">
                         <a class="nav-link" >
                           <span class="sidebar-mini"> LSL </span>
-                          <span class="sidebar-normal" #LowStockLevel>Low Stock Level</span>
+                          <span class="sidebar-normal" #LowStockLevel>LowStockLevel</span>
                         </a>
                       </li>
 
@@ -129,9 +129,7 @@
                 <div class="collapse navbar-collapse justify-content-end">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="#pablo">
-                                <i class="material-icons">notifications</i> Notifications
-                            </a>
+                            <a class="nav-link" href="#pablo"><i class="fas fa-bell"></i></a>
                         </li>
                         <!-- your navbar here -->
                     </ul>

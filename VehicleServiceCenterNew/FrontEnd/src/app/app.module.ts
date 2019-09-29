@@ -22,6 +22,7 @@ import { JoborderComponent } from './view/joborder/joborder.component';
 import { ServiceManagementComponent } from './view/service-management/service-management.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ServiceJobComponent } from './view/service-job/service-job.component';
+import { LowStockLevelComponent } from './view/low-stock-level/low-stock-level.component';
 
 
 
@@ -38,7 +39,8 @@ import { ServiceJobComponent } from './view/service-job/service-job.component';
     StockDetailsComponent,
     JoborderComponent,
     ServiceManagementComponent,
-    ServiceJobComponent
+    ServiceJobComponent,
+    LowStockLevelComponent
   ],
   imports: [
     BrowserModule,

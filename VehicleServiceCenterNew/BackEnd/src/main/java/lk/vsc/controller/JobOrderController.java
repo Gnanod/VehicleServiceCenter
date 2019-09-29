@@ -48,12 +48,34 @@ public class JobOrderController {
 
     }
 
+    @GetMapping(value = "/getTotalSales")
+    public double getTotalSales() {
+
+        return jobOrderService.getTotalSales();
+
+    }
+
+    @GetMapping(value = "/getMonthlyTotalSales")
+    public double getMonthlyTotalSales() {
+
+        return jobOrderService.getMonthlyTotalSales();
+
+    }
+
+    @GetMapping(value = "/getTodayJobCount")
+    public double getTodayJobCount() {
+
+        return jobOrderService.getTodayJobCount();
+
+    }
+
     @GetMapping(value = "/searchUnitPrice/{itemName}")
     public Item searchUnitPrice(@PathVariable String itemName) {
 
         return jobOrderService.searchUnitPrice(itemName);
 
     }
+
 
 
     @PostMapping(value = "/addJobOrder")
@@ -95,9 +117,7 @@ public class JobOrderController {
         }
 
         j1.setJobOrderItemDetails(s3);
-        System.out.println("HHHHHHH"+j1.getDate());
-        System.out.println("HHHHHHH"+j1.getEmployeeName());
-       System.out.println("HHHHHHH"+j1.getVehicle().getVehicleId());
+
 //
 //        for (JobOrderItemDetails f : s3){
 //            System.out.println("dddddd"+f.getItem().getItemId());
@@ -106,6 +126,8 @@ public class JobOrderController {
 
 
         return jobOrderService.setJobOrder(j1);
-       // return null;
+
+
+
     }
 }

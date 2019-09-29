@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Supplier} from "../../Model/Supplier";
 import {SupplierService} from "../../Service/supplier.service";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-supplier',
@@ -9,11 +10,20 @@ import {SupplierService} from "../../Service/supplier.service";
 })
 export class SupplierComponent implements OnInit {
 
+  form = new FormGroup({
+
+    agentName:new FormControl('',Validators.required),
+    email:new FormControl('',[Validators.required,Validators.email]),
+    address:new FormControl('',Validators.required),
+    companyName:new FormControl('',Validators.required),
+    phoneNumber:new FormControl('',[Validators.required,Validators.maxLength(10)]),
+
+  });
+
   private supplier: Supplier = new Supplier();
 
   constructor(private supplierService: SupplierService) {
   }
-
   searchSupplierValuesIf = true;
   searchSupplierDetails: Supplier = new Supplier();
   updateSupplierDetails: Supplier = new Supplier();
@@ -26,6 +36,7 @@ export class SupplierComponent implements OnInit {
       if (result != null) {
 
         alert("Supplier Updated SuccessFully");
+        this.searchSupplierDetails = new Supplier();
 
       }
 
@@ -56,6 +67,8 @@ export class SupplierComponent implements OnInit {
 
       if (result != null) {
         alert("Added Successfully");
+        this.supplier = new Supplier();
+        this.form.reset();
       }
 
     })

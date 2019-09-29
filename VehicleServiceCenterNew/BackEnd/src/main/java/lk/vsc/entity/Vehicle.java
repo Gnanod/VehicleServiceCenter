@@ -17,6 +17,8 @@ public class Vehicle {
     private String vehicleClass;
     private String vehicleModel;
     private String yearOfManufacture;
+    private String vehicleMake;
+
   
     @ManyToOne
     //@OnDelete(action = OnDeleteAction.CASCADE)
@@ -28,6 +30,21 @@ public class Vehicle {
     @JsonIgnore
     private Set<JobOrder> jobOrder;
 
+    public String getVehicleMake() {
+        return vehicleMake;
+    }
+
+    public void setVehicleMake(String vehicleMake) {
+        this.vehicleMake = vehicleMake;
+    }
+
+    public Set<JobOrder> getJobOrder() {
+        return jobOrder;
+    }
+
+    public void setJobOrder(Set<JobOrder> jobOrder) {
+        this.jobOrder = jobOrder;
+    }
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "vehicle")
     @OnDelete(action = OnDeleteAction.CASCADE)

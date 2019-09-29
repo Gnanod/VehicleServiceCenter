@@ -14,7 +14,7 @@ const URL = '/JobOrderController';
 })
 export class JoborderService {
 
-  constructor(private http: HttpClient) { }
+  public constructor(private http: HttpClient) { }
 
   searchItem(searchItem: string, insertItemModel: string, insertselectedMake: string) {
 
@@ -30,6 +30,24 @@ export class JoborderService {
 
   }
 
+  getTotalSales() {
+
+    return this.http.get<number>(environment.backend_url + URL + '/getTotalSales');
+
+
+  }
+
+
+  getTodayJobCount() {
+
+    return this.http.get<number>(environment.backend_url + URL + '/getTodayJobCount');
+
+
+  }
+
+  getMonthlyTotalSales() {
+    return this.http.get<number>(environment.backend_url + URL + '/getMonthlyTotalSales');
+  }
   // addJobOrder(jobOrder: JobOrder, jobOrderItemDetailsArray: Array<JobOrderItemDetails>, lubejobOrderItemDetailsArray1: Array<JobOrderItemDetails>) {
   //
   //   // return this.http.post<string>(environment.backend_url + URL + '/addJobOrder/'+jobOrder);

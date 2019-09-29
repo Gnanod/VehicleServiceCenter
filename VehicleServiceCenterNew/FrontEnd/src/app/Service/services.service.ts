@@ -11,8 +11,7 @@ const URL = '/ServicesController';
 })
 export class ServicesService {
 
-  constructor(private http: HttpClient) {
-  }
+  constructor(private http: HttpClient) {}
 
 
   addService(services: Services) {

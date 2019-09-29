@@ -37,20 +37,30 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<Item> getItemsToArray(String itemName) {
         List<Object []> ob = itemRepository.getItemsToArray(itemName);
-
         List<Item> item1 = new ArrayList<>();
 
-        for (Object s2[] :ob
-             ) {
+        if(ob.size()==0){
 
-            Item i = new Item();
-            i.setItemName(s2[0].toString());
-            i.setItemId(Integer.parseInt(s2[1].toString()));
-            i.setQuantityOnHand(Double.parseDouble(s2[2].toString()));
+            item1 = null;
+
+        }else{
 
 
-            item1.add(i);
+            for (Object s2[] :ob
+            ) {
+
+                Item i = new Item();
+                i.setItemName(s2[0].toString());
+                i.setItemId(Integer.parseInt(s2[1].toString()));
+                i.setQuantityOnHand(Double.parseDouble(s2[2].toString()));
+                i.setStockLevel(Double.parseDouble(s2[3].toString()));
+                System.out.println("HGGDDDDDDDDDD"+Double.parseDouble(s2[3].toString()));
+
+                item1.add(i);
+            }
         }
+
+
 
         return item1;
 

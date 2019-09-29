@@ -13,7 +13,7 @@ const URL ='/VehicleController';
 
 export class VehicleService {
 
-  constructor(private http :HttpClient) { }
+  public constructor(private http :HttpClient) { }
 
     addVehicle(vehNgModel: Vehicle) {
         return this.http.post<Vehicle>(environment.backend_url + URL + '/AddVehicle',vehNgModel);

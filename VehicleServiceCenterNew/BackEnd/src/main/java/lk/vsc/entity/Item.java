@@ -18,6 +18,7 @@ public class Item {
     private String itemName;
     private double quantityOnHand;
     private double quantityOfPrice;
+    private double stockLevel;
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
@@ -98,5 +99,13 @@ public class Item {
 
     public void setJobOrderItemDetails(List<JobOrderItemDetails> jobOrderItemDetails) {
         this.jobOrderItemDetails = jobOrderItemDetails;
+    }
+
+    public double getStockLevel() {
+        return stockLevel;
+    }
+
+    public void setStockLevel(double stockLevel) {
+        this.stockLevel = stockLevel;
     }
 }

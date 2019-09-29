@@ -6,8 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface EmployeeRepository extends JpaRepository<Employee,Integer> {
-    @Query(value = "from Employee where employeeId=?1")
-    Employee searchByEmployeeNumber(int employeeId);
+    @Query(value = "from Employee where firstName=?1")
+    Employee searchByEmployeeNumber(String employeeId);
 
 }
 

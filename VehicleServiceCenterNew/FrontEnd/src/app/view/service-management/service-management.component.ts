@@ -19,7 +19,7 @@ export class ServiceManagementComponent implements OnInit {
 
 
 
-  constructor(private servicesService: ServicesService) {
+  public constructor(private servicesService: ServicesService) {
   }
 
 

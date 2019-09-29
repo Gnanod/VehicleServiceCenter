@@ -11,7 +11,7 @@ const URL = '/ItemController';
 })
 export class ItemService {
 
-  constructor(private http: HttpClient) { }
+  public constructor(private http: HttpClient) { }
 
   addItemsToDB(item: Item) {
 console.log('hhhhh'+item.makeModelDetails[0].makeModel);
