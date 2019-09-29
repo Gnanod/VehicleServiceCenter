@@ -1,3 +1,5 @@
+import {Employee} from "./Employee";
+import {environment} from "../../environments/environment";
 
 export class Supplier{
   supplierId: number;
@@ -6,5 +8,6 @@ export class Supplier{
   address: string;
   phoneNumber : string;
   companyName : string;
+
 
 }

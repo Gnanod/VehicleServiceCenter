@@ -85,7 +85,7 @@
                     <div class="col-md-4" style="margin-left: 250px">
                         <div class="form-group">
                             <label class="bmd-label-floating">Search By Name</label>
-                            <input type="text" class="form-control" style="width: 300px">
+                            <input type="text" class="form-control" style="width: 300px" (keyup)="searchSupplierDetailsByName()" [(ngModel)]="supplierName">
                         </div>
                     </div>
                     <div class="col-md-4" style="margin-left: -280px ;margin-top: 0px">
@@ -98,13 +98,12 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th class="text-center">#</th>
-
                             <th>Agent Name</th>
                             <th>Company Name</th>
                             <th >Email Address</th>
                             <th >Address</th>
                             <th >Phone Number</th>
+                            <th ></th>
                             <th ></th>
                         </tr>
                         </thead>
@@ -137,8 +136,14 @@
 
 
                             <td class="td-actions ">
+                              <button type="button" rel="tooltip" class="btn btn-info" (click)="editSupplier(searchSupplierDetails)">
+                                <i class="material-icons">Edit</i>
+                              </button>
+                            </td>
+
+                            <td class="td-actions ">
                               <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteSupplier()">
-                                <i class="material-icons">close</i>
+                                <i class="material-icons">Close</i>
                               </button>
                             </td>
                           </tr>
@@ -165,7 +170,6 @@
                 </h4>
             </div>
             <div class="card-body">
-                <form>
                     <div class="row">
 
 
@@ -173,8 +177,8 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Supplier Id</label>
-                                <input type="text" class="form-control" disabled>
+                                <label >Supplier Id</label>
+                                <input type="text" class="form-control" disabled [(ngModel)]="upSupplierId">
                             </div>
                         </div>
                     </div>
@@ -182,66 +186,43 @@
 
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Fist Name</label>
-                                <input type="text" class="form-control">
+                                <label >Agent Name</label>
+                                <input type="text" class="form-control" [(ngModel)]="upSupplierAgent">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Last Name</label>
-                                <input type="text" class="form-control">
+                                <label >Email Name</label>
+                                <input type="text" class="form-control" [(ngModel)]="upSupplierEmail">
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="bmd-label-floating">Email address</label>
-                                <input type="email" class="form-control">
+                                <label >Address</label>
+                                <input type="email" class="form-control" [(ngModel)]="upSupplierAddress">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label class="bmd-label-floating" >Nic</label>
-                                <input type="text" class="form-control">
+                                <label>Company</label>
+                                <input type="text" class="form-control" [(ngModel)]="upSupplierCompany">
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="bmd-label-floating">Company</label>
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="bmd-label-floating">Compnay Adress</label>
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="bmd-label-floating">Birthday</label>
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label class="bmd-label-floating">Phone Number</label>
-                                <input type="text" class="form-control">
-                            </div>
-                        </div>
-
                     </div>
 
-                    <button type="submit" class="btn btn-behance pull-right">Update Details</button>
+                      <div class="col-md-4">
+                          <div class="form-group">
+                              <label >Phone Number</label>
+                              <input type="text" class="form-control" [(ngModel)]="upSupplierPhone">
+                          </div>
+                      </div>
+
+
+
+                    <button type="submit" class="btn btn-behance pull-right" (click)="updateSupplier()">Update Details</button>
                     <div class="clearfix"></div>
-                </form>
             </div>
         </div>
     </div>

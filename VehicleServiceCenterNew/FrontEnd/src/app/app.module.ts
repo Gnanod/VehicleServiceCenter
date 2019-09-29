@@ -21,6 +21,7 @@ import {DatePipe} from "@angular/common";
 import { JoborderComponent } from './view/joborder/joborder.component';
 import { ServiceManagementComponent } from './view/service-management/service-management.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ServiceJobComponent } from './view/service-job/service-job.component';
 
 
 
@@ -36,7 +37,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SupplierComponent,
     StockDetailsComponent,
     JoborderComponent,
-    ServiceManagementComponent
+    ServiceManagementComponent,
+    ServiceJobComponent
   ],
   imports: [
     BrowserModule,

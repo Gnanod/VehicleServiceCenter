@@ -29,6 +29,12 @@ public class Vehicle {
     private Set<JobOrder> jobOrder;
 
 
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "vehicle")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    @JsonIgnore
+    private Set<ServiceJob> serviceJob;
+
+
     public int getVehicleId() {
         return vehicleId;
     }

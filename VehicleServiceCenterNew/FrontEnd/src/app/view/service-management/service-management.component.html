@@ -6,7 +6,7 @@
           <div class="card-icon">
             <i class="material-icons">perm_identity</i>
           </div>
-          <h4 class="card-title">Add Services
+          <h4 class="card-title">Add/Edit Services
 
           </h4>
         </div>
@@ -19,71 +19,72 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Service</label>
-                  <input name="serviceName" type="text" class="form-control" [(ngModel)] = "services.serviceName">
+                  <label >Service</label>
+                  <input name="serviceName" id="servicename" type="text" class="form-control" [(ngModel)] = "services.serviceName" [innerHTML] ="name">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Service Description</label>
-                  <input type="text" class="form-control" name="serviceDesc" [(ngModel)] = "services.serviceDesc">
+                  <label >Service Description</label>
+                  <input type="text" class="form-control" id="servicedesc"  name="serviceDesc" [(ngModel)] = "services.serviceDesc">
                 </div>
               </div>
             </div>
             <div class="row">
               <div class="col-md-2">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Vehicle Class</label>
-                  <input class="form-control" name="vehicleClass" [(ngModel)] = "services.vehicleClass">
+                  <label >Vehicle Class</label>
+                  <input class="form-control" id="servicevehiclass" name="vehicletype" [(ngModel)] = "services.vehicletype">
                 </div>
               </div>
               <div class="col-md-3">
                 <div class="form-group">
-                  <label class="bmd-label-floating">Price</label>
-                  <input class="form-control" name="servicePrice" [(ngModel)] = "services.servicePrice">
+                  <label >Price</label>
+                  <input class="form-control" id="serviceprice" name="servicePrice" [(ngModel)] = "services.servicePrice">
                 </div>
               </div>
             </div>
-            <button (click)="addEmpDetails()" type="submit" class="btn btn pull-right">Update Service </button>
 
-            <button (click)="addService()" type="submit" class="btn btn pull-right">Add Service </button>
+            <button (click)="addService()" type="submit" class="btn btn pull-right">Add / Update Service </button>
             <div class="clearfix"></div>
           </form>
         </div>
       </div>
     </div>
-    <div _ngcontent-plb-c2="" class="col-md-12">
-      <div _ngcontent-plb-c2="" class="card">
-        <div _ngcontent-plb-c2="" class="card-header card-header-rose card-header-icon"><h4 _ngcontent-plb-c2=""
+    <div  class="col-md-12">
+      <div  class="card">
+        <div  class="card-header card-header-rose card-header-icon"><h4 
                                                                                             class="card-title"><b
-          _ngcontent-plb-c2="">Current Services</b></h4></div>
-        <div _ngcontent-plb-c2="" class="card-body">
-          <div _ngcontent-plb-c2="" class="row"></div>
-          <div _ngcontent-plb-c2="" class="table-responsive">
-            <table _ngcontent-plb-c2="" class="table">
-              <thead _ngcontent-plb-c2="">
-              <tr _ngcontent-plb-c2="">
-                <th _ngcontent-plb-c2="" class="text-center">Service ID</th>
-                <th _ngcontent-plb-c2="">Service Name</th>
-                <th _ngcontent-plb-c2="">Service Description</th>
-                <th _ngcontent-plb-c2="">Vehicle Class</th>
-                <th _ngcontent-plb-c2="">Price</th>
-                <th _ngcontent-plb-c2=""></th>
-                <th _ngcontent-plb-c2=""></th>
-              </tr>
-              </thead>
-              <tbody _ngcontent-plb-c2="">
-              <tr _ngcontent-plb-c2="">
+          >Current Services</b></h4></div>
+        <div  class="card-body">
+          <div  class="row"></div>
+          <div  class="table-responsive">
+            <table  class="table">
+              <thead >
+              <th>Service ID</th>
+              <th>Service Type</th>
+              <th>Service Desc</th>
+              <th>Vehicle Class</th>
+              <th>Price</th>
+              <th></th>
+              <th></th>
 
-                <td _ngcontent-plb-c2=""> 1 </td>
-                <td _ngcontent-plb-c2=""> Wash and Wax </td>
-                <td _ngcontent-plb-c2="">washwaxclassg1</td>
-                <td _ngcontent-plb-c2=""> G1 </td>
-                <td _ngcontent-plb-c2="">Rs. 29500</td>
-                <td _ngcontent-plb-c2=""> <button type="submit" class="btn btn pull-right">Edit Service Details</button>  </td>
-                <td _ngcontent-plb-c2="" class="td-actions ">
-                  <button _ngcontent-plb-c2="" class="btn btn-danger" rel="tooltip" type="button" data-original-title=""
-                          title=""><i _ngcontent-plb-c2="" class="material-icons">close</i></button>
+
+
+
+
+              </thead>
+              <tbody >
+              <tr *ngFor="let serviceItem of serviceItemArray">
+                <td  class="text-center">{{serviceItem.serviceId}}</td>
+                <td class="text-center">{{serviceItem.serviceName}}</td>
+                <td class="text-center">{{serviceItem.serviceDesc}}</td>
+                <td class="text-center">{{serviceItem.vehicletype}}</td>
+                <td class="text-center">{{serviceItem.servicePrice}}</td>
+                <td class="text-center"> <button type="submit" class="btn btn pull-right" (click)="editServiceDetails(serviceItem.serviceId,serviceItem.serviceName,serviceItem.serviceDesc,serviceItem.vehicletype,serviceItem.servicePrice)"> Edit Service Details </button>  </td>
+                <td  class="td-actions ">
+                  <button  class="btn btn-danger" rel="tooltip" type="button" data-original-title=""
+                          title="" (click)="deleteService(serviceItem.serviceId)"><i  class="material-icons">close</i></button>
                 </td>
               </tr>
 
@@ -96,3 +97,5 @@
   </div>
 
 </div>
+
+<div [innerHtml]="sid"></div>

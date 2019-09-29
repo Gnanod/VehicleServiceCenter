@@ -1,29 +1,48 @@
 package lk.vsc.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Services {
 
-    @OnDelete(action = OnDeleteAction.CASCADE)
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int serviceId;
+
+    @Column(unique = true)
     String serviceDesc;
     String serviceName;
-    String vehicleClass;
     double servicePrice;
+    String vehicletype;
 
-    public String getVehilceClass() {
-        return vehicleClass;
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "services")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<ServiceJobDetails> serviceJobDetails;
+
+
+    public List<ServiceJobDetails> getServiceJobDetails() {
+        return serviceJobDetails;
     }
 
-    public void setVehilceClass(String vehicleClass) {
-        this.vehicleClass = vehicleClass;
+    public void setServiceJobDetails(List<ServiceJobDetails> serviceJobDetails) {
+        this.serviceJobDetails = serviceJobDetails;
     }
+
+    public String getVehicletype() {
+        return vehicletype;
+    }
+
+    public void setVehicletype(String vehicletype) {
+        this.vehicletype = vehicletype;
+    }
+
+
 
     public int getServiceId() {
         return serviceId;

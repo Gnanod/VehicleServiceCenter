@@ -34,7 +34,7 @@ public class SupplierServiceImpl implements SupplierService {
     }
 
     @Override
-    public Supplier searchBySupplierNumber(int supplierId) {
+    public Supplier searchBySupplierName(String supplierId) {
 
         return supplierRepository.searchBySupplierNumber(supplierId);
     }

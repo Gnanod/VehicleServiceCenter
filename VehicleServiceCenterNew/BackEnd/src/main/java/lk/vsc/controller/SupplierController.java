@@ -29,16 +29,11 @@ public class SupplierController {
 
     }
 
-    @PostMapping(value = "/updateSupplier")
-    public Supplier updateSupplier(@RequestBody Supplier supplier){
 
-        return supplierService.updateSupplier(supplier);
 
-    }
-
-    @GetMapping(value = "/searchBySupplierNumber/{supplierId}")
-    public Supplier searchBySupplierNumber(@PathVariable int supplierId){
-        return supplierService.searchBySupplierNumber(supplierId);
+    @GetMapping(value = "/searchBySupplierName/{searchSupplierName}")
+    public Supplier searchBySupplierNumber(@PathVariable String searchSupplierName){
+        return supplierService.searchBySupplierName(searchSupplierName);
     }
 
     @GetMapping(value ="/getAllSupplier")
@@ -54,4 +49,10 @@ public class SupplierController {
         return supplierService.getSupplierNames(supplierCompany);
     }
 
+    @PostMapping(value = "/updateSupplier")
+    public Supplier updateSupplier(@RequestBody Supplier supplier){
+
+        return supplierService.updateSupplier(supplier);
+
+    }
 }
