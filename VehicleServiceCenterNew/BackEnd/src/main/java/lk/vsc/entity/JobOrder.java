@@ -18,12 +18,16 @@ public class JobOrder {
     private String date ;
     private double total;
     private String  employeeName;
+
     @ManyToOne
     private Vehicle vehicle;
+
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "jobOrder")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<JobOrderItemDetails> jobOrderItemDetails;
+
+
 
     public int getJobID() {
         return jobID;
@@ -83,4 +87,6 @@ public class JobOrder {
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
     }
+
+
 }

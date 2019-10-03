@@ -6,6 +6,7 @@ import {Item} from "../Model/Item";
 import {JobOrder} from "../Model/JobOrder";
 import {JobOrderItemDetails} from "../Model/JobOrderItemDetails";
 import {JobOrderDTO} from "../DTO/JoOrderDTO";
+import {Services} from "../Model/Services";
 
 const URL = '/JobOrderController';
 @Injectable({
@@ -61,5 +62,16 @@ export class JoborderService {
 
   }
 
+  getServicesDesc(insertSelectedService: string) {
 
+    return this.http.get<Array<Services>>(environment.backend_url + URL+'/getServiceDesc/'+insertSelectedService);
+
+
+  }
+
+
+  getServicesVehicleClass(value: string, value2: string) {
+    return null;
+
+  }
 }

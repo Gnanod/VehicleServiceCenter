@@ -12,9 +12,12 @@ public class JobOrderItemDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int jobOrderServiceDetails;
     private int qty;
+
+
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private JobOrder jobOrder;
+
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Item item;

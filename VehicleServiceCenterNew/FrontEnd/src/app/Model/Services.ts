@@ -1,8 +1,10 @@
 export class Services{
+
   serviceId: number;
-  serviceName: string;
   serviceDesc: string;
-  vehicleClass: string;
+  serviceName: string;
   servicePrice: number;
+  vehicletype: string; //vehicle class
+
 
 }

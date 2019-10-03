@@ -24,13 +24,22 @@
 
           <div class="col-md-2">
             <div class="form-group">
+              <label>Vehilce ID</label>
+              <br>
+              <input type="text" id="vehiID" class="form-control" (keyup)="searchVehicleDetailsByNumber($event)"
+                     [(ngModel)]="vehicleId">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+
+          <div class="col-md-2">
+            <div class="form-group">
               <label>Vehilce Number</label>
               <br>
               <input type="text" id="vehiNumber" class="form-control" (keyup)="searchVehicleDetailsByNumber($event)"
                      [(ngModel)]="searchVehicleNumber">
               <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
             </div>
-
           </div>
           <div class="col-md-2">
             <div class="form-group">
@@ -142,11 +151,7 @@
                 Lube
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">
-                Service
-              </a>
-            </li>
+
           </ul>
           <div class="tab-content tab-space">
             <div class="tab-pane active" id="link1">
@@ -193,7 +198,7 @@
                               <!--</div>-->
 
                               <div class="form-group">
-                                <label>Select Makelllll</label>
+                                <label>Select Make</label>
                                 <br>
                                 <select class="form-control " data-style="select-with-transition"
                                         [(ngModel)]="insertselectedMake" #mySelect
@@ -240,6 +245,16 @@
                             <br>
                             <br>
                             <div class="col-md-3">
+<<<<<<< HEAD
+                                <div class="form-group">
+                                  <label> Search Item</label>
+                                  <br>
+                                  <input type="text" class="form-control"   [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem" (keyup)="searchItemDetailsByName($event)">
+                                </div>
+                                <button type="submit" class="btn btn-raised btn-fab btn-round">
+                                  <i class="fas fa-search"></i>
+                                </button>
+=======
                               <div class="form-group">
                                 <label style="margin-top: 15px"> Search Item</label>
                                 <br>
@@ -249,6 +264,7 @@
                               </div>
 
 
+>>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                             </div>
 
                             <div class="col-md-2">
@@ -271,8 +287,13 @@
                               <div class="form-group">
                                 <label style="margin-top: 15px">Unit Price</label>
                                 <br>
+<<<<<<< HEAD
+                                <input type="text" class="form-control"
+                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice">
+=======
                                 <input type="text" class="form-control" placeholder="Unit Price"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice" style="margin-top: 9px" disabled>
+>>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                               </div>
                             </div>
 
@@ -280,8 +301,13 @@
                               <div class="form-group">
                                 <label>Item Id</label>
                                 <br>
+<<<<<<< HEAD
+                                <input type="text" class="form-control"
+                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="itemId">
+=======
                                 <input type="text" class="form-control" placeholder="Item Id"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="itemId" disabled>
+>>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                               </div>
                             </div>
 
@@ -289,16 +315,22 @@
                               <div class="form-group">
                                 <label>Quantity</label>
                                 <br>
-                                <input type="text" class="form-control" placeholder="Quantity"
+                                <input type="text" class="form-control"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="quantity">
                               </div>
                             </div>
 
 
                             <div class="col-md-2">
+<<<<<<< HEAD
+                              <button  class="btn btn-success"
+                                       rel="tooltip" type="button" (click)="addItemToTable()"><i class="fas fa-plus"></i></button>
+
+=======
                               <button class="btn btn-success" rel="tooltip" type="button" (click)="addItemToTable()" style="margin-top: 20px">
                                 Add Detailing Jobs
                               </button>
+>>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                             </div>
 
                           </div>
@@ -414,7 +446,18 @@
                         <div class="card-body">
                           <div class="row">
                             <div class="col-md-2">
+<<<<<<< HEAD
+                              <form class="form-inline ml-auto">
+                                <div class="form-group bmd-form-group">
+                                  <input type="text" class="form-control" >
+                                </div>
+                                <button type="submit" class="btn btn-raised btn-fab btn-round">
+                                  <i class="fas fa-search"></i>
+                                </button>
+                              </form>
+=======
 
+>>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                               <div class="form-group">
                                 <label>Select Make</label>
                                 <br>
@@ -461,7 +504,7 @@
                               <div class="form-group">
                                 <label style="margin-top: 15px"> Search Item</label>
                                 <br>
-                                <input type="text" class="form-control" placeholder="Search Item"
+                                <input type="text" class="form-control"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem1"
                                        (keyup)="searchItemDetailsByName1($event)" style="margin-top: 10px">
                               </div>
@@ -510,7 +553,7 @@
                               <div class="form-group">
                                 <label>Quantity</label>
                                 <br>
-                                <input type="text" class="form-control" placeholder="Quantity"
+                                <input type="text" class="form-control"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="quantity1">
                               </div>
                             </div>
@@ -519,8 +562,13 @@
                               <div class="form-group">
                                 <label>Unit Price</label>
                                 <br>
+<<<<<<< HEAD
+                                <input type="text" class="form-control"
+                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice1">
+=======
                                 <input type="text" class="form-control" placeholder="Unit Price"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice1" disabled>
+>>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                               </div>
                             </div>
 
@@ -622,11 +670,15 @@
                 </div>
               </div>
             </div>
-            <div class="tab-pane" id="link3">
+            <div class="tab-pane active" id="link3">
+              <!-- lube job starts here-->
 
+
+              <!--&lt;!&ndash;/////////////////////////////&ndash;&gt; Lube Job-->
 
             </div>
           </div>
+        </div>
 
 
 
@@ -645,9 +697,11 @@
       </div>
     </div>
 
+            </div>
 
-  </div>
-</div>
+
+
+
 <!--</div>-->
 <!--</div>-->
 <!--</div>-->
@@ -656,3 +710,4 @@
 <!--&lt;!&ndash;container fluid over&ndash;&gt;-->
 <!--</div>-->
 <!--</div>-->
+

@@ -10,10 +10,10 @@ import java.util.List;
 
 public interface SupplierRepository extends JpaRepository<Supplier,Integer> {
 
-    @Query(value = "from Supplier where supplierId=?1")
-    Supplier searchBySupplierNumber(int supplierId);
+    @Query(value = "from Supplier where agentName = :supplierId")
+    Supplier searchBySupplierNumber(@Param("supplierId") String supplierId);
 
-    @Query(value = "select distinct companyName from Supplier  ")
+    @Query(value = "select distinct companyName from Supplier ")
     List<Object[]> findAllCompanies();
 
     @Query(value = "select agentName from Supplier where companyName = :supplierCompany")
