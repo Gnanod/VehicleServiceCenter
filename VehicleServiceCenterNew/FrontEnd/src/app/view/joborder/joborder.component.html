@@ -1,3 +1,716 @@
+<!--<div class="content">-->
+  <!--<div class="container-fluid">-->
+    <!--&lt;!&ndash; your content here &ndash;&gt;-->
+    <!--<div class="col-md-12">-->
+      <!--<button class="btn btn-danger">-->
+        <!--<div class="card-icon"><i class="fas fa-arrow-left"></i>-->
+        <!--</div>-->
+      <!--</button>-->
+    <!--</div>-->
+
+    <!--<b class="caret"><p class="text text-xl-center" style="font-size: xx-large"> JOB ORDER </p></b>-->
+
+
+    <!--<div class="card ">-->
+      <!--<div class="card-header card-header-info card-header-icon">-->
+        <!--<div class="card-icon"><i class="fas fa-car"></i>-->
+        <!--</div>-->
+        <!--<h4 class="card-title"></h4></div>-->
+      <!--<div class="card-body ">-->
+
+        <!--<p>VEHICLE DETAILS</p>-->
+
+        <!--<div class="row">-->
+
+          <!--<div class="col-md-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>Vehilce ID</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="vehiID" class="form-control" (keyup)="searchVehicleDetailsByNumber($event)"-->
+                     <!--[(ngModel)]="vehicleId">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<div class="col-md-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>Vehilce Number</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="vehiNumber" class="form-control" (keyup)="searchVehicleDetailsByNumber($event)"-->
+                     <!--[(ngModel)]="searchVehicleNumber">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>Engine Number</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="vehiEngineNumber" class="form-control" name="engineNumber"-->
+                     <!--[(ngModel)]="engineNumber">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+        <!--<div class="row">-->
+          <!--<div class="col-md-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>Vehicle Class</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="vehiClass" class="form-control" name="engineNumber" [(ngModel)]="vehicleClass">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>Make</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="vehiMake" class="form-control" name="engineNumber" [(ngModel)]="vehicleMake">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>Model</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="vehiModel" class="form-control" name="engineNumber" [(ngModel)]="vehicleModel">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>Year</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="vehiYear" class="form-control" name="engineNumber" [(ngModel)]="yearOfManufacture">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<p>CUSTOMER DETAILS</p>-->
+
+        <!--<div class="row">-->
+
+          <!--<div class="col-md-3">-->
+            <!--<div class="form-group">-->
+              <!--<label>Customer Name</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="custName" class="form-control" name="engineNumber" [(ngModel)]="customername">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+
+          <!--</div>-->
+          <!--<div class="col-md-2">-->
+            <!--<div class="form-group">-->
+              <!--<label>Customer Phone Number</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="custPhoneNum" class="form-control" name="engineNumber" [(ngModel)]="customerphone">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+        <!--<div class="row">-->
+          <!--<div class="col-md-5">-->
+            <!--<div class="form-group">-->
+              <!--<label>Customer Email</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="custEmail" class="form-control" name="engineNumber" [(ngModel)]="customeremail">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="col-md-6">-->
+            <!--<div class="form-group">-->
+              <!--<label>Customer Address</label>-->
+              <!--<br>-->
+              <!--<input type="text" id="custAddress" class="form-control" name="engineNumber"-->
+                     <!--[(ngModel)]="customeraddress">-->
+              <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <!--<div class="col-md-12">-->
+      <!--<div class="card ">-->
+        <!--<div class="card-header ">-->
+          <!--<h4 class="card-title">JOBS TYPES-->
+            <!--<small class="description"> Change tabs for other jobs</small>-->
+          <!--</h4>-->
+        <!--</div>-->
+        <!--<div class="card-body ">-->
+          <!--<ul class="nav nav-pills nav-pills-info" role="tablist">-->
+            <!--<li class="nav-item">-->
+              <!--<a class="nav-link active" data-toggle="tab" href="#link1" role="tablist">-->
+                <!--Detail-->
+              <!--</a>-->
+            <!--</li>-->
+            <!--<li class="nav-item ">-->
+              <!--<a class="nav-link" data-toggle="tab" href="#link2" role="tablist">-->
+                <!--Lube-->
+              <!--</a>-->
+            <!--</li>-->
+
+          <!--</ul>-->
+          <!--<div class="tab-content tab-space">-->
+            <!--<div class="tab-pane active" id="link1">-->
+              <!--&lt;!&ndash; Detailing Job start &ndash;&gt;-->
+              <!--<div class="col-md-12">-->
+                <!--<div _ngcontent-qmr-c2="" class="card  ">-->
+                  <!--<div _ngcontent-qmr-c2="" class="card-header card-header-info card-header-icon ">-->
+                    <!--<div _ngcontent-qmr-c2="" class="card-icon"><i class="fas fa-store"></i>-->
+                    <!--</div>-->
+                    <!--<h4 _ngcontent-qmr-c2="" class="card-title"></h4></div>-->
+                  <!--<div _ngcontent-qmr-c2="" class="card-body ">-->
+                    <!--<div _ngcontent-qmr-c2="" class="row">-->
+
+                      <!--<div class="card">-->
+                        <!--<div class="card-body">-->
+                          <!--<div class="row">-->
+
+                            <!--<div class="col-md-2">-->
+                              <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+                              <!--&lt;!&ndash;<label >Select Make jjjjjj</label>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<br>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">&ndash;&gt;-->
+
+                              <!--&lt;!&ndash;<option value="Any">Any</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option >Abarth</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Acura</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Alfa Romeo</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Ambassador</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Aprilia</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Audi</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Austin</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Bajaj</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>BMW</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Cadillac</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Caterpillar</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Nissan</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Suzuki</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Toyota</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>Honda</option>&ndash;&gt;-->
+                              <!--&lt;!&ndash;<option>530i</option>&ndash;&gt;-->
+
+
+                              <!--&lt;!&ndash;</select>&ndash;&gt;-->
+                              <!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+                              <!--<div class="form-group">-->
+                                <!--<label>Select Make</label>-->
+                                <!--<br>-->
+                                <!--<select class="form-control " data-style="select-with-transition"-->
+                                        <!--[(ngModel)]="insertselectedMake" #mySelect-->
+                                        <!--(change)="getMakeModelDetails(mySelect.value)">-->
+
+                                  <!--<option value="Any">Any</option>-->
+                                  <!--<option>Abarth</option>-->
+                                  <!--<option>Acura</option>-->
+                                  <!--<option>Alfa Romeo</option>-->
+                                  <!--<option>Ambassador</option>-->
+                                  <!--<option>Aprilia</option>-->
+                                  <!--<option>Audi</option>-->
+                                  <!--<option>Austin</option>-->
+                                  <!--<option>Bajaj</option>-->
+                                  <!--<option>BMW</option>-->
+                                  <!--<option>Cadillac</option>-->
+                                  <!--<option>Caterpillar</option>-->
+                                  <!--<option>Nissan</option>-->
+                                  <!--<option>Suzuki</option>-->
+                                  <!--<option>Toyota</option>-->
+                                  <!--<option>Honda</option>-->
+                                  <!--<option>530i</option>-->
+
+
+                                <!--</select>-->
+                              <!--</div>-->
+                            <!--</div>-->
+                            <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+                            <!--<div class="col-md-2">-->
+                              <!--<div class="form-group">-->
+                                <!--<label>Select Model</label>-->
+                                <!--<select class="form-control " data-style="select-with-transition"-->
+                                        <!--[(ngModel)]="insertItemModel">-->
+                                  <!--<option *ngFor="let make of searchMakesByModel" [value]="make.modelName">-->
+                                    <!--{{make.modelName}}-->
+                                  <!--</option>-->
+
+                                <!--</select>-->
+                              <!--</div>-->
+
+                            <!--</div>-->
+
+
+                            <!--<br>-->
+                            <!--<br>-->
+                            <!--<div class="col-md-3">-->
+<!--<<<<<<< HEAD-->
+                                <!--<div class="form-group">-->
+                                  <!--<label> Search Item</label>-->
+                                  <!--<br>-->
+                                  <!--<input type="text" class="form-control"   [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem" (keyup)="searchItemDetailsByName($event)">-->
+                                <!--</div>-->
+                                <!--<button type="submit" class="btn btn-raised btn-fab btn-round">-->
+                                  <!--<i class="fas fa-search"></i>-->
+                                <!--</button>-->
+<!--=======-->
+                              <!--<div class="form-group">-->
+                                <!--<label style="margin-top: 15px"> Search Item</label>-->
+                                <!--<br>-->
+                                <!--<input type="text" class="form-control" placeholder="Search Item"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem"-->
+                                       <!--(keyup)="searchItemDetailsByName($event)" style="margin-top: 9px">-->
+                              <!--</div>-->
+
+
+<!--&gt;>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5-->
+                            <!--</div>-->
+
+                            <!--<div class="col-md-2">-->
+
+                              <!--<div class="form-group">-->
+                                <!--<label>Select Item</label>&lt;!&ndash;<div class="dropdown">&ndash;&gt;-->
+                                <!--<select class="form-control " data-style="select-with-transition"-->
+                                        <!--[(ngModel)]="insertItemName" #mySelect1-->
+                                        <!--(change)="getUnitPrice()">-->
+                                  <!--&lt;!&ndash;<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">&ndash;&gt;-->
+                                  <!--<option *ngFor="let make of searchItemDetails" [value]="make.itemName">-->
+                                    <!--{{make.itemName}}-->
+                                  <!--</option>       &lt;!&ndash;Item/Job &lt;!&ndash; Current make data&ndash;&gt;&ndash;&gt;-->
+                                <!--</select>&lt;!&ndash;<b class="caret"></b>&ndash;&gt;-->
+                              <!--</div>&lt;!&ndash;</a>&ndash;&gt;-->
+
+                            <!--</div>-->
+
+                            <!--<div class="col-md-3">-->
+                              <!--<div class="form-group">-->
+                                <!--<label style="margin-top: 15px">Unit Price</label>-->
+                                <!--<br>-->
+<!--<<<<<<< HEAD-->
+                                <!--<input type="text" class="form-control"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice">-->
+<!--=======-->
+                                <!--<input type="text" class="form-control" placeholder="Unit Price"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice" style="margin-top: 9px" disabled>-->
+<!--&gt;>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5-->
+                              <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-md-3">-->
+                              <!--<div class="form-group">-->
+                                <!--<label>Item Id</label>-->
+                                <!--<br>-->
+<!--<<<<<<< HEAD-->
+                                <!--<input type="text" class="form-control"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="itemId">-->
+<!--=======-->
+                                <!--<input type="text" class="form-control" placeholder="Item Id"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="itemId" disabled>-->
+<!--&gt;>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5-->
+                              <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-md-3">-->
+                              <!--<div class="form-group">-->
+                                <!--<label>Quantity</label>-->
+                                <!--<br>-->
+                                <!--<input type="text" class="form-control"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="quantity">-->
+                              <!--</div>-->
+                            <!--</div>-->
+
+
+                            <!--<div class="col-md-2">-->
+<!--<<<<<<< HEAD-->
+                              <!--<button  class="btn btn-success"-->
+                                       <!--rel="tooltip" type="button" (click)="addItemToTable()"><i class="fas fa-plus"></i></button>-->
+
+<!--=======-->
+                              <!--<button class="btn btn-success" rel="tooltip" type="button" (click)="addItemToTable()" style="margin-top: 20px">-->
+                                <!--Add Detailing Jobs-->
+                              <!--</button>-->
+<!--&gt;>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5-->
+                            <!--</div>-->
+
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+
+
+                      <!--<div class="col-md-12">-->
+                        <!--<div class="card">-->
+                          <!--<div-->
+                            <!--class="card-header card-header-rose card-header-icon">-->
+
+                            <!--<h4 class="card-title"><b>Detailing Jobs</b></h4></div>-->
+                          <!--<div class="card-body">-->
+                            <!--<div class="row">-->
+
+                            <!--</div>-->
+                            <!--<div class="table-responsive">-->
+                              <!--<table class="table">-->
+                                <!--<thead>-->
+                                <!--<tr>-->
+                                  <!--<th>Item ID</th>-->
+                                  <!--<th>Item Description</th>-->
+                                  <!--<th>Make</th>-->
+                                  <!--<th>Model</th>-->
+                                  <!--<th> Quantity</th>-->
+                                  <!--<th>Price</th>-->
+                                  <!--<th></th>-->
+                                <!--</tr>-->
+                                <!--</thead>-->
+                                <!--<tbody>-->
+                                <!--<tr *ngFor="let items of jobOrderItemDetailsArray async">-->
+
+                                  <!--<td>-->
+                                    <!--{{items.item.itemId}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.item.itemName}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.make}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.model}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.qty}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.price}}-->
+                                  <!--</td>-->
+
+                                  <!--<td class="td-actions ">-->
+                                    <!--<button type="button" rel="tooltip" class="btn btn-danger"-->
+                                            <!--(click)="deleteRow(items.item.itemId)">-->
+                                      <!--<i class="material-icons">close</i>-->
+                                    <!--</button>-->
+                                  <!--</td>-->
+                                <!--</tr>-->
+
+                                <!--</tbody>-->
+                              <!--</table>-->
+                            <!--</div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+
+                    <!--</div>-->
+
+                    <!--<div class="row">-->
+                      <!--<div class="col-sm-4"></div>-->
+                      <!--<div class="col-sm-4"></div>-->
+                      <!--<div class="col-sm-1"></div>-->
+
+
+
+                    <!--</div>-->
+                  <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="row">-->
+
+                  <!--<div class="col-sm-10">-->
+
+                  <!--</div>-->
+                  <!--<div class="col-sm-2">-->
+                    <!--<div class="form-group">-->
+                      <!--<label>Amount</label>-->
+                      <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
+                             <!--[(ngModel)]="totAmount">-->
+                    <!--</div>-->
+                  <!--</div>-->
+
+                <!--</div>-->
+
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="tab-pane" id="link2">-->
+              <!--&lt;!&ndash; lube job starts here&ndash;&gt;-->
+
+
+              <!--&lt;!&ndash;&lt;!&ndash;/////////////////////////////&ndash;&gt; Lube Job&ndash;&gt;-->
+              <!--<div class="col-md-12">-->
+                <!--<div class="card">-->
+                  <!--<div class="card-header card-header-success card-header-icon ">-->
+                    <!--<div _ngcontent-qmr-c2="" class="card-icon"><i class="fas fa-store"></i>-->
+                    <!--</div>-->
+                    <!--<h4 class="card-title"></h4></div>-->
+                  <!--<div class="card-body ">-->
+                    <!--<div class="row">-->
+
+                      <!--<div class="card">-->
+                        <!--<div class="card-body">-->
+                          <!--<div class="row">-->
+                            <!--<div class="col-md-2">-->
+<!--<<<<<<< HEAD-->
+                              <!--<form class="form-inline ml-auto">-->
+                                <!--<div class="form-group bmd-form-group">-->
+                                  <!--<input type="text" class="form-control" >-->
+                                <!--</div>-->
+                                <!--<button type="submit" class="btn btn-raised btn-fab btn-round">-->
+                                  <!--<i class="fas fa-search"></i>-->
+                                <!--</button>-->
+                              <!--</form>-->
+<!--=======-->
+
+<!--&gt;>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5-->
+                              <!--<div class="form-group">-->
+                                <!--<label>Select Make</label>-->
+                                <!--<br>-->
+                                <!--<select class="form-control " data-style="select-with-transition"-->
+                                        <!--[(ngModel)]="insertselectedMake1" #mySelect-->
+                                        <!--(change)="getMakeModelDetails1(mySelect.value)">-->
+
+                                  <!--<option value="Any">Any</option>-->
+                                  <!--<option>Abarth</option>-->
+                                  <!--<option>Acura</option>-->
+                                  <!--<option>Alfa Romeo</option>-->
+                                  <!--<option>Ambassador</option>-->
+                                  <!--<option>Aprilia</option>-->
+                                  <!--<option>Audi</option>-->
+                                  <!--<option>Austin</option>-->
+                                  <!--<option>Bajaj</option>-->
+                                  <!--<option>BMW</option>-->
+                                  <!--<option>Cadillac</option>-->
+                                  <!--<option>Caterpillar</option>-->
+                                  <!--<option>Nissan</option>-->
+                                  <!--<option>Suzuki</option>-->
+                                  <!--<option>Toyota</option>-->
+                                  <!--<option>Honda</option>-->
+                                  <!--<option>530i</option>-->
+
+
+                                <!--</select>-->
+                              <!--</div>-->
+                            <!--</div>-->
+                            <!--<div class="col-md-2">-->
+                              <!--<div class="form-group">-->
+                                <!--<label>Select Model</label>-->
+                                <!--<select class="form-control " data-style="select-with-transition"-->
+                                        <!--[(ngModel)]="insertItemModel1">-->
+                                  <!--<option *ngFor="let make of searchMakesByModel1" [value]="make.modelName">-->
+                                    <!--{{make.modelName}}-->
+                                  <!--</option>-->
+                                <!--</select>-->
+                              <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-md-3">-->
+
+                              <!--<div class="form-group">-->
+                                <!--<label style="margin-top: 15px"> Search Item</label>-->
+                                <!--<br>-->
+                                <!--<input type="text" class="form-control"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem1"-->
+                                       <!--(keyup)="searchItemDetailsByName1($event)" style="margin-top: 10px">-->
+                              <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-md-2">-->
+
+                              <!--<div class="form-group">-->
+                                <!--<label>Select Item</label>&lt;!&ndash;<div class="dropdown">&ndash;&gt;-->
+                                <!--<select class="form-control " data-style="select-with-transition"-->
+                                        <!--[(ngModel)]="insertItemName1" #mySelect1-->
+                                        <!--(change)="getUnitPrice1(mySelect1.value)">-->
+                                  <!--&lt;!&ndash;<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">&ndash;&gt;-->
+                                  <!--<option *ngFor="let make of searchItemDetails1" [value]="make.itemName">-->
+                                    <!--{{make.itemName}}-->
+                                  <!--</option>       &lt;!&ndash;Item/Job &lt;!&ndash; Current make data&ndash;&gt;&ndash;&gt;-->
+                                <!--</select>&lt;!&ndash;<b class="caret"></b>&ndash;&gt;-->
+                              <!--</div>&lt;!&ndash;</a>&ndash;&gt;-->
+
+                            <!--</div>-->
+
+
+                            <!--<div class="col-md-2">-->
+                              <!--<div class="form-check">-->
+                                <!--<label class="form-check-label" style="margin-top: 15px">-->
+                                  <!--<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"-->
+                                         <!--value="Change" [(ngModel)]="type" checked> Change-->
+                                  <!--<span class="circle">-->
+                                                        <!--<span class="check"></span>-->
+                                                      <!--</span>-->
+                                <!--</label>-->
+                              <!--</div>-->
+                              <!--<div class="form-check">-->
+                                <!--<label class="form-check-label">-->
+                                  <!--<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2"-->
+                                         <!--value="Top Up" [(ngModel)]="type"> Top-Up-->
+                                  <!--<span class="circle">-->
+                                                        <!--<span class="check"></span>-->
+                                                      <!--</span>-->
+                                <!--</label>-->
+                              <!--</div>-->
+
+                            <!--</div>-->
+
+                            <!--<div class="col-md-3">-->
+                              <!--<div class="form-group">-->
+                                <!--<label>Quantity</label>-->
+                                <!--<br>-->
+                                <!--<input type="text" class="form-control"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="quantity1">-->
+                              <!--</div>-->
+                            <!--</div>-->
+
+                            <!--<div class="col-md-3">-->
+                              <!--<div class="form-group">-->
+                                <!--<label>Unit Price</label>-->
+                                <!--<br>-->
+<!--<<<<<<< HEAD-->
+                                <!--<input type="text" class="form-control"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice1">-->
+<!--=======-->
+                                <!--<input type="text" class="form-control" placeholder="Unit Price"-->
+                                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice1" disabled>-->
+<!--&gt;>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5-->
+                              <!--</div>-->
+                            <!--</div>-->
+
+
+                            <!--<div class="col-md-2">-->
+                              <!--<button class="btn btn-success" rel="tooltip" type="button" (click)="addToItemsTable1()" style="margin-top: 20px">-->
+                           <!--ADDS-->
+                              <!--</button>-->
+                            <!--</div>-->
+
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+
+
+                      <!--<div class="col-md-12">-->
+                        <!--<div class="card">-->
+                          <!--<div-->
+                            <!--class="card-header card-header-rose card-header-icon">-->
+
+                            <!--<h4 class="card-title"><b>Lube Jobs</b></h4></div>-->
+                          <!--<div class="card-body">-->
+                            <!--<div class="row">-->
+
+                            <!--</div>-->
+                            <!--<div class="table-responsive">-->
+                              <!--<table class="table">-->
+                                <!--<thead>-->
+                                <!--<tr>-->
+                                  <!--<th>Item Description</th>-->
+                                  <!--<th>Make</th>-->
+                                  <!--<th>Change-Top-Up</th>-->
+                                  <!--<th>Model</th>-->
+                                  <!--<th> Quantity</th>-->
+                                  <!--<th>Price</th>-->
+                                  <!--<th></th>-->
+                                <!--</tr>-->
+                                <!--</thead>-->
+                                <!--<tbody>-->
+
+                                <!--<tr *ngFor="let items of lubejobOrderItemDetailsArray1 async">-->
+                                  <!--<td>-->
+                                    <!--{{items.item.itemName}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.make}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.lubeJobType}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.model}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.qty}}-->
+                                  <!--</td>-->
+                                  <!--<td>-->
+                                    <!--{{items.price}}-->
+                                  <!--</td>-->
+
+                                  <!--<td class="td-actions ">-->
+                                    <!--<button type="button" rel="tooltip" class="btn btn-danger"-->
+                                            <!--(click)="deleteRow1(items.item.itemId)">-->
+                                      <!--<i class="material-icons">close</i>-->
+                                    <!--</button>-->
+                                  <!--</td>-->
+                                <!--</tr>-->
+                                <!--</tbody>-->
+                              <!--</table>-->
+
+
+                            <!--</div>-->
+                          <!--</div>-->
+                        <!--</div>-->
+                      <!--</div>-->
+
+
+
+
+                    <!--</div>-->
+
+                    <!--<div class="row">-->
+
+                      <!--<div class="col-sm-10">-->
+
+                      <!--</div>-->
+                      <!--<div class="col-sm-2">-->
+                        <!--<div class="form-group">-->
+                          <!--<label>Amount</label>-->
+                          <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
+                                 <!--[(ngModel)]="totAmount">-->
+                        <!--</div>-->
+                      <!--</div>-->
+
+                    <!--</div>-->
+
+
+                  <!--</div>-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="tab-pane active" id="link3">-->
+              <!--&lt;!&ndash; lube job starts here&ndash;&gt;-->
+
+
+              <!--&lt;!&ndash;&lt;!&ndash;/////////////////////////////&ndash;&gt; Lube Job&ndash;&gt;-->
+
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+
+          <!--<div class="row">-->
+            <!--<div class="col-sm-4"></div>-->
+            <!--<div class="col-sm-4"></div>-->
+            <!--<div class="col-sm-1"></div>-->
+
+            <!--<div class="col-sm-3">-->
+              <!--<button type="submit" class="btn btn-behance pull-right" (click)="addJobOrderToDatabase()">Save Details-->
+              <!--</button>-->
+            <!--</div>-->
+
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+            <!--</div>-->
+
+
+
+
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+
+<!--&lt;!&ndash;&lt;!&ndash;container fluid over&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
 <div class="content">
   <div class="container-fluid">
     <!-- your content here -->
@@ -24,22 +737,13 @@
 
           <div class="col-md-2">
             <div class="form-group">
-              <label>Vehilce ID</label>
-              <br>
-              <input type="text" id="vehiID" class="form-control" (keyup)="searchVehicleDetailsByNumber($event)"
-                     [(ngModel)]="vehicleId">
-              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-            </div>
-          </div>
-
-          <div class="col-md-2">
-            <div class="form-group">
               <label>Vehilce Number</label>
               <br>
               <input type="text" id="vehiNumber" class="form-control" (keyup)="searchVehicleDetailsByNumber($event)"
                      [(ngModel)]="searchVehicleNumber">
               <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
             </div>
+
           </div>
           <div class="col-md-2">
             <div class="form-group">
@@ -151,7 +855,11 @@
                 Lube
               </a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#link3" role="tablist">
+                Service
+              </a>
+            </li>
           </ul>
           <div class="tab-content tab-space">
             <div class="tab-pane active" id="link1">
@@ -198,7 +906,7 @@
                               <!--</div>-->
 
                               <div class="form-group">
-                                <label>Select Make</label>
+                                <label>Select Makelllll</label>
                                 <br>
                                 <select class="form-control " data-style="select-with-transition"
                                         [(ngModel)]="insertselectedMake" #mySelect
@@ -245,16 +953,6 @@
                             <br>
                             <br>
                             <div class="col-md-3">
-<<<<<<< HEAD
-                                <div class="form-group">
-                                  <label> Search Item</label>
-                                  <br>
-                                  <input type="text" class="form-control"   [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem" (keyup)="searchItemDetailsByName($event)">
-                                </div>
-                                <button type="submit" class="btn btn-raised btn-fab btn-round">
-                                  <i class="fas fa-search"></i>
-                                </button>
-=======
                               <div class="form-group">
                                 <label style="margin-top: 15px"> Search Item</label>
                                 <br>
@@ -264,7 +962,6 @@
                               </div>
 
 
->>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                             </div>
 
                             <div class="col-md-2">
@@ -287,13 +984,8 @@
                               <div class="form-group">
                                 <label style="margin-top: 15px">Unit Price</label>
                                 <br>
-<<<<<<< HEAD
-                                <input type="text" class="form-control"
-                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice">
-=======
                                 <input type="text" class="form-control" placeholder="Unit Price"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice" style="margin-top: 9px" disabled>
->>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                               </div>
                             </div>
 
@@ -301,13 +993,8 @@
                               <div class="form-group">
                                 <label>Item Id</label>
                                 <br>
-<<<<<<< HEAD
-                                <input type="text" class="form-control"
-                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="itemId">
-=======
                                 <input type="text" class="form-control" placeholder="Item Id"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="itemId" disabled>
->>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                               </div>
                             </div>
 
@@ -315,22 +1002,16 @@
                               <div class="form-group">
                                 <label>Quantity</label>
                                 <br>
-                                <input type="text" class="form-control"
+                                <input type="text" class="form-control" placeholder="Quantity"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="quantity">
                               </div>
                             </div>
 
 
                             <div class="col-md-2">
-<<<<<<< HEAD
-                              <button  class="btn btn-success"
-                                       rel="tooltip" type="button" (click)="addItemToTable()"><i class="fas fa-plus"></i></button>
-
-=======
                               <button class="btn btn-success" rel="tooltip" type="button" (click)="addItemToTable()" style="margin-top: 20px">
                                 Add Detailing Jobs
                               </button>
->>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                             </div>
 
                           </div>
@@ -403,11 +1084,32 @@
                     <div class="row">
                       <div class="col-sm-4"></div>
                       <div class="col-sm-4"></div>
-                      <div class="col-sm-1"></div>
+                      <div class="col-sm-2"></div>
+                      <div class="col-sm-2">
+                        <div class="form-group">
+                          <label>Amount</label>
+                          <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
+                                 [(ngModel)]="totAmount">
+                        </div>
+                      </div>
 
 
 
                     </div>
+
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4"></div>
+
+
+                      <div class="col-sm-4">
+                        <button type="submit" class="btn btn-behance pull-right" (click)="addJobOrderToDatabase()">Save Details
+                        </button>
+                      </div>
+
+                    </div>
+
+
                   </div>
                 </div>
 
@@ -416,13 +1118,13 @@
                   <div class="col-sm-10">
 
                   </div>
-                  <div class="col-sm-2">
-                    <div class="form-group">
-                      <label>Amount</label>
-                      <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
-                             [(ngModel)]="totAmount">
-                    </div>
-                  </div>
+                  <!--<div class="col-sm-2">-->
+                    <!--<div class="form-group">-->
+                      <!--<label>Amount</label>-->
+                      <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
+                             <!--[(ngModel)]="totAmount">-->
+                    <!--</div>-->
+                  <!--</div>-->
 
                 </div>
 
@@ -446,18 +1148,7 @@
                         <div class="card-body">
                           <div class="row">
                             <div class="col-md-2">
-<<<<<<< HEAD
-                              <form class="form-inline ml-auto">
-                                <div class="form-group bmd-form-group">
-                                  <input type="text" class="form-control" >
-                                </div>
-                                <button type="submit" class="btn btn-raised btn-fab btn-round">
-                                  <i class="fas fa-search"></i>
-                                </button>
-                              </form>
-=======
 
->>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                               <div class="form-group">
                                 <label>Select Make</label>
                                 <br>
@@ -504,7 +1195,7 @@
                               <div class="form-group">
                                 <label style="margin-top: 15px"> Search Item</label>
                                 <br>
-                                <input type="text" class="form-control"
+                                <input type="text" class="form-control" placeholder="Search Item"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem1"
                                        (keyup)="searchItemDetailsByName1($event)" style="margin-top: 10px">
                               </div>
@@ -553,7 +1244,7 @@
                               <div class="form-group">
                                 <label>Quantity</label>
                                 <br>
-                                <input type="text" class="form-control"
+                                <input type="text" class="form-control" placeholder="Quantity"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="quantity1">
                               </div>
                             </div>
@@ -562,20 +1253,15 @@
                               <div class="form-group">
                                 <label>Unit Price</label>
                                 <br>
-<<<<<<< HEAD
-                                <input type="text" class="form-control"
-                                       [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice1">
-=======
                                 <input type="text" class="form-control" placeholder="Unit Price"
                                        [ngModelOptions]="{standalone: true}" [(ngModel)]="unitPrice1" disabled>
->>>>>>> 803d1fc3ac2aa4f48aea30fa87b09fc5e64325c5
                               </div>
                             </div>
 
 
                             <div class="col-md-2">
                               <button class="btn btn-success" rel="tooltip" type="button" (click)="addToItemsTable1()" style="margin-top: 20px">
-                           ADDS
+                                ADDS
                               </button>
                             </div>
 
@@ -665,43 +1351,154 @@
 
                     </div>
 
+                    <div class="row">
+                      <div class="col-sm-4"></div>
+                      <div class="col-sm-4"></div>
+
+
+                      <div class="col-sm-4">
+                        <button type="submit" class="btn btn-behance pull-right" (click)="addJobOrderToDatabase()">Save Details
+                        </button>
+                      </div>
+
+                    </div>
+
 
                   </div>
                 </div>
               </div>
             </div>
-            <div class="tab-pane active" id="link3">
-              <!-- lube job starts here-->
+            <div class="tab-pane" id="link3">
+
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-success card-header-icon ">
+                    <div class="card-icon"><i class="fas fa-car"></i>
+                    </div>
+                    <h4 class="card-title"></h4></div>
 
 
-              <!--&lt;!&ndash;/////////////////////////////&ndash;&gt; Lube Job-->
+                  <div class="card-body ">
+                    <div class="row">
+
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-3">
+
+                              <div class="form-group">
+                                <label>Select Service</label>
+                                <select class="form-control " data-style="select-with-transition"
+                                        [(ngModel)]="insertSelectedServiceType" #mySelect24
+                                        (change)="sendIdToAddService(mySelect24.value)">
+
+                                  <option *ngFor="let serviceVehi of allServicesDescArray" [value]="serviceVehi.serviceId">
+                                    {{serviceVehi.serviceDesc}}
+                                  </option>
+
+                                </select>
+                              </div>
+                            </div>
+
+                            <div class="col-md-2">
+                              <!--<button class="btn btn-success" rel="tooltip" type="button" (click)="searchServiceByIdAndAddToList()">-->
+                                <!--<i class="material-icons">add</i>-->
+                              <!--</button>-->
+
+                              <button class="btn btn-success" rel="tooltip" type="button" (click)="searchServiceByIdAndAddToList()" style="margin-top: 20px">
+                                ADD
+                              </button>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+
+
+                      <div class="col-md-12">
+                        <div class="card">
+                          <div
+                            class="card-header card-header-rose card-header-icon">
+
+                            <h4 class="card-title"><b>Service Jobs</b></h4></div>
+                          <div class="card-body">
+                            <div class="row">
+
+                            </div>
+                            <div class="table-responsive">
+                              <table class="table">
+                                <thead>
+                                <tr>
+                                  <th>Service</th>
+                                  <th>Service Description</th>
+                                  <th>Vehicle Class</th>
+                                  <th>Price</th>
+                                  <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">
+                                  <td>
+                                    {{servicesall.serviceName}}
+                                  </td>
+                                  <td>
+                                    {{servicesall.serviceDesc}}
+                                  </td>
+                                  <td>
+                                    {{servicesall.vehicletype}}
+                                  </td>
+                                  <td>
+                                    {{servicesall.servicePrice}}
+                                  </td>
+                                  <td class="td-actions ">
+
+                                    <button type="button" rel="tooltip" class="btn btn-danger"
+                                            (click)="deleteRow()">
+                                      <i class="material-icons">close</i>
+                                    </button>
+                                  </td>
+                                </tr>
+                                </tbody>
+                              </table>
+
+                              <div class="col-md-2">
+                                <button class="btn btn-success" rel="tooltip" type="button" (click)="addToServiceJob()">
+                                  <i class="material-icons">add</i>
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
             </div>
           </div>
-        </div>
 
 
 
-          <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4"></div>
-            <div class="col-sm-1"></div>
+          <!--<div class="row">-->
+            <!--<div class="col-sm-4"></div>-->
+            <!--<div class="col-sm-4"></div>-->
+            <!--<div class="col-sm-1"></div>-->
 
-            <div class="col-sm-3">
-              <button type="submit" class="btn btn-behance pull-right" (click)="addJobOrderToDatabase()">Save Details
-              </button>
-            </div>
+            <!--<div class="col-sm-3">-->
+              <!--<button type="submit" class="btn btn-behance pull-right" (click)="addJobOrderToDatabase()">Save Details-->
+              <!--</button>-->
+            <!--</div>-->
 
-          </div>
+          <!--</div>-->
         </div>
       </div>
     </div>
 
-            </div>
 
-
-
-
+  </div>
+</div>
 <!--</div>-->
 <!--</div>-->
 <!--</div>-->

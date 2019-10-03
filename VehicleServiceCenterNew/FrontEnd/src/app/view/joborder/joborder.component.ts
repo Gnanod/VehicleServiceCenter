@@ -16,6 +16,8 @@ import {Services} from "../../Model/Services";
 import {environment} from "../../../environments/environment";
 import {ServicesService} from "../../Service/services.service";
 import {ServiceJob} from "../../Model/ServiceJob";
+import {ServiceJobDetails} from "../../Model/ServiceJobDetails";
+import {ServicejobService} from "../../Service/servicejob.service";
 
 @Component({
   selector: 'app-joborder',
@@ -26,7 +28,7 @@ export class JoborderComponent implements OnInit {
 
   private joborder: JobOrder = new JobOrder();
   constructor(private joborderservice : JoborderService, private servicesService: ServicesService
-  ,private vehicleservice : VehicleService,private make_model_service :MakeModelService , private  itemService:ItemService ,private jobOrderService :JoborderService,private datePipe :DatePipe) { }
+  ,private vehicleservice : VehicleService,private make_model_service :MakeModelService , private  itemService:ItemService ,private jobOrderService :JoborderService,private datePipe :DatePipe,private serviceJobService: ServicejobService) { }
 
 ///////////////////
   searchItem :string;
@@ -138,6 +140,8 @@ export class JoborderComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.getAllServicesDesc();
   }
 
 
@@ -539,4 +543,109 @@ console.log("JJJJ"+this.insertselectedMake);
   //
   //
   // }
+
+  allServicesDescArray: Array<Services>= new Array<Services>();
+  getServiceToAddById: number;
+  insertSelectedServiceType: number;
+  servicesOfTheServiceJobArrray: Array<Services> = new Array<Services>();
+
+  getAllServicesDesc(){
+
+    this.servicesService.getAllServices().subscribe((result)=>{
+      if(result!=null){
+        this.allServicesDescArray = result;
+
+      }
+
+    });
+
+  }
+
+
+
+  servicestoadd: Services;
+  sendIdToAddService(value: Services){
+    this.servicestoadd = value;
+  }
+
+
+
+
+  addServiceJobsToFrontEndList(){
+    this.servicesService.getServicebyId(this.getServiceToAddById).subscribe((result)=>{
+      if(result!=null){
+        this.addedServiceBeforeConfirm = result;
+
+      }
+    });
+
+
+  }
+
+  ilen: number;
+  addToJobOrderServiceDetails(){
+
+    // console.log("The object"+this.servicestoadd.serviceDesc+"ADDEDD"+this.insertSelectedServiceType);
+  }
+
+
+
+
+  searchServiceByIdAndAddToList(){
+
+    this.servicesService.getServicebyId(this.insertSelectedServiceType).subscribe((result)=>{
+
+      if(result==null){
+
+        // alert('Item Not Found ')
+        // this.searchItemDetails.quantityOnHand=10;
+
+      }else{
+        let ser : Services;
+        ser = result;
+        this.servicesOfTheServiceJobArrray.push(ser);
+        console.log("asdsadsad"+this.servicesOfTheServiceJobArrray[0].serviceDesc);
+      }
+    });
+  }
+
+
+  serviceJDArray: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
+  serviceOrder : ServiceJob = new ServiceJob();
+  serviceOrderTot: number = 0;
+  addToServiceJob(){
+    let i: number ;
+    let serviceJD : ServiceJobDetails = new ServiceJobDetails();
+
+    let all : number = this.servicesOfTheServiceJobArrray.length;
+    for (i=0; i<all; i++){
+      this.serviceOrderTot += this.servicesOfTheServiceJobArrray[i].servicePrice;
+      serviceJD.service = this.servicesOfTheServiceJobArrray[i];
+    }
+    this.serviceJDArray.push(serviceJD);
+
+    console.log("PRICE IS" + this.serviceOrderTot);
+
+
+    this.serviceOrder.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+    this.serviceOrder.employeeName= "Fudddd";
+    this.serviceOrder.serviceJobDetails = this.serviceJDArray;
+    this.serviceOrder.total = this.serviceOrderTot;
+    this.serviceOrder.vehicle = this.searchVehicleDetails;
+
+
+    this.serviceJobService.addServiceJob(this.serviceOrder).subscribe((result)=>{
+      if(result !=null){
+
+        console.log("LLLL"+result)
+        alert("Service Added Successfully");
+
+
+      }
+
+    });
+
+  }
+
+
 }

@@ -36,23 +36,14 @@ export class LoginComponent implements OnInit {
           }
 
           if(this.error=="2"){
-            this.router.navigate(['joborder']);
+            this.router.navigate(['/jobOrder']);
           }
 
           if(this.error=="3"){
 
             alert("Login UnSuccess .Please Input Valid Login Details");
           }
-          // if(result!=null){
-          //
-          //
-          //     this.router.navigate(['/main/dashboard']);
-          //
-          // }else{
-          //
-          //     alert("Login UnSuccess");
-          //
-          // }
+
           
         });
         
