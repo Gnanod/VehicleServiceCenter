@@ -79,6 +79,7 @@ export class StockDetailsComponent implements OnInit {
     if(this.selectedMake !=null && this.addTableModel!=null){
 
       this.tableMakeModel.push(makeModel);
+
     }
 
 
@@ -199,6 +200,18 @@ export class StockDetailsComponent implements OnInit {
     }
 
   }
+
+  deleteMakeModel(id){
+
+    for(let i = 0; i < this.tableMakeModel.length; ++i){
+      if (this.tableMakeModel[i].modelName === id) {
+        this.tableMakeModel.splice(i,1);
+      }
+    }
+
+  }
+
+
   deleteRow(id){
 
     for(let i = 0; i <  this.itemsTable.length; ++i){
@@ -224,8 +237,8 @@ export class StockDetailsComponent implements OnInit {
         if(result!=null){
 
           alert('Makes Added SuccessFully');
-          this.addTableModel=null;
-          this.tableMakeModel=null;
+          this.addTableModel= null;
+          this.tableMakeModel= new Array<MakeModel>();
         }
       });
 
@@ -237,15 +250,24 @@ export class StockDetailsComponent implements OnInit {
 
   }
 
+  modelNameif =false;
   getMakeModelDetails(value :string){
 
 
     this.make_model_service.getMakeModelDetails(value).subscribe((result)=>{
 
-      if(result!=null){
+      console.log("result"+result.length)
+      if(result.length!=0){
+
+        this.modelNameif=true;
 
         this.searchMakesByModel=result;
+        this.searchMakesByModel[0]=result[0];
         //this.addTableModel=null;
+
+      }else{
+
+        this.searchMakesByModel = new Array<MakeModel>();
 
       }
     });
@@ -272,9 +294,12 @@ if( this.insertItemToTable.length!=0){
     if(result!=null){
 
       alert('Added Successfully');
-      this.insertItemToTable = null;
+      this.insertItemToTable = new Array<MakeModelDetail>();
       this.itemName = null;
       this.totAmount=0;
+      this.stockLevel=0;
+      this.searchMakesByModel = new Array<MakeModel>();
+
     }
 
   });

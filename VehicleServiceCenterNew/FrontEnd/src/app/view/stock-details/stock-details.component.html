@@ -206,7 +206,7 @@
 
                 <td class="td-actions ">
                   <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(items.item.itemId)">
-                    <i class="material-icons">close</i>
+                    <i class="fas fa-times"></i>
                   </button>
                 </td>
               </tr>
@@ -281,7 +281,7 @@
             <div class="col-md-6">
               <div class="form-group">
                 <label class="bmd-label-floating">Stock Level</label>
-                <input type="text" class="form-control"  [(ngModel)]="stockLevel" >
+                <input type="number" class="form-control"  [(ngModel)]="stockLevel" >
               </div>
             </div>
 
@@ -322,9 +322,15 @@
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
+
                 <label >Select Model</label>
-                <select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel">
-                  <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>
+                <select   class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel">
+                  <option disabled>Select Model</option>
+                        <ng-container *ngFor="let make of searchMakesByModel">
+                          <option  *ngIf="modelNameif" [value]="make.modelName">{{make.modelName}}</option>
+
+                        </ng-container>
+
                 </select>
               </div>
 
@@ -377,7 +383,7 @@
                   </td>
                   <td class="td-actions ">
                     <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteItemTableRow(item.makeModel.modelName)">
-                      <i class="material-icons">close</i>
+                      <i class="fas fa-times"></i>
                     </button>
                   </td>
                 </tr>
@@ -484,8 +490,8 @@
                   </td>
 
                   <td class="td-actions ">
-                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(brandMake.modelName)">
-                      <i class="material-icons">close</i>
+                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteMakeModel(brandMake.modelName)">
+                      <i class="fas fa-times"></i>
                     </button>
                   </td>
                 </tr>

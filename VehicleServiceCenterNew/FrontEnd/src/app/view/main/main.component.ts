@@ -68,7 +68,7 @@ export class MainComponent implements OnInit {
 
         }else if (button == 'JobOrder'){
 
-          this.router.navigate(['joborder'])
+          this.router.navigate(['/jobOrder'])
 
         }
 

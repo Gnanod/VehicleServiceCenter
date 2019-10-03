@@ -59,15 +59,14 @@ const routes: Routes = [
 
         ]
     },
-
     {
       path:"login",
       component: LoginComponent
     },
-  {
-    path :"joborder",
-    component : JoborderComponent
-  },
+    {
+      path :"jobOrder",
+      component : JoborderComponent
+    },
   {
       path: '', pathMatch: "full", redirectTo: 'login'
   }
