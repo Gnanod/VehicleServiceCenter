@@ -36,7 +36,7 @@ export class CustomerVehicleUpdateComponent implements OnInit {
 
     fName:new FormControl('',Validators.required),
     lName:new FormControl('',Validators.required),
-    email:new FormControl('',[Validators.required,Validators.email]),
+    //email:new FormControl('',[Validators.required,Validators.email]),
     nic: new FormControl('', Validators.required),
     address:new FormControl('',Validators.required),
     birthday:new FormControl('',Validators.required),
@@ -127,18 +127,27 @@ export class CustomerVehicleUpdateComponent implements OnInit {
     }
 
     deleteVehicle(){
+
+      if (confirm("Do you really want to Delete!")) {
+
         this.vehicleService.deleteVehicle(this.searchVehicleDetails.vehicleId).subscribe((result)=>{
 
-            if(result==null){
+          if(result==null){
 
-                alert('Vehicle Deleted SuccessFully');
-                this.searchVehicleDetails = new Vehicle();
-            }else{
+            alert('Vehicle Deleted SuccessFully');
+            this.searchVehicleDetails = new Vehicle();
+          }else{
 
-                alert('Vehicle Deleted Fail');
+            alert('Vehicle Deleted Fail');
 
-            }
+          }
         });
+
+      } else {
+
+      }
+
+
     }
 
   /////////////////////////////Select Model according to the Make  ///////////////////

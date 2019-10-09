@@ -77,7 +77,7 @@
                                             </td>
                                             <td class="td-actions ">
                                                 <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteCustomer()">
-                                                    <i class="material-icons">close</i>
+                                                  <i class="fas fa-times"></i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -153,11 +153,11 @@
                                         <div class="form-group">
                                             <label  >Email address</label>
 
-                                          <input type="text" class="form-control" name="email" [(ngModel)]="addCustomer.email" formControlName="email" [ngClass]="{'is-invalid':form1.get('email').touched && form1.get('email').invalid }">
-                                          <div class="invalid-feedback"  *ngIf="form1.get('email').touched  && form1.get('email').invalid">
-                                            <div  *ngIf="form1.get('email').errors.required">Email Field Is Empty</div>
-                                            <div *ngIf="form1.get('email').errors.email" >Email Is Not Valid</div>
-                                          </div>
+                                          <input type="text" class="form-control" name="email" [(ngModel)]="addCustomer.email" [ngModelOptions]="{standalone: true}">
+                                          <!--<div class="invalid-feedback"  *ngIf="form1.get('email').touched  && form1.get('email').invalid">-->
+                                            <!--<div  *ngIf="form1.get('email').errors.required">Email Field Is Empty</div>-->
+                                            <!--<div *ngIf="form1.get('email').errors.email" >Email Is Not Valid</div>-->
+                                          <!--</div>-->
                                             <!--<input type="email" class="form-control" name="email" [(ngModel)]="addCustomer.email">-->
                                         </div>
                                     </div>
@@ -176,7 +176,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label >Adress</label>
+                                            <label >Address</label>
                                             <!--<input type="text" class="form-control" name="address" [(ngModel)]="addCustomer.address">-->
                                           <input type="text" class="form-control" name="address" [(ngModel)]="addCustomer.address" formControlName="address" [ngClass]="{'is-invalid':form1.get('address').touched && form1.get('address').invalid }">
 
@@ -219,7 +219,119 @@
                             </form>
                         </div>
                     </div>
+
+
+
                 </div>
+              <div class="col-md-6">
+                <div class="card">
+                  <div class="card-header card-header-icon card-header-info">
+                    <div class="card-icon">
+                      <i class="fas fa-cubes"></i>
+                    </div>
+                    <h4 class="card-title">Add Vehicle Type
+
+                    </h4>
+                  </div>
+                  <div class="card-body">
+
+                    <div class="row">
+
+
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label >Select Make</label>
+                          <br>
+                          <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >
+
+                            <option>Any</option>
+                            <option>Abarth</option>
+                            <option>Acura</option>
+                            <option>Alfa Romeo</option>
+                            <option>Ambassador</option>
+                            <option>Aprilia</option>
+                            <option>Audi</option>
+                            <option>Austin</option>
+                            <option>Bajaj</option>
+                            <option>BMW</option>
+                            <option>Cadillac</option>
+                            <option>Caterpillar</option>
+                            <option>Nissan</option>
+                            <option>Suzuki</option>
+                            <option>Toyota</option>
+                            <option>Honda</option>
+                            <option>530i</option>
+
+
+                          </select>
+
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Model Name</label>
+
+                          <input  type="text"   class="form-control "  [(ngModel)]="addTableModel" >
+                          <!--<small [class.d-none]="name.valid || name.untouched" ]>Model Name Is required</small>-->
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group">
+
+                          <button type="submit" class="btn btn-behance pull-right" (click)="addToTable()">Add To Table</button>
+
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead class=" text-primary">
+                          <th>
+                            Name Of Make
+                          </th>
+                          <th>
+                            Name Of Model
+                          </th>
+
+
+                          </thead>
+                          <tbody>
+
+                          <tr  *ngFor="let brandMake of tableMakeModel  ">
+
+                            <td>
+                              {{brandMake.makeName}}
+                            </td>
+                            <td>
+                              {{brandMake.modelName}}
+                            </td>
+
+                            <td class="td-actions ">
+                              <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteMakeModel(brandMake.modelName)">
+                                <i class="fas fa-times"></i>
+                              </button>
+                            </td>
+                          </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-behance pull-right" (click)="addMakeModelDetails()">Save Details</button>
+
+
+                  </div>
+                </div>
+              </div>
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-header card-header-icon card-header-info">
@@ -263,7 +375,7 @@
 
                                     <div class="col-md-11">
                                         <div class="form-group">
-                                            <label >Engine number</label>
+                                            <label >Chassis number</label>
                                             <!--<input type="text" class="form-control" name="engineNumber" [(ngModel)]="vehNgModel.engineNumber">-->
                                          <br>
                                           <input type="text" class="form-control" name="engineNumber"[(ngModel)]="vehNgModel.engineNumber" formControlName="engineNumber" [ngClass]="{'is-invalid':form.get('engineNumber').touched && form.get('engineNumber').invalid }">
@@ -281,28 +393,10 @@
                                         <!--<mat-form-field>-->
                                             <label >Vehicle Class</label>
                                         <br>
-                                        <div class="form-group">
-                                            <!--<label for="exampleFormControlSelect1">Example select</label>-->
-                                            <select class="form-control" id="exampleFormControlSelect1" [(ngModel)]="vehNgModel.vehicleClass" formControlName="vehicleClass" [ngClass]="{'is-invalid':form.get('vehicleClass').touched && form.get('vehicleClass').invalid }">
-                                                <option  value="A1"  >A1</option>
-                                                <option  value="A"  >A</option>
-                                                <option  value="B1"  >B1</option>
-                                                <option  value="B"  >B</option>
-                                                <option  value="C1" >C1</option>
-                                                <option  value="C">C</option>
-                                                <option  value="CE">CE</option>
-                                                <option  value="D1">D1</option>
-                                                <option  value="D">D</option>
-                                                <option  value="DE">DE</option>
-                                                <option value="G1">G1</option>
-                                                <option  value="G">G</option>
-                                                <option  value="J">J</option>
-                                            </select>
-                                          <div class="invalid-feedback"  *ngIf="form.get('vehicleClass').touched  && form.get('vehicleClass').invalid" >
-                                            Vehicle Class Field Is Empty
-                                          </div>
-                                        </div>
-                                        
+                                      <input type="text" class="form-control" [(ngModel)]="vehNgModel.vehicleClass" formControlName="vehicleClass" [ngClass]="{'is-invalid':form.get('vehicleClass').touched && form.get('vehicleClass').invalid }">
+                                      <div class="invalid-feedback"  *ngIf="form.get('vehicleClass').touched  && form.get('vehicleClass').invalid" >
+                                      Vehicle Class Field Is Empty
+                                      </div>
 
                                     </div>
                                 </div>
@@ -420,3 +514,5 @@
         <!--$('.selectpicker').selectpicker();-->
     <!--});-->
 <!--</script>-->
+
+

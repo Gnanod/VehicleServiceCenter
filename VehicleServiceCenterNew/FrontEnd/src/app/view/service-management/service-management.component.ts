@@ -20,7 +20,7 @@ export class ServiceManagementComponent implements OnInit {
 
 
 
-  public constructor(public servicesService: ServicesService) {
+  public constructor(public servicesService: ServicesService) {}
 
 
 
@@ -62,18 +62,26 @@ export class ServiceManagementComponent implements OnInit {
  }
 
   deleteService(id: number){
-    this.servicesService.deleteService(id).subscribe((result)=>{
 
-      if(result==null){
+    if (confirm("Press a button!")) {
+      this.servicesService.deleteService(id).subscribe((result)=>{
 
-        alert('Service Deleted SuccessFully');
+        if(result==null){
 
-      }else{
+          alert('Service Deleted SuccessFully');
 
-        alert('Employee Deleted Fail');
+        }else{
 
-      }
-    });
+          alert('Employee Deleted Fail');
+
+        }
+      });
+    } else {
+
+    }
+
+
+
   }
 
 }

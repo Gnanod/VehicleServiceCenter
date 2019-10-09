@@ -79,18 +79,26 @@ export class SupplierComponent implements OnInit {
   }
 
   deleteSupplier() {
-    this.supplierService.deleteSupplier(this.searchSupplierNumber).subscribe((result) => {
 
-      if (result == null) {
+    if (confirm("Do you really want to Delete......!")) {
 
-        alert('Supplier Deleted SuccessFully');
+      this.supplierService.deleteSupplier(this.searchSupplierNumber).subscribe((result) => {
 
-      } else {
+        if (result == null) {
 
-        alert('Supplier Deleted Fail');
+          alert('Supplier Deleted SuccessFully');
 
-      }
-    });
+        } else {
+
+          alert('Supplier Deleted Fail');
+
+        }
+      });
+    } else {
+
+    }
+
+
   }
 
   ngOnInit() {

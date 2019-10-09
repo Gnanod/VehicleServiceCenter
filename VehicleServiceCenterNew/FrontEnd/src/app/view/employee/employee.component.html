@@ -37,8 +37,8 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Email address</label>
-                                                <input type="email" class="form-control" name="email" [(ngModel)] = "employee.email" (keyup)="validEmployee2()">
-                                              <div *ngIf="validemailIf;" style="color: red">Email Must Be Fill</div>
+                                                <input type="email" class="form-control" name="email" [(ngModel)] = "employee.email" >
+
 
                                             </div>
                                         </div>
@@ -66,7 +66,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Birthday</label>
-                                                <input type="text" class="form-control" name="birthday" [(ngModel)] = "employee.birthday" (keyup)="validateEmploye5()">
+                                                <input type="date" class="form-control" name="birthday" [(ngModel)] = "employee.birthday" (keyup)="validateEmploye5()">
                                               <div *ngIf="validBirthdayIf;"style="color: red" >Birthday Must Be Fill</div>
                                             </div>
                                         </div>
@@ -122,7 +122,7 @@
                                 <table class="table">
                                     <thead>
                                     <tr>
-                                        <th class="text-center">#</th>
+
 
                                         <th>Frist Name</th>
                                         <th>Last Name</th>
@@ -169,7 +169,7 @@
 
                                       <td class="td-actions ">
                                         <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteEmployee()">
-
+                                          <i class="fas fa-times"></i>
                                         </button>
                                       </td>
                                     </tr>

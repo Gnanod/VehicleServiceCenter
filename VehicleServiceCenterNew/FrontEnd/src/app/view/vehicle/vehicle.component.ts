@@ -31,7 +31,6 @@ export class VehicleComponent implements OnInit {
 
     fName:new FormControl('',Validators.required),
     lName:new FormControl('',Validators.required),
-    email:new FormControl('',[Validators.required,Validators.email]),
     nic: new FormControl('', Validators.required),
     address:new FormControl('',Validators.required),
     birthday:new FormControl('',Validators.required),
@@ -116,18 +115,24 @@ export class VehicleComponent implements OnInit {
     }
 
     deleteCustomer(){
+
+      if (confirm("Do you really want to Delete......!")) {
         this.customerService.deleteCustomer(this.searchCustomerDetails.nic).subscribe((result)=>{
-          
+
           if(result==null){
-            
+
             alert('Customer Deleted SuccessFully');
-            
+
           }else{
-            
+
             alert('Customer Deleted Fail');
-            
+
           }
         });
+      } else {
+
+      }
+
     }
     
 
@@ -150,6 +155,58 @@ export class VehicleComponent implements OnInit {
 
       }
     });
+
+  }
+  selectedMake:string;
+  addTableModel:string;
+  tableMakeModel :Array<MakeModel> = new Array<MakeModel>();
+  addToTable(){
+
+    console.log('GGGGGG');
+
+    let makeModel : MakeModel = new MakeModel();
+    console.log("selectedmake"+this.selectedMake);
+    makeModel.makeName=this.selectedMake;
+    makeModel.modelName=this.addTableModel;
+
+    if(this.selectedMake !=null && this.addTableModel!=null){
+
+      this.tableMakeModel.push(makeModel);
+
+    }
+
+
+  }
+
+  deleteMakeModel(id){
+
+    for(let i = 0; i < this.tableMakeModel.length; ++i){
+      if (this.tableMakeModel[i].modelName === id) {
+        this.tableMakeModel.splice(i,1);
+      }
+    }
+
+  }
+
+  addMakeModelDetails(){
+
+    if( this.tableMakeModel.length!=0){
+
+      this.make_model_service.addMakeModelDetails(this.tableMakeModel).subscribe((result)=>{
+
+        if(result!=null){
+
+          alert('Makes Added SuccessFully');
+          this.addTableModel= null;
+          this.tableMakeModel= new Array<MakeModel>();
+        }
+      });
+
+    }else{
+
+      alert('Please Add Models To Table');
+
+    }
 
   }
 

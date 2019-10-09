@@ -46,322 +46,345 @@ export class EmployeeComponent implements OnInit {
   public employee: Employee = new Employee();
 
 
-  public constructor(public employeeService: EmployeeService) {
+  public constructor(public employeeService: EmployeeService) {}
 
 
 
-  //Employee search to be edited
+    //Employee search to be edited
 
-  searchEmployeeValuesIf = true;
-  searchEmployeeDetails: Employee = new Employee();
-  updateEmployeeDetails: Employee = new Employee();
-  searchEmployeeNumber: string;
+    searchEmployeeValuesIf = true;
+    searchEmployeeDetails: Employee = new Employee();
+    updateEmployeeDetails: Employee = new Employee();
+    searchEmployeeNumber: string;
 
-  UpdateEmployeeDetails() {
-    this.employeeService.UpdateEmployeeDetails(this.searchEmployeeDetails).subscribe((result) => {
-
-      if (result != null) {
-
-        alert("Employee Updated SuccessFully");
-
-      }
-
-    });
-  }
-
-  searchEmployeeDetailsByNumber(value: string) {
-    this.employeeService.searchEmployeeDetails(this.searchEmployeeNumber).subscribe((result) => {
-
-
-      if (result == null) {
-        this.searchEmployeeValuesIf = true;
-
-      } else {
-        this.searchEmployeeValuesIf = false;
-        this.searchEmployeeDetails = result;
-      }
-    });
-  }
-
-  //ends here
-
-  validFirstNameIf = false;
-  validLastNameIf = false;
-  validemailIf = false;
-  valideNicIf = false;
-  validAddressIf = false;
-  validBirthdayIf = false;
-  validPhoneNumberIf = false;
-
-  validPhoneNumberLength = false;
-
-  addEmpDetails() {
-
-    if (this.employee.firstName == null) {
-
-      this.validFirstNameIf = true;
-
-    } else {
-
-      this.validFirstNameIf = false;
-
-    }
-
-    if (this.employee.lastName == null) {
-
-      this.validLastNameIf = true;
-
-    } else {
-
-      this.validLastNameIf = false;
-
-    }
-
-    if (this.employee.email == null) {
-
-      this.validemailIf = true;
-
-    } else {
-
-      this.validemailIf = false;
-
-    }
-
-    if (this.employee.nic == null) {
-
-      this.valideNicIf = true;
-
-    } else {
-
-      this.valideNicIf = false;
-
-    }
-
-    if (this.employee.address == null) {
-
-      this.validAddressIf = true;
-
-    } else {
-
-      this.validAddressIf = false;
-
-    }
-
-    if (this.employee.birthday == null) {
-
-      this.validBirthdayIf = true;
-
-    } else {
-
-      this.validBirthdayIf = false;
-
-    }
-
-    if (this.employee.phoneNumber == null) {
-
-      this.validPhoneNumberIf = true;
-
-    } else {
-
-      this.validPhoneNumberIf = false;
-
-    }
-
-    if (this.validFirstNameIf == false && this.validLastNameIf == false && this.validemailIf == false && this.valideNicIf == false && this.validAddressIf == false && this.validBirthdayIf == false && this.validPhoneNumberIf == false) {
-      this.employeeService.addEmployee(this.employee).subscribe((result) => {
+    UpdateEmployeeDetails()
+    {
+      this.employeeService.UpdateEmployeeDetails(this.searchEmployeeDetails).subscribe((result) => {
 
         if (result != null) {
-          alert("Added Successfully");
-          this.employee = new Employee();
+
+          alert("Employee Updated SuccessFully");
+
         }
 
-      })
-    }
-    // this.employeeService.addEmployee(this.employee).subscribe((result)=>{
-    //
-    //   if (result != null){
-    //     alert("Added Successfully");
-    //     this.employee = new Employee();
-    //   }
-    //
-    // })
-
-
-  }
-
-
-  validEmployee() {
-
-    if (this.employee.firstName == null || this.employee.firstName.length == 0) {
-
-      this.validFirstNameIf = true;
-
-    } else {
-
-      this.validFirstNameIf = false;
-
-    }
-  }
-
-  validEmployee1() {
-
-    if (this.employee.lastName == null || this.employee.lastName.length == 0) {
-
-      this.validLastNameIf = true;
-
-    } else {
-
-      this.validLastNameIf = false;
-
+      });
     }
 
-  }
+    searchEmployeeDetailsByNumber(value
+  :
+    string
+  )
+    {
+      this.employeeService.searchEmployeeDetails(this.searchEmployeeNumber).subscribe((result) => {
 
-  validEmployee2() {
 
-    if (this.employee.email == null || this.employee.email.length == 0) {
+        if (result == null) {
+          this.searchEmployeeValuesIf = true;
 
-      this.validemailIf = true;
-
-    } else {
-
-      this.validemailIf = false;
-
+        } else {
+          this.searchEmployeeValuesIf = false;
+          this.searchEmployeeDetails = result;
+        }
+      });
     }
 
-  }
+    //ends here
 
-  validEmployee3() {
+    validFirstNameIf = false;
+    validLastNameIf = false;
+    // validemailIf = false;
+    valideNicIf = false;
+    validAddressIf = false;
+    validBirthdayIf = false;
+    validPhoneNumberIf = false;
 
-    if (this.employee.nic == null || this.employee.nic.length == 0) {
+    validPhoneNumberLength = false;
 
-      this.valideNicIf = true;
+    addEmpDetails()
+    {
 
-    } else {
+      if (this.employee.firstName == null) {
 
-      this.valideNicIf = false;
+        this.validFirstNameIf = true;
 
-    }
+      } else {
 
-  }
+        this.validFirstNameIf = false;
 
-  validateEmploye4() {
+      }
 
-    if (this.employee.address == null || this.employee.address.length == 0) {
+      if (this.employee.lastName == null) {
 
-      this.validAddressIf = true;
+        this.validLastNameIf = true;
 
-    } else {
+      } else {
 
-      this.validAddressIf = false;
+        this.validLastNameIf = false;
 
-    }
+      }
 
-  }
-
-  validateEmploye5() {
-
-    if (this.employee.birthday == null || this.employee.birthday.length == 0) {
-
-      this.validBirthdayIf = true;
-
-    } else {
-
-      this.validBirthdayIf = false;
-
-    }
-
-  }
-
-  validateEmployee6() {
-    if (this.employee.phoneNumber == null || this.employee.phoneNumber.length == 0) {
-
-      this.validPhoneNumberIf = true;
-
-      this.searchEmployeeDetails = new Employee();
-      // if(this.employee.phoneNumber.length!=10){
-      //   this.validPhoneNumberLength = true;
+      // if (this.employee.email == null) {
+      //
+      //   this.validemailIf = true;
+      //
+      // } else {
+      //
+      //   this.validemailIf = false;
+      //
       // }
 
-    } else {
+      if (this.employee.nic == null) {
 
-      this.validPhoneNumberIf = false;
-      // this.validPhoneNumberLength = false;
-    }
-  }
-
-  deleteEmployee() {
-    this.employeeService.deleteEmployee(this.searchEmployeeDetails.employeeId).subscribe((result) => {
-
-      if (result == null) {
-
-        alert('Employee Deleted SuccessFully');
+        this.valideNicIf = true;
 
       } else {
 
-        alert('Employee Deleted Fail');
+        this.valideNicIf = false;
 
       }
-    });
-  }
 
-  ngOnInit() {
-  }
+      if (this.employee.address == null) {
 
+        this.validAddressIf = true;
 
-  ///////////////
+      } else {
 
-  loginUserName :string;
-  loginPassword:string;
-  confirmPassword:string;
-  type :string;
+        this.validAddressIf = false;
 
+      }
 
-  validPasswordIf = false;
+      if (this.employee.birthday == null) {
 
-  //////////////////////
+        this.validBirthdayIf = true;
 
+      } else {
 
-  addLoginDetails(){
+        this.validBirthdayIf = false;
 
-console.log("Login"+this.loginPassword)
+      }
 
+      if (this.employee.phoneNumber == null) {
 
-    if(this.loginPassword== this.confirmPassword){
+        this.validPhoneNumberIf = true;
 
-      this.validPasswordIf = false;
+      } else {
 
-      let loginDet :Login = new Login();
+        this.validPhoneNumberIf = false;
 
-      loginDet.password=this.confirmPassword;
-      loginDet.userName = this.loginUserName;
-      loginDet.type =this.type;
+      }
 
-      console.log("Login"+this.confirmPassword)
-      console.log("Login"+this.loginUserName)
-      console.log("Login"+this.type)
+      if (this.validFirstNameIf == false && this.validLastNameIf == false && this.valideNicIf == false && this.validAddressIf == false && this.validBirthdayIf == false && this.validPhoneNumberIf == false) {
+        this.employeeService.addEmployee(this.employee).subscribe((result) => {
 
-      this.employeeService.LoginDetail(loginDet).subscribe((result) => {
+          if (result != null) {
+            alert("Added Successfully");
+            this.employee = new Employee();
+          }
 
-        if (result != null) {
-          alert("Added Successfully");
-          // this.employee = new Employee();
-          this.confirmPassword = null;
-          this.loginUserName = null;
-          this.loginPassword = null;
-        }
+        })
+      }
+      // this.employeeService.addEmployee(this.employee).subscribe((result)=>{
+      //
+      //   if (result != null){
+      //     alert("Added Successfully");
+      //     this.employee = new Employee();
+      //   }
+      //
+      // })
 
-      })
-
-    }else{
-
-      this.validPasswordIf = true;
 
     }
 
-  }
+
+    validEmployee()
+    {
+
+      if (this.employee.firstName == null || this.employee.firstName.length == 0) {
+
+        this.validFirstNameIf = true;
+
+      } else {
+
+        this.validFirstNameIf = false;
+
+      }
+    }
+
+    validEmployee1()
+    {
+
+      if (this.employee.lastName == null || this.employee.lastName.length == 0) {
+
+        this.validLastNameIf = true;
+
+      } else {
+
+        this.validLastNameIf = false;
+
+      }
+
+    }
+
+    // validEmployee2()
+    // {
+    //
+    //   if (this.employee.email == null || this.employee.email.length == 0) {
+    //
+    //     this.validemailIf = true;
+    //
+    //   } else {
+    //
+    //     this.validemailIf = false;
+    //
+    //   }
+    //
+    // }
+
+    validEmployee3()
+    {
+
+      if (this.employee.nic == null || this.employee.nic.length == 0) {
+
+        this.valideNicIf = true;
+
+      } else {
+
+        this.valideNicIf = false;
+
+      }
+
+    }
+
+    validateEmploye4()
+    {
+
+      if (this.employee.address == null || this.employee.address.length == 0) {
+
+        this.validAddressIf = true;
+
+      } else {
+
+        this.validAddressIf = false;
+
+      }
+
+    }
+
+    validateEmploye5()
+    {
+
+      if (this.employee.birthday == null || this.employee.birthday.length == 0) {
+
+        this.validBirthdayIf = true;
+
+      } else {
+
+        this.validBirthdayIf = false;
+
+      }
+
+    }
+
+    validateEmployee6()
+    {
+      if (this.employee.phoneNumber == null || this.employee.phoneNumber.length == 0) {
+
+        this.validPhoneNumberIf = true;
+
+        this.searchEmployeeDetails = new Employee();
+        // if(this.employee.phoneNumber.length!=10){
+        //   this.validPhoneNumberLength = true;
+        // }
+
+      } else {
+
+        this.validPhoneNumberIf = false;
+        // this.validPhoneNumberLength = false;
+      }
+    }
+
+    deleteEmployee()
+    {
+
+      if (confirm("Do you really want to Delete......!")) {
+        this.employeeService.deleteEmployee(this.searchEmployeeDetails.employeeId).subscribe((result) => {
+
+          if (result == null) {
+
+            alert('Employee Deleted SuccessFully');
+            this.searchEmployeeValuesIf = true;
+
+          } else {
+
+            alert('Employee Deleted Fail');
+
+          }
+        });
+      } else {
+
+      }
 
 
+
+    }
+
+    ngOnInit()
+    {
+    }
+
+
+    ///////////////
+
+    loginUserName :string;
+    loginPassword:string;
+    confirmPassword:string;
+    type :string;
+
+
+    validPasswordIf = false;
+
+    //////////////////////
+
+
+    addLoginDetails()
+    {
+
+      console.log("Login" + this.loginPassword)
+
+
+      if (this.loginPassword == this.confirmPassword) {
+
+        this.validPasswordIf = false;
+
+        let loginDet: Login = new Login();
+
+        loginDet.password = this.confirmPassword;
+        loginDet.userName = this.loginUserName;
+        loginDet.type = this.type;
+
+        console.log("Login" + this.confirmPassword)
+        console.log("Login" + this.loginUserName)
+        console.log("Login" + this.type)
+
+        this.employeeService.LoginDetail(loginDet).subscribe((result) => {
+
+          if (result != null) {
+            alert("Added Successfully");
+            // this.employee = new Employee();
+            this.confirmPassword = null;
+            this.loginUserName = null;
+            this.loginPassword = null;
+          }
+
+        })
+
+      } else {
+
+        this.validPasswordIf = true;
+
+      }
+
+    }
 
 
 
