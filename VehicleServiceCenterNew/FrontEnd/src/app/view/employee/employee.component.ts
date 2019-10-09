@@ -45,8 +45,9 @@ export class EmployeeComponent implements OnInit {
 
   public employee: Employee = new Employee();
 
+
   public constructor(public employeeService: EmployeeService) {
-  }
+
 
 
   //Employee search to be edited

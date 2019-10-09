@@ -19,8 +19,9 @@ export class ServiceManagementComponent implements OnInit {
 
 
 
+
   public constructor(public servicesService: ServicesService) {
-  }
+
 
 
 
