@@ -43,10 +43,11 @@ export class EmployeeComponent implements OnInit {
 
   });
 
-  private employee: Employee = new Employee();
+  public employee: Employee = new Employee();
 
-  public constructor(private employeeService: EmployeeService) {
-  }
+
+  public constructor(public employeeService: EmployeeService) {
+
 
 
   //Employee search to be edited
@@ -68,7 +69,7 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  searchEmployeeDetailsByNumber() {
+  searchEmployeeDetailsByNumber(value: string) {
     this.employeeService.searchEmployeeDetails(this.searchEmployeeNumber).subscribe((result) => {
 
 
