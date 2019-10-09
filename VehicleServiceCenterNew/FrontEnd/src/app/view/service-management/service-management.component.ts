@@ -9,7 +9,7 @@ import {Services} from "../../Model/Services";
 })
 export class ServiceManagementComponent implements OnInit {
 
-  private services : Services = new Services();
+  public services : Services = new Services();
 
   sid: number;
   name: string;
@@ -19,8 +19,9 @@ export class ServiceManagementComponent implements OnInit {
 
 
 
-  public constructor(private servicesService: ServicesService) {
-  }
+
+  public constructor(public servicesService: ServicesService) {
+
 
 
 

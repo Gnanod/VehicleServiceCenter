@@ -21,14 +21,14 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">First Name</label>
-                                                <input name="firstName" type="text" class="form-control" [(ngModel)] = "employee.firstName" (keyup)="validEmployee($event)">
+                                                <input name="firstName" type="text" class="form-control" [(ngModel)] = "employee.firstName" (keyup)="validEmployee()">
                                                 <div *ngIf="validFirstNameIf;" style="color: red" >Name Must Be Fill</div>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Last Name</label>
-                                                <input type="text" class="form-control" name="lastName" [(ngModel)] = "employee.lastName" (keyup)="validEmployee1($event)">
+                                                <input type="text" class="form-control" name="lastName" [(ngModel)] = "employee.lastName" (keyup)="validEmployee1()">
                                               <div *ngIf="validLastNameIf;" style="color: red"> Last Name Must Be Fill</div>
                                             </div>
                                         </div>
@@ -37,7 +37,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Email address</label>
-                                                <input type="email" class="form-control" name="email" [(ngModel)] = "employee.email" (keyup)="validEmployee2($event)">
+                                                <input type="email" class="form-control" name="email" [(ngModel)] = "employee.email" (keyup)="validEmployee2()">
                                               <div *ngIf="validemailIf;" style="color: red">Email Must Be Fill</div>
 
                                             </div>
@@ -45,7 +45,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating" >Nic</label>
-                                                <input type="text" class="form-control" name="nic" [(ngModel)] = "employee.nic" (keyup)="validEmployee3($event)">
+                                                <input type="text" class="form-control" name="nic" [(ngModel)] = "employee.nic" (keyup)="validEmployee3()">
                                               <div *ngIf="valideNicIf;" style="color: red">Nic Must Be Fill</div>
 
                                             </div>
@@ -56,7 +56,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Address</label>
-                                                <input type="text" class="form-control" name="address" [(ngModel)] = "employee.address" (keyup)="validateEmploye4($event)">
+                                                <input type="text" class="form-control" name="address" [(ngModel)] = "employee.address" (keyup)="validateEmploye4()">
                                               <div *ngIf="validAddressIf;" style="color: red">Address Must Be Fill</div>
 
                                             </div>
@@ -66,14 +66,14 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Birthday</label>
-                                                <input type="text" class="form-control" name="birthday" [(ngModel)] = "employee.birthday" (keyup)="validateEmploye5($event)">
+                                                <input type="text" class="form-control" name="birthday" [(ngModel)] = "employee.birthday" (keyup)="validateEmploye5()">
                                               <div *ngIf="validBirthdayIf;"style="color: red" >Birthday Must Be Fill</div>
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label class="bmd-label-floating">Phone Number</label>
-                                                <input type="text" class="form-control" name="phoneNumber" [(ngModel)] = "employee.phoneNumber" (keyup)="validateEmployee6($event)">
+                                                <input type="text" class="form-control" name="phoneNumber" [(ngModel)] = "employee.phoneNumber" (keyup)="validateEmployee6()">
                                               <div *ngIf="validPhoneNumberIf;" style="color: red">Phone Number Must Be Fill</div>
                                               <!--<div *ngIf="validPhoneNumberLength;" style="color: red"> Phone Number is Invalid</div>-->
                                             </div>
@@ -107,7 +107,9 @@
                                 <div class="col-md-4" style="margin-left: 450px">
                                     <div class="form-group">
                                         <label class="bmd-label-floating"><i class="fas fa-search"></i>Search By Name</label>
-                                        <input type="text" class="form-control" style="width: 300px" (keyup)="searchEmployeeDetailsByNumber($event)" [(ngModel)]="searchEmployeeNumber">
+
+                                        <input type="text" class="form-control" style="width: 300px" (keyup)="searchEmployeeDetailsByNumber()" [(ngModel)]="searchEmployeeNumber">
+
                                     </div>
                                 </div>
                                 <div class="col-md-4" style="margin-left: -300px ;margin-top: 0px">

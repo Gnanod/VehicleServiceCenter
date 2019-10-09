@@ -739,7 +739,7 @@
             <div class="form-group">
               <label>Vehilce Number</label>
               <br>
-              <input type="text" id="vehiNumber" class="form-control" (keyup)="searchVehicleDetailsByNumber($event)"
+              <input type="text" id="vehiNumber" class="form-control" (keyup)="searchVehicleDetailsByNumber()"
                      [(ngModel)]="searchVehicleNumber">
               <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
             </div>
@@ -970,7 +970,7 @@
                                 <label>Select Item</label><!--<div class="dropdown">-->
                                 <select class="form-control " data-style="select-with-transition"
                                         [(ngModel)]="insertItemName" #mySelect1
-                                        (change)="getUnitPrice()">
+                                        (change)="getUnitPrice($event)">
                                   <!--<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">-->
                                   <option *ngFor="let make of searchItemDetails" [value]="make.itemName">
                                     {{make.itemName}}
