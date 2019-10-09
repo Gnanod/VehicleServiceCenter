@@ -21,16 +21,16 @@
             <thead>
             <tr>
 
-
               <th class="text-center">Item Name</th>
               <th class="text-center">Make Name</th>
               <th class="text-center">Model Name</th>
               <th class="text-center">Quantity On Hand</th>
-
             </tr>
             </thead>
             <tbody>
             <tr *ngFor="let lowStock of LowStockLevel">
+
+
 
               <td class="text-center">
                 {{lowStock.itemName}}
@@ -45,47 +45,6 @@
                 {{lowStock.qtyOnHand}}
               </td>
             </tr>
-            <!--<tr *ngIf="searchEmployeeValuesIf;else elseBlock">-->
-              <!--<td colspan="8" class="alert alert-danger" style="text-align: center">-->
-                <!--No Items In low Stock Level-->
-
-              <!--</td>-->
-            <!--</tr>-->
-
-            <!--<ng-template #elseBlock>-->
-
-              <!--<tr>-->
-                <!--<td class="text-center">-->
-                  <!--{{searchEmployeeDetails.firstName}}-->
-                <!--</td>-->
-                <!--<td class="text-center">-->
-                  <!--{{searchEmployeeDetails.lastName}}-->
-                <!--</td>-->
-                <!--<td class="text-center">-->
-                  <!--{{searchEmployeeDetails.email}}-->
-                <!--</td >-->
-
-                <!--<td class="text-center">-->
-                  <!--{{searchEmployeeDetails.nic}}-->
-                <!--</td>-->
-                <!--<td>-->
-                  <!--{{searchEmployeeDetails.address}}-->
-                <!--</td>-->
-                <!--<td class="text-center">-->
-                  <!--{{searchEmployeeDetails.birthday}}-->
-                <!--</td>-->
-                <!--<td class="text-center">-->
-                  <!--{{searchEmployeeDetails.phoneNumber}}-->
-                <!--</td >-->
-
-                <!--<td class="td-actions ">-->
-                  <!--<button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteEmployee()">-->
-
-                  <!--</button>-->
-                <!--</td>-->
-              <!--</tr>-->
-
-            <!--</ng-template>-->
 
             </tbody>
           </table>

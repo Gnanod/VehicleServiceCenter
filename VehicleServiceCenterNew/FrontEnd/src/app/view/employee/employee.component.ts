@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Employee} from "../../Model/Employee";
 import {EmployeeService} from "../../Service/employee.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {Login} from "../../Model/Login";
 
 
 @Component({
@@ -21,6 +22,12 @@ export class EmployeeComponent implements OnInit {
   //
   // });
 
+
+
+
+
+
+
   form1 = new FormGroup({
 
     empId1:new FormControl('',Validators.required),
@@ -36,9 +43,9 @@ export class EmployeeComponent implements OnInit {
 
   });
 
-  private employee: Employee = new Employee();
+  public employee: Employee = new Employee();
 
-  constructor(private employeeService: EmployeeService) {
+  public constructor(public employeeService: EmployeeService) {
   }
 
 
@@ -61,7 +68,7 @@ export class EmployeeComponent implements OnInit {
     });
   }
 
-  searchEmployeeDetailsByNumber() {
+  searchEmployeeDetailsByNumber(value: string) {
     this.employeeService.searchEmployeeDetails(this.searchEmployeeNumber).subscribe((result) => {
 
 
@@ -299,5 +306,63 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit() {
   }
+
+
+  ///////////////
+
+  loginUserName :string;
+  loginPassword:string;
+  confirmPassword:string;
+  type :string;
+
+
+  validPasswordIf = false;
+
+  //////////////////////
+
+
+  addLoginDetails(){
+
+console.log("Login"+this.loginPassword)
+
+
+    if(this.loginPassword== this.confirmPassword){
+
+      this.validPasswordIf = false;
+
+      let loginDet :Login = new Login();
+
+      loginDet.password=this.confirmPassword;
+      loginDet.userName = this.loginUserName;
+      loginDet.type =this.type;
+
+      console.log("Login"+this.confirmPassword)
+      console.log("Login"+this.loginUserName)
+      console.log("Login"+this.type)
+
+      this.employeeService.LoginDetail(loginDet).subscribe((result) => {
+
+        if (result != null) {
+          alert("Added Successfully");
+          // this.employee = new Employee();
+          this.confirmPassword = null;
+          this.loginUserName = null;
+          this.loginPassword = null;
+        }
+
+      })
+
+    }else{
+
+      this.validPasswordIf = true;
+
+    }
+
+  }
+
+
+
+
+
 
 }

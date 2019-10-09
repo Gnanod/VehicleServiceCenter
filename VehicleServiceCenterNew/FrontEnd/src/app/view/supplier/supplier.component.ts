@@ -20,20 +20,20 @@ export class SupplierComponent implements OnInit {
 
   });
 
-  private supplier: Supplier = new Supplier();
+  public supplier: Supplier = new Supplier();
 
-  constructor(private supplierService: SupplierService) { }
-
+  constructor(public supplierService: SupplierService) {
+  }
   searchSupplierValuesIf = true;
-  searchSupplierDetails : Supplier = new Supplier();
-  updateSupplierDetails : Supplier = new Supplier();
-  searchSupplierNumber : number;
+  searchSupplierDetails: Supplier = new Supplier();
+  updateSupplierDetails: Supplier = new Supplier();
+  searchSupplierNumber: number;
 
-  UpdateSupplierDetails(){
+  UpdateSupplierDetails() {
 
-    this.supplierService.UpdateSupplierDetails(this.searchSupplierDetails).subscribe((result)=>{
+    this.supplierService.UpdateSupplierDetails(this.searchSupplierDetails).subscribe((result) => {
 
-      if(result!=null){
+      if (result != null) {
 
         alert("Supplier Updated SuccessFully");
         this.searchSupplierDetails = new Supplier();
@@ -43,27 +43,29 @@ export class SupplierComponent implements OnInit {
     });
   }
 
-  searchSupplierDetailsByNumber(){
-    this.supplierService.searchSupplierDetails(this.searchSupplierNumber).subscribe((result)=>{
+  supplierName: string;
+
+  searchSupplierDetailsByName() {
+    this.supplierService.searchSupplierDetails(this.supplierName).subscribe((result) => {
 
 
-      if(result==null){
-        this.searchSupplierValuesIf=true;
+      if (result == null) {
+        this.searchSupplierValuesIf = true;
 
-      }else{
-        this.searchSupplierValuesIf=false;
-        this.searchSupplierDetails=result;
+      } else {
+        this.searchSupplierValuesIf = false;
+        this.searchSupplierDetails = result;
       }
     });
   }
 
   //ends here
 
-  addSupplierDetails(){
+  addSupplierDetails() {
 
-    this.supplierService.addSupplier(this.supplier).subscribe((result)=>{
+    this.supplierService.addSupplier(this.supplier).subscribe((result) => {
 
-      if (result != null){
+      if (result != null) {
         alert("Added Successfully");
         this.supplier = new Supplier();
         this.form.reset();
@@ -74,14 +76,14 @@ export class SupplierComponent implements OnInit {
 
   }
 
-  deleteSupplier(){
-    this.supplierService.deleteSupplier(this.searchSupplierNumber).subscribe((result)=>{
+  deleteSupplier() {
+    this.supplierService.deleteSupplier(this.searchSupplierNumber).subscribe((result) => {
 
-      if(result==null){
+      if (result == null) {
 
         alert('Supplier Deleted SuccessFully');
 
-      }else{
+      } else {
 
         alert('Supplier Deleted Fail');
 
@@ -91,5 +93,47 @@ export class SupplierComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  upSupplierId: number;
+  upSupplierAgent: string;
+  upSupplierEmail: string;
+  upSupplierAddress: string;
+  upSupplierCompany: string;
+  upSupplierPhone: string;
+
+  editSupplier(searchSupplierDetails: Supplier) {
+
+    this.upSupplierId = searchSupplierDetails.supplierId;
+
+    console.log(searchSupplierDetails.supplierId);
+
+    this.upSupplierAgent = searchSupplierDetails.agentName;
+    this.upSupplierEmail = searchSupplierDetails.email;
+    this.upSupplierAddress = searchSupplierDetails.address;
+    this.upSupplierCompany = searchSupplierDetails.companyName;
+    this.upSupplierPhone = searchSupplierDetails.phoneNumber;
+
+
+  }
+
+
+  updateSupplierVar: Supplier = new Supplier();
+
+  updateSupplier() {
+
+    this.updateSupplierVar.supplierId = this.upSupplierId;
+    this.updateSupplierVar.agentName = this.upSupplierAgent;
+    this.updateSupplierVar.email = this.upSupplierEmail;
+    this.updateSupplierVar.address = this.upSupplierAddress;
+    this.updateSupplierVar.companyName = this.upSupplierCompany;
+    this.updateSupplierVar.phoneNumber = this.upSupplierPhone;
+
+    this.supplierService.updateSupplier(this.updateSupplierVar).subscribe(result => {
+      if (result != null) {
+        alert("Updated successfully")
+      }
+    });
+  }
+
 
 }

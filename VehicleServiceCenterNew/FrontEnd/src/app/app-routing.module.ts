@@ -12,6 +12,7 @@ import {LoginComponent} from "./view/login/login.component";
 import {StockDetailsComponent} from "./view/stock-details/stock-details.component";
 import {JoborderComponent} from "./view/joborder/joborder.component";
 import {ServiceManagementComponent} from "./view/service-management/service-management.component";
+import {ServiceJobComponent} from "./view/service-job/service-job.component";
 import {LowStockLevelComponent} from "./view/low-stock-level/low-stock-level.component";
 
 const routes: Routes = [
@@ -42,13 +43,20 @@ const routes: Routes = [
 
             {
 
-              path :"StockManagement",
-              component : StockDetailsComponent
+            path :"StockManagement",
+            component : StockDetailsComponent
 
-            },
-            {
+          },
+          {
+
+            path :"ServiceJob",
+            component : ServiceJobComponent
+
+          },
+          {
               path :"ServiceManagement",
               component : ServiceManagementComponent
+
 
             },
             {
@@ -59,18 +67,17 @@ const routes: Routes = [
 
         ]
     },
-
     {
       path:"login",
       component: LoginComponent
     },
-  {
-    path :"joborder",
-    component : JoborderComponent
-  },
     {
+      path :"jobOrder",
+      component : JoborderComponent
+    },
+  {
       path: '', pathMatch: "full", redirectTo: 'login'
-    }
+  }
 ];
 
 @NgModule({

@@ -97,7 +97,15 @@ public class JobOrderServiceImpl implements JobOrderService {
 
         Object ob = jobOrderRepository.getTotalSales();
 
-        return Double.parseDouble(ob.toString());
+        if(ob!=null){
+
+            return Double.parseDouble(ob.toString());
+
+        }else{
+
+            return 0;
+        }
+
 
     }
 
@@ -105,7 +113,14 @@ public class JobOrderServiceImpl implements JobOrderService {
     public double getTodayJobCount() {
         Object ob = jobOrderRepository.getTodayJobCount();
 
-        return Double.parseDouble(ob.toString());
+        if(ob!=null){
+
+            return Double.parseDouble(ob.toString());
+
+        }else{
+
+            return 0;
+        }
     }
 
     @Override
@@ -113,6 +128,16 @@ public class JobOrderServiceImpl implements JobOrderService {
 
         Object ob = jobOrderRepository.getMonthlyTotalSales();
 
-        return Double.parseDouble(ob.toString());
+
+
+        if(ob!=null){
+
+            return Double.parseDouble(ob.toString());
+
+
+        }else{
+
+            return 0;
+        }
     }
 }

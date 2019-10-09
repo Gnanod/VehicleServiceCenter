@@ -13,7 +13,7 @@ const URL ='/LoginController';
 
 export class LoginService {
 
-  constructor(private http :HttpClient) { }
+  public constructor(private http :HttpClient) { }
 
     loginFucntion(emp: Employee) {
     

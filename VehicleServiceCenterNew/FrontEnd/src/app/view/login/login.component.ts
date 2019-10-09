@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private loginService :LoginService,private router:Router) { }
+  public constructor(private loginService :LoginService,private router:Router) { }
 
   ngOnInit() {
     
@@ -31,17 +31,19 @@ export class LoginComponent implements OnInit {
           this.error =result;
           console.log("error"+result)
             
-            
-          if(result!=null){
-
-             
-              this.router.navigate(['/main/dashboard']);
-              
-          }else{
-
-              alert("Login UnSuccess");
-              
+          if(this.error=="1"){
+            this.router.navigate(['/main/dashboard']);
           }
+
+          if(this.error=="2"){
+            this.router.navigate(['/jobOrder']);
+          }
+
+          if(this.error=="3"){
+
+            alert("Login UnSuccess .Please Input Valid Login Details");
+          }
+
           
         });
         

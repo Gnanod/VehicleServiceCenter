@@ -11,7 +11,7 @@ const URL = '/ServicesController';
 })
 export class ServicesService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
 
   addService(services: Services) {
@@ -20,4 +20,30 @@ export class ServicesService {
 
   }
 
+  getAllServices() {
+
+    return this.http.get<Array<Services>>(environment.backend_url + URL + '/getAllServices');
+  }
+
+  deleteService(retServiceId: number) {
+    return this.http.delete<number>(environment.backend_url + URL + '/deleteService/' + retServiceId);
+  }
+
+  // getServicesDesc(insertSelectedService: string) {
+  //
+  //   return this.http.get<Array<Services>>(environment.backend_url + URL+"/getServiceDesc/"+insertSelectedService);
+  //
+  //
+  // }
+  //
+  //
+  // getServicesVehicleClass(value: string, value2: string) {
+  //   return null;
+  //
+  // }
+
+
+  getServicebyId(serviceId: number) {
+    return this.http.get<Services>(environment.backend_url + URL + '/getServicebyId/' + serviceId);
+  }
 }

@@ -11,7 +11,7 @@ const URL = '/SupplierController';
 export class SupplierService {
 
 
-  constructor(private http: HttpClient) { }
+  public constructor(private http: HttpClient) { }
 
   addSupplier(supplier: Supplier) {
 
@@ -32,11 +32,10 @@ export class SupplierService {
 
     return this.http.delete<string>(environment.backend_url + URL + '/deleteSupplier/' + supplierId);
 
-
   }
 
-  searchSupplierDetails(searchSupplierNumber: number) {
-    return this.http.get<Supplier>(environment.backend_url + URL + '/searchBySupplierNumber/'+searchSupplierNumber);
+  searchSupplierDetails(searchSupplierName: string) {
+    return this.http.get<Supplier>(environment.backend_url + URL + '/searchBySupplierName/'+searchSupplierName);
   }
 
 
@@ -50,5 +49,9 @@ export class SupplierService {
 
     return this.http.get<Array<Supplier>>(environment.backend_url + URL + '/getSuppliersNames/'+companyName);
 
+  }
+
+  updateSupplier(updateSupplierVar: Supplier) {
+    return this.http.post<Supplier>(environment.backend_url + URL + '/updateSupplier',updateSupplierVar);
   }
 }

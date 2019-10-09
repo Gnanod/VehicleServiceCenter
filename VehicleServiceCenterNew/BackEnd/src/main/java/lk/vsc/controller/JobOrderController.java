@@ -4,7 +4,9 @@ import lk.vsc.DTO.JobOrderDTO;
 import lk.vsc.entity.Item;
 import lk.vsc.entity.JobOrder;
 import lk.vsc.entity.JobOrderItemDetails;
+import lk.vsc.entity.Services;
 import lk.vsc.service.JobOrderService;
+import lk.vsc.service.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +23,9 @@ public class JobOrderController {
     @Autowired
     private JobOrderService jobOrderService;
 
+    @Autowired
+    private ServicesService servicesService1;
+
     @GetMapping(value = "/getItemsForJobOrder/{itemName}/{makeName}/{modelName}")
     public List<Item> getItemsForJobOrder(@PathVariable String itemName, @PathVariable String makeName, @PathVariable String modelName) {
 
@@ -28,6 +33,20 @@ public class JobOrderController {
 
     }
 
+    @GetMapping(value = "/getServiceDesc/{insertSelectedService}")
+    public List<Services> getServiceDesc(@PathVariable String insertSelectedService){
+
+        List<Services> l1= servicesService1.getServiceDesc(insertSelectedService);
+        for (Services l: l1
+             ) {
+
+            System.out.println("Service Name :"+l.getServiceDesc());
+           // System.out.println();
+        }
+        //System.out.println("GGGGG"+insertSelectedService);
+        return l1;
+
+    }
 
     @GetMapping(value = "/getTotalSales")
     public double getTotalSales() {

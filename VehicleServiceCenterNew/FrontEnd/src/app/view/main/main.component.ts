@@ -10,7 +10,7 @@ export class MainComponent implements OnInit {
 
     headerText: string;
 
-    constructor(private router:Router) {
+    public constructor(private router:Router) {
 
         router.events.subscribe((val) => {
             this.setHeaderTextAndButtons();
@@ -68,7 +68,7 @@ export class MainComponent implements OnInit {
 
         }else if (button == 'JobOrder'){
 
-          this.router.navigate(['joborder'])
+          this.router.navigate(['/jobOrder'])
 
         }
 
