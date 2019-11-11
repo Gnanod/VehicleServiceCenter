@@ -33,9 +33,9 @@
             <div class="form-group">
               <label >Select Supplier Name</label>
               <br>
-              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedsupplierName" #mySelect2 (change)="getSuppliersNames(mySelect1.value)">
+              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedSupplier" >
 
-                <option  *ngFor="let names of suppliersNames  ">{{names.companyName}}</option>
+                <option  *ngFor="let names of suppliersNames" [ngValue]="names">{{names.agentName}}</option>
 
               </select >
 
@@ -71,20 +71,25 @@
             <div class="form-group">
               <br>
               <br>
-              <label style="margin-top: 10px">Search Item</label>
+              <label style="margin-top: 10px">Search Item By Code</label>
               <input type="text" class="form-control" name="Search Item" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchStockItemName" (keyup)="searchItemDetailsByName($event)" style="margin-top: -12px">
             </div>
           </div>
 
           <div class="col-md-3">
-            <div class="form-group">
+            <br>
+            <div class="form-group"  style="margin-top: -12px">
+
+              <br>
               <label >Select Item Name</label>
 
-              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedItem" #mySelect2 (change)="getAllItemDetailsToUI(mySelect2.value)">
+              <input type="text" class="form-control" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemDetails.itemName" style="margin-top: 4px">
 
-                <option  *ngFor="let itemsS of searchItemDetailsArray  " [ngValue]="itemsS">{{itemsS.itemName}}</option>
+              <!--<select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedItem" #mySelect2 (change)="getAllItemDetailsToUI(mySelect2.value)">-->
 
-              </select >
+                <!--<option  *ngFor="let itemsS of searchItemDetailsArray  " [ngValue]="itemsS">{{itemsS.itemName}}</option>-->
+
+              <!--</select >-->
 
             </div>
 
@@ -115,8 +120,8 @@
             <div class="form-group" style="margin-top: -12px">
 
               <br>
-              <label>Item Id</label>
-              <input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemDetails.itemId" style="margin-top: 4px" disabled>
+              <label>Stock Payment Date</label>
+              <input type="date" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="stockPayementDate" style="margin-top: 4px" >
               <!--<input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedItem.itemId" style="margin-top: 4px">-->
 
             </div>
@@ -124,7 +129,7 @@
 
         </div>
         <div class="row">
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <div class="form-group">
               <label>Retail Price</label>
               <!--<input type="number" class="form-control" name="retailPrice"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchRetailPrice">-->
@@ -132,22 +137,30 @@
 
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <div class="form-group">
               <label>Quantity</label>
               <input type="number" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="itemQuantity">
             </div>
           </div>
-          <div class="col-sm-3">
+          <div class="col-sm-2">
             <div class="form-group">
               <label>Quantity On Hand</label>
               <input type="number" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.quantityOnHand" disabled>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Quantity Type</label>
+              <input type="text" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.itemQuantityType" disabled>
             </div>
           </div>
           <!--<div class="col-sm-2">-->
           <!---->
           <!--</div>-->
           <div class="col-sm-2">
+
             <button type="submit" class="btn btn-behance pull-right" (click)="addToItemTable()">Add To Table</button>
 
           </div>
@@ -224,10 +237,62 @@
           <div class="col-sm-2">
             <div class="form-group">
               <label>Amount</label>
-              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="totAmount">
+              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="totAmount" disabled>
             </div>
           </div>
         </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-3">
+            <!--<div class="form-group">-->
+              <!---->
+              <!---->
+              <!--&lt;!&ndash;<label>Amount</label>&ndash;&gt;-->
+              <!--&lt;!&ndash;<input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="totAmount" disabled>&ndash;&gt;-->
+            <!--</div>-->
+            <div class="form-check form-check-radio">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="exampleRadiosu" id=" FullPayment" value="Full Payment" [(ngModel)]="paymentType"  (change)="changeValue()" checked>
+                Full Payment
+                <span class="circle">
+            <span class="check"></span>
+            </span>
+              </label>
+            </div>
+
+            <div class="form-check form-check-radio">
+              <label class="form-check-label">
+                <input class="form-check-input" type="radio" name="exampleRadiosu" id="CreditPayment" value="Credit Payment"  [(ngModel)]="paymentType" >
+                Credit Payment
+                <span class="circle">
+            <span class="check"></span>
+            </span>
+              </label>
+            </div>
+
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Credit Payment</label>
+              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="creditBalance" >
+            </div>
+          </div>
+        </div>
+
+
         <div class="row">
           <div class="col-sm-4"></div>
           <div class="col-sm-4"></div>
@@ -251,7 +316,7 @@
 
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-8">
       <div class="card">
         <div class="card-header card-header-icon card-header-info">
           <div class="card-icon">
@@ -264,7 +329,12 @@
         <div class="card-body">
 
           <div class="row">
-
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Item Code</label>
+                <input type="text" class="form-control"  [(ngModel)]="itemId" >
+              </div>
+            </div>
 
           </div>
           <div class="row">
@@ -276,6 +346,28 @@
             </div>
 
           </div>
+
+          <div class="form-check form-check-radio">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="liters" [(ngModel)]="itemQuantityType">
+              Liters
+              <span class="circle">
+            <span class="check"></span>
+            </span>
+            </label>
+          </div>
+
+          <div class="form-check form-check-radio">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Cans"  [(ngModel)]="itemQuantityType" >
+              Cans
+              <span class="circle">
+            <span class="check"></span>
+            </span>
+            </label>
+          </div>
+
+
 
           <div class="row">
             <div class="col-md-6">
@@ -294,23 +386,26 @@
                 <br>
                 <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">
 
-                  <option value="Any">Any</option>
-                  <option >Abarth</option>
-                  <option>Acura</option>
-                  <option>Alfa Romeo</option>
-                  <option>Ambassador</option>
-                  <option>Aprilia</option>
-                  <option>Audi</option>
-                  <option>Austin</option>
-                  <option>Bajaj</option>
-                  <option>BMW</option>
-                  <option>Cadillac</option>
-                  <option>Caterpillar</option>
-                  <option>Nissan</option>
-                  <option>Suzuki</option>
-                  <option>Toyota</option>
-                  <option>Honda</option>
-                  <option>530i</option>
+
+                  <option  *ngFor="let names of findAllMakesToArray" [value]="names.makeName">{{names.makeName}}</option>
+
+                  <!--<option value="Any">Any</option>-->
+                  <!--<option >Abarth</option>-->
+                  <!--<option>Acura</option>-->
+                  <!--<option>Alfa Romeo</option>-->
+                  <!--<option>Ambassador</option>-->
+                  <!--<option>Aprilia</option>-->
+                  <!--<option>Audi</option>-->
+                  <!--<option>Austin</option>-->
+                  <!--<option>Bajaj</option>-->
+                  <!--<option>BMW</option>-->
+                  <!--<option>Cadillac</option>-->
+                  <!--<option>Caterpillar</option>-->
+                  <!--<option>Nissan</option>-->
+                  <!--<option>Suzuki</option>-->
+                  <!--<option>Toyota</option>-->
+                  <!--<option>Honda</option>-->
+                  <!--<option>530i</option>-->
 
 
                 </select>
@@ -347,6 +442,9 @@
               <table class="table">
                 <thead class=" text-primary">
                 <th>
+                  Item Code
+                </th>
+                <th>
                   Name Of Item
                 </th>
                 <th>
@@ -359,12 +457,19 @@
                   Model Id
                 </th>
                 <th>
+                  Item Quantity Type
+                </th>
+                <th>
                   Stock Level
                 </th>
                 </thead>
                 <tbody>
 
                 <tr  *ngFor="let item of insertItemToTable  ">
+
+                  <td>
+                    {{item.item.itemId}}
+                  </td>
 
                   <td>
                     {{item.item.itemName}}
@@ -377,6 +482,9 @@
                   </td>
                   <td>
                     {{item.makeModel.makeModelId}}
+                  </td>
+                  <td>
+                    {{item.item.itemQuantityType}}
                   </td>
                   <td>
                     {{item.stockLevel}}
@@ -397,7 +505,7 @@
       </div>
     </div>
 
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div class="card">
         <div class="card-header card-header-icon card-header-info">
           <div class="card-icon">
@@ -421,23 +529,26 @@
                 <br>
                 <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >
 
-                  <option>Any</option>
-                  <option>Abarth</option>
-                  <option>Acura</option>
-                  <option>Alfa Romeo</option>
-                  <option>Ambassador</option>
-                  <option>Aprilia</option>
-                  <option>Audi</option>
-                  <option>Austin</option>
-                  <option>Bajaj</option>
-                  <option>BMW</option>
-                  <option>Cadillac</option>
-                  <option>Caterpillar</option>
-                  <option>Nissan</option>
-                  <option>Suzuki</option>
-                  <option>Toyota</option>
-                  <option>Honda</option>
-                  <option>530i</option>
+
+                  <option  *ngFor="let names of findAllMakesToArray" [ngValue]="names.makeName">{{names.makeName}}</option>
+
+                  <!--<option>Any</option>-->
+                  <!--<option>Abarth</option>-->
+                  <!--<option>Acura</option>-->
+                  <!--<option>Alfa Romeo</option>-->
+                  <!--<option>Ambassador</option>-->
+                  <!--<option>Aprilia</option>-->
+                  <!--<option>Audi</option>-->
+                  <!--<option>Austin</option>-->
+                  <!--<option>Bajaj</option>-->
+                  <!--<option>BMW</option>-->
+                  <!--<option>Cadillac</option>-->
+                  <!--<option>Caterpillar</option>-->
+                  <!--<option>Nissan</option>-->
+                  <!--<option>Suzuki</option>-->
+                  <!--<option>Toyota</option>-->
+                  <!--<option>Honda</option>-->
+                  <!--<option>530i</option>-->
 
 
                 </select>
@@ -445,6 +556,13 @@
               </div>
 
             </div>
+            <div class="col-md-6">
+              <button class="btn btn-behance" data-toggle="modal" data-target="#myModal10" style="margin-top: 35px">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+            </div>
+
+
           </div>
           <div class="row">
             <div class="col-md-6">
@@ -519,6 +637,43 @@
     </div>
   </div>
 
+</div>
+
+
+<div class="modal fade modal-mini modal-primary" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-small">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> <i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <p>Add New Make Name</p>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Make Name</label>
+              <input type="text" class="form-control"  [(ngModel)]="addMakeName" >
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!--<div class="modal-footer justify-content-center">-->
+
+
+        <div class="row">
+
+          <div class="col-md-12">
+            <button type="submit" class="btn btn-behance pull-right" (click)="addMake()">Save Name</button>
+          </div>
+        </div>
+
+
+
+
+      <!--</div>-->
+    </div>
+  </div>
 </div>
 
 

@@ -15,13 +15,39 @@ public class Stock {
     private int stockId;
     private String date;
     private double payment;
+    private  String paymentType;
+    private double creditBalance;
+    private String stockPayementDate;
     @ManyToOne
-    @JsonIgnore
     private Supplier supplier;
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "stock")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<StockItemDetails> stockItemDetails;
+
+    public String getStockPayementDate() {
+        return stockPayementDate;
+    }
+
+    public void setStockPayementDate(String stockPayementDate) {
+        this.stockPayementDate = stockPayementDate;
+    }
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
+
+    public double getCreditBalance() {
+        return creditBalance;
+    }
+
+    public void setCreditBalance(double creditBalance) {
+        this.creditBalance = creditBalance;
+    }
 
     public int getStockId() {
         return stockId;

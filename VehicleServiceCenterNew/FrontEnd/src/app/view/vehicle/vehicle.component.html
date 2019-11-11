@@ -113,6 +113,7 @@
 
 
             </div>
+            
             <div class="row">
                 <div class="col-md-6">
                     <div class="card">
@@ -247,30 +248,41 @@
                           <br>
                           <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >
 
-                            <option>Any</option>
-                            <option>Abarth</option>
-                            <option>Acura</option>
-                            <option>Alfa Romeo</option>
-                            <option>Ambassador</option>
-                            <option>Aprilia</option>
-                            <option>Audi</option>
-                            <option>Austin</option>
-                            <option>Bajaj</option>
-                            <option>BMW</option>
-                            <option>Cadillac</option>
-                            <option>Caterpillar</option>
-                            <option>Nissan</option>
-                            <option>Suzuki</option>
-                            <option>Toyota</option>
-                            <option>Honda</option>
-                            <option>530i</option>
+                            <!--<option>Any</option>-->
+                            <!--<option>Abarth</option>-->
+                            <!--<option>Acura</option>-->
+                            <!--<option>Alfa Romeo</option>-->
+                            <!--<option>Ambassador</option>-->
+                            <!--<option>Aprilia</option>-->
+                            <!--<option>Audi</option>-->
+                            <!--<option>Austin</option>-->
+                            <!--<option>Bajaj</option>-->
+                            <!--<option>BMW</option>-->
+                            <!--<option>Cadillac</option>-->
+                            <!--<option>Caterpillar</option>-->
+                            <!--<option>Nissan</option>-->
+                            <!--<option>Suzuki</option>-->
+                            <!--<option>Toyota</option>-->
+                            <!--<option>Honda</option>-->
+                            <!--<option>530i</option>-->
 
+                            <option  *ngFor="let names of findAllMakesToArray" [ngValue]="names.makeName">{{names.makeName}}</option>
 
                           </select>
 
                         </div>
 
                       </div>
+
+
+
+                        <div class="col-md-6">
+                          <button class="btn btn-behance" data-toggle="modal" data-target="#myModal10" style="margin-top: 35px">
+                            <i class="fa fa-plus" aria-hidden="true"></i>
+                          </button>
+                        </div>
+
+
                     </div>
                     <div class="row">
                       <div class="col-md-6">
@@ -411,24 +423,7 @@
                                 <br>
                                 <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)" formControlName="vehicleMake" [ngClass]="{'is-invalid':form.get('vehicleMake').touched && form.get('vehicleMake').invalid }">
 
-                                  <option value="Any">Any</option>
-                                  <option >Abarth</option>
-                                  <option>Acura</option>
-                                  <option>Alfa Romeo</option>
-                                  <option>Ambassador</option>
-                                  <option>Aprilia</option>
-                                  <option>Audi</option>
-                                  <option>Austin</option>
-                                  <option>Bajaj</option>
-                                  <option>BMW</option>
-                                  <option>Cadillac</option>
-                                  <option>Caterpillar</option>
-                                  <option>Nissan</option>
-                                  <option>Suzuki</option>
-                                  <option>Toyota</option>
-                                  <option>Honda</option>
-                                  <option>530i</option>
-
+                                  <option  *ngFor="let names of findAllMakesToArray" [ngValue]="names.makeName">{{names.makeName}}</option>
 
                                 </select>
 
@@ -438,6 +433,13 @@
                               </div>
 
                             </div>
+
+                            <div class="col-md-6">
+                              <button class="btn btn-behance" data-toggle="modal" data-target="#myModal10" style="margin-top: 35px">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                              </button>
+                            </div>
+
                           </div>
 
                           <div class="row">
@@ -445,9 +447,17 @@
                               <label >Select Model</label>
                               <div class="form-group">
 
-                                <select class="form-control " data-style="select-with-transition"  [(ngModel)]="vehNgModel.vehicleModel" formControlName="vehicleModel" [ngClass]="{'is-invalid':form.get('vehicleModel').touched && form.get('vehicleModel').invalid }">
-                                  <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>
+                                <!--<select class="form-control " data-style="select-with-transition"  [(ngModel)]="vehNgModel.vehicleModel" formControlName="vehicleModel" [ngClass]="{'is-invalid':form.get('vehicleModel').touched && form.get('vehicleModel').invalid }">-->
+                                  <!--<option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>-->
+                                <!--</select>-->
+                                <select   class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel" formControlName="vehicleModel" [ngClass]="{'is-invalid':form.get('vehicleModel').touched && form.get('vehicleModel').invalid }">
+                                  <option disabled>Select Model</option>
+
+                                    <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">{{make.modelName}}</option>
+
+
                                 </select>
+
                                 <div class="invalid-feedback"  *ngIf="form.get('vehicleModel').touched  && form.get('vehicleModel').invalid" >
                                   Vehicle Model Field Is Empty
                                 </div>
@@ -482,13 +492,14 @@
                                           <!--<div class="invalid-feedback"  *ngIf="form.get('yearOfManu').touched  && form.get('yearOfManu').invalid">-->
                                             <!--<div  *ngIf="form.get('yearOfManu').errors.required">Manufacture Date Is Empty</div>-->
                                           <!--</div>-->
-                                          <label >Manufacture Date</label>
+                                          <label >Manufacture Year</label>
                                           <br>
                                           <!--<input type="date" class="form-control" name="birthday" [(ngModel)]="addCustomer.birthday">-->
-                                          <input type="date" class="form-control" name="yearOfManufacture" [(ngModel)]="stringDateModel" formControlName="yearOfManufacture" [ngClass]="{'is-invalid':form.get('yearOfManufacture').touched && form.get('yearOfManufacture').invalid }">
 
+                                          <input type="year" class="form-control" name="yearOfManufacture" [(ngModel)]="stringDateModel" formControlName="yearOfManufacture" [ngClass]="{'is-invalid':form.get('yearOfManufacture').touched && form.get('yearOfManufacture').invalid }">
+                                          <!--<input type="text"  class="form-control" name="yearOfManufacture"  [(ngModel)]="stringDateModel" formControlName="yearOfManufacture" [ngClass]="{'is-invalid':form.get('yearOfManufacture').touched && form.get('yearOfManufacture').invalid }" >-->
                                           <div class="invalid-feedback"  *ngIf="form.get('yearOfManufacture').touched  && form.get('yearOfManufacture').invalid">
-                                            <div  *ngIf="form.get('yearOfManufacture').errors.required">Manufacture Date Field Is Empty</div>
+                                            <div  *ngIf="form.get('yearOfManufacture').errors.required">Manufacture year Field Is Empty</div>
                                           </div>
                                         </div>
                                     </div>
@@ -514,5 +525,42 @@
         <!--$('.selectpicker').selectpicker();-->
     <!--});-->
 <!--</script>-->
+
+
+            <div class="modal fade modal-mini modal-primary" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-small">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> <i class="fas fa-times"></i></button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Add New Make Name</p>
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group">
+                          <label class="bmd-label-floating">Make Name</label>
+                          <input type="text" class="form-control"  [(ngModel)]="addMakeName" >
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <!--<div class="modal-footer justify-content-center">-->
+
+
+                  <div class="row">
+
+                    <div class="col-md-12">
+                      <button type="submit" class="btn btn-behance pull-right" (click)="addMake()">Save Name</button>
+                    </div>
+                  </div>
+
+
+
+
+                  <!--</div>-->
+                </div>
+              </div>
+            </div>
 
 

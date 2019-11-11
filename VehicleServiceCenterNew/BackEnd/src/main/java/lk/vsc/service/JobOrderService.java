@@ -17,4 +17,6 @@ public interface JobOrderService {
     double getTodayJobCount();
 
     double getMonthlyTotalSales();
+
+    String[] getDetailsAccordingToServiceId(String id);
 }

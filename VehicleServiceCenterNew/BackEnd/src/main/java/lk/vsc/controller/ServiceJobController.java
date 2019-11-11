@@ -19,8 +19,14 @@ public class ServiceJobController {
 
     @PostMapping(value = "/addServiceJob")
     public String addItem(@RequestBody ServiceJob serviceJob) {
-        System.out.println("CONTROLLERERRRR :::: GASDFASDASDADDASD");
-        return serviceJobService.addServiceJob(serviceJob);
+
+        String s =serviceJobService.addServiceJob(serviceJob);
+
+        if(s.length()!=0){
+            return "0";
+        }else{
+            return null;
+        }
 
     }
 

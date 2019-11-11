@@ -74,13 +74,47 @@
                   <p #ServiceManagement>Service Management</p>
                 </a>
               </li>
-                <li class="nav-item " [ngClass]="{'active': headerText=='JobOrder Management'}" (click)="changeRoute(jobOrderManagement.innerHTML)">
-                    <a class="nav-link">
-                      <i class="fas fa-receipt"></i>
+                <!--<li class="nav-item " [ngClass]="{'active': headerText=='JobOrder Management'}" (click)="changeRoute(jobOrderManagement.innerHTML)">-->
+                    <!--<a class="nav-link">-->
+                      <!--<i class="fas fa-receipt"></i>-->
 
-                        <p #jobOrderManagement>JobOrder</p>
-                    </a>
-                </li>
+                        <!--<p #jobOrderManagement>JobOrder</p>-->
+                    <!--</a>-->
+                <!--</li>-->
+
+              <li class="nav-item ">
+                <a class="nav-link" data-toggle="collapse" href="#formsExamples2">
+                  <i class="fas fa-car"></i>
+                  <p> JobOrder
+                    <b class="caret"></b>
+                  </p>
+                </a>
+
+                <div class="collapse" id="formsExamples2">
+                  <ul class="nav">
+
+                    <li class="nav-item " [ngClass]="{'active': headerText=='Services'}" (click)="changeRoute(Services.innerHTML)">
+                      <a class="nav-link" >
+                        <span class="sidebar-mini"> SJ </span>
+                        <span class="sidebar-normal" #Services>Services</span>
+                      </a>
+                    </li>
+                    <li class="nav-item " [ngClass]="{'active': headerText=='ViewCurrentServices'}" (click)="changeRoute(ViewCurrentServices.innerHTML)">
+                      <a class="nav-link" >
+                        <span class="sidebar-mini"> VCS </span>
+                        <span class="sidebar-normal" #ViewCurrentServices>ViewCurrentServices</span>
+                      </a>
+                    </li>
+                    <li class="nav-item " [ngClass]="{'active': headerText=='Lube & Detail Jobs'}" (click)="changeRoute(lubeJob.innerHTML)">
+                      <a class="nav-link" >
+                        <span class="sidebar-mini"> LDJ </span>
+                        <span class="sidebar-normal" #lubeJob>Details</span>
+                      </a>
+                    </li>
+
+                  </ul>
+                </div>
+              </li>
                 
                 <li class="nav-item ">
 
@@ -102,8 +136,19 @@
                         </a>
                       </li>
 
+                      <li class="nav-item " [ngClass]="{'active': headerText=='SupplierCreditReports'}" (click)="changeRoute(SupplierCreditReports.innerHTML)">
+                        <a class="nav-link" >
+                          <span class="sidebar-mini"> SCR </span>
+                          <span class="sidebar-normal" #SupplierCreditReports>Supplier Payments</span>
+                        </a>
+                      </li>
+
                     </ul>
                   </div>
+
+
+
+
                 </li>
              
             </ul>
@@ -152,14 +197,6 @@
                         </li>
                     </ul>
                 </nav>
-                <!--<div class="copyright float-right">-->
-                <!--&copy;-->
-                <!--<script>-->
-                <!--document.write(new Date().getFullYear())-->
-                <!--</script>, made with <i class="material-icons">favorite</i> by-->
-                <!--<a href="https://www.creative-tim.com" target="_blank">Creative Tim</a> for a better web.-->
-                <!--</div>-->
-                <!-- your footer here -->
             </div>
         </footer>
 

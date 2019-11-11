@@ -39,6 +39,8 @@ export class MainComponent implements OnInit {
           this.headerText="Stock Management";
         } else if(this.router.url == '/main/ServiceManagement'){
           this.headerText="Service Management"
+        }else if(this.router.url == '/main/SupplierCreditReports'){
+          this.headerText="Supplier Payments"
         }
 
     }
@@ -66,10 +68,17 @@ export class MainComponent implements OnInit {
 
           this.router.navigate(['/main/LowStockLevel'])
 
-        }else if (button == 'JobOrder'){
+        }else if (button == 'Services'){
 
-          this.router.navigate(['/jobOrder'])
+          this.router.navigate(['main/jobOrder'])
 
+        }else if(button == 'Supplier Payments'){
+
+          this.router.navigate(['main/SupplierCreditReports'])
+
+        }else if(button == 'Details'){
+
+          this.router.navigate(['main/LubeDetailJob'])
         }
 
     }

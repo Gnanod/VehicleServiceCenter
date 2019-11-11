@@ -1,7 +1,9 @@
 package lk.vsc.service.impl;
 
+import lk.vsc.entity.Make;
 import lk.vsc.entity.MakeModel;
 import lk.vsc.repository.MakeModelRepository;
+import lk.vsc.repository.MakeRepository;
 import lk.vsc.service.MakeModelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,9 @@ import java.util.Set;
 public class MakeModelServiceImpl implements MakeModelService {
     @Autowired
     private MakeModelRepository makeModelRepository;
+
+    @Autowired
+    private MakeRepository makeRepository;
     @Override
     public MakeModel addMakeModel(Set<MakeModel> makeModels) {
 
@@ -38,5 +43,17 @@ public class MakeModelServiceImpl implements MakeModelService {
         String s = makeModelRepository.searchMakeModelId(makelName,modelName).toString();
         System.out.println("kkk"+s);
         return s;
+    }
+
+    @Override
+    public Make addMake(Make make) {
+
+        return makeRepository.save(make);
+
+    }
+
+    @Override
+    public List<Make> getAllMakes() {
+        return makeRepository.findAll();
     }
 }

@@ -7,6 +7,7 @@ import {JobOrder} from "../Model/JobOrder";
 import {JobOrderItemDetails} from "../Model/JobOrderItemDetails";
 import {JobOrderDTO} from "../DTO/JoOrderDTO";
 import {Services} from "../Model/Services";
+import {VehicleCustomerDTO} from "../DTO/VehicleCustomerDTO";
 
 const URL = '/JobOrderController';
 @Injectable({
@@ -72,6 +73,13 @@ export class JoborderService {
 
   getServicesVehicleClass(value: string, value2: string) {
     return null;
+
+  }
+
+
+  searchServiceDetails(serviceJobOrderId: string) {
+
+    return this.http.get<VehicleCustomerDTO>(environment.backend_url + URL+'/getDetailsAccordingToServiceId/'+serviceJobOrderId);
 
   }
 }

@@ -10,14 +10,21 @@ import java.util.Set;
 @Entity
 public class ServiceJob {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int serviceJobId;
+    String serviceJobId;
     private String date;
     private double total;
     private String  employeeName;
 
     @ManyToOne
     private Vehicle vehicle;
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
 
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "serviceJob")
     @OnDelete(action = OnDeleteAction.CASCADE)
@@ -68,10 +75,12 @@ public class ServiceJob {
         this.serviceJobDetails = serviceJobDetails;
     }
 
-    public int getServiceJobId() {
+    public String getServiceJobId() {
         return serviceJobId;
     }
-    public void setServiceJobId(int serviceJobId) {
+
+
+    public void setServiceJobId(String serviceJobId) {
         this.serviceJobId = serviceJobId;
     }
 

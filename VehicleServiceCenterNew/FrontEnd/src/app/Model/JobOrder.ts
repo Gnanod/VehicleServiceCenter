@@ -9,5 +9,10 @@ export class JobOrder{
   date : string;
   total : number;
   jobOrderServiceDetails :Array<JobOrderItemDetails>
+  lubeJobAmount : number;
+  detailJobAmount :number;
+  paymentType :string;
+  paidAmount :number;
+  creditBalance :number;
 
 }

@@ -715,10 +715,6 @@
   <div class="container-fluid">
     <!-- your content here -->
     <div class="col-md-12">
-      <!--<button class="btn btn-danger">-->
-        <!--<div class="card-icon"><i class="fas fa-arrow-left"></i>-->
-        <!--</div>-->
-      <!--</button>-->
     </div>
 
     <b class="caret"><p class="text text-xl-center" style="font-size: xx-large"> JOB ORDER </p></b>
@@ -878,35 +874,8 @@
                           <div class="row">
 
                             <div class="col-md-2">
-                              <!--<div class="form-group">-->
-                              <!--<label >Select Make jjjjjj</label>-->
-                              <!--<br>-->
-                              <!--<select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">-->
-
-                              <!--<option value="Any">Any</option>-->
-                              <!--<option >Abarth</option>-->
-                              <!--<option>Acura</option>-->
-                              <!--<option>Alfa Romeo</option>-->
-                              <!--<option>Ambassador</option>-->
-                              <!--<option>Aprilia</option>-->
-                              <!--<option>Audi</option>-->
-                              <!--<option>Austin</option>-->
-                              <!--<option>Bajaj</option>-->
-                              <!--<option>BMW</option>-->
-                              <!--<option>Cadillac</option>-->
-                              <!--<option>Caterpillar</option>-->
-                              <!--<option>Nissan</option>-->
-                              <!--<option>Suzuki</option>-->
-                              <!--<option>Toyota</option>-->
-                              <!--<option>Honda</option>-->
-                              <!--<option>530i</option>-->
-
-
-                              <!--</select>-->
-                              <!--</div>-->
-
                               <div class="form-group">
-                                <label>Select Makelllll</label>
+                                <label>Select Make</label>
                                 <br>
                                 <select class="form-control " data-style="select-with-transition"
                                         [(ngModel)]="insertselectedMake" #mySelect
@@ -938,8 +907,7 @@
                             <div class="col-md-2">
                               <div class="form-group">
                                 <label>Select Model</label>
-                                <select class="form-control " data-style="select-with-transition"
-                                        [(ngModel)]="insertItemModel">
+                                <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertItemModel">
                                   <option *ngFor="let make of searchMakesByModel" [value]="make.modelName">
                                     {{make.modelName}}
                                   </option>

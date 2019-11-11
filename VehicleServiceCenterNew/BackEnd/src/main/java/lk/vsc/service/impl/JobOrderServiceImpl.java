@@ -1,11 +1,9 @@
 package lk.vsc.service.impl;
 
-import lk.vsc.entity.Item;
-import lk.vsc.entity.JobOrder;
-import lk.vsc.entity.JobOrderItemDetails;
-import lk.vsc.entity.Supplier;
+import lk.vsc.entity.*;
 import lk.vsc.repository.ItemRepository;
 import lk.vsc.repository.JobOrderRepository;
+import lk.vsc.repository.ServiceJobRepository;
 import lk.vsc.service.JobOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +20,9 @@ public class JobOrderServiceImpl implements JobOrderService {
     private JobOrderRepository jobOrderRepository;
     @Autowired
     private ItemRepository itemRepository;
+    @Autowired
+    private ServiceJobRepository serviceJobRepository;
+
     @Override
     public List<Item> getItemsForJobOrder(String itemName, String makeName, String modelName) {
 
@@ -50,7 +51,7 @@ public class JobOrderServiceImpl implements JobOrderService {
         for (Object s2[] :ob) {
 
             i.setQuantityOfPrice(Double.parseDouble(s2[0].toString()));
-            i.setItemId(Integer.parseInt(s2[1].toString()));
+            i.setItemId(s2[1].toString());
             i.setItemName(s2[2].toString());
             i.setQuantityOnHand(Double.parseDouble(s2[3].toString()));
             i.setStockLevel(Double.parseDouble(s2[4].toString()));
@@ -139,5 +140,21 @@ public class JobOrderServiceImpl implements JobOrderService {
 
             return 0;
         }
+    }
+
+    @Override
+    public String[] getDetailsAccordingToServiceId(String id) {
+
+
+        ServiceJob s1 =serviceJobRepository.getDetailsAccordingToServiceId(id);
+
+//        System.out.println("Ob1"+ob[0].toString());
+//        System.out.println("Ob2"+ob[1]);
+        String []arr = new String[2] ;
+           arr[0]=Integer.toString(s1.getVehicle().getVehicleId());
+           arr[1]=Double.toString(s1.getTotal());
+
+
+        return arr;
     }
 }

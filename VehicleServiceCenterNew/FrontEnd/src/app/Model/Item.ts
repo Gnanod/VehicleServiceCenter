@@ -4,10 +4,12 @@ import {StockItemDetail} from "./StockItemDetail";
 
 export class Item{
 
-  itemId:number;
+
+  itemId:string;
   itemName:string;
   quantityOnHand:number;
   quantityOfPrice:number;
+  itemQuantityType:string;
   makeModelDetails:Array<MakeModelDetail>;
   stockItemDetails:Array<StockItemDetail>;
   stockLevel :number;

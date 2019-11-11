@@ -8,5 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface VehicleRepository extends JpaRepository<Vehicle,Integer> {
     @Query(value = "from Vehicle  where vehicleNumber=?1")
     Vehicle searchByVehicleNum(String vehicle_number);
-     
+
+    @Query(value = "from Vehicle  where vehicleId=?1")
+    Vehicle searchByVehicleId(int parseInt);
 }

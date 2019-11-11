@@ -16,7 +16,7 @@ public interface SupplierRepository extends JpaRepository<Supplier,Integer> {
     @Query(value = "select distinct companyName from Supplier ")
     List<Object[]> findAllCompanies();
 
-    @Query(value = "select agentName from Supplier where companyName = :supplierCompany")
+    @Query(value = "select agentName,supplierId from Supplier where companyName = :supplierCompany")
     List<Object[]> getSupplierNames(@Param("supplierCompany") String supplierCompany);
 
 

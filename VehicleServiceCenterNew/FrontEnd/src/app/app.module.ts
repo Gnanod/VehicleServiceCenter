@@ -23,6 +23,9 @@ import { ServiceManagementComponent } from './view/service-management/service-ma
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ServiceJobComponent } from './view/service-job/service-job.component';
 import { LowStockLevelComponent } from './view/low-stock-level/low-stock-level.component';
+import { SupplierCreditReportComponent } from './view/supplier-credit-report/supplier-credit-report.component';
+import { NewJobOrderComponent } from './view/new-job-order/new-job-order.component';
+import { LubeDetailJobComponent } from './view/lube-detail-job/lube-detail-job.component';
 
 
 
@@ -40,7 +43,10 @@ import { LowStockLevelComponent } from './view/low-stock-level/low-stock-level.c
     JoborderComponent,
     ServiceManagementComponent,
     ServiceJobComponent,
-    LowStockLevelComponent
+    LowStockLevelComponent,
+    SupplierCreditReportComponent,
+    NewJobOrderComponent,
+    LubeDetailJobComponent
   ],
   imports: [
     BrowserModule,

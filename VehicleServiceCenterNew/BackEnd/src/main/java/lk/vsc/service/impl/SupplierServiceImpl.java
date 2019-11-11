@@ -71,7 +71,9 @@ public class SupplierServiceImpl implements SupplierService {
         for (Object s2[] :suppliers) {
 
             Supplier s3 = new Supplier();
-            s3.setCompanyName(s2[0].toString());
+            s3.setAgentName(s2[0].toString());
+            s3.setSupplierId(Integer.parseInt(s2[1].toString()));
+
             s1.add(s3);
 
         }

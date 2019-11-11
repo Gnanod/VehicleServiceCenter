@@ -44,7 +44,7 @@ export class JoborderComponent implements OnInit {
   unitPrice : number;
   unitPrice1 : number;
 
-  itemId :number;
+  itemId :string;
 
   item :Item = new Item();
   item1 :Item = new Item();

@@ -13,14 +13,13 @@ import java.util.Set;
 public class Item {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int itemId;
+    private String itemId;
     private String itemName;
     private double quantityOnHand;
     private double quantityOfPrice;
     private double stockLevel;
 
-
+    private String itemQuantityType;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "item")
     @OnDelete(action = OnDeleteAction.CASCADE)
     //@JsonIgnore
@@ -36,13 +35,13 @@ public class Item {
     //@JsonIgnore
     private List<JobOrderItemDetails> jobOrderItemDetails;
 
-    public int getItemId() {
+    public String getItemId() {
         return itemId;
     }
 
 
 
-    public void setItemId(int itemId) {
+    public void setItemId(String itemId) {
 
         System.out.println("Item Id Is Set");
         this.itemId = itemId;
@@ -107,5 +106,13 @@ public class Item {
 
     public void setStockLevel(double stockLevel) {
         this.stockLevel = stockLevel;
+    }
+
+    public String getItemQuantityType() {
+        return itemQuantityType;
+    }
+
+    public void setItemQuantityType(String itemQuantityType) {
+        this.itemQuantityType = itemQuantityType;
     }
 }

@@ -7,6 +7,8 @@ import {VehicleService} from "../../Service/vehicle.service";
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import {MakeModel} from "../../Model/MakeModel";
 import {MakeModelService} from "../../Service/make-model.service";
+import {Make} from "../../Model/Make";
+import {MakeServiceService} from "../../Service/make-service.service";
 
 @Component({
   selector: 'app-vehicle',
@@ -21,7 +23,8 @@ export class VehicleComponent implements OnInit {
   addCustomer : Customer = new Customer();
   selectVehicleClass:FormControl = new FormControl();
   getCustomerNic  :string;
-  stringDateModel: string = new Date().toString();
+  // stringDateModel: string = new Date().toString();
+  stringDateModel: string;
   searchCustomerName :string ;
   searchCustomerValuesIf = true;
   searchCustomerDetails : Customer = new Customer();
@@ -49,12 +52,14 @@ export class VehicleComponent implements OnInit {
   })
 
 
-  constructor(private customerService :CustomerService,private vehicleService :VehicleService,private make_model_service :MakeModelService) {
+  constructor(private customerService :CustomerService,private vehicleService :VehicleService,private make_model_service :MakeModelService,private makeService:MakeServiceService) {
       this.selectVehicleClass.setValue('A');
   }
 
   ngOnInit() {
-    
+
+    this.findAllMakes();
+
   }
 
     addCustomerDetails(){
@@ -82,7 +87,7 @@ export class VehicleComponent implements OnInit {
     this.vehNgModel.yearOfManufacture=this.stringDateModel.toString();
 
     this.vehNgModel.vehicleMake=this.insertselectedMake;
-
+    this.vehNgModel.vehicleModel= this.insertItemModel;
     this.vehicleService.addVehicle(this.vehNgModel).subscribe((result)=>{
         if(result!=null){
            alert('Vehicle Added SuccessFully');
@@ -142,15 +147,18 @@ export class VehicleComponent implements OnInit {
   insertItemModel:string;
   searchMakesByModel :Array<MakeModel>= new Array<MakeModel>();
   insertselectedMake:string;
+  //modelNameif =false;
 
   getMakeModelDetails(value :string){
 
-
-    this.make_model_service.getMakeModelDetails(value).subscribe((result)=>{
+console.log("Value"+value);
+    this.make_model_service.getMakeModelDetails(this.insertselectedMake).subscribe((result)=>{
 
       if(result!=null){
-
+        //this.modelNameif=true;
         this.searchMakesByModel=result;
+       console.log("FGGGGGGGGGGGGGGG")
+        console.log(result)
         //this.addTableModel=null;
 
       }
@@ -208,6 +216,40 @@ export class VehicleComponent implements OnInit {
 
     }
 
+  }
+
+  makeModel :Make = new Make();
+  addMakeName:string;
+
+  addMake(){
+
+    this.makeModel.makeName=this.addMakeName;
+
+    this.makeService.addMakes(this.makeModel).subscribe((result)=>{
+
+      if(result !=null){
+
+        alert("Stock Added Successfully");
+        this.findAllMakes();
+
+      }
+
+    });
+  }
+
+  findAllMakesToArray :Array<Make> = new Array<Make>();
+
+  findAllMakes(){
+
+    this.makeService.findAllMakes().subscribe((result)=>{
+
+      if(result !=null){
+
+        this.findAllMakesToArray = result;
+
+      }
+
+    });
   }
 
 }

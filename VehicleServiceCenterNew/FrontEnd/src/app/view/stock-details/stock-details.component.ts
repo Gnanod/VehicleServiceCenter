@@ -11,6 +11,8 @@ import {StockItemDetail} from "../../Model/StockItemDetail";
 import {Stock} from "../../Model/Stock";
 import {DatePipe} from "@angular/common";
 import {StockService} from "../../Service/stock.service";
+import {MakeServiceService} from "../../Service/make-service.service";
+import {Make} from "../../Model/Make";
 
 @Component({
   selector: 'app-stock-details',
@@ -19,10 +21,11 @@ import {StockService} from "../../Service/stock.service";
 })
 export class StockDetailsComponent implements OnInit {
 
-  public constructor(private make_model_service :MakeModelService,private itemService :ItemService,private supplierService:SupplierService,private datePipe :DatePipe,private stockService:StockService) { }
+  public constructor(private make_model_service :MakeModelService,private itemService :ItemService,private supplierService:SupplierService,private datePipe :DatePipe,private stockService:StockService,private makeService:MakeServiceService) { }
 
   ngOnInit() {
     this.getAllItems();
+    this.findAllMakes();
   }
 
    /////////////Search Item
@@ -43,6 +46,8 @@ export class StockDetailsComponent implements OnInit {
   itemName:string;
   insertselectedMake:string;
   insertItemToTable :Array<MakeModelDetail> = new Array<MakeModelDetail>();
+  itemQuantityType:string;
+
 
   //getAll Suppliers
   //getSupplier : Array<Supplier> = new Array<Supplier>();
@@ -50,6 +55,14 @@ export class StockDetailsComponent implements OnInit {
   selectedSupplierCompany :string;
   suppliersNames :Array<Supplier> = new Array<Supplier>();
   selectedsupplierName :string;
+
+
+  ////////////////////////////////////////////////////////////////////
+
+  names :Supplier = new Supplier();
+
+  ///////////////////////////////////////////////////////////////
+
 
   //Insert items
   searchItemName :string;
@@ -68,6 +81,8 @@ export class StockDetailsComponent implements OnInit {
   itemsTable : Array<StockItemDetail> = new Array<StockItemDetail>();
 
 
+  /////////////////////////////////////////////
+  stockPayementDate :string;
 
   addToTable(){
 
@@ -85,7 +100,7 @@ export class StockDetailsComponent implements OnInit {
 
   }
 
-  itemId :String;
+  itemId :string;
   totAmount :number=0;
 
   addToItemTable(){
@@ -95,22 +110,23 @@ export class StockDetailsComponent implements OnInit {
     stockItemDetails.buyingPrice=parseFloat(this.searchBuyingPrice);
 
     let item : Item = new Item();
-    item.itemName= this.selectedItem.itemName;
+
+    //item.itemName= this.selectedItem.itemName;
+    item.itemName= this.searchItemDetails.itemName;
     item.itemId = this.searchItemDetails.itemId;
     item.quantityOfPrice= parseFloat(this.searchRetailPrice);
 
-    console.log('DDDDDStockLevel'+this.searchItemDetails.stockLevel);
 
 
 
     item.stockLevel=this.searchItemDetails.stockLevel;
-    // item.stockLevel = this.searchItemDetails.stockLevel;
+    item.itemQuantityType= this.searchItemDetails.itemQuantityType;
 
-    console.log("Gnanod Stock :"+ item.stockLevel)
+    // item.stockLevel = this.searchItemDetails.stockLevel;
 
     let qty:number=parseFloat( this.itemQuantity + this.searchItemDetails.quantityOnHand );
 
-    console.log("JJJJ"+qty);
+
 
     item.quantityOnHand=parseFloat(this.itemQuantity+this.searchItemDetails.quantityOnHand);
 
@@ -121,24 +137,24 @@ export class StockDetailsComponent implements OnInit {
 
 
 
-    if(this.selectedItem.itemName !=null && this.searchItemDetails.itemId !=null && this.searchRetailPrice !=null && this.itemQuantity !=null ){
+     if(this.searchItemDetails.itemName !=null && this.searchItemDetails.itemId !=null && this.searchItemDetails.quantityOfPrice !=null && this.searchItemDetails.quantityOnHand !=null && this.itemQuantity!=null  && this.searchBuyingPrice !=null && this.searchRetailPrice !=null ){
 
       this.itemsTable.push(stockItemDetails);
       this.searchItemDetailsArray = new Array<Item>();
       this.searchStockItemName = null;
       let amount :number;
       amount = this.totAmount+(stockItemDetails.buyingPrice*stockItemDetails.quantity);
-      console.log("amount"+amount);
       let stringAmount :string=amount.toString();
       this.totAmount=parseFloat(stringAmount);
 
-      this.searchItemName = null;
+      this.searchItemDetails.itemName = null;
       this.searchItemDetails.itemId = null;
       this.searchRetailPrice = null;
       this.itemQuantity = null;
       this.searchBuyingPrice = null;
       this.searchItemDetails.quantityOnHand = null;
-    }
+
+     }
 
 
 
@@ -151,7 +167,9 @@ export class StockDetailsComponent implements OnInit {
     let itemMakeModel :MakeModelDetail = new MakeModelDetail();
 
     let item :Item = new Item();
+    item.itemId = this.itemId;
     item.itemName=this.itemName;
+    item.itemQuantityType = this.itemQuantityType;
     console.log("JJJJ"+this.stockLevel);
     itemMakeModel.stockLevel=this.stockLevel;
     //item.stockLevel = this.stockLevel;
@@ -253,7 +271,7 @@ export class StockDetailsComponent implements OnInit {
   modelNameif =false;
   getMakeModelDetails(value :string){
 
-
+       console.log("value"+value);
     this.make_model_service.getMakeModelDetails(value).subscribe((result)=>{
 
       console.log("result"+result.length)
@@ -279,7 +297,9 @@ export class StockDetailsComponent implements OnInit {
 
 if( this.insertItemToTable.length!=0){
   let item:Item = new Item();
+  item.itemId=this.itemId;
   item.itemName=this.itemName;
+  item.itemQuantityType=this.itemQuantityType
   item.stockLevel=this.stockLevel;
   // item.stockLevel=this.stockLevel;
   // item.itemId=1;
@@ -298,6 +318,7 @@ if( this.insertItemToTable.length!=0){
       this.itemName = null;
       this.totAmount=0;
       this.stockLevel=0;
+      this.itemId=null;
       this.searchMakesByModel = new Array<MakeModel>();
 
     }
@@ -327,8 +348,9 @@ if( this.insertItemToTable.length!=0){
 
     this.supplierService.getSuppliersNames(value).subscribe((result) => {
       this.suppliersNames = result;
+
       console.log(this.suppliersNames[0])
-     // this.selectedSupplierCompany=result[0].companyName;
+
     });
   }
 
@@ -344,7 +366,7 @@ if( this.insertItemToTable.length!=0){
 
           this.searchItemDetailsArray=null;
 
-          this.selectedItem.itemId=0;
+          this.selectedItem.itemId=null;
           this.getAllItemDetailsToUI("K");
           //  alert('Item Not Found ')
           // this.searchItemDetails.quantityOnHand=10;
@@ -352,15 +374,15 @@ if( this.insertItemToTable.length!=0){
         } else {
           // this.searchItemValuesIf=false;
           //this.searchItemDetails = result;
-
-
-
           this.searchItemDetailsArray=result;
-
-          this.selectedItem=result[0];
+          this.searchItemDetails=result[0];
           console.log("StockLevelItem :"+this.selectedItem.stockLevel);
         }
       });
+    }{
+
+      console.log('GGGGGGGGGGGGGGGGG')
+      this.searchItemDetailsArray=null;
     }
 
 
@@ -392,58 +414,144 @@ if( this.insertItemToTable.length!=0){
     console.log("Error")
     this.searchItemDetails = this.selectedItem;
 
-    console.log("QuantityStockLevel"+this.searchItemDetails.stockLevel);
-    console.log("QuantityStockLevel"+this.searchItemDetails.quantityOnHand);
     if(value=="K"){
 
-      this.searchItemDetails.itemId=parseFloat("0");
+      this.searchItemDetails.itemId=null;
       this.searchItemDetails.quantityOnHand=parseFloat("0");
     }
 
   }
+
+/////////////////////////////////////////////////////////////////////////
+  paymentType :string;
+  creditBalance :number;
+  selectedSupplier :Supplier = new Supplier();
+
+  ///////////////////////////////////////////////////////////////////
+  changeValue() {
+    this.creditBalance=0;
+  }
+
 
   saveStock(){
 
     let stock :Stock = new Stock ();
 
     let supplier : Supplier = new Supplier();
-    //supplier.supplierI`d = 1;
+    supplier.supplierId =this.selectedSupplier.supplierId;
+
+
+
+    //console.log("FFFFFFFFFFFFFFFFF"+this.selectedSupplier.supplierId);
+
     stock.supplier=supplier;
     stock.payment=this.totAmount;
+    stock.paymentType=this.paymentType;
+
+    let balance:number=0;
+
+    balance = this.totAmount-this.creditBalance;
+
+    console.log("Balance"+balance);
+
+    stock.creditBalance = balance;
+
     stock.date =this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     stock.stockItemDetails = this.itemsTable;
 
-    if(this.itemsTable.length!=0){
-      this.stockService.addStock(stock).subscribe((result)=>{
-
-        if(result !=null){
-
-          alert("Stock Added Successfully");
-
-          this.itemsTable = new Array<StockItemDetail>();
+    stock.stockPayementDate = this.stockPayementDate;
 
 
-          this.searchItemName = null;
-          this.searchItemDetails.itemId = null;
-          this.searchRetailPrice = null;
-          this.itemQuantity = null;
-          this.totAmount=null;
-          this.searchBuyingPrice = null;
-          this.searchItemDetails.quantityOnHand = null;
+
+    if(supplier.supplierId!=null){
+      if(this.paymentType!=null){
+        if(this.totAmount > this.creditBalance){
+          if(this.stockPayementDate!=null){
+            if(this.itemsTable.length!=0){
+
+              this.stockService.addStock(stock).subscribe((result)=>{
+
+                if(result !=null){
+
+                  alert("Stock Added Successfully");
+
+                  this.itemsTable = new Array<StockItemDetail>();
+
+                  this.searchItemName = null;
+                  this.searchItemDetails.itemId = null;
+                  this.searchRetailPrice = null;
+                  this.itemQuantity = null;
+                  this.totAmount=null;
+                  this.searchBuyingPrice = null;
+                  this.searchItemDetails.quantityOnHand = null;
+
+                }
+
+              });
+
+            }else{
+
+              alert('Please Add Items To Table');
+
+            }
+          }else{
+            alert('Please Select Stock Payment Date')
+
+          }
+
+        }else{
+
+          alert('Credit Balance is Greater than Total Amount');
 
         }
 
-      });
+      }else{
+
+        alert('Select Payment Type');
+
+      }
 
     }else{
-
-      alert('Please Add Items To Table');
-
+      alert('please Select Supplier');
     }
+
 
 
   }
 
+  makeModel :Make = new Make();
+  addMakeName:string;
+
+  addMake(){
+
+    this.makeModel.makeName=this.addMakeName;
+
+    this.makeService.addMakes(this.makeModel).subscribe((result)=>{
+
+      if(result !=null){
+
+        alert("Stock Added Successfully");
+        this.findAllMakes();
+
+      }
+
+    });
+  }
+
+  findAllMakesToArray :Array<Make> = new Array<Make>();
+
+  findAllMakes(){
+
+    this.makeService.findAllMakes().subscribe((result)=>{
+
+      if(result !=null){
+
+        this.findAllMakesToArray = result;
+
+      }
+
+    });
+  }
 
 
 

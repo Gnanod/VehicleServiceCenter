@@ -14,6 +14,9 @@ import {JoborderComponent} from "./view/joborder/joborder.component";
 import {ServiceManagementComponent} from "./view/service-management/service-management.component";
 import {ServiceJobComponent} from "./view/service-job/service-job.component";
 import {LowStockLevelComponent} from "./view/low-stock-level/low-stock-level.component";
+import {SupplierCreditReportComponent} from "./view/supplier-credit-report/supplier-credit-report.component";
+import {NewJobOrderComponent} from "./view/new-job-order/new-job-order.component";
+import {LubeDetailJobComponent} from "./view/lube-detail-job/lube-detail-job.component";
 
 const routes: Routes = [
     {
@@ -62,7 +65,21 @@ const routes: Routes = [
             {
               path:"LowStockLevel",
               component:LowStockLevelComponent
-            }
+            },
+          {
+            path:"SupplierCreditReports",
+            component:SupplierCreditReportComponent
+          },
+          {
+
+            path :"jobOrder",
+            component : NewJobOrderComponent
+            //component:JoborderComponent
+          },
+          {
+            path :'LubeDetailJob',
+            component: LubeDetailJobComponent
+          }
 
 
         ]
@@ -71,10 +88,7 @@ const routes: Routes = [
       path:"login",
       component: LoginComponent
     },
-    {
-      path :"jobOrder",
-      component : JoborderComponent
-    },
+
   {
       path: '', pathMatch: "full", redirectTo: 'login'
   }

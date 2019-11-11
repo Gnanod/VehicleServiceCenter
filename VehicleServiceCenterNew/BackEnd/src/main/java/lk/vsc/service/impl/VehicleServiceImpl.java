@@ -64,6 +64,11 @@ public class VehicleServiceImpl implements VehicleService{
          vehicleRepository.deleteById(vehicleId);
          
     }
+
+    @Override
+    public Vehicle searchByVehicleId(int parseInt) {
+        return  vehicleRepository.searchByVehicleId(parseInt);
+    }
 //
 //    @Override
 //    public Vehicle searchByVehicleNumber(String vehicleNumber) {

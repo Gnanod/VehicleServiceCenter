@@ -1,12 +1,12 @@
 package lk.vsc.controller;
 
 import lk.vsc.DTO.JobOrderDTO;
-import lk.vsc.entity.Item;
-import lk.vsc.entity.JobOrder;
-import lk.vsc.entity.JobOrderItemDetails;
-import lk.vsc.entity.Services;
+import lk.vsc.DTO.VehicleCustomerDTO;
+import lk.vsc.entity.*;
+import lk.vsc.repository.ServiceJobRepository;
 import lk.vsc.service.JobOrderService;
 import lk.vsc.service.ServicesService;
+import lk.vsc.service.VehicleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,9 +22,15 @@ public class JobOrderController {
 
     @Autowired
     private JobOrderService jobOrderService;
+    @Autowired
+    private VehicleService vehicleService;
+
 
     @Autowired
     private ServicesService servicesService1;
+
+    @Autowired
+    private ServiceJobRepository serviceJobRepository;
 
     @GetMapping(value = "/getItemsForJobOrder/{itemName}/{makeName}/{modelName}")
     public List<Item> getItemsForJobOrder(@PathVariable String itemName, @PathVariable String makeName, @PathVariable String modelName) {
@@ -74,6 +80,30 @@ public class JobOrderController {
 
         return jobOrderService.searchUnitPrice(itemName);
 
+    }
+
+
+    @GetMapping(value = "/getDetailsAccordingToServiceId/{id}")
+    public VehicleCustomerDTO getDetailsAccordingToServiceId(@PathVariable String id) {
+
+       // Object[] detailsAccordingToServiceId = serviceJobRepository.getDetailsAccordingToServiceId(id);
+
+        String    arr[]= jobOrderService.getDetailsAccordingToServiceId(id);
+                  Vehicle v1 = vehicleService.searchByVehicleId(Integer.parseInt(arr[0]));
+
+                  VehicleCustomerDTO v = new VehicleCustomerDTO();
+                  v.setChassisNumber(v1.getEngineNumber());
+                  v.setVehicleId(arr[0]);
+                  v.setCustomerEmail(v1.getCustomer().getEmail());
+                  v.setCustomerName(v1.getCustomer().getFirstName()+v1.getCustomer().getLastName());
+                  v.setCustomerPhone(v1.getCustomer().getPhoneNumber());
+                  v.setMake(v1.getVehicleMake());
+                  v.setModel(v1.getVehicleModel());
+                  v.setYear(v1.getYearOfManufacture());
+                  v.setVehicleNumber(v1.getVehicleNumber());
+                  v.setServiceTotal(Double.parseDouble(arr[1]));
+
+return v;
     }
 
 
