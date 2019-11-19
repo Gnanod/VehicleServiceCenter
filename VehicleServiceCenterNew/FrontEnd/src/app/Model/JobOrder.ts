@@ -4,6 +4,7 @@ import {JobOrderItemDetails} from "./JobOrderItemDetails";
 
 export class JobOrder{
 
+  serviceId :string;
   vehicle : Vehicle;
   employeeName: String;
   date : string;
@@ -14,5 +15,7 @@ export class JobOrder{
   paymentType :string;
   paidAmount :number;
   creditBalance :number;
+  serviceAmount:number;
+  grossAmount :number;
 
 }

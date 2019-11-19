@@ -87,19 +87,6 @@ export class LubeDetailJobComponent implements OnInit {
   customeraddress: string;
   customeremail: string;
 
-  qunatityOnHand :number;
-
-
-
-  jobServicesAll: Services = new Services();
-
-  insertServiceDesc: string;
-  serviceDesc1: Services = new Services();
-  searchServiceDescByName: Array<Services>= new Array<Services>();
-  searchServiceVehiClassByNameAndDesc: Array<Services>= new Array<Services>();
-  serviceVehi: Services = new Services();
-  addedServiceBeforeConfirm: Services = new Services();
-
   searchVehicleDetailsByNumber(){
     this.vehicleservice.searchVehicleDetails(this.searchVehicleNumber).subscribe((result)=>{
       if (result == null) {
@@ -202,15 +189,6 @@ export class LubeDetailJobComponent implements OnInit {
           this.searchItemDetails=result;
           this.insertItemName = this.searchItemDetails[0].itemName;
           document.getElementById("insertItemName").focus();
-          // console.log("JJJJJJJJJJJ"+this.searchItemDetails[0].itemName);
-          // console.log("jjjjjjjjjjj"+this.searchItem)
-          // // if(this.searchItemDetails[0].itemName==this.searchItem){
-          //
-          //   this.unitPrice =this.searchItemDetails[0].quantityOfPrice;
-          //   this.itemId = this.searchItemDetails[0].itemId;
-          // }
-          // let item : Item  = this.searchItemDetails[0];
-          //  this.searchItem = item.itemName;
         }
       });
     }else{
@@ -226,10 +204,6 @@ export class LubeDetailJobComponent implements OnInit {
 
     if(this.searchItem1.length!=0){
 
-      console.log("GGGGGGGGGGLDDSSSSSSSSS")
-console.log(this.searchItem1);
-console.log(this.insertItemModel1);
-console.log(this.insertselectedMake1);
 
       this.jobOrderService.searchItem(this.searchItem1,this.insertItemModel1,this.insertselectedMake1).subscribe((result)=>{
 
@@ -312,6 +286,9 @@ console.log(this.insertselectedMake1);
     item.quantityOfPrice=this.unitPrice;
     item.itemName=this.item.itemName;
     item.stockLevel=this.item.stockLevel;
+    item.itemQuantityType = this.item.itemQuantityType;
+    console.log("QuantityType"+this.item.itemQuantityType);
+
     item.quantityOnHand = this.item.quantityOnHand - this.quantity;
     let price = this.quantity *  this.unitPrice;
 
@@ -387,6 +364,7 @@ console.log(this.insertselectedMake1);
 
 
   grossAmount :number=0;
+
   addToItemsTable1(){
 
     if(this.serviceJobOrderId !=null){
@@ -401,6 +379,7 @@ console.log(this.insertselectedMake1);
         item.quantityOfPrice=this.unitPrice1;
         item.itemName=this.item1.itemName;
         item.stockLevel=this.item1.stockLevel;
+        item.itemQuantityType = this.item1.itemQuantityType;
         item.quantityOnHand = this.item1.quantityOnHand - this.quantity1;
 
         let price = this.quantity1 *  this.unitPrice1;
@@ -419,16 +398,6 @@ console.log(this.insertselectedMake1);
           alert('Low Quantity Cant Add Item to This Table');
 
         }else{
-          //
-          // this.searchServiceDetails();
-          //
-          //
-          //
-          //
-          // // this.totAmount1 += (this.quantity1 *  this.unitPrice1);
-          // // this.grossAmount=this.totAmount+this.totAmount1;
-          // this.lubejobOrderItemDetailsArray1.push(jobOrderItemDetails);
-
 
           let sameId:number = 0;
           let firstItem :number =0;
@@ -466,15 +435,6 @@ console.log(this.insertselectedMake1);
 
           this.totAmount1 = amountJob;
           this.grossAmount = this.totAmount + this.serviceTotAmount + this.totAmount1 ;
-
-
-
-
-
-
-
-
-
           this.insertselectedMake1 = null;
           this.quantity1=null;
           this.unitPrice1=null;
@@ -482,18 +442,12 @@ console.log(this.insertselectedMake1);
           this.searchMakesByModel1 = null;
           this.searchItemDetails1 = new Array<Item>();
           this.insertItemName1 = null;
-
-
         }
-
-
-
       }else{
         this.totAmount1 = 0;
       }
 
     }else{
-
       alert('Service Job Id Field Is Empty .................');
     }
 
@@ -511,16 +465,31 @@ console.log(this.insertselectedMake1);
     let jobOrder :JobOrder = new JobOrder();
 
     let vehicle :Vehicle = new Vehicle();
+    let cust :Customer = new Customer();
+    cust.address = this.vehicleCustomerDTO.customerAddress;
+    cust.firstName = this.vehicleCustomerDTO.customerName;
+    cust.phoneNumber = this.vehicleCustomerDTO.customerPhone;
+
 
     vehicle.vehicleId= parseInt(this.vehicleCustomerDTO.vehicleId);
+    vehicle.vehicleNumber = this.vehicleCustomerDTO.vehicleNumber;
+    vehicle.vehicleMake = this.vehicleCustomerDTO.make;
+    vehicle.vehicleModel = this.vehicleCustomerDTO.model;
+    console.log("Model"+this.vehicleCustomerDTO.model);
+    vehicle.engineNumber = this.vehicleCustomerDTO.chassisNumber;
+
     jobOrder.date=this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     jobOrder.vehicle = vehicle;
+    jobOrder.vehicle.customer = cust;
     jobOrder.total = this.grossAmount;
     jobOrder.creditBalance = this.newcreditBalance;
     jobOrder.lubeJobAmount = this.totAmount;
     jobOrder.detailJobAmount = this.totAmount1;
     jobOrder.paymentType = this.PaymentType;
     jobOrder.paidAmount = this.paidAmount;
+    jobOrder.serviceAmount = this.serviceTotAmount;
+    jobOrder.grossAmount = this.grossAmount;
+    jobOrder.serviceId = this.serviceJobOrderId;
 
     jobOrder.employeeName = "FFFFFFF";
 
@@ -537,9 +506,6 @@ console.log(this.insertselectedMake1);
       if(this.lubejobOrderItemDetailsArray1.length!=0 ||this.jobOrderItemDetailsArray.length!=0){
 
         this.jobOrderService.addJobOrder(jobOrderDto).subscribe((result)=>{
-
-
-          console.log("LLLL"+result);
 
           if(result !=null){
 
@@ -578,13 +544,6 @@ console.log(this.insertselectedMake1);
 
     for(let i = 0; i <  this.jobOrderItemDetailsArray.length; ++i){
       if ( this.jobOrderItemDetailsArray[i].item.itemId === id) {
-
-        // let buyingPrice : number =  this.jobOrderItemDetailsArray[i].item.quantityOfPrice;
-        // let quantity :number =  this.jobOrderItemDetailsArray[i].qty;
-        // let totAmount :number = buyingPrice * quantity ;
-        //
-        // this.totAmount = this.totAmount - totAmount;
-        // this.grossAmount = this.totAmount+this.totAmount1;
         this.jobOrderItemDetailsArray.splice(i,1);
 
       }
@@ -618,11 +577,6 @@ console.log(this.insertselectedMake1);
 
       if ( this.lubejobOrderItemDetailsArray1[i].item.itemId === id) {
 
-        // let buyingPrice : number =  this.lubejobOrderItemDetailsArray1[i].item.quantityOfPrice;
-        // let quantity :number =  this.lubejobOrderItemDetailsArray1[i].qty;
-        // let totAmount1 :number = buyingPrice * quantity ;
-        // this.totAmount1 = this.totAmount1 - totAmount1;
-        // this.grossAmount = this.totAmount+this.totAmount1;
         this.lubejobOrderItemDetailsArray1.splice(i,1);
 
 
@@ -652,41 +606,6 @@ console.log(this.insertselectedMake1);
 
 
 
-
-
-  // addToJobOrderServiceDetails() {
-  //
-  //   let orderListDetail:ServiceJob = new ServiceJob();
-  //   let orderItemDetail:Item = new Item();
-  //   this.searchItemDetails.forEach(function (value) {
-  //     orderItemDetail.barCode = value.barCode;
-  //     orderItemDetail.itemName = value.itemName;
-  //     orderItemDetail.brand = value.brand;
-  //     orderItemDetail.retailPrice = value.retailPrice;
-  //     orderItemDetail.itemQtyOnHand = value.itemQtyOnHand;
-  //   })
-  //
-  //   this.itemPrice = orderItemDetail.retailPrice;
-  //   orderListDetail.qty = this.qty;
-  //   orderListDetail.price = this.itemPrice = +this.itemPrice * +this.qty;
-  //
-  //   orderListDetail.item = orderItemDetail;
-  //
-  //   this.updateItemQty =  orderListDetail.item.itemQtyOnHand - this.qty;
-  //   orderListDetail.item.itemQtyOnHand = this.updateItemQty;
-  //
-  //   if (this.qty!=null) {
-  //     this.orderList.push(orderListDetail);
-  //     this.totalPrice = +this.totalPrice + +this.itemPrice;
-  //   }else{
-  //     alert('Order Qty NULL')
-  //   }
-  //
-  //   console.log(this.orderList);
-  //
-  //
-  // }
-
   allServicesDescArray: Array<Services>= new Array<Services>();
   getServiceToAddById: number;
   insertSelectedServiceType: number;
@@ -707,88 +626,18 @@ console.log(this.insertselectedMake1);
 
 
   servicestoadd: Services;
-  // sendIdToAddService(value: Services){
-  //   this.servicestoadd = value;
-  // }
-  //
-  //
-  //
-  //
-  // addServiceJobsToFrontEndList(){
-  //   this.servicesService.getServicebyId(this.getServiceToAddById).subscribe((result)=>{
-  //     if(result!=null){
-  //       this.addedServiceBeforeConfirm = result;
-  //
-  //     }
-  //   });
-  //
-  //
-  // }
-
-  // ilen: number;
-  // addToJobOrderServiceDetails(){
-  //
-  //   // console.log("The object"+this.servicestoadd.serviceDesc+"ADDEDD"+this.insertSelectedServiceType);
-  // }
 
 
 
 
-  // searchServiceByIdAndAddToList(){
-  //
-  //   this.servicesService.getServicebyId(this.insertSelectedServiceType).subscribe((result)=>{
-  //
-  //     if(result==null){
-  //
-  //       // alert('Item Not Found ')
-  //       // this.searchItemDetails.quantityOnHand=10;
-  //
-  //     }else{
-  //       let ser : Services;
-  //       ser = result;
-  //       this.servicesOfTheServiceJobArrray.push(ser);
-  //       console.log("asdsadsad"+this.servicesOfTheServiceJobArrray[0].serviceDesc);
-  //     }
-  //   });
-  // }
+
+
 
 
   serviceJDArray: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
   serviceOrder : ServiceJob = new ServiceJob();
   serviceOrderTot: number = 0;
-  addToServiceJob(){
-    let i: number ;
-    let serviceJD : ServiceJobDetails = new ServiceJobDetails();
 
-    let all : number = this.servicesOfTheServiceJobArrray.length;
-    for (i=0; i<all; i++){
-      this.serviceOrderTot += this.servicesOfTheServiceJobArrray[i].servicePrice;
-      serviceJD.service = this.servicesOfTheServiceJobArrray[i];
-    }
-    this.serviceJDArray.push(serviceJD);
-
-    console.log("PRICE IS" + this.serviceOrderTot);
-
-
-    this.serviceOrder.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-    this.serviceOrder.employeeName= "Fudddd";
-    this.serviceOrder.serviceJobDetails = this.serviceJDArray;
-    this.serviceOrder.total = this.serviceOrderTot;
-    this.serviceOrder.vehicle = this.searchVehicleDetails;
-
-
-    this.serviceJobService.addServiceJob(this.serviceOrder).subscribe((result)=>{
-      if(result !=null){
-
-        console.log("LLLL"+result)
-        alert("Service Added Successfully");
-
-
-      }
-
-    });
-
-  }
 
 
   findAllMakesToArray :Array<Make> = new Array<Make>();
@@ -855,4 +704,7 @@ console.log(this.insertselectedMake1);
 
     }
   }
+
+
+
 }

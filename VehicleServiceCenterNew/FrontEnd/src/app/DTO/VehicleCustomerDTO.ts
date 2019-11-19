@@ -3,6 +3,7 @@ export class VehicleCustomerDTO {
   customerName: string;
   customerPhone: string;
   customerEmail: string;
+  customerAddress :string;
   vehicleNumber: string;
   vehicleId: string;
   chassisNumber: string;

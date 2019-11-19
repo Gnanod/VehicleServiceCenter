@@ -13,9 +13,19 @@ public class VehicleCustomerDTO {
     private String  model;
     private String  year ;
     private double  serviceTotal ;
+    private String customerAddress;
+
 
     public String getVehicleId() {
         return vehicleId;
+    }
+
+    public String getCustomerAddress() {
+        return customerAddress;
+    }
+
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
     }
 
     public void setVehicleId(String vehicleId) {

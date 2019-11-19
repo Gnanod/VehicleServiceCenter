@@ -55,6 +55,7 @@ public class JobOrderServiceImpl implements JobOrderService {
             i.setItemName(s2[2].toString());
             i.setQuantityOnHand(Double.parseDouble(s2[3].toString()));
             i.setStockLevel(Double.parseDouble(s2[4].toString()));
+            i.setItemQuantityType(s2[5].toString());
 
         }
 
@@ -150,11 +151,15 @@ public class JobOrderServiceImpl implements JobOrderService {
 
 //        System.out.println("Ob1"+ob[0].toString());
 //        System.out.println("Ob2"+ob[1]);
-        String []arr = new String[2] ;
-           arr[0]=Integer.toString(s1.getVehicle().getVehicleId());
-           arr[1]=Double.toString(s1.getTotal());
+           String []arr = new String[2] ;
+           if(s1!=null){
+               arr[0]=Integer.toString(s1.getVehicle().getVehicleId());
+               arr[1]=Double.toString(s1.getTotal());
+               return arr;
+           }else{
+               return  null;
+           }
 
 
-        return arr;
     }
 }

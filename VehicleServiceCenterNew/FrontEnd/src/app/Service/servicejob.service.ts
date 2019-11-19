@@ -3,6 +3,8 @@ import {ServiceJob} from "../Model/ServiceJob";
 
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {ServiceInvoiceDTO} from "../DTO/ServiceInvoiceDTO";
+import {ServicesDTO} from "../DTO/ServicesDTO";
 
 const URL = '/ServiceJobController';
 const URL1 = '/ServiceIdController'
@@ -32,6 +34,13 @@ export class ServicejobService {
   searchServiceDetails() {
 
     return this.http.get<ServiceJob>(environment.backend_url + URL1 + '/getLastID',);
+
+  }
+
+  addServiceJobs(serviceOrder: ServicesDTO) {
+
+    return this.http.post<string>(environment.backend_url + URL + '/addServiceJob',serviceOrder);
+
 
   }
 }

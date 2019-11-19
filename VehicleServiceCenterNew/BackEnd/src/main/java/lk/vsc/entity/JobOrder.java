@@ -15,14 +15,17 @@ public class JobOrder {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int jobID;
-    private String date ;
+    private String date;
     private double total;
-    private String  employeeName;
+    private String employeeName;
     private double lubeJobAmount;
     private double detailJobAmount;
     private String paymentType;
     private double paidAmount;
     private double creditBalance;
+    private double serviceAmount;
+    private double grossAmount;
+    private String serviceId;
 
 
     @ManyToOne
@@ -32,8 +35,32 @@ public class JobOrder {
         return lubeJobAmount;
     }
 
+    public double getServiceAmount() {
+        return serviceAmount;
+    }
+
+    public void setServiceAmount(double serviceAmount) {
+        this.serviceAmount = serviceAmount;
+    }
+
+    public double getGrossAmount() {
+        return grossAmount;
+    }
+
+    public void setGrossAmount(double grossAmount) {
+        this.grossAmount = grossAmount;
+    }
+
     public void setLubeJobAmount(double lubeJobAmount) {
         this.lubeJobAmount = lubeJobAmount;
+    }
+
+    public String getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(String serviceId) {
+        this.serviceId = serviceId;
     }
 
     public double getDetailJobAmount() {
@@ -73,7 +100,6 @@ public class JobOrder {
     private List<JobOrderItemDetails> jobOrderItemDetails;
 
 
-
     public int getJobID() {
         return jobID;
     }
@@ -107,14 +133,13 @@ public class JobOrder {
     }
 
 
-
     public List<JobOrderItemDetails> getJobOrderItemDetails() {
         return jobOrderItemDetails;
     }
 
     public void setJobOrderItemDetails(List<JobOrderItemDetails> jobOrderItemDetails) {
 
-        for (JobOrderItemDetails j: jobOrderItemDetails
+        for (JobOrderItemDetails j : jobOrderItemDetails
         ) {
             j.setJobOrder(this);
         }

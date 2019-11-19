@@ -6,11 +6,11 @@ export class JobOrderItemDetails {
 
   jobOrderServiceDetails:number;
   jobOrder :JobOrder;
-  item:Item;
+   item:Item;
    qty:number;
    price :number;
    make :string;
-   model ;string;
+   model :string;
    lubeJobType :string;
 
 }

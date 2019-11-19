@@ -990,201 +990,304 @@
 </div>
 
 
+<!--<div class="modal fade" id="noticeModal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+  <!--<div class="modal-dialog modal-notice">-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+      <!--<h5 class="modal-title" id="myModalLabel">Print Preview Of Service Details</h5>-->
+      <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">-->
+        <!--<i class="fas fa-times"></i>-->
+      <!--</button>-->
+      <!--</div>-->
+      <!--<div class="modal-body">-->
+        <!--<div class="instruction">-->
+
+          <!--<div class="row">-->
+            <!--<div class="col-md-3">-->
+              <!--<div class="form-group">-->
+                <!--<label>Service Id : </label>-->
+              <!--</div>-->
+
+            <!--</div>-->
+            <!--<div class="col-md-3">-->
+              <!--<div class="form-group">-->
+
+                <!--<label style="color: black ; font-size: 20px ;margin-left: -40px;margin-top: -10px" > {{this.lastId.serviceJobId}} </label>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+
+            <!--</div>-->
+
+            <!--<div class="col-md-3">-->
+              <!--<div class="form-group">-->
+                <!--<label>Date: </label>-->
+
+              <!--</div>-->
+
+            <!--</div>-->
+            <!--<div class="col-md-3">-->
+              <!--<div class="form-group">-->
+
+                <!--<label style="color: black ; font-size: 20px ;margin-left: -40px;margin-top: -10px" > {{ todayDate}} </label>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="row">-->
+
+                    <!--<div class="col-md-4">-->
+                      <!--<div class="form-group">-->
+                        <!--<label>Vehilce Number</label>-->
+                        <!--<br>-->
+                        <!--<input type="text" id="vehiNumber1" class="form-control" (keyup)="searchVehicleDetailsByNumber()"-->
+                               <!--[(ngModel)]="searchVehicleNumber" disabled>-->
+                        <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+                      <!--</div>-->
+
+                    <!--</div>-->
+                    <!--<div class="col-md-4">-->
+                      <!--<div class="form-group">-->
+                        <!--<label>-->
+                          <!--Chassis number</label>-->
+                        <!--<br>-->
+                        <!--<input type="text" id="vehiEngineNumber2" class="form-control" name="engineNumber"-->
+                               <!--[(ngModel)]="engineNumber" disabled>-->
+                        <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+                      <!--</div>-->
+                    <!--</div>-->
+
+
+          <!--</div>-->
+
+          <!--<div class="row">-->
+            <!--<div class="col-md-3">-->
+              <!--<div class="form-group">-->
+                <!--<label>Vehicle Class</label>-->
+                <!--<br>-->
+                <!--<input type="text" id="vehiClass1" class="form-control" name="engineNumber" [(ngModel)]="vehicleClass" disabled>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3">-->
+              <!--<div class="form-group">-->
+                <!--<label>Make</label>-->
+                <!--<br>-->
+                <!--<input type="text" id="vehiMake1" class="form-control" name="engineNumber" [(ngModel)]="vehicleMake" disabled>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3">-->
+              <!--<div class="form-group">-->
+                <!--<label>Model</label>-->
+                <!--<br>-->
+                <!--<input type="text" id="vehiModel1" class="form-control" name="engineNumber" [(ngModel)]="vehicleModel" disabled>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-3">-->
+              <!--<div class="form-group">-->
+                <!--<label>Year</label>-->
+                <!--<br>-->
+                <!--<input type="text" id="vehiYear1" class="form-control" name="engineNumber" [(ngModel)]="yearOfManufacture" disabled>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+          <!--<div class="row">-->
+
+            <!--<div class="col-md-5">-->
+              <!--<div class="form-group">-->
+                <!--<label>Customer Name</label>-->
+                <!--<br>-->
+                <!--<input type="text" id="custName1" class="form-control" name="engineNumber" [(ngModel)]="customername" disabled>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+
+            <!--</div>-->
+            <!--<div class="col-md-5">-->
+              <!--<div class="form-group">-->
+                <!--<label>Customer Phone Number</label>-->
+                <!--<br>-->
+                <!--<input type="text" id="custPhoneNum1" class="form-control" name="engineNumber" [(ngModel)]="customerphone" disabled>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<div class="row">-->
+            <!--<div class="col-md-5">-->
+              <!--<div class="form-group">-->
+                <!--<label>Customer Email</label>-->
+                <!--<br>-->
+                <!--<input type="text" id="custEmail1" class="form-control" name="engineNumber" [(ngModel)]="customeremail" disabled>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-6">-->
+              <!--<div class="form-group">-->
+                <!--<label>Customer Address</label>-->
+                <!--<br>-->
+                <!--<input type="text" id="custAddress1" class="form-control" name="engineNumber"-->
+                       <!--[(ngModel)]="customeraddress"disabled>-->
+                <!--&lt;!&ndash;name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+        <!--<div class="instruction">-->
+
+          <!--<div class="table-responsive">-->
+            <!--<table class="table">-->
+              <!--<thead>-->
+              <!--<tr>-->
+                <!--<th>Service</th>-->
+                <!--<th>Price</th>-->
+                <!--<th></th>-->
+              <!--</tr>-->
+              <!--</thead>-->
+              <!--<tbody>-->
+
+              <!--<tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">-->
+                <!--<td>-->
+                  <!--{{servicesall.serviceName}}-->
+                <!--</td>-->
+
+                <!--<td>-->
+                  <!--{{servicesall.servicePrice}}-->
+                <!--</td>-->
+
+              <!--</tr>-->
+              <!--<tr>-->
+                <!--<td>-->
+
+                <!--</td>-->
+
+                <!--<td>-->
+                <!--Total : {{this.serviceOrder.total }}-->
+                <!--</td>-->
+              <!--</tr>-->
+              <!--</tbody>-->
+            <!--</table>-->
+
+
+          <!--</div>-->
+          <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="col-md-8">&ndash;&gt;-->
+          <!--&lt;!&ndash;<strong>2. Apply</strong>&ndash;&gt;-->
+          <!--&lt;!&ndash;<p class="description">The first step is to create an account at&ndash;&gt;-->
+          <!--&lt;!&ndash;<a href="http://www.creative-tim.com/">Creative Tim</a>. You can choose a social network or go for the classic version, whatever works best for you.</p>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="col-md-4">&ndash;&gt;-->
+          <!--&lt;!&ndash;<div class="picture">&ndash;&gt;-->
+          <!--&lt;!&ndash;<img src="../../assets/img/card-2.jpg" alt="Thumbnail Image" class="rounded img-fluid">&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+          <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="modal-footer justify-content-center">-->
+        <!--<button type="button" class="btn btn-info btn-round" data-dismiss="modal" (click)="addToServiceJob()" >PrintPdf</button>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
+
+
 <div class="modal fade" id="noticeModal" tabindex="0" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-notice">
-    <div class="modal-content">
+    <div class="modal-content" style=" margin-left:-200px;width: 1000px">
       <div class="modal-header">
-      <h5 class="modal-title" id="myModalLabel">Print Preview Of Service Details</h5>
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-        <i class="fas fa-times"></i>
-      </button>
+        <h5 class="modal-title" id="myModalLabel">Print Preview Of Service Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
       <div class="modal-body">
-        <div class="instruction">
+        <div class="invoice-box" id="HHH">
+          <h1 style="color: gray; border: 1px solid gray; width: 100%; text-align: center; padding: 15px">Service Job Detail</h1>
 
-          <div class="row">
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Service Id : </label>
-              </div>
+          <table cellpadding="0" cellspacing="0">
+            <tr class="top">
+              <td colspan="2">
+                <table>
+                  <tr>
+                    <td class="title">
+                      <img src="https://avatars2.githubusercontent.com/u/16548140?v=3&s=200"
+                           style="width:100%; max-width:100px;">
+                    </td>
 
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
+                    <td>
+                      <br/>
+                      Turismo Vehicle Service Center
+                      <br/>
+                      Service Number #: {{this.lastId.serviceJobId}}<br>
+                      Date: {{todayDate}}<br>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
 
-                <label style="color: black ; font-size: 20px ;margin-left: -40px;margin-top: -10px" > {{this.lastId.serviceJobId}} </label>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
+            <tr class="information">
+              <td colspan="2">
+                <table>
+                  <tr>
+                    <td>
+                      Vehicle Number :{{searchVehicleNumber}}<br>
+                      Chasis Number  :{{engineNumber}}<br>
+                      Make           :{{vehicleMake}}<br/>
+                      Model :{{vehicleModel}}<br/>
+                      Year :{{yearOfManufacture}}
+                    </td>
+                    <td>
 
-            </div>
+                    </td>
 
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Date: </label>
+                    <td style="text-align: left ;margin-left: 150px">
+                      Customer Name :{{customername}}<br>
+                      Customer Phone Number :{{customerphone}}<br>
+                      Customer Email :{{customeremail}}<br>
+                      Customer Address :{{customeraddress}}<br>
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
 
-              </div>
+            <tr class="heading">
+              <td>
+                Service
+              </td>
 
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
+              <td>
+                Price
+              </td>
+            </tr>
 
-                <label style="color: black ; font-size: 20px ;margin-left: -40px;margin-top: -10px" > {{ todayDate}} </label>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
+            <tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">
+              <td>
+                {{servicesall.serviceName}}
+              </td>
 
-            </div>
-          </div>
-          <div class="row">
+              <td>
+                {{servicesall.servicePrice}}
+              </td>
 
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label>Vehilce Number</label>
-                        <br>
-                        <input type="text" id="vehiNumber1" class="form-control" (keyup)="searchVehicleDetailsByNumber()"
-                               [(ngModel)]="searchVehicleNumber" disabled>
-                        <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-                      </div>
-
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label>
-                          Chassis number</label>
-                        <br>
-                        <input type="text" id="vehiEngineNumber2" class="form-control" name="engineNumber"
-                               [(ngModel)]="engineNumber" disabled>
-                        <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-                      </div>
-                    </div>
-
-
-          </div>
-
-          <div class="row">
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Vehicle Class</label>
-                <br>
-                <input type="text" id="vehiClass1" class="form-control" name="engineNumber" [(ngModel)]="vehicleClass" disabled>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Make</label>
-                <br>
-                <input type="text" id="vehiMake1" class="form-control" name="engineNumber" [(ngModel)]="vehicleMake" disabled>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Model</label>
-                <br>
-                <input type="text" id="vehiModel1" class="form-control" name="engineNumber" [(ngModel)]="vehicleModel" disabled>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
-            </div>
-            <div class="col-md-3">
-              <div class="form-group">
-                <label>Year</label>
-                <br>
-                <input type="text" id="vehiYear1" class="form-control" name="engineNumber" [(ngModel)]="yearOfManufacture" disabled>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
-            </div>
-          </div>
-          <div class="row">
-
-            <div class="col-md-5">
-              <div class="form-group">
-                <label>Customer Name</label>
-                <br>
-                <input type="text" id="custName1" class="form-control" name="engineNumber" [(ngModel)]="customername" disabled>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
-
-            </div>
-            <div class="col-md-5">
-              <div class="form-group">
-                <label>Customer Phone Number</label>
-                <br>
-                <input type="text" id="custPhoneNum1" class="form-control" name="engineNumber" [(ngModel)]="customerphone" disabled>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-md-5">
-              <div class="form-group">
-                <label>Customer Email</label>
-                <br>
-                <input type="text" id="custEmail1" class="form-control" name="engineNumber" [(ngModel)]="customeremail" disabled>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Customer Address</label>
-                <br>
-                <input type="text" id="custAddress1" class="form-control" name="engineNumber"
-                       [(ngModel)]="customeraddress"disabled>
-                <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="instruction">
-
-          <div class="table-responsive">
-            <table class="table">
-              <thead>
-              <tr>
-                <th>Service</th>
-                <th>Price</th>
-                <th></th>
-              </tr>
-              </thead>
-              <tbody>
-
-              <tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">
-                <td>
-                  {{servicesall.serviceName}}
-                </td>
-
-                <td>
-                  {{servicesall.servicePrice}}
-                </td>
-
-              </tr>
-              <tr>
-                <td>
-
-                </td>
-
-                <td>
-                Total : {{this.serviceOrder.total }}
-                </td>
-              </tr>
-              </tbody>
-            </table>
+            </tr>
 
 
-          </div>
-          <!--<div class="row">-->
-          <!--<div class="col-md-8">-->
-          <!--<strong>2. Apply</strong>-->
-          <!--<p class="description">The first step is to create an account at-->
-          <!--<a href="http://www.creative-tim.com/">Creative Tim</a>. You can choose a social network or go for the classic version, whatever works best for you.</p>-->
-          <!--</div>-->
-          <!--<div class="col-md-4">-->
-          <!--<div class="picture">-->
-          <!--<img src="../../assets/img/card-2.jpg" alt="Thumbnail Image" class="rounded img-fluid">-->
-          <!--</div>-->
-          <!--</div>-->
-          <!--</div>-->
-        </div>
+            <tr class="total">
+              <td></td>
+
+              <td>
+                <!--<span style="font-weight: normal">VAT: € {{exvat}}</span><br/>-->
+                Total: € {{total}}
+              </td>
+            </tr>
+          </table>
+
+
       </div>
       <div class="modal-footer justify-content-center">
         <button type="button" class="btn btn-info btn-round" data-dismiss="modal" (click)="addToServiceJob()" >PrintPdf</button>
