@@ -27,6 +27,6 @@ public interface JobOrderRepository extends JpaRepository<JobOrder,Integer> {
     @Query(value = "select SUM(j.total) from job_order j where MONTH(CURDATE())=MONTH(date);",nativeQuery = true)
     Object getMonthlyTotalSales();
 
-
-
+    @Query(value = "from JobOrder  where  serviceId=?1")
+    JobOrder getJobOrder(String serviceId);
 }

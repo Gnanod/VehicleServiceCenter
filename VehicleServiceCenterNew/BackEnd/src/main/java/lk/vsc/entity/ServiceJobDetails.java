@@ -11,12 +11,9 @@ public class ServiceJobDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int servicedetailsID;
-
-
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Services services;
-
     @ManyToOne
     @OnDelete(action = OnDeleteAction.CASCADE)
     private ServiceJob serviceJob;

@@ -26,9 +26,14 @@ import { LowStockLevelComponent } from './view/low-stock-level/low-stock-level.c
 import { SupplierCreditReportComponent } from './view/supplier-credit-report/supplier-credit-report.component';
 import { NewJobOrderComponent } from './view/new-job-order/new-job-order.component';
 import { LubeDetailJobComponent } from './view/lube-detail-job/lube-detail-job.component';
+import { SupplierPayementsComponent } from './view/supplier-payements/supplier-payements.component';
+import { CustomerPayementsComponent } from './view/customer-payements/customer-payements.component';
+import {NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
+import {PopupService} from "@ng-bootstrap/ng-bootstrap/util/popup";
+import { PrintJobCardComponent } from './view/print-job-card/print-job-card.component';
 
 
-
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,13 +51,16 @@ import { LubeDetailJobComponent } from './view/lube-detail-job/lube-detail-job.c
     LowStockLevelComponent,
     SupplierCreditReportComponent,
     NewJobOrderComponent,
-    LubeDetailJobComponent
+    LubeDetailJobComponent,
+    SupplierPayementsComponent,
+    CustomerPayementsComponent,
+    PrintJobCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, HttpClientModule, FormsModule,NgbModule,NgbPaginationModule, NgbAlertModule,ReactiveFormsModule,
       BrowserAnimationsModule,MatButtonModule,MatSelectModule,  MatFormFieldModule,
-      MatInputModule,FontAwesomeModule
+      MatInputModule
   ],
   providers: [
     DatePipe

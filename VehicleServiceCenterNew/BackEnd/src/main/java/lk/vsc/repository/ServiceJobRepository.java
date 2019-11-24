@@ -13,4 +13,6 @@ public interface ServiceJobRepository extends JpaRepository<ServiceJob,Integer> 
     @Query(value = " from ServiceJob s where serviceJobId = :id ")
     ServiceJob getDetailsAccordingToServiceId(@Param("id") String id);
 
+    @Query(value = "select serviceId from JobOrder where vehicle.vehicleId= :vehicleId and paymentType ='Credit'")
+    Object serchPreviousJobs(@Param("vehicleId")int vehicleId);
 }

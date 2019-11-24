@@ -38,4 +38,10 @@ export class VehicleService {
         return this.http.delete<number>(environment.backend_url + URL + '/deleteVehicle/'+vehicleId);
 
     }
+
+  searchVehicleNumbers(serviceJobId: string) {
+
+    return this.http.get<Vehicle>(environment.backend_url + URL + '/searchVehicleNumbers/'+serviceJobId);
+
+  }
 }

@@ -19,6 +19,9 @@ public interface VehicleService {
 
     Vehicle searchByVehicleId(int parseInt);
 
+    Vehicle searchVehicleNumbers(String serviceJobId);
+
+
 //   Vehicle searchByVehicleNumber(String vehicleNumber);
 
 //    void deleteCustomer(int vehicleId);

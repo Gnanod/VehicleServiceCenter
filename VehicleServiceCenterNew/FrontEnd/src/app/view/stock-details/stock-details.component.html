@@ -505,125 +505,125 @@
       </div>
     </div>
 
-    <div class="col-md-4">
-      <div class="card">
-        <div class="card-header card-header-icon card-header-info">
-          <div class="card-icon">
-            <i class="fas fa-cubes"></i>
-          </div>
-          <h4 class="card-title">Add Vehicle Type
+    <!--<div class="col-md-4">-->
+      <!--<div class="card">-->
+        <!--<div class="card-header card-header-icon card-header-info">-->
+          <!--<div class="card-icon">-->
+            <!--<i class="fas fa-cubes"></i>-->
+          <!--</div>-->
+          <!--<h4 class="card-title">Add Vehicle Type-->
 
-          </h4>
-        </div>
-        <div class="card-body">
+          <!--</h4>-->
+        <!--</div>-->
+        <!--<div class="card-body">-->
 
-          <div class="row">
-
-
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label >Select Make</label>
-                <br>
-                <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >
+          <!--<div class="row">-->
 
 
-                  <option  *ngFor="let names of findAllMakesToArray" [ngValue]="names.makeName">{{names.makeName}}</option>
+          <!--</div>-->
 
-                  <!--<option>Any</option>-->
-                  <!--<option>Abarth</option>-->
-                  <!--<option>Acura</option>-->
-                  <!--<option>Alfa Romeo</option>-->
-                  <!--<option>Ambassador</option>-->
-                  <!--<option>Aprilia</option>-->
-                  <!--<option>Audi</option>-->
-                  <!--<option>Austin</option>-->
-                  <!--<option>Bajaj</option>-->
-                  <!--<option>BMW</option>-->
-                  <!--<option>Cadillac</option>-->
-                  <!--<option>Caterpillar</option>-->
-                  <!--<option>Nissan</option>-->
-                  <!--<option>Suzuki</option>-->
-                  <!--<option>Toyota</option>-->
-                  <!--<option>Honda</option>-->
-                  <!--<option>530i</option>-->
+          <!--<div class="row">-->
+            <!--<div class="col-md-6">-->
+              <!--<div class="form-group">-->
+                <!--<label >Select Make</label>-->
+                <!--<br>-->
+                <!--<select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >-->
 
 
-                </select>
+                  <!--<option  *ngFor="let names of findAllMakesToArray" [ngValue]="names.makeName">{{names.makeName}}</option>-->
 
-              </div>
-
-            </div>
-            <div class="col-md-6">
-              <button class="btn btn-behance" data-toggle="modal" data-target="#myModal10" style="margin-top: 35px">
-                <i class="fa fa-plus" aria-hidden="true"></i>
-              </button>
-            </div>
-
-
-          </div>
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label class="bmd-label-floating">Model Name</label>
-
-                <input  type="text"   class="form-control "  [(ngModel)]="addTableModel" >
-                <!--<small [class.d-none]="name.valid || name.untouched" ]>Model Name Is required</small>-->
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-
-                <button type="submit" class="btn btn-behance pull-right" (click)="addToTable()">Add To Table</button>
-
-              </div>
-            </div>
-          </div>
-
-          <div class="row">
-
-            <div class="table-responsive">
-              <table class="table">
-                <thead class=" text-primary">
-                <th>
-                  Name Of Make
-                </th>
-                <th>
-                  Name Of Model
-                </th>
+                  <!--&lt;!&ndash;<option>Any</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Abarth</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Acura</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Alfa Romeo</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Ambassador</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Aprilia</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Audi</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Austin</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Bajaj</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>BMW</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Cadillac</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Caterpillar</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Nissan</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Suzuki</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Toyota</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>Honda</option>&ndash;&gt;-->
+                  <!--&lt;!&ndash;<option>530i</option>&ndash;&gt;-->
 
 
-                </thead>
-                <tbody>
+                <!--</select>-->
 
-                <tr  *ngFor="let brandMake of tableMakeModel  ">
+              <!--</div>-->
 
-                  <td>
-                    {{brandMake.makeName}}
-                  </td>
-                  <td>
-                    {{brandMake.modelName}}
-                  </td>
-
-                  <td class="td-actions ">
-                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteMakeModel(brandMake.modelName)">
-                      <i class="fas fa-times"></i>
-                    </button>
-                  </td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-
-          </div>
-          <button type="submit" class="btn btn-behance pull-right" (click)="addMakeModelDetails()">Save Details</button>
+            <!--</div>-->
+            <!--<div class="col-md-6">-->
+              <!--<button class="btn btn-behance" data-toggle="modal" data-target="#myModal10" style="margin-top: 35px">-->
+                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
+              <!--</button>-->
+            <!--</div>-->
 
 
-        </div>
-      </div>
-    </div>
+          <!--</div>-->
+          <!--<div class="row">-->
+            <!--<div class="col-md-6">-->
+              <!--<div class="form-group">-->
+                <!--<label class="bmd-label-floating">Model Name</label>-->
+
+                <!--<input  type="text"   class="form-control "  [(ngModel)]="addTableModel" >-->
+                <!--&lt;!&ndash;<small [class.d-none]="name.valid || name.untouched" ]>Model Name Is required</small>&ndash;&gt;-->
+              <!--</div>-->
+            <!--</div>-->
+            <!--<div class="col-md-6">-->
+              <!--<div class="form-group">-->
+
+                <!--<button type="submit" class="btn btn-behance pull-right" (click)="addToTable()">Add To Table</button>-->
+
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<div class="row">-->
+
+            <!--<div class="table-responsive">-->
+              <!--<table class="table">-->
+                <!--<thead class=" text-primary">-->
+                <!--<th>-->
+                  <!--Name Of Make-->
+                <!--</th>-->
+                <!--<th>-->
+                  <!--Name Of Model-->
+                <!--</th>-->
+
+
+                <!--</thead>-->
+                <!--<tbody>-->
+
+                <!--<tr  *ngFor="let brandMake of tableMakeModel  ">-->
+
+                  <!--<td>-->
+                    <!--{{brandMake.makeName}}-->
+                  <!--</td>-->
+                  <!--<td>-->
+                    <!--{{brandMake.modelName}}-->
+                  <!--</td>-->
+
+                  <!--<td class="td-actions ">-->
+                    <!--<button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteMakeModel(brandMake.modelName)">-->
+                      <!--<i class="fas fa-times"></i>-->
+                    <!--</button>-->
+                  <!--</td>-->
+                <!--</tr>-->
+                <!--</tbody>-->
+              <!--</table>-->
+            <!--</div>-->
+
+          <!--</div>-->
+          <!--<button type="submit" class="btn btn-behance pull-right" (click)="addMakeModelDetails()">Save Details</button>-->
+
+
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 
 </div>
@@ -640,41 +640,41 @@
 </div>
 
 
-<div class="modal fade modal-mini modal-primary" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-small">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> <i class="fas fa-times"></i></button>
-      </div>
-      <div class="modal-body">
-        <p>Add New Make Name</p>
-        <div class="row">
-          <div class="col-md-12">
-            <div class="form-group">
-              <label class="bmd-label-floating">Make Name</label>
-              <input type="text" class="form-control"  [(ngModel)]="addMakeName" >
-            </div>
-          </div>
-
-        </div>
-      </div>
-      <!--<div class="modal-footer justify-content-center">-->
-
-
-        <div class="row">
-
-          <div class="col-md-12">
-            <button type="submit" class="btn btn-behance pull-right" (click)="addMake()">Save Name</button>
-          </div>
-        </div>
-
-
-
-
+<!--<div class="modal fade modal-mini modal-primary" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
+  <!--<div class="modal-dialog modal-small">-->
+    <!--<div class="modal-content">-->
+      <!--<div class="modal-header">-->
+        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> <i class="fas fa-times"></i></button>-->
       <!--</div>-->
-    </div>
-  </div>
-</div>
+      <!--<div class="modal-body">-->
+        <!--<p>Add New Make Name</p>-->
+        <!--<div class="row">-->
+          <!--<div class="col-md-12">-->
+            <!--<div class="form-group">-->
+              <!--<label class="bmd-label-floating">Make Name</label>-->
+              <!--<input type="text" class="form-control"  [(ngModel)]="addMakeName" >-->
+            <!--</div>-->
+          <!--</div>-->
+
+        <!--</div>-->
+      <!--</div>-->
+      <!--&lt;!&ndash;<div class="modal-footer justify-content-center">&ndash;&gt;-->
+
+
+        <!--<div class="row">-->
+
+          <!--<div class="col-md-12">-->
+            <!--<button type="submit" class="btn btn-behance pull-right" (click)="addMake()">Save Name</button>-->
+          <!--</div>-->
+        <!--</div>-->
+
+
+
+
+      <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 
 
 

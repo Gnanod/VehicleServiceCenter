@@ -1,6 +1,7 @@
 package lk.vsc.controller;
 
 
+import lk.vsc.DTO.CreditPaymentDto;
 import lk.vsc.DTO.LowStockLevelDTO;
 import lk.vsc.entity.Item;
 import lk.vsc.entity.MakeModelDetails;
@@ -35,7 +36,11 @@ public class StockController {
         return stockService.getLowStockLevelReport();
     }
 
+    @GetMapping(value = "/getCreditPaymentDetails")
+    public List<CreditPaymentDto> getCreditPaymentDetails(){
 
+        return stockService.getCreditPaymentDetails();
+    }
 }
 
 

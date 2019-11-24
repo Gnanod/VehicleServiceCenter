@@ -1,8 +1,6 @@
 package lk.vsc.controller;
 
-import lk.vsc.DTO.JobOrderDTO;
-import lk.vsc.DTO.JobOrderItemDetailsDTO;
-import lk.vsc.DTO.VehicleCustomerDTO;
+import lk.vsc.DTO.*;
 import lk.vsc.entity.*;
 import lk.vsc.repository.ServiceJobRepository;
 import lk.vsc.service.JobOrderService;
@@ -47,14 +45,14 @@ public class JobOrderController {
     }
 
     @GetMapping(value = "/getServiceDesc/{insertSelectedService}")
-    public List<Services> getServiceDesc(@PathVariable String insertSelectedService){
+    public List<Services> getServiceDesc(@PathVariable String insertSelectedService) {
 
-        List<Services> l1= servicesService1.getServiceDesc(insertSelectedService);
-        for (Services l: l1
-             ) {
+        List<Services> l1 = servicesService1.getServiceDesc(insertSelectedService);
+        for (Services l : l1
+        ) {
 
-            System.out.println("Service Name :"+l.getServiceDesc());
-           // System.out.println();
+            System.out.println("Service Name :" + l.getServiceDesc());
+            // System.out.println();
         }
         //System.out.println("GGGGG"+insertSelectedService);
         return l1;
@@ -65,6 +63,70 @@ public class JobOrderController {
     public double getTotalSales() {
 
         return jobOrderService.getTotalSales();
+
+    }
+
+
+    @GetMapping(value = "/serchPreviousJobs/{vehicleId}")
+    public JobOrder serchPreviousJobs(@PathVariable String vehicleId) {
+
+        return jobOrderService.serchPreviousJobs(vehicleId);
+
+    }
+
+
+    @PostMapping(value = "/printJobOrder")
+    public String printJobOrder(@RequestBody ServicesDTO serviceJob) {
+
+        Map<String, Object> parameters = new HashMap<String, Object>();
+
+        ServiceInvoiceDTO v1 = serviceJob.getServiceInvoice();
+        System.out.println("v1.getInvoiceNumber()" + v1.getVehicleNumber());
+        parameters.put("invoiceNumber", v1.getInvoiceNumber());
+        parameters.put("vehicleNumber", v1.getVehicleNumber());
+        parameters.put("chasisNumber", v1.getChasisNumber());
+        parameters.put("make", v1.getMake());
+        parameters.put("year", v1.getYear());
+        parameters.put("model", v1.getModel());
+        parameters.put("customerName", v1.getCustomerName());
+        parameters.put("customerPhoneNumber", v1.getCustomerPhoneNumber());
+        parameters.put("customerAddress", v1.getCustomerAddress());
+        parameters.put("total", Double.toString(v1.getTotal()));
+
+        String userHomeDirectory = System.getProperty("user.home");
+        String fileName = "First_Service_Bill_" + getCurrentDate() + "_" + getCurrentTime() + ".pdf";
+        outputFile = userHomeDirectory + File.separatorChar + "Documents/" + fileName;
+
+
+        PrintJobOrder j1 = new PrintJobOrder();
+        j1.setDate(getCurrentDate() );
+        j1.setServiceJobId(v1.getInvoiceNumber());
+        j1.setTime(getCurrentTime());
+        j1.setVehicleNumber(v1.getVehicleNumber());
+        String s1 = jobOrderService.printJobOrder(j1);
+        if(s1!=null) {
+
+            JasperPrint jasperPrint;
+            try {
+                jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/Blank_A4.jasper", parameters, new JREmptyDataSource());
+                /* outputStream to create PDF */
+                OutputStream outputStream = new FileOutputStream(new File(outputFile));
+                /* Write content to PDF file */
+                JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
+                System.out.println("File Generated: " + outputFile);
+            } catch (JRException e) {
+
+                e.printStackTrace();
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+            return "9";
+
+        }else{
+
+            return null;
+        }
 
     }
 
@@ -93,35 +155,34 @@ public class JobOrderController {
     @GetMapping(value = "/getDetailsAccordingToServiceId/{id}")
     public VehicleCustomerDTO getDetailsAccordingToServiceId(@PathVariable String id) {
 
-       // Object[] detailsAccordingToServiceId = serviceJobRepository.getDetailsAccordingToServiceId(id);
+        // Object[] detailsAccordingToServiceId = serviceJobRepository.getDetailsAccordingToServiceId(id);
 
-                    String    arr[]= jobOrderService.getDetailsAccordingToServiceId(id);
-                    if(arr!=null) {
+        String arr[] = jobOrderService.getDetailsAccordingToServiceId(id);
+        if (arr != null) {
 
 
-                        Vehicle v1 = vehicleService.searchByVehicleId(Integer.parseInt(arr[0]));
+            Vehicle v1 = vehicleService.searchByVehicleId(Integer.parseInt(arr[0]));
 
-                        VehicleCustomerDTO v = new VehicleCustomerDTO();
-                        v.setChassisNumber(v1.getEngineNumber());
-                        v.setVehicleId(arr[0]);
-                        v.setCustomerEmail(v1.getCustomer().getEmail());
-                        v.setCustomerName(v1.getCustomer().getFirstName() + v1.getCustomer().getLastName());
-                        v.setCustomerAddress(v1.getCustomer().getAddress());
-                        v.setCustomerPhone(v1.getCustomer().getPhoneNumber());
-                        v.setMake(v1.getVehicleMake());
-                        v.setModel(v1.getVehicleModel());
-                        v.setYear(v1.getYearOfManufacture());
-                        v.setVehicleNumber(v1.getVehicleNumber());
-                        v.setServiceTotal(Double.parseDouble(arr[1]));
+            VehicleCustomerDTO v = new VehicleCustomerDTO();
+            v.setChassisNumber(v1.getEngineNumber());
+            v.setVehicleId(arr[0]);
+            v.setCustomerEmail(v1.getCustomer().getEmail());
+            v.setCustomerName(v1.getCustomer().getFirstName() + v1.getCustomer().getLastName());
+            v.setCustomerAddress(v1.getCustomer().getAddress());
+            v.setCustomerPhone(v1.getCustomer().getPhoneNumber());
+            v.setMake(v1.getVehicleMake());
+            v.setModel(v1.getVehicleModel());
+            v.setYear(v1.getYearOfManufacture());
+            v.setVehicleNumber(v1.getVehicleNumber());
+            v.setServiceTotal(Double.parseDouble(arr[1]));
 
-                        return v;
-                    }else{
-                        return null;
-                    }
+            return v;
+        } else {
+            return null;
+        }
 
 
     }
-
 
 
     @PostMapping(value = "/addJobOrder")
@@ -138,9 +199,10 @@ public class JobOrderController {
             JobOrderItemDetails j2 = new JobOrderItemDetails();
             j2.setItem(i.getItem());
             j2.setQty(i.getQty());
-            System.out.println("GGGGG1"+j2.getItem().getItemId());
-            System.out.println("GGGGG1"+j2.getQty());
-            System.out.println("GGGGG1"+j2.getItem().getItemQuantityType());
+            j2.setMake(i.getMake());
+            j2.setModel(i.getModel());
+            j2.setPrice(i.getPrice());
+            j2.setLubeJobType(i.getLubeJobType());
             s3.add(j2);
         }
 //
@@ -149,9 +211,10 @@ public class JobOrderController {
             JobOrderItemDetails j3 = new JobOrderItemDetails();
             j3.setItem(i2.getItem());
             j3.setQty(i2.getQty());
-            System.out.println("GGGGG1"+j3.getItem().getItemId());
-            System.out.println("GGGGG1"+j3.getQty());
-            System.out.println("GGGGG1"+j3.getItem().getItemQuantityType());
+            j3.setMake(i2.getMake());
+            j3.setModel(i2.getModel());
+            j3.setPrice(i2.getPrice());
+            j3.setLubeJobType(i2.getLubeJobType());
 
 
             s3.add(j3);
@@ -161,29 +224,27 @@ public class JobOrderController {
 
         String s = jobOrderService.setJobOrder(j1);
 
-        if(s!=null){
+        if (s != null) {
             printBill(jobOrder);
             return s;
-        }else{
+        } else {
             return null;
         }
-
 
 
     }
 
 
-
-    public void printBill(JobOrderDTO jt){
+    public void printBill(JobOrderDTO jt) {
 
         JobOrder jobOrder = jt.getJobOrder();
-        List<JobOrderItemDetails> lubejob= jt.getJobOrderItemDetailsArray();
+        List<JobOrderItemDetails> lubejob = jt.getJobOrderItemDetailsArray();
         List<JobOrderItemDetails> detailJob = jt.getJobOrderItemDetailsArray1();
 
         ArrayList<JobOrderItemDetailsDTO> s1 = new ArrayList<>();
         ArrayList<JobOrderItemDetailsDTO> s2 = new ArrayList<>();
 
-        for (JobOrderItemDetails j1:lubejob) {
+        for (JobOrderItemDetails j1 : lubejob) {
             JobOrderItemDetailsDTO j = new JobOrderItemDetailsDTO();
 
             j.setItemCode(j1.getItem().getItemId());
@@ -192,12 +253,12 @@ public class JobOrderController {
             j.setModel(j1.getModel());
             j.setPrice(Double.toString(j1.getPrice()));
             j.setQuantity(j1.getQty());
-            System.out.println("GGGGGGG34Kl"+j1.getQty());
+            System.out.println("GGGGGGG34Kl" + j1.getQty());
 
             s1.add(j);
         }
 
-        for (JobOrderItemDetails j1:detailJob) {
+        for (JobOrderItemDetails j1 : detailJob) {
             JobOrderItemDetailsDTO j = new JobOrderItemDetailsDTO();
 
             j.setItemCode(j1.getItem().getItemId());
@@ -207,7 +268,7 @@ public class JobOrderController {
             j.setPrice(Double.toString(j1.getPrice()));
             j.setQuantity(j1.getQty());
             j.setType(j1.getLubeJobType());
-            System.out.println("GGGGGGG34KLOP"+j1.getQty());
+            System.out.println("GGGGGGG34KLOP" + j1.getQty());
             s2.add(j);
         }
 
@@ -217,13 +278,13 @@ public class JobOrderController {
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("lubeJobItems", s3);
         parameters.put("detailJobItems", s4);
-        parameters.put("invoiceNumber",jobOrder.getServiceId());
+        parameters.put("invoiceNumber", jobOrder.getServiceId());
         parameters.put("vehicleNumber", jobOrder.getVehicle().getVehicleNumber());
         parameters.put("chasisNumber", jobOrder.getVehicle().getEngineNumber());
-        parameters.put("make",jobOrder.getVehicle().getVehicleMake());
-        parameters.put("year",jobOrder.getVehicle().getYearOfManufacture());
-        parameters.put("model",jobOrder.getVehicle().getVehicleModel());
-        parameters.put("customerName",jobOrder.getVehicle().getCustomer().getFirstName()+" "+jobOrder.getVehicle().getCustomer().getLastName());
+        parameters.put("make", jobOrder.getVehicle().getVehicleMake());
+        parameters.put("year", jobOrder.getVehicle().getYearOfManufacture());
+        parameters.put("model", jobOrder.getVehicle().getVehicleModel());
+        parameters.put("customerName", jobOrder.getVehicle().getCustomer().getFirstName() + " " + jobOrder.getVehicle().getCustomer().getLastName());
         parameters.put("customerPhoneNumber", jobOrder.getVehicle().getCustomer().getPhoneNumber());
         parameters.put("customerAddress", jobOrder.getVehicle().getCustomer().getAddress());
         parameters.put("total", Double.toString(jobOrder.getTotal()));
@@ -239,16 +300,16 @@ public class JobOrderController {
         String userHomeDirectory = System.getProperty("user.home");
         /* Output file location */
 
-        String fileName = "Service_Bill_"+getCurrentDate() + "_" + getCurrentTime() + ".pdf";
+        String fileName = "Service_Bill_" + getCurrentDate() + "_" + getCurrentTime() + ".pdf";
 
-        outputFile = userHomeDirectory + File.separatorChar + "Documents/"+ fileName;
+        outputFile = userHomeDirectory + File.separatorChar + "Documents/" + fileName;
 
 //        /* Using compiled version(.jasper) of Jasper report to generate PDF */
         JasperPrint jasperPrint;
         try {
 
 
-            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir")+"/BackEnd/src/main/java/lk/vsc/jasper/hobAndJube.jasper", parameters, new JREmptyDataSource());
+            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/hobAndJube.jasper", parameters, new JREmptyDataSource());
 
             /* outputStream to create PDF */
             OutputStream outputStream = new FileOutputStream(new File(outputFile));

@@ -7,6 +7,7 @@ import {environment} from "../../environments/environment";
 import {Supplier} from "../Model/Supplier";
 import {LowStockLevelComponent} from "../view/low-stock-level/low-stock-level.component";
 import {LowStockLevelDTO} from "../DTO/LowStockLevelDTO";
+import {CreditPaymentDto} from "../DTO/CreditPaymentDto";
 
 
 const URL ='/StockController';
@@ -27,6 +28,12 @@ export class StockService {
   lowStock(){
 
     return this.http.get<Array<LowStockLevelDTO>>(environment.backend_url + URL + '/getLowStockLevelReport/');
+
+  }
+
+  getCreditPaymentDetails(){
+
+    return this.http.get<Array<CreditPaymentDto>>(environment.backend_url + URL + '/getCreditPaymentDetails');
 
   }
 }

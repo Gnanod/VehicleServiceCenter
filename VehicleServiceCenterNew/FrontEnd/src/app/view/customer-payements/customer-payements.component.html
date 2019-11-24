@@ -1,0 +1,118 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-info">
+
+          <h4 class="card-title">Update Customer Payments
+
+          </h4>
+        </div>
+        <div class="card-body">
+          <form  name="form" >
+            <div class="row">
+
+
+            </div>
+            <div class="row">
+              <div class="col-sm-3" style="text-align: right;margin-top: 5px;">
+                <label  class="control-label " style="font-size:18px;color: black">Service Id</label>
+              </div>
+              <div class=" col-sm-7">
+                <input name="serviceId" type="text" class="form-control" [(ngModel)] = "serviceId">
+                <!--<input name="firstName" type="text" class="form-control" [(ngModel)] = "serviceId" >-->
+              </div>
+              <div class=" col-sm-2">
+                <button type="submit" class="btn btn-behance pull-right" style="margin-top: -5px" (click)="searchServiceDetailsByNumber()">  <i class="fas fa-search"></i></button>
+              </div>
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-sm-2" style="text-align: right;margin-top: 5px;">
+              </div>
+              <div class="col-sm-3" style="text-align: left;margin-top: 5px;">
+                <label  class="control-label " >Vehicle Number</label>
+              </div>
+              <div class=" col-sm-5">
+                <input name="firstName" type="text" class="form-control" [(ngModel)] = "vehicleNumber" disabled>
+              </div>
+
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-sm-2" style="text-align: right;margin-top: 5px;">
+              </div>
+              <div class="col-sm-3" style="text-align: left;margin-top: 5px;">
+                <label  class="control-label " >Date</label>
+              </div>
+              <div class=" col-sm-5">
+                <input name="date" type="text" class="form-control" [(ngModel)] = "date" disabled>
+              </div>
+
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-sm-2" style="text-align: right;margin-top: 5px;">
+              </div>
+              <div class="col-sm-3" style="text-align: left;margin-top: 5px;">
+                <label  class="control-label " >Payment Type</label>
+              </div>
+              <div class=" col-sm-5">
+                <input name="paymentType" type="text" class="form-control" [(ngModel)] = "paymentType" disabled>
+              </div>
+
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-sm-2" style="text-align: right;margin-top: 5px;">
+              </div>
+              <div class="col-sm-3" style="text-align: left;margin-top: 5px;">
+                <label  class="control-label " >Amount</label>
+              </div>
+              <div class=" col-sm-5">
+                <input name="amount" type="text" class="form-control" [(ngModel)] = "amount" disabled>
+              </div>
+
+            </div>
+
+            <br>
+            <div class="row">
+              <div class="col-sm-2" style="text-align: right;margin-top: 5px;">
+              </div>
+              <div class="col-sm-3" style="text-align: left;margin-top: 5px;">
+                <label  class="control-label " >Credit Balance</label>
+              </div>
+              <div class=" col-sm-5">
+                <input name="creditBalance" type="text" class="form-control" [(ngModel)] = "creditBalance" disabled>
+              </div>
+
+
+            </div>
+            <br>
+
+            <div class="row">
+              <div class="col-sm-2" style="text-align: right;margin-top: 5px;">
+              </div>
+              <div class="col-sm-3" style="text-align: left;margin-top: 5px;">
+                <label  class="control-label " >Pay Amount</label>
+              </div>
+              <div class=" col-sm-5">
+                <input name="payAmount" id="payAmount" type="text" class="form-control" [(ngModel)] = "payAmount" (keyup)="calculateTotal()">
+              </div>
+
+            </div>
+
+            <button (click)="updateSupplierPayments()" type="submit" class="btn btn pull-right" >Update Details</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

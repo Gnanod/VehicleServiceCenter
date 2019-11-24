@@ -505,24 +505,36 @@ export class LubeDetailJobComponent implements OnInit {
 
       if(this.lubejobOrderItemDetailsArray1.length!=0 ||this.jobOrderItemDetailsArray.length!=0){
 
-        this.jobOrderService.addJobOrder(jobOrderDto).subscribe((result)=>{
+        this.jobOrderService.serchPreviousJobs(this.vehicleCustomerDTO.vehicleId).subscribe((result)=>{
 
           if(result !=null){
 
-            alert("Stock Added Successfully");
-            this.lubejobOrderItemDetailsArray1 = new Array<JobOrderItemDetails>();
-            this.jobOrderItemDetailsArray = new Array<JobOrderItemDetails>();
+            alert("You Should Make Your Previous Payments before Making this Payment according to "+result.serviceId+" Id");
 
-             this.grossAmount=0;
-             this.newcreditBalance=0;
-            this.totAmount=0;
-            this.totAmount1=0;
-            this.PaymentType=null;
-             this.paidAmount=0;
+          }else{
+            this.jobOrderService.addJobOrder(jobOrderDto).subscribe((result)=>{
 
+              if(result !=null){
+
+                alert("Stock Added Successfully");
+                this.lubejobOrderItemDetailsArray1 = new Array<JobOrderItemDetails>();
+                this.jobOrderItemDetailsArray = new Array<JobOrderItemDetails>();
+
+                this.grossAmount=0;
+                this.newcreditBalance=0;
+                this.totAmount=0;
+                this.totAmount1=0;
+                this.PaymentType=null;
+                this.paidAmount=0;
+
+              }
+
+            });
           }
 
         });
+
+
       }else{
 
         alert("Please Add Jobs TO Table");

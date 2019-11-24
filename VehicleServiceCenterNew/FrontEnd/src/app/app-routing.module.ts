@@ -17,6 +17,9 @@ import {LowStockLevelComponent} from "./view/low-stock-level/low-stock-level.com
 import {SupplierCreditReportComponent} from "./view/supplier-credit-report/supplier-credit-report.component";
 import {NewJobOrderComponent} from "./view/new-job-order/new-job-order.component";
 import {LubeDetailJobComponent} from "./view/lube-detail-job/lube-detail-job.component";
+import {SupplierPayementsComponent} from "./view/supplier-payements/supplier-payements.component";
+import {CustomerPayementsComponent} from "./view/customer-payements/customer-payements.component";
+import {PrintJobCardComponent} from "./view/print-job-card/print-job-card.component";
 
 const routes: Routes = [
     {
@@ -79,6 +82,18 @@ const routes: Routes = [
           {
             path :'LubeDetailJob',
             component: LubeDetailJobComponent
+          },
+          {
+            path :'SupplierPayments',
+            component: SupplierPayementsComponent
+          },
+          {
+            path :'CustomerPayments',
+            component: CustomerPayementsComponent
+          },
+          {
+            path :'printJobCard',
+            component:PrintJobCardComponent
           }
 
 

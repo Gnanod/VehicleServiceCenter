@@ -38,9 +38,15 @@ export class MainComponent implements OnInit {
         } else if(this.router.url=='/main/StockManagement'){
           this.headerText="Stock Management";
         } else if(this.router.url == '/main/ServiceManagement'){
-          this.headerText="Service Management"
+          this.headerText="Service Management";
         }else if(this.router.url == '/main/SupplierCreditReports'){
-          this.headerText="Supplier Payments"
+          this.headerText="Supplier Payments Report";
+        }else if(this.router.url == '/main/SupplierPayments'){
+          this.headerText="Supplier Payments";
+
+        }else if(this.router.url == '/main/CustomerPayments') {
+
+          this.headerText = "Customer Payments";
         }
 
     }
@@ -72,13 +78,25 @@ export class MainComponent implements OnInit {
 
           this.router.navigate(['main/jobOrder'])
 
-        }else if(button == 'Supplier Payments'){
+        }else if(button == 'Supplier Payments Reports'){
 
           this.router.navigate(['main/SupplierCreditReports'])
 
+        }else if(button == 'Supplier Payements'){
+
+          this.router.navigate(['main/SupplierPayments'])
+
+        }else if(button == 'Customer Payments'){
+
+          this.router.navigate(['main/CustomerPayments'])
         }else if(button == 'Details'){
 
           this.router.navigate(['main/LubeDetailJob'])
+
+        }else if(button == 'Print Job Card'){
+
+          this.router.navigate(['main/printJobCard'])
+
         }
 
     }

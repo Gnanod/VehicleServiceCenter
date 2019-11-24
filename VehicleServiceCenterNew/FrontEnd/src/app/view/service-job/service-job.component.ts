@@ -165,6 +165,7 @@ export class ServiceJobComponent implements OnInit {
 
 
   searchVehicleDetailsByNumber(){
+
     this.vehicleservice.searchVehicleDetails(this.searchVehicleNumber).subscribe((result)=>{
       if (result == null) {
         this.vehicleId = null;

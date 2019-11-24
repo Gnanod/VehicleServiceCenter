@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {Supplier} from "../Model/Supplier";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {UpdateJobPrice} from "../DTO/UpdateJobPrice";
 
 const URL = '/SupplierController';
 
@@ -53,5 +54,17 @@ export class SupplierService {
 
   updateSupplier(updateSupplierVar: Supplier) {
     return this.http.post<Supplier>(environment.backend_url + URL + '/updateSupplier',updateSupplierVar);
+  }
+
+  searchServiceDetailsByNumber(serviceId: string) {
+
+    return this.http.get<UpdateJobPrice>(environment.backend_url + URL + '/searchServiceDetailsByNumber/'+serviceId);
+
+  }
+
+  updateSupplierPayments(uj: UpdateJobPrice) {
+
+    return this.http.post<string>(environment.backend_url + URL + '/updateSupplierPayments',uj);
+
   }
 }

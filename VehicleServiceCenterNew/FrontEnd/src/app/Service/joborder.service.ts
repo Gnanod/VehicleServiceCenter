@@ -8,6 +8,7 @@ import {JobOrderItemDetails} from "../Model/JobOrderItemDetails";
 import {JobOrderDTO} from "../DTO/JoOrderDTO";
 import {Services} from "../Model/Services";
 import {VehicleCustomerDTO} from "../DTO/VehicleCustomerDTO";
+import {ServicesDTO} from "../DTO/ServicesDTO";
 
 const URL = '/JobOrderController';
 @Injectable({
@@ -80,6 +81,24 @@ export class JoborderService {
   searchServiceDetails(serviceJobOrderId: string) {
 
     return this.http.get<VehicleCustomerDTO>(environment.backend_url + URL+'/getDetailsAccordingToServiceId/'+serviceJobOrderId);
+
+  }
+
+  serchPreviousJobs(vehicleId: string) {
+
+    return this.http.get<JobOrder>(environment.backend_url + URL+'/serchPreviousJobs/'+vehicleId);
+
+  }
+
+  printJobOrder() {
+
+    return this.http.get<string>(environment.backend_url + URL+'/printJobOrder');
+
+  }
+
+  printJobOrders(sendServiceDetail: ServicesDTO) {
+
+    return this.http.post<string>(environment.backend_url + URL+'/printJobOrder',sendServiceDetail);
 
   }
 }

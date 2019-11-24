@@ -70,4 +70,19 @@ public class VehicleServiceImpl implements VehicleService{
         return  vehicleRepository.searchByVehicleId(parseInt);
     }
 
+    @Override
+    public Vehicle searchVehicleNumbers(String serviceJobId) {
+        Object o = vehicleRepository.searchVehicleNumbers(serviceJobId);
+
+        if(o!=null){
+            Vehicle v1 = new Vehicle();
+
+            v1.setVehicleNumber(o.toString());
+            return v1;
+        }else{
+            return null;
+        }
+
+    }
+
 }

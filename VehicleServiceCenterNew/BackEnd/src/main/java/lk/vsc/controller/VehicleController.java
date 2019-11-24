@@ -30,6 +30,14 @@ public class VehicleController {
         
     }
 
+
+    @GetMapping(value ="/searchVehicleNumbers/{serviceJobId}")
+    public Vehicle searchVehicleNumbers(@PathVariable String serviceJobId){
+
+        return vehicleService.searchVehicleNumbers(serviceJobId);
+
+    }
+
     @GetMapping(value = "/searchByVehicleNumber/{vehicleNumber}")
     public Vehicle searchByVehicleNumber(@PathVariable String vehicleNumber){
         System.out.println("GGGGGGGGGGGGGGG");

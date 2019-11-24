@@ -22,7 +22,6 @@ public class ServiceIdController {
     @GetMapping(value = "/getLastID")
     public ServiceJob getLastID(){
 
-        System.out.println("HHHHHHHHHHHHHHH");
         String lastId = idService.getResult();
         ServiceJob s1 = new ServiceJob();
         if (lastId != null) {
@@ -40,7 +39,7 @@ public class ServiceIdController {
 
         } else {
 
-            s1.setServiceJobId("S000000001");
+            s1.setServiceJobId("S0000000001");
 
 
         }

@@ -1,10 +1,14 @@
 package lk.vsc.service.impl;
 
+import jdk.nashorn.internal.parser.JSONParser;
 import lk.vsc.entity.*;
 import lk.vsc.repository.ItemRepository;
 import lk.vsc.repository.JobOrderRepository;
+import lk.vsc.repository.PrintJobOrderRepository;
 import lk.vsc.repository.ServiceJobRepository;
 import lk.vsc.service.JobOrderService;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,6 +26,8 @@ public class JobOrderServiceImpl implements JobOrderService {
     private ItemRepository itemRepository;
     @Autowired
     private ServiceJobRepository serviceJobRepository;
+    @Autowired
+    private PrintJobOrderRepository printJobOrderRepository;
 
     @Override
     public List<Item> getItemsForJobOrder(String itemName, String makeName, String modelName) {
@@ -160,6 +166,33 @@ public class JobOrderServiceImpl implements JobOrderService {
                return  null;
            }
 
+
+    }
+
+    @Override
+    public JobOrder serchPreviousJobs(String vehicleId) {
+
+        Object s1 = serviceJobRepository.serchPreviousJobs(Integer.parseInt(vehicleId));
+
+        if(s1!=null){
+            JobOrder j1 = new JobOrder();
+            j1.setServiceId(s1.toString());
+            return j1;
+        }else{
+            return null;
+        }
+
+    }
+
+    @Override
+    public String printJobOrder(PrintJobOrder j1) {
+
+        PrintJobOrder p = printJobOrderRepository.save(j1);
+        if(p!=null){
+            return "S";
+        }else{
+            return null;
+        }
 
     }
 }

@@ -43,7 +43,6 @@ export class NewJobOrderComponent implements OnInit {
   constructor(private joborderservice : JoborderService, private servicesService: ServicesService
     ,private vehicleservice : VehicleService,private make_model_service :MakeModelService , private  itemService:ItemService ,private jobOrderService :JoborderService,private datePipe :DatePipe,private serviceJobService: ServicejobService) {
 
-    this.getServiceDetailLastId();
 
   }
   ////////////////////////////////////////////////////////
@@ -82,10 +81,6 @@ export class NewJobOrderComponent implements OnInit {
   searchVehicleDetails : Vehicle = new Vehicle();
   searchVehicleNumber : string;
 
-
-
-
-
   vehicleId : Number;
   vehicleNumber: string;
   engineNumber: string;
@@ -98,10 +93,32 @@ export class NewJobOrderComponent implements OnInit {
   customerphone: string;
   customeraddress: string;
   customeremail: string;
+  serviceJobId:string;
+
+  searchVehicleNumbers(event :any) {
+
+    if(this.serviceJobId.length!=0){
+
+      if(event.which ===13){
+        this.vehicleservice.searchVehicleNumbers(this.serviceJobId).subscribe((result) => {
+
+          if(result!=null){
+            this.searchVehicleDetailsByNumber(result.vehicleNumber);
+          }else{
+
+            alert("Job Order Not Found");
+          }
+
+        });
+      }
+
+    }
 
 
-  searchVehicleDetailsByNumber(){
-    this.vehicleservice.searchVehicleDetails(this.searchVehicleNumber).subscribe((result)=>{
+  }
+
+  searchVehicleDetailsByNumber(value:string){
+    this.vehicleservice.searchVehicleDetails(value).subscribe((result)=>{
       if (result == null) {
         this.vehicleId = null;
         this.engineNumber = null;
@@ -119,6 +136,7 @@ export class NewJobOrderComponent implements OnInit {
       else {
         this.searchVehicleDetails = result;
         this.vehicleId = this.searchVehicleDetails.vehicleId;
+        this.searchVehicleNumber=value;
         this.vehicleNumber = this.searchVehicleDetails.vehicleNumber;
         this.engineNumber = this.searchVehicleDetails.engineNumber;
         this.vehicleClass = this.searchVehicleDetails.vehicleClass;
@@ -187,7 +205,7 @@ export class NewJobOrderComponent implements OnInit {
 
 
   allServicesDescArray: Array<Services>= new Array<Services>();
-  getServiceToAddById: number;
+
   insertSelectedServiceType: number;
   servicesOfTheServiceJobArrray: Array<Services> = new Array<Services>();
 
@@ -196,7 +214,6 @@ export class NewJobOrderComponent implements OnInit {
     this.servicesService.getAllServices().subscribe((result)=>{
       if(result!=null){
         this.allServicesDescArray = result;
-
       }
 
     });
@@ -222,7 +239,7 @@ export class NewJobOrderComponent implements OnInit {
         this.servicesOfTheServiceJobArrray.push(ser);
 
 
-        this.serviceInvoice.invoiceNumber = this.lastId.serviceJobId;
+        this.serviceInvoice.invoiceNumber = this.serviceJobId;
         this.serviceInvoice.chasisNumber= this.engineNumber;
         this.serviceInvoice.make = this.vehicleMake;
         this.serviceInvoice.model = this.vehicleModel;
@@ -256,7 +273,7 @@ export class NewJobOrderComponent implements OnInit {
     this.serviceJDArray.push(serviceJD);
 
 
-    this.serviceOrder.serviceJobId= this.lastId.serviceJobId;
+    this.serviceOrder.serviceJobId= this.serviceJobId;
     this.serviceOrder.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.serviceOrder.employeeName= "Fudddd";
     this.serviceOrder.serviceJobDetails = this.serviceJDArray;
@@ -283,25 +300,9 @@ export class NewJobOrderComponent implements OnInit {
 
 
   lastId :ServiceJob = new ServiceJob();
-  stringLastId :string;
 
-  getServiceDetailLastId(){
 
-    this.serviceJobService.getServiceDetailLastId().subscribe((result)=>{
-      if(result !=null){
 
-        console.log("Result"+result);
-        this.lastId = result;
-        this.stringLastId== this.lastId.serviceJobId;
-        console.log("this.stringLastId"+this.stringLastId);
-
-        console.log("ffdf"+this.lastId.serviceJobId);
-
-      }
-
-    });
-
-  }
 
 
 

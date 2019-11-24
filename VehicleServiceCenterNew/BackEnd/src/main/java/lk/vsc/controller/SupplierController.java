@@ -1,5 +1,6 @@
 package lk.vsc.controller;
 
+import lk.vsc.DTO.UpdateJobPrice;
 import lk.vsc.entity.Supplier;
 import lk.vsc.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,4 +56,18 @@ public class SupplierController {
         return supplierService.updateSupplier(supplier);
 
     }
+
+    @GetMapping(value ="/searchServiceDetailsByNumber/{serviceId}")
+    public UpdateJobPrice searchServiceDetailsByNumber(@PathVariable String serviceId){
+
+        return supplierService.searchServiceDetailsByNumber(serviceId);
+    }
+
+    @PostMapping(value = "updateSupplierPayments")
+    public String updateSupplierPayments(@RequestBody UpdateJobPrice u){
+
+        return supplierService.updateSupplierPayments(u);
+
+    }
+
 }

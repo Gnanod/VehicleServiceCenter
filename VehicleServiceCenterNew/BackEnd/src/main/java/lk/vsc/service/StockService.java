@@ -1,5 +1,6 @@
 package lk.vsc.service;
 
+import lk.vsc.DTO.CreditPaymentDto;
 import lk.vsc.DTO.LowStockLevelDTO;
 import lk.vsc.entity.Item;
 import lk.vsc.entity.Stock;
@@ -11,4 +12,6 @@ public interface StockService {
    String addStock(Stock stock);
 
     List<LowStockLevelDTO> getLowStockLevelReport();
+
+    List<CreditPaymentDto> getCreditPaymentDetails();
 }

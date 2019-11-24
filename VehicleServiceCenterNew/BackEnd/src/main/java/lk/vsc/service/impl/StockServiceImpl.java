@@ -1,6 +1,7 @@
 package lk.vsc.service.impl;
 
 import jdk.nashorn.internal.parser.JSONParser;
+import lk.vsc.DTO.CreditPaymentDto;
 import lk.vsc.DTO.LowStockLevelDTO;
 import lk.vsc.entity.Item;
 import lk.vsc.entity.Stock;
@@ -71,5 +72,28 @@ public class StockServiceImpl implements StockService {
 
 
         return d;
+    }
+
+    @Override
+    public List<CreditPaymentDto> getCreditPaymentDetails() {
+
+        List<Object[]> creditPayment = stockRepository.getCreditPaymentDetails();
+
+        List<CreditPaymentDto> a1 = new ArrayList<>();
+
+        for ( Object[] c:creditPayment
+             ) {
+
+            CreditPaymentDto s = new CreditPaymentDto();
+            s.setCompany_name(c[0].toString());
+            s.setAgent_name(c[1].toString());
+            s.setPhone_number(c[2].toString());
+            s.setPayment(Double.parseDouble(c[3].toString()));
+            s.setStock_payement_date(c[4].toString());
+            s.setCredit_balance(Double.parseDouble(c[5].toString()));
+            a1.add(s);
+        }
+
+        return a1;
     }
 }
