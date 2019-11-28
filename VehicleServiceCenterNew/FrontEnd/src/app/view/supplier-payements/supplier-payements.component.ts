@@ -47,11 +47,11 @@ export class SupplierPayementsComponent implements OnInit {
   }
 
   name :string = "Gnanod"
-  viewPaymentDetails(){
-
-    this.runtimeServic.sendData(this.name);
+  viewPaymentDetails(paymet :CreditPaymentDto){
 
 
+    this.runtimeServic.sendData(paymet);
+    this.router.navigate(['/main/UpdateSupplierPayments'])
   }
 
 }

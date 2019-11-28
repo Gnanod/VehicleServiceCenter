@@ -8,18 +8,20 @@ import {CreditPaymentDto} from "../DTO/CreditPaymentDto";
   providedIn: 'root'
 })
 export class RuntimDataService {
-  public temp: any;
+  public creditPaymentDto: CreditPaymentDto;
 
   constructor(private http :HttpClient) { }
 
-  sendData(name :string) {
+  sendData(payment :CreditPaymentDto) {
 
-    this.temp = name;
+    this.creditPaymentDto = payment;
 
 
   }
 
-  getTemp(){
-    return this.temp ? this.temp : "no data";
+  getPayementDetails(){
+
+
+    return this.creditPaymentDto ;
   }
 }

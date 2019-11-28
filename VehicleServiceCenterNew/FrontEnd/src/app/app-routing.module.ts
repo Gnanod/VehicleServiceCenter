@@ -20,6 +20,7 @@ import {LubeDetailJobComponent} from "./view/lube-detail-job/lube-detail-job.com
 import {SupplierPayementsComponent} from "./view/supplier-payements/supplier-payements.component";
 import {CustomerPayementsComponent} from "./view/customer-payements/customer-payements.component";
 import {PrintJobCardComponent} from "./view/print-job-card/print-job-card.component";
+import {UpdateSupplierPaymentsComponent} from "./view/update-supplier-payments/update-supplier-payments.component";
 
 const routes: Routes = [
     {
@@ -98,6 +99,10 @@ const routes: Routes = [
           {
             path : 'updatePaymentDetails',
             component : SupplierPayementsComponent
+          },
+          {
+            path:'UpdateSupplierPayments',
+            component : UpdateSupplierPaymentsComponent
           }
 
 
