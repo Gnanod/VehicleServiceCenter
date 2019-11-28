@@ -11,10 +11,7 @@ import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -74,12 +71,17 @@ public class JobOrderController {
 
     }
 
+    @GetMapping(value = "/print/{serviceJob}")
+    public JobOrder print(@PathVariable ServicesDTO serviceJob) {
 
-    @PostMapping(value = "/printJobOrder")
-    public String printJobOrder(@RequestBody ServicesDTO serviceJob) {
+        return null;
+
+    }
+
+    @PostMapping(value = "/downloadJobOrder")
+    public DocumentDto DownloadJobOrder(@RequestBody ServicesDTO serviceJob){
 
         Map<String, Object> parameters = new HashMap<String, Object>();
-
         ServiceInvoiceDTO v1 = serviceJob.getServiceInvoice();
         System.out.println("v1.getInvoiceNumber()" + v1.getVehicleNumber());
         parameters.put("invoiceNumber", v1.getInvoiceNumber());
@@ -104,6 +106,8 @@ public class JobOrderController {
         j1.setTime(getCurrentTime());
         j1.setVehicleNumber(v1.getVehicleNumber());
         String s1 = jobOrderService.printJobOrder(j1);
+//        byte[] bytes=null;
+        String bytes = null;
         if(s1!=null) {
 
             JasperPrint jasperPrint;
@@ -113,15 +117,24 @@ public class JobOrderController {
                 OutputStream outputStream = new FileOutputStream(new File(outputFile));
                 /* Write content to PDF file */
                 JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
+
                 System.out.println("File Generated: " + outputFile);
+
+                File f = new File(outputFile);
+                bytes = downloadPdf(f);
+                //System.out.println("Bytes form Length"+bytes.length);
             } catch (JRException e) {
 
                 e.printStackTrace();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
-            }
 
-            return "9";
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            DocumentDto d = new DocumentDto();
+            d.setPdf(bytes);
+            return d;
 
         }else{
 
@@ -307,8 +320,6 @@ public class JobOrderController {
 //        /* Using compiled version(.jasper) of Jasper report to generate PDF */
         JasperPrint jasperPrint;
         try {
-
-
             jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/hobAndJube.jasper", parameters, new JREmptyDataSource());
 
             /* outputStream to create PDF */
@@ -317,6 +328,7 @@ public class JobOrderController {
             JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
 
             System.out.println("File Generated: " + outputFile);
+
 
         } catch (JRException e) {
 
@@ -344,4 +356,27 @@ public class JobOrderController {
         return (sdf.format(cal.getTime()));
 
     }
+
+
+    public String  downloadPdf(File crunchifyFile) throws IOException {
+        FileInputStream crunchifyInputStream = null;
+        byte[] crunchifyByteStream = new byte[(int) crunchifyFile.length()];
+        try {
+            crunchifyInputStream = new FileInputStream(crunchifyFile);
+            crunchifyInputStream.read(crunchifyByteStream);
+            crunchifyInputStream.close();
+            for (int counter = 0; counter < crunchifyByteStream.length; counter++) {
+                System.out.print((char) crunchifyByteStream[counter]);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String s = Base64.getEncoder().encodeToString(crunchifyByteStream);
+        return  s;
+    }
+
+
+
+
+
 }

@@ -94,6 +94,10 @@ const routes: Routes = [
           {
             path :'printJobCard',
             component:PrintJobCardComponent
+          },
+          {
+            path : 'updatePaymentDetails',
+            component : SupplierPayementsComponent
           }
 
 

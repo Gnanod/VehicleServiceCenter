@@ -62,10 +62,9 @@ public class StockServiceImpl implements StockService {
             LowStockLevelDTO d1 = new LowStockLevelDTO();
 
 
-            d1.setItemName(ob[0].toString());
-            d1.setMakeName(ob[1].toString());
-            d1.setModelName(ob[2].toString());
-            d1.setQtyOnHand(Double.parseDouble(ob[3].toString()));
+            d1.setItemName(ob[1].toString());
+            d1.setItemId(ob[0].toString());
+            d1.setQtyOnHand(Double.parseDouble(ob[2].toString()));
 
             d.add(d1);
         }

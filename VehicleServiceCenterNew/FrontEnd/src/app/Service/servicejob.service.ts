@@ -5,6 +5,7 @@ import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {ServiceInvoiceDTO} from "../DTO/ServiceInvoiceDTO";
 import {ServicesDTO} from "../DTO/ServicesDTO";
+import {DocumentDto} from "../DTO/DocumentDto";
 
 const URL = '/ServiceJobController';
 const URL1 = '/ServiceIdController'
@@ -39,7 +40,7 @@ export class ServicejobService {
 
   addServiceJobs(serviceOrder: ServicesDTO) {
 
-    return this.http.post<string>(environment.backend_url + URL + '/addServiceJob',serviceOrder);
+    return this.http.post<DocumentDto>(environment.backend_url + URL + '/addServiceJob',serviceOrder);
 
 
   }

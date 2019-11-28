@@ -1,20 +1,15 @@
 package lk.vsc.controller;
 
-import lk.vsc.DTO.JobOrderDTO;
+import lk.vsc.DTO.DocumentDto;
 import lk.vsc.DTO.ServiceInvoiceDTO;
 import lk.vsc.DTO.ServicesDTO;
-import lk.vsc.entity.ServiceJob;
 import lk.vsc.entity.Services;
-import lk.vsc.service.JobOrderService;
 import lk.vsc.service.ServiceJobService;
-import lk.vsc.service.ServicesService;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
-import net.sf.jasperreports.repo.InputStreamResource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.ServletContext;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,14 +24,15 @@ public class ServiceJobController {
     @Autowired
     private ServiceJobService serviceJobService;
     private String outputFile;
-    @PostMapping(value = "/addServiceJob")
-    public String addItem(@RequestBody ServicesDTO serviceJob) {
 
-        String s =serviceJobService.addServiceJob(serviceJob.getServiceOrder());
-        if(s.length()!=0){
-            createJasperReport(serviceJob);
-            return "0";
-        }else{
+    @PostMapping(value = "/addServiceJob")
+    public DocumentDto addItem(@RequestBody ServicesDTO serviceJob) {
+
+        String s = serviceJobService.addServiceJob(serviceJob.getServiceOrder());
+        if (s.length() != 0) {
+            DocumentDto d= createJasperReport(serviceJob);
+            return d;
+        } else {
             return null;
         }
 
@@ -60,7 +56,7 @@ public class ServiceJobController {
 
     }
 
-    public void createJasperReport(ServicesDTO serviceJob){
+    public DocumentDto createJasperReport(ServicesDTO serviceJob) {
 
         ServiceInvoiceDTO v1 = serviceJob.getServiceInvoice();
         ArrayList<Services> v2 = v1.getServices();
@@ -71,13 +67,13 @@ public class ServiceJobController {
         /* Map to hold Jasper report Parameters */
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("servicesDataSource", itemsJRBean);
-        parameters.put("invoiceNumber",v1.getInvoiceNumber());
+        parameters.put("invoiceNumber", v1.getInvoiceNumber());
         parameters.put("vehicleNumber", v1.getVehicleNumber());
         parameters.put("chasisNumber", v1.getChasisNumber());
         parameters.put("make", v1.getMake());
         parameters.put("year", v1.getYear());
-        parameters.put("model",v1.getModel());
-        parameters.put("customerName",v1.getCustomerName());
+        parameters.put("model", v1.getModel());
+        parameters.put("customerName", v1.getCustomerName());
         parameters.put("customerPhoneNumber", v1.getCustomerPhoneNumber());
         parameters.put("customerAddress", v1.getCustomerAddress());
         parameters.put("total", Double.toString(v1.getTotal()));
@@ -85,16 +81,17 @@ public class ServiceJobController {
         String userHomeDirectory = System.getProperty("user.home");
         /* Output file location */
 
-        String fileName = "Service_Bill_"+getCurrentDate() + "_" + getCurrentTime() + ".pdf";
+        String fileName = "Service_Bill_" + getCurrentDate() + "_" + getCurrentTime() + ".pdf";
 
-         outputFile = userHomeDirectory + File.separatorChar + "Documents/"+ fileName;
+        outputFile = userHomeDirectory + File.separatorChar + "Documents/" + fileName;
 
 //        /* Using compiled version(.jasper) of Jasper report to generate PDF */
+        String bytes = null;
         JasperPrint jasperPrint;
         try {
 
 
-            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir")+"/BackEnd/src/main/java/lk/vsc/jasper/ServiceReport.jasper", parameters, new JREmptyDataSource());
+            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/ServiceReport.jasper", parameters, new JREmptyDataSource());
 
             /* outputStream to create PDF */
             OutputStream outputStream = new FileOutputStream(new File(outputFile));
@@ -103,19 +100,40 @@ public class ServiceJobController {
 
             System.out.println("File Generated: " + outputFile);
 
+            File f = new File(outputFile);
+            bytes = downloadPdf(f);
         } catch (JRException e) {
 
             e.printStackTrace();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
 
+        DocumentDto d = new DocumentDto();
+        d.setPdf(bytes);
+        return d;
+
     }
 
-    public void downoladFile(){
 
 
+    public String  downloadPdf(File crunchifyFile) throws IOException {
+        FileInputStream crunchifyInputStream = null;
+        byte[] crunchifyByteStream = new byte[(int) crunchifyFile.length()];
+        try {
+            crunchifyInputStream = new FileInputStream(crunchifyFile);
+            crunchifyInputStream.read(crunchifyByteStream);
+            crunchifyInputStream.close();
+            for (int counter = 0; counter < crunchifyByteStream.length; counter++) {
+                System.out.print((char) crunchifyByteStream[counter]);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        String s = Base64.getEncoder().encodeToString(crunchifyByteStream);
+        return  s;
     }
-
 
 }

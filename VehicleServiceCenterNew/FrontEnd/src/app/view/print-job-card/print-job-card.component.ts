@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../Model/Customer";
 import {Vehicle} from "../../Model/Vehicle";
 import {VehicleService} from "../../Service/vehicle.service";
@@ -7,6 +7,7 @@ import {ServicejobService} from "../../Service/servicejob.service";
 import {ServiceJob} from "../../Model/ServiceJob";
 import {ServicesDTO} from "../../DTO/ServicesDTO";
 import {ServiceInvoiceDTO} from "../../DTO/ServiceInvoiceDTO";
+import {saveAs} from 'file-saver/dist/filesaver';
 
 @Component({
   selector: 'app-print-job-card',
@@ -15,35 +16,36 @@ import {ServiceInvoiceDTO} from "../../DTO/ServiceInvoiceDTO";
 })
 export class PrintJobCardComponent implements OnInit {
 
-  constructor(private vehicleservice : VehicleService,private jobService :JoborderService,private serviceJobService: ServicejobService) { }
+  constructor(private vehicleservice: VehicleService, private jobService: JoborderService, private serviceJobService: ServicejobService) {
+  }
 
   ngOnInit() {
     this.getServiceDetailLastId();
   }
 
-  vehicleId : Number;
+  vehicleId: Number;
   vehicleNumber: string;
   engineNumber: string;
   vehicleClass: string;
   vehicleMake: string;
   vehicleModel: string;
-  yearOfManufacture:string;
+  yearOfManufacture: string;
   customer: Customer;
   customername: string;
   customerphone: string;
   customeraddress: string;
   customeremail: string;
-  searchVehicleDetails : Vehicle = new Vehicle();
-  searchVehicleNumber : string;
+  searchVehicleDetails: Vehicle = new Vehicle();
+  searchVehicleNumber: string;
 
-  lastId :ServiceJob = new ServiceJob();
-  stringLastId :string;
-  serviceInvoice : ServiceInvoiceDTO = new ServiceInvoiceDTO();
+  lastId: ServiceJob = new ServiceJob();
+  stringLastId: string;
+  serviceInvoice: ServiceInvoiceDTO = new ServiceInvoiceDTO();
 
   searchVehDetailsByNumber() {
 
 
-    this.vehicleservice.searchVehicleDetails(this.searchVehicleNumber).subscribe((result)=>{
+    this.vehicleservice.searchVehicleDetails(this.searchVehicleNumber).subscribe((result) => {
       if (result == null) {
 
         this.vehicleId = null;
@@ -54,10 +56,10 @@ export class PrintJobCardComponent implements OnInit {
         this.yearOfManufacture = null;
         this.customer = null;
 
-        this.customername= null;
-        this.customerphone= null;
-        this.customeraddress= null;
-        this.customeremail= null;
+        this.customername = null;
+        this.customerphone = null;
+        this.customeraddress = null;
+        this.customeremail = null;
       }
       else {
 
@@ -73,65 +75,98 @@ export class PrintJobCardComponent implements OnInit {
         this.yearOfManufacture = this.searchVehicleDetails.yearOfManufacture;
         this.customer = this.searchVehicleDetails.customer;
 
-        this.customername= this.customer.firstName;
-        this.customerphone= this.customer.phoneNumber;
-        this.customeraddress= this.customer.address;
-        this.customeremail= this.customer.email;
+        this.customername = this.customer.firstName;
+        this.customerphone = this.customer.phoneNumber;
+        this.customeraddress = this.customer.address;
+        this.customeremail = this.customer.email;
 
       }
     });
   }
 
 
+  serviceOrder: ServiceJob = new ServiceJob();
 
-  serviceOrder : ServiceJob = new ServiceJob();
+  printJobOrder() {
 
-  printJobOrder(){
-
-    this.serviceInvoice.chasisNumber= this.engineNumber;
+    this.serviceInvoice.chasisNumber = this.engineNumber;
     this.serviceInvoice.make = this.vehicleMake;
     this.serviceInvoice.model = this.vehicleModel;
-    this.serviceInvoice.vehicleNumber= this.searchVehicleNumber;
-    this.serviceInvoice.year  = this.yearOfManufacture;
+    this.serviceInvoice.vehicleNumber = this.searchVehicleNumber;
+    this.serviceInvoice.year = this.yearOfManufacture;
     this.serviceInvoice.customerName = this.customername;
     this.serviceInvoice.customerAddress = this.customeraddress;
     this.serviceInvoice.customerPhoneNumber = this.customerphone;
 
-    let sendServiceDetail : ServicesDTO = new ServicesDTO();
+    let sendServiceDetail: ServicesDTO = new ServicesDTO();
 
-    this.serviceOrder.serviceJobId= this.lastId.serviceJobId;
+    this.serviceOrder.serviceJobId = this.lastId.serviceJobId;
     sendServiceDetail.serviceInvoice = this.serviceInvoice;
 
-    this.jobService.printJobOrders(sendServiceDetail).subscribe((result)=>{
 
-      if(result!=null){
-        alert('Job Order Print Successfully');
-        this.vehicleId = null;
-        this.engineNumber = null;
-        this.vehicleClass = null;
-        this.vehicleMake = null;
-        this.vehicleModel = null;
-        this.yearOfManufacture = null;
-        this.customer = null;
+    if (this.searchVehicleNumber != null) {
 
-        this.customername= null;
-        this.customerphone= null;
-        this.customeraddress= null;
-        this.customeremail= null;
-      }else{
-        alert('Cant Print JobOrder')
 
-      }
-    });
+      this.jobService.printJobOrders(sendServiceDetail).subscribe((result) => {
+
+        if (result != null) {
+
+
+          /////////////////////download Byte Array//////////////////////////////////////
+
+          const linkSource = 'data:application/pdf;base64,' + result.pdf;
+          const downloadLink = document.createElement("a");
+          const fileName = "lubeJobCard.pdf";
+          downloadLink.href = linkSource;
+          downloadLink.download = fileName;
+          downloadLink.click();
+
+          ///////////////////////////////////////////////////////////////////////////////////////
+
+
+          this.vehicleId = null;
+          this.engineNumber = null;
+          this.vehicleClass = null;
+          this.vehicleMake = null;
+          this.vehicleModel = null;
+          this.yearOfManufacture = null;
+          this.customer = null;
+          this.customername = null;
+          this.customerphone = null;
+          this.customeraddress = null;
+          this.customeremail = null;
+        } else {
+          alert('Cant Print JobOrder')
+
+        }
+      });
+    }else{
+      alert("Please Enter Vehicle Number");
+    }
   }
 
-  getServiceDetailLastId(){
 
-    this.serviceJobService.getServiceDetailLastId().subscribe((result)=>{
-      if(result !=null){
+  convertDataURIToBinary(dataURI) {
+    var BASE64_MARKER = ';base64,';
+    var base64Index = dataURI.indexOf(BASE64_MARKER) + BASE64_MARKER.length;
+    var base64 = dataURI.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+
+    for (var i = 0; i < rawLength; i++) {
+      array[i] = raw.charCodeAt(i);
+    }
+    return array;
+  }
+
+  getServiceDetailLastId() {
+
+    this.serviceJobService.getServiceDetailLastId().subscribe((result) => {
+      if (result != null) {
 
         this.lastId = result;
-        this.stringLastId== this.lastId.serviceJobId;
+        this.stringLastId == this.lastId.serviceJobId;
 
         this.serviceInvoice.invoiceNumber = this.lastId.serviceJobId;
 

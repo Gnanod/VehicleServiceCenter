@@ -291,6 +291,25 @@ export class NewJobOrderComponent implements OnInit {
 
         alert("Service Added Successfully");
 
+        this.servicesOfTheServiceJobArrray = new Array<Services>();
+        this.serviceJobId = null;
+        this.searchVehicleNumber = null;
+        this.engineNumber = null;
+        this.vehicleClass = null;
+        this.vehicleMake = null;
+        this.vehicleModel = null;
+        this.yearOfManufacture = null;
+        this.customername = null;
+        this.customerphone = null;
+        this.customeremail = null;
+        this.customeraddress = null;
+
+        const linkSource = 'data:application/pdf;base64,' + result.pdf;
+        const downloadLink = document.createElement("a");
+        const fileName = "ServiceJobCard.pdf";
+        downloadLink.href = linkSource;
+        downloadLink.download = fileName;
+        downloadLink.click();
 
       }
 

@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {SupplierService} from "../../Service/supplier.service";
 import {StockService} from "../../Service/stock.service";
 import {Supplier} from "../../Model/Supplier";
 import {UpdateJobPrice} from "../../DTO/UpdateJobPrice";
 import {CreditPaymentDto} from "../../DTO/CreditPaymentDto";
 import {NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-supplier-payements',
@@ -13,9 +15,17 @@ import {NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 })
 export class SupplierPayementsComponent implements OnInit {
 
-  constructor(public stockService:StockService) { }
+  constructor(public stockService:StockService,public router:Router) { }
 
-  creditPaymentDto :Array<CreditPaymentDto> = new Array<CreditPaymentDto>();
+   creditPaymentDto :Array<CreditPaymentDto> = new Array<CreditPaymentDto>();
+
+  message: string = "Hola Mundo!"
+
+  @Output() messageEvent = new EventEmitter<string>();
+
+  sendMessage() {
+
+  }
   ngOnInit() {
 
     this.getCreditPaymentDetails();
@@ -33,6 +43,12 @@ export class SupplierPayementsComponent implements OnInit {
       }
 
     });
+  }
+
+  viewPaymentDetails(){
+
+    this.messageEvent.emit(this.message);
+    this.router.navigate(['main/updatePaymentDetails']);
   }
 
 }

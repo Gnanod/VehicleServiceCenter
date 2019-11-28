@@ -9,8 +9,14 @@ import {JobOrderDTO} from "../DTO/JoOrderDTO";
 import {Services} from "../Model/Services";
 import {VehicleCustomerDTO} from "../DTO/VehicleCustomerDTO";
 import {ServicesDTO} from "../DTO/ServicesDTO";
+import {DocumentDto} from "../DTO/DocumentDto";
 
 const URL = '/JobOrderController';
+const  httpOptions = {
+  'responseType'  : 'arraybuffer' as 'json'
+  //'responseType'  : 'blob' as 'json'        //This also worked
+};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -92,13 +98,17 @@ export class JoborderService {
 
   printJobOrder() {
 
-    return this.http.get<string>(environment.backend_url + URL+'/printJobOrder');
+    return this.http.get<any>(environment.backend_url + URL+'/printJobOrder');
 
   }
 
-  printJobOrders(sendServiceDetail: ServicesDTO) {
 
-    return this.http.post<string>(environment.backend_url + URL+'/printJobOrder',sendServiceDetail);
+  printJobOrders(sendServiceDetail:ServicesDTO) {
 
+    // return this.http.get<any>(environment.backend_url + URL+'/printJobOrder/'+sendServiceDetail);
+    // return this.http.get<JobOrder>(environment.backend_url + URL+'/print/'+sendServiceDetail);
+    console.log(sendServiceDetail);
+
+    return this.http.post<DocumentDto>(environment.backend_url + URL+'/downloadJobOrder/',sendServiceDetail);
   }
 }

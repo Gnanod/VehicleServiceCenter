@@ -2,11 +2,19 @@ package lk.vsc.DTO;
 
 public class LowStockLevelDTO {
 
-
+    private String itemId;
     private String itemName;
     private String makeName;
     private String modelName;
     private double qtyOnHand;
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
+    }
 
     public String getItemName() {
         return itemName;

@@ -53,7 +53,7 @@
                 {{credit.payment}}
               </td >
               <td class="td-actions ">
-                <button type="button" rel="tooltip" class="btn btn-behance" >
+                <button type="button" rel="tooltip" class="btn btn-behance" onclick="viewPaymentDetails()">
                   <i class="far fa-edit"></i>
                 </button>
               </td>
@@ -120,4 +120,16 @@
   </div>
 </div>
 
+<script>
+  $(document).ready(function(){
+    $(document).on('click',function(e){
+      if($(e.target).hasClass("cus_see_stock")){
+        reloadStockForGiven(e.target);
+      }
+    });
+  });
+  function showModel() {
 
+    $("#myModal10").model('show');
+  }
+</script>

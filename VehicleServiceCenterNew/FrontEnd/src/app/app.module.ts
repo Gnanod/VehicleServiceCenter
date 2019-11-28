@@ -31,6 +31,7 @@ import { CustomerPayementsComponent } from './view/customer-payements/customer-p
 import {NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import {PopupService} from "@ng-bootstrap/ng-bootstrap/util/popup";
 import { PrintJobCardComponent } from './view/print-job-card/print-job-card.component';
+import { UpdateSupplierPaymentsComponent } from './view/update-supplier-payments/update-supplier-payments.component';
 
 
 // @ts-ignore
@@ -54,7 +55,8 @@ import { PrintJobCardComponent } from './view/print-job-card/print-job-card.comp
     LubeDetailJobComponent,
     SupplierPayementsComponent,
     CustomerPayementsComponent,
-    PrintJobCardComponent
+    PrintJobCardComponent,
+    UpdateSupplierPaymentsComponent
   ],
   imports: [
     BrowserModule,

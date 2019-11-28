@@ -5,6 +5,6 @@ export  class LowStockLevelDTO{
   makeName:string;
   modelName:string;
   qtyOnHand :number;
-
+  itemId :string;
 
 }

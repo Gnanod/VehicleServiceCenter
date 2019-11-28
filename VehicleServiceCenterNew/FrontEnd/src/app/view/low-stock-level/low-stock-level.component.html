@@ -21,9 +21,8 @@
             <thead>
             <tr>
 
+              <th class="text-center">Item Id</th>
               <th class="text-center">Item Name</th>
-              <th class="text-center">Make Name</th>
-              <th class="text-center">Model Name</th>
               <th class="text-center">Quantity On Hand</th>
             </tr>
             </thead>
@@ -33,14 +32,11 @@
 
 
               <td class="text-center">
+                {{lowStock.itemId}}
+              </td>
+              <td class="text-center">
                 {{lowStock.itemName}}
               </td>
-              <td class="text-center">
-                {{lowStock.makeName}}
-              </td>
-              <td class="text-center">
-                {{lowStock.modelName}}
-              </td >
               <td style="color: red; font-size: 25px ;font-style: inherit" class="text-center">
                 {{lowStock.qtyOnHand}}
               </td>
