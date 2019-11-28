@@ -10,7 +10,7 @@ public interface SupplierService {
     Supplier addSupplier(Supplier supplier);
     void deleteSupplier(int supplier);
     Supplier updateSupplier(Supplier supplier);
-    Supplier searchBySupplierName(String searchSupplierName);
+    List<Supplier> searchBySupplierName(String searchSupplierName);
     List<Supplier> getAllSupplier();
     List<Supplier> getSupplierNames(String supplierCompany);
     UpdateJobPrice searchServiceDetailsByNumber(String serviceId);

@@ -115,7 +115,7 @@
             </div>
           </div>
           <div class="col-md-4" style="margin-left: -280px ;margin-top: 0px">
-            <button type="submit" class="btn btn-behance pull-right" >    <i class="fas fa-search"></i></button>
+            <button type="submit" class="btn btn-behance pull-right"  (click)="searchSupplierDetailsByName()" >    <i class="fas fa-search"></i></button>
           </div>
 
         </div>
@@ -123,7 +123,7 @@
         <div class="table-responsive">
           <table class="table">
             <thead>
-            <tr>
+            <tr >
               <th>Agent Name</th>
               <th>Company Name</th>
               <th >Email Address</th>
@@ -142,33 +142,33 @@
 
             <ng-template #elseBlock>
 
-              <tr>
+              <tr *ngFor="let supplier of searchSupplierDetails">
                 <td class="text-center">
-                  {{searchSupplierDetails.agentName}}
+                  {{supplier.agentName}}
                 </td>
                 <td class="text-center">
-                  {{searchSupplierDetails.companyName}}
+                  {{supplier.companyName}}
                 </td>
                 <td class="text-center">
-                  {{searchSupplierDetails.email}}
+                  {{supplier.email}}
                 </td >
 
                 <td class="text-center">
-                  {{searchSupplierDetails.address}}
+                  {{supplier.address}}
                 </td>
                 <td>
-                  {{searchSupplierDetails.phoneNumber}}
+                  {{supplier.phoneNumber}}
                 </td>
 
 
                 <td class="td-actions ">
-                  <button type="button" rel="tooltip" class="btn btn-info" (click)="editSupplier(searchSupplierDetails)">
-                    <i class="material-icons">Edit</i>
+                  <button type="button" rel="tooltip" class="btn btn-info" (click)="editSupplier(supplier)">
+                    <i class="far fa-edit"></i>
                   </button>
                 </td>
 
                 <td class="td-actions ">
-                  <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteSupplier()">
+                  <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteSupplier(supplier.supplierId)">
                     <i class="fas fa-times"></i>
                   </button>
                 </td>

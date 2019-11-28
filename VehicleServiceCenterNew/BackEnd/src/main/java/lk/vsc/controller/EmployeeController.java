@@ -38,7 +38,7 @@ public class EmployeeController {
 
 
     @GetMapping(value = "/searchByEmployeeNumber/{employeeId}")
-    public Employee searchByEmployeeNumber(@PathVariable String employeeId){
+    public List<Employee> searchByEmployeeNumber(@PathVariable String employeeId){
         return employeeService.searchByEmployeeNumber(employeeId);
     }
 

@@ -20,25 +20,24 @@ export class SupplierComponent implements OnInit {
 
   });
 
-
   public supplier: Supplier = new Supplier();
-
   constructor(public supplierService: SupplierService) {
 
   }
   searchSupplierValuesIf = true;
-  searchSupplierDetails: Supplier = new Supplier();
+  searchSupplierDetails: Array<Supplier> = new Array<Supplier>();
+  updateSuppliers :Supplier;
   updateSupplierDetails: Supplier = new Supplier();
   searchSupplierNumber: number;
 
   UpdateSupplierDetails() {
 
-    this.supplierService.UpdateSupplierDetails(this.searchSupplierDetails).subscribe((result) => {
+    this.supplierService.UpdateSupplierDetails(this.updateSuppliers).subscribe((result) => {
 
       if (result != null) {
 
         alert("Supplier Updated SuccessFully");
-        this.searchSupplierDetails = new Supplier();
+        this.updateSuppliers = new Supplier();
 
       }
 
@@ -51,7 +50,7 @@ export class SupplierComponent implements OnInit {
     this.supplierService.searchSupplierDetails(this.supplierName).subscribe((result) => {
 
 
-      if (result == null) {
+      if (result.length == 0) {
         this.searchSupplierValuesIf = true;
 
       } else {
@@ -78,17 +77,19 @@ export class SupplierComponent implements OnInit {
 
   }
 
-  deleteSupplier() {
+  deleteSupplier(id:any) {
 
     if (confirm("Do you really want to Delete......!")) {
 
-      this.supplierService.deleteSupplier(this.searchSupplierNumber).subscribe((result) => {
+      this.supplierService.deleteSupplier(id).subscribe((result) => {
 
         if (result == null) {
 
           alert('Supplier Deleted SuccessFully');
-
+          this.searchSupplierDetails= new Array<Supplier>();
+          this.searchSupplierValuesIf = true;
         } else {
+
 
           alert('Supplier Deleted Fail');
 
@@ -113,6 +114,7 @@ export class SupplierComponent implements OnInit {
 
   editSupplier(searchSupplierDetails: Supplier) {
 
+    this.updateSuppliers = searchSupplierDetails;
     this.upSupplierId = searchSupplierDetails.supplierId;
 
     console.log(searchSupplierDetails.supplierId);
@@ -122,6 +124,8 @@ export class SupplierComponent implements OnInit {
     this.upSupplierAddress = searchSupplierDetails.address;
     this.upSupplierCompany = searchSupplierDetails.companyName;
     this.upSupplierPhone = searchSupplierDetails.phoneNumber;
+
+
 
 
   }
@@ -141,6 +145,13 @@ export class SupplierComponent implements OnInit {
     this.supplierService.updateSupplier(this.updateSupplierVar).subscribe(result => {
       if (result != null) {
         alert("Updated successfully")
+
+        this.upSupplierId=null;
+        this.upSupplierAgent=null;
+        this.upSupplierEmail=null;
+        this.upSupplierAddress=null;
+        this.upSupplierCompany=null;
+        this.upSupplierPhone=null;
       }
     });
   }

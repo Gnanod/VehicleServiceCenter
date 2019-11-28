@@ -41,7 +41,7 @@ export class EmployeeService {
 
   searchEmployeeDetails(searchEmployeeNumber: string) {
 
-    return this.http.get<Employee>(environment.backend_url + URL + '/searchByEmployeeNumber/'+searchEmployeeNumber);
+    return this.http.get<Array<Employee>>(environment.backend_url + URL + '/searchByEmployeeNumber/'+searchEmployeeNumber);
   }
 
   LoginDetail(loginDet: Login) {

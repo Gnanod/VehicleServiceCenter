@@ -33,7 +33,7 @@ public class SupplierController {
 
 
     @GetMapping(value = "/searchBySupplierName/{searchSupplierName}")
-    public Supplier searchBySupplierNumber(@PathVariable String searchSupplierName){
+    public List<Supplier> searchBySupplierNumber(@PathVariable String searchSupplierName){
         return supplierService.searchBySupplierName(searchSupplierName);
     }
 

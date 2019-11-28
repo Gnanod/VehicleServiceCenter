@@ -1,7 +1,6 @@
 package lk.vsc.repository;
 
 
-import lk.vsc.DTO.UpdateJobPrice;
 import lk.vsc.entity.Supplier;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -12,7 +11,7 @@ import java.util.List;
 public interface SupplierRepository extends JpaRepository<Supplier,Integer> {
 
     @Query(value = "from Supplier where agentName = :supplierId")
-    Supplier searchBySupplierNumber(@Param("supplierId") String supplierId);
+    List<Supplier> searchBySupplierNumber(@Param("supplierId") String supplierId);
 
     @Query(value = "select distinct companyName from Supplier ")
     List<Object[]> findAllCompanies();

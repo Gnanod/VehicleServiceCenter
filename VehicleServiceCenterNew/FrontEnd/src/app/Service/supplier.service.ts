@@ -36,7 +36,7 @@ export class SupplierService {
   }
 
   searchSupplierDetails(searchSupplierName: string) {
-    return this.http.get<Supplier>(environment.backend_url + URL + '/searchBySupplierName/'+searchSupplierName);
+    return this.http.get<Array<Supplier>>(environment.backend_url + URL + '/searchBySupplierName/'+searchSupplierName);
   }
 
 

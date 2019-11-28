@@ -13,15 +13,17 @@
                             <div class="card-body">
                                 <div class="row" >
 
-                                    <div class="col-md-4" style="margin-left: 250px">
+                                    <div class="col-md-4" style="margin-left: 50px">
                                         <div class="form-group">
-                                            <label class="bmd-label-floating">Search By Vehicle Name</label>
+                                            <label class="bmd-label-floating">Search By Vehicle Number</label>
                                             <input type="text" class="form-control" style="width: 300px" (keyup)="searchVehicleDetailsByNumber($event)" [(ngModel)]="searchVehicleNumber">
+                                             <!--<button type="submit" class="btn btn-behance pull-right"  style="margin-left: -600px ;margin-top: 0px"(click)="searchVehicleDetailsByNumber($event)" >  <i class="fas fa-search"></i></button>-->
+
                                         </div>
                                     </div>
-                                    <div class="col-md-4" style="margin-left: -300px ;margin-top: 0px">
+                                    <div class="col-md-2">
 
-                                        <button type="submit" class="btn btn-behance pull-right" (click)="searchVehicleDetailsByNumber($event)" >  <i class="fas fa-search"></i></button>
+                                        <button type="submit" class="btn btn-behance pull-left"  (click)="searchVehicleDetailsByNumber($event)" >  <i class="fas fa-search"></i></button>
 
                                     </div>
                                     <!--(click)="searchVehicleDetailsByNumber()"-->

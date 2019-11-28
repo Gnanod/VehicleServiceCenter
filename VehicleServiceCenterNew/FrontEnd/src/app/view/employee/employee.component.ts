@@ -22,7 +22,16 @@ export class EmployeeComponent implements OnInit {
   //
   // });
 
+  employeeId:string;
+  firstName:string;
+  lastName :string;
+  email:string;
+  nic:string;
+  address:string;
+  birthday:string;
+  phoneNumber:string;
 
+  updateEmployee :Employee = new Employee();
 
 
 
@@ -53,39 +62,41 @@ export class EmployeeComponent implements OnInit {
     //Employee search to be edited
 
     searchEmployeeValuesIf = true;
-    searchEmployeeDetails: Employee = new Employee();
+    searchEmployeeDetails: Array<Employee> = new Array<Employee>();
     updateEmployeeDetails: Employee = new Employee();
     searchEmployeeNumber: string;
 
     UpdateEmployeeDetails()
     {
-      this.employeeService.UpdateEmployeeDetails(this.searchEmployeeDetails).subscribe((result) => {
+      this.employeeService.UpdateEmployeeDetails(this.updateEmployee).subscribe((result) => {
 
         if (result != null) {
 
           alert("Employee Updated SuccessFully");
+          this.updateEmployee = new Employee();
 
         }
 
       });
     }
 
-    searchEmployeeDetailsByNumber(value
-  :
-    string
-  )
+    searchEmployeeDetailsByNumber()
     {
-      this.employeeService.searchEmployeeDetails(this.searchEmployeeNumber).subscribe((result) => {
+      console.log("GGGGGGGGG"+this.searchEmployeeNumber);
+      if(this.searchEmployeeNumber.length!=0){
+        this.employeeService.searchEmployeeDetails(this.searchEmployeeNumber).subscribe((result) => {
 
+          console.log(result)
+          if (result.length == 0) {
+            this.searchEmployeeValuesIf = true;
 
-        if (result == null) {
-          this.searchEmployeeValuesIf = true;
+          } else {
+            this.searchEmployeeValuesIf = false;
+            this.searchEmployeeDetails = result;
+          }
+        });
+      }
 
-        } else {
-          this.searchEmployeeValuesIf = false;
-          this.searchEmployeeDetails = result;
-        }
-      });
     }
 
     //ends here
@@ -291,7 +302,7 @@ export class EmployeeComponent implements OnInit {
 
         this.validPhoneNumberIf = true;
 
-        this.searchEmployeeDetails = new Employee();
+      //  this.searchEmployeeDetails = new Employee();
         // if(this.employee.phoneNumber.length!=10){
         //   this.validPhoneNumberLength = true;
         // }
@@ -303,17 +314,17 @@ export class EmployeeComponent implements OnInit {
       }
     }
 
-    deleteEmployee()
+    deleteEmployee(empId:any)
     {
 
       if (confirm("Do you really want to Delete......!")) {
-        this.employeeService.deleteEmployee(this.searchEmployeeDetails.employeeId).subscribe((result) => {
+        this.employeeService.deleteEmployee(empId).subscribe((result) => {
 
           if (result == null) {
 
             alert('Employee Deleted SuccessFully');
             this.searchEmployeeValuesIf = true;
-
+            this.searchEmployeeDetails = new Array<Employee>();
           } else {
 
             alert('Employee Deleted Fail');
@@ -387,6 +398,7 @@ export class EmployeeComponent implements OnInit {
     }
 
 
-
-
+  editEmployee(employee: Employee) {
+ this.updateEmployee = employee;
+  }
 }

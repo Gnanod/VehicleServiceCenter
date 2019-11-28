@@ -24,8 +24,8 @@
                                         <input type="text" class="form-control" style="width: 340px" [(ngModel)]="searchCustomerName">
                                     </div>
                                 </div>
-                                <div class="col-md-4" style="margin-left: -300px ;margin-top: 0px">
-                                    <button type="submit" class="btn btn-behance  pull-right" (click)="searchByCustomerName()">    <i class="fas fa-search"></i></button>
+                                <div class="col-md-2">
+                                    <button type="submit" class="btn btn-behance  pull-left" (click)="searchByCustomerName()">    <i class="fas fa-search"></i></button>
                                 </div>
 
                             </div>
@@ -46,37 +46,37 @@
                                     </thead>
                                     <tbody>
                                     
-                                    <tr *ngIf="searchCustomerValuesIf;else elseBlock">
+                                    <tr *ngIf="searchCustomerValuesIf;else elseBlock ">
                                         <td colspan="8" class="alert alert-danger" style="text-align: center">
                                             Customer Not Found
                                         </td>
                                     </tr>
 
                                     <ng-template #elseBlock>
-                                        <tr>
+                                      <tr *ngFor="let customer of searchCustomerDetails">
                                             <td>
-                                                {{searchCustomerDetails .nic}}
+                                                {{customer .nic}}
                                             </td>
                                             <td>
-                                                {{searchCustomerDetails.firstName}}
+                                                {{customer.firstName}}
                                             </td>
                                             <td>
-                                                {{searchCustomerDetails.lastName}}
+                                                {{customer.lastName}}
                                             </td>
                                             <td>
-                                                {{searchCustomerDetails.email}}
+                                                {{customer.email}}
                                             </td>
                                             <td>
-                                                {{searchCustomerDetails.address}}
+                                                {{customer.address}}
                                             </td>
                                             <td>
-                                                {{searchCustomerDetails.birthday}}
+                                                {{customer.birthday}}
                                             </td>
                                             <td>
-                                                {{searchCustomerDetails.phoneNumber}}
+                                                {{customer.phoneNumber}}
                                             </td>
                                             <td class="td-actions ">
-                                                <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteCustomer()">
+                                                <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteCustomer(customer .nic)">
                                                   <i class="fas fa-times"></i>
                                                 </button>
                                             </td>

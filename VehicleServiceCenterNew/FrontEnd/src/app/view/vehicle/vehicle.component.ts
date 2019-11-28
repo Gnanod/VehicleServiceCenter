@@ -27,7 +27,7 @@ export class VehicleComponent implements OnInit {
   stringDateModel: string;
   searchCustomerName :string ;
   searchCustomerValuesIf = true;
-  searchCustomerDetails : Customer = new Customer();
+  searchCustomerDetails : Array<Customer> = new Array<Customer>();
   nic :string;
 
   form1 = new FormGroup({
@@ -108,7 +108,7 @@ export class VehicleComponent implements OnInit {
   
     this.customerService.searchByCustomerName(this.searchCustomerName).subscribe((result)=>{
 
-        if(result==null){
+        if(result.length==0){
             this.searchCustomerValuesIf=true;
             
         }else{
@@ -119,15 +119,16 @@ export class VehicleComponent implements OnInit {
     });
     }
 
-    deleteCustomer(){
+    deleteCustomer(value:any){
 
       if (confirm("Do you really want to Delete......!")) {
-        this.customerService.deleteCustomer(this.searchCustomerDetails.nic).subscribe((result)=>{
+        this.customerService.deleteCustomer(value).subscribe((result)=>{
 
           if(result==null){
 
             alert('Customer Deleted SuccessFully');
-
+            this.searchCustomerDetails = new Array<Customer>();
+            this.searchCustomerValuesIf=true;
           }else{
 
             alert('Customer Deleted Fail');

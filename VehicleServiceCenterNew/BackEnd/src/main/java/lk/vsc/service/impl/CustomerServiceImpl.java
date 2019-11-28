@@ -29,7 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public Customer searchByCustomerName(String name) {
+    public List<Customer> searchByCustomerName(String name) {
         
         return customerRepository.searchByCustomerName(name);
         

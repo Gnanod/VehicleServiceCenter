@@ -33,7 +33,7 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee searchByEmployeeNumber(String employeeId) {
+    public List<Employee> searchByEmployeeNumber(String employeeId) {
 
         return employeeRepository.searchByEmployeeNumber(employeeId);
     }

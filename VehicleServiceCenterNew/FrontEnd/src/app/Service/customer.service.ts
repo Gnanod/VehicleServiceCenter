@@ -20,7 +20,7 @@ export class CustomerService {
     
     searchByCustomerName(searchCustomerName :string) {
       
-        return this.http.get<Customer>(environment.backend_url + URL + '/searchByCustomerName/'+searchCustomerName);
+        return this.http.get<Array<Customer>>(environment.backend_url + URL + '/searchByCustomerName/'+searchCustomerName);
     }
 
     deleteCustomer(nic: string) {

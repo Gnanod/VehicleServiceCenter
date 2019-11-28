@@ -1,7 +1,6 @@
 package lk.vsc.service;
 
 import lk.vsc.entity.Customer;
-import lk.vsc.entity.Vehicle;
 
 import java.util.List;
 
@@ -11,7 +10,7 @@ public interface CustomerService {
 
     List<Customer> getAllCustomers();
 
-    Customer searchByCustomerName(String name);
+    List<Customer> searchByCustomerName(String name);
 
     void deleteCustomer(String nic);
 

@@ -6,6 +6,7 @@ import {UpdateJobPrice} from "../../DTO/UpdateJobPrice";
 import {CreditPaymentDto} from "../../DTO/CreditPaymentDto";
 import {NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import {Router} from "@angular/router";
+import {RuntimDataService} from "../../Service/runtim-data.service";
 
 
 @Component({
@@ -15,7 +16,7 @@ import {Router} from "@angular/router";
 })
 export class SupplierPayementsComponent implements OnInit {
 
-  constructor(public stockService:StockService,public router:Router) { }
+  constructor(public stockService:StockService,public router:Router,public runtimeServic :RuntimDataService) { }
 
    creditPaymentDto :Array<CreditPaymentDto> = new Array<CreditPaymentDto>();
 
@@ -45,10 +46,12 @@ export class SupplierPayementsComponent implements OnInit {
     });
   }
 
+  name :string = "Gnanod"
   viewPaymentDetails(){
 
-    this.messageEvent.emit(this.message);
-    this.router.navigate(['main/updatePaymentDetails']);
+    this.runtimeServic.sendData(this.name);
+
+
   }
 
 }
