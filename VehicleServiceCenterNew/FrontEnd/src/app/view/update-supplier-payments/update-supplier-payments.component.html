@@ -20,7 +20,6 @@
               </div>
               <div class=" col-sm-7">
                 <input name="serviceId" type="text" class="form-control" [(ngModel)] = "creditPaymentDto.stockId" disabled>
-                <!--<input name="firstName" type="text" class="form-control" [(ngModel)] = "serviceId" >-->
               </div>
 
             </div>
@@ -58,23 +57,11 @@
                 <label  class="control-label " >Date</label>
               </div>
               <div class=" col-sm-5">
-                <input name="date" type="text" class="form-control" [(ngModel)] = "date" disabled>
+                <input name="date" type="date" class="form-control" [(ngModel)] = "creditPaymentDto.stock_payement_date" >
               </div>
 
             </div>
-
             <br>
-            <div class="row">
-              <div class="col-sm-2" style="text-align: right;margin-top: 5px;">
-              </div>
-              <div class="col-sm-3" style="text-align: left;margin-top: 5px;">
-                <label  class="control-label " >Payment Type</label>
-              </div>
-
-            </div>
-
-            <br>
-
             <div class="row">
               <div class="col-sm-2" style="text-align: right;margin-top: 5px;">
               </div>
@@ -82,11 +69,11 @@
                 <label  class="control-label " >Pay Amount</label>
               </div>
               <div class=" col-sm-5">
-                <input name="payAmount" id="payAmount" type="text" class="form-control" [(ngModel)] = "payAmount" (keyup)="calculateTotal()">
+                <input name="payAmount" id="payAmount" type="text" class="form-control" [(ngModel)] = "payAmount" (keyup)="calculateBalance()">
               </div>
             </div>
 
-            <button (click)="updateSupplierPayments()" type="submit" class="btn btn pull-right" >Update Details</button>
+            <button (click)="updateStockPayment()" type="submit" class="btn btn pull-right" >Update Details</button>
             <div class="clearfix"></div>
           </form>
         </div>

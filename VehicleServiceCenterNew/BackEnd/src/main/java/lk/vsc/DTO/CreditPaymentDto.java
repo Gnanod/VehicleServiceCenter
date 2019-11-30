@@ -7,8 +7,17 @@ public class CreditPaymentDto {
     String phone_number ;
     double credit_balance;
     String stock_payement_date;
+    String paymentType;
     double payment ;
     int stockId;
+
+    public String getPaymentType() {
+        return paymentType;
+    }
+
+    public void setPaymentType(String paymentType) {
+        this.paymentType = paymentType;
+    }
 
     public int getStockId() {
         return stockId;

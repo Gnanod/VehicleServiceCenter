@@ -24,7 +24,7 @@ export class StockDetailsComponent implements OnInit {
   public constructor(private make_model_service :MakeModelService,private itemService :ItemService,private supplierService:SupplierService,private datePipe :DatePipe,private stockService:StockService,private makeService:MakeServiceService) { }
 
   ngOnInit() {
-    this.getAllItems();
+    this.getAllSuppliers();
     this.findAllMakes();
   }
 
@@ -83,22 +83,6 @@ export class StockDetailsComponent implements OnInit {
 
   /////////////////////////////////////////////
   stockPayementDate :string;
-
-  addToTable(){
-
-    let makeModel : MakeModel = new MakeModel();
-    console.log("selectedmake"+this.selectedMake);
-    makeModel.makeName=this.selectedMake;
-    makeModel.modelName=this.addTableModel;
-
-    if(this.selectedMake !=null && this.addTableModel!=null){
-
-      this.tableMakeModel.push(makeModel);
-
-    }
-
-
-  }
 
   itemId :string;
   totAmount :number=0;
@@ -219,16 +203,6 @@ export class StockDetailsComponent implements OnInit {
 
   }
 
-  deleteMakeModel(id){
-
-    for(let i = 0; i < this.tableMakeModel.length; ++i){
-      if (this.tableMakeModel[i].modelName === id) {
-        this.tableMakeModel.splice(i,1);
-      }
-    }
-
-  }
-
 
   deleteRow(id){
 
@@ -246,43 +220,15 @@ export class StockDetailsComponent implements OnInit {
 
   }
 
-  addMakeModelDetails(){
 
-    if( this.tableMakeModel.length!=0){
-
-      this.make_model_service.addMakeModelDetails(this.tableMakeModel).subscribe((result)=>{
-
-        if(result!=null){
-
-          alert('Makes Added SuccessFully');
-          this.addTableModel= null;
-          this.tableMakeModel= new Array<MakeModel>();
-        }
-      });
-
-    }else{
-
-      alert('Please Add Models To Table');
-
-    }
-
-  }
 
   modelNameif =false;
   getMakeModelDetails(value :string){
-
-       console.log("value"+value);
     this.make_model_service.getMakeModelDetails(value).subscribe((result)=>{
-
-      console.log("result"+result.length)
       if(result.length!=0){
-
         this.modelNameif=true;
-
         this.searchMakesByModel=result;
         this.searchMakesByModel[0]=result[0];
-        //this.addTableModel=null;
-
       }else{
 
         this.searchMakesByModel = new Array<MakeModel>();
@@ -335,11 +281,11 @@ if( this.insertItemToTable.length!=0){
 
 
 
-  getAllItems() {
+  getAllSuppliers() {
 
     this.supplierService.getAllSupplier().subscribe((result) => {
       this.suppliers = result;
-      this.selectedSupplierCompany=result[0].companyName;
+      // this.selectedSupplierCompany=result[0].companyName;
     });
 
   }
@@ -348,7 +294,6 @@ if( this.insertItemToTable.length!=0){
 
     this.supplierService.getSuppliersNames(value).subscribe((result) => {
       this.suppliersNames = result;
-
       console.log(this.suppliersNames[0])
 
     });
@@ -368,12 +313,7 @@ if( this.insertItemToTable.length!=0){
 
           this.selectedItem.itemId=null;
           this.getAllItemDetailsToUI("K");
-          //  alert('Item Not Found ')
-          // this.searchItemDetails.quantityOnHand=10;
-
         } else {
-          // this.searchItemValuesIf=false;
-          //this.searchItemDetails = result;
           this.searchItemDetailsArray=result;
           this.searchItemDetails=result[0];
           console.log("StockLevelItem :"+this.selectedItem.stockLevel);
@@ -385,27 +325,6 @@ if( this.insertItemToTable.length!=0){
       this.searchItemDetailsArray=null;
     }
 
-
-
-    // if(this.searchItemName.length!=0){
-    //
-    //   console.log(this.searchItemName);
-    //   this.itemService.searchItemDetailsByName(this.searchItemName).subscribe((result)=>{
-    //
-    //     if(result==null){
-    //
-    //     //  alert('Item Not Found ')
-    //      // this.searchItemDetails.quantityOnHand=10;
-    //
-    //     }else{
-    //       // this.searchItemValuesIf=false;
-    //       this.searchItemDetails=result;
-    //
-    //     }
-    //   });
-    // }else{
-    //
-    // }
 
   }
 
@@ -439,11 +358,6 @@ if( this.insertItemToTable.length!=0){
 
     let supplier : Supplier = new Supplier();
     supplier.supplierId =this.selectedSupplier.supplierId;
-
-
-
-    //console.log("FFFFFFFFFFFFFFFFF"+this.selectedSupplier.supplierId);
-
     stock.supplier=supplier;
     stock.payment=this.totAmount;
     stock.paymentType=this.paymentType;

@@ -20,38 +20,23 @@ export class SupplierPayementsComponent implements OnInit {
 
    creditPaymentDto :Array<CreditPaymentDto> = new Array<CreditPaymentDto>();
 
-  message: string = "Hola Mundo!"
-
-  @Output() messageEvent = new EventEmitter<string>();
-
-  sendMessage() {
-
-  }
   ngOnInit() {
-
     this.getCreditPaymentDetails();
-
   }
 
   getCreditPaymentDetails(){
-
     this.stockService.getCreditPaymentDetails().subscribe((result) => {
-
       if (result != null) {
-
         this.creditPaymentDto =result;
-
       }
 
     });
   }
 
-  name :string = "Gnanod"
+
   viewPaymentDetails(paymet :CreditPaymentDto){
-
-
     this.runtimeServic.sendData(paymet);
-    this.router.navigate(['/main/UpdateSupplierPayments'])
+    this.router.navigate(['/main/UpdateSupplierPayments']);
   }
 
 }

@@ -3,6 +3,7 @@ package lk.vsc.controller;
 import lk.vsc.DTO.DocumentDto;
 import lk.vsc.DTO.ServiceInvoiceDTO;
 import lk.vsc.DTO.ServicesDTO;
+import lk.vsc.entity.ServiceJob;
 import lk.vsc.entity.Services;
 import lk.vsc.service.ServiceJobService;
 import net.sf.jasperreports.engine.*;
@@ -28,7 +29,9 @@ public class ServiceJobController {
     @PostMapping(value = "/addServiceJob")
     public DocumentDto addItem(@RequestBody ServicesDTO serviceJob) {
 
-        String s = serviceJobService.addServiceJob(serviceJob.getServiceOrder());
+        ServiceJob s3 = serviceJob.getServiceOrder();
+
+        String s = serviceJobService.addServiceJob(s3);
         if (s.length() != 0) {
             DocumentDto d= createJasperReport(serviceJob);
             return d;
@@ -98,7 +101,6 @@ public class ServiceJobController {
             /* Write content to PDF file */
             JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
 
-            System.out.println("File Generated: " + outputFile);
 
             File f = new File(outputFile);
             bytes = downloadPdf(f);
@@ -127,7 +129,6 @@ public class ServiceJobController {
             crunchifyInputStream.read(crunchifyByteStream);
             crunchifyInputStream.close();
             for (int counter = 0; counter < crunchifyByteStream.length; counter++) {
-                System.out.print((char) crunchifyByteStream[counter]);
             }
         } catch (Exception e) {
             e.printStackTrace();

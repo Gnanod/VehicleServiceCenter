@@ -21,7 +21,7 @@
                                 <div class="col-md-4" style="margin-left: 150px">
                                     <div class="form-group">
                                         <label class="bmd-label-floating">Search By Name</label>
-                                        <input type="text" class="form-control" style="width: 340px" [(ngModel)]="searchCustomerName">
+                                        <input type="text" class="form-control" style="width: 340px" [(ngModel)]="searchCustomerName" (keyup)="searchByCustomerName()">
                                     </div>
                                 </div>
                                 <div class="col-md-2">
@@ -247,25 +247,6 @@
                           <label >Select Make</label>
                           <br>
                           <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >
-
-                            <!--<option>Any</option>-->
-                            <!--<option>Abarth</option>-->
-                            <!--<option>Acura</option>-->
-                            <!--<option>Alfa Romeo</option>-->
-                            <!--<option>Ambassador</option>-->
-                            <!--<option>Aprilia</option>-->
-                            <!--<option>Audi</option>-->
-                            <!--<option>Austin</option>-->
-                            <!--<option>Bajaj</option>-->
-                            <!--<option>BMW</option>-->
-                            <!--<option>Cadillac</option>-->
-                            <!--<option>Caterpillar</option>-->
-                            <!--<option>Nissan</option>-->
-                            <!--<option>Suzuki</option>-->
-                            <!--<option>Toyota</option>-->
-                            <!--<option>Honda</option>-->
-                            <!--<option>530i</option>-->
-
                             <option  *ngFor="let names of findAllMakesToArray" [ngValue]="names.makeName">{{names.makeName}}</option>
 
                           </select>
@@ -400,17 +381,34 @@
                                 </div>
 
                                 <br>
+                              <label >Vehicle Class</label>
                                 <div class="row">
-                                    <div class="col-md-11">
-                                        <!--<mat-form-field>-->
-                                            <label >Vehicle Class</label>
-                                        <br>
-                                      <input type="text" class="form-control" [(ngModel)]="vehNgModel.vehicleClass" formControlName="vehicleClass" [ngClass]="{'is-invalid':form.get('vehicleClass').touched && form.get('vehicleClass').invalid }">
+                                  <div class="col-md-11">
+                                    <div class="form-group">
+                                      <!--<input class="form-control" id="servicevehiclass" name="vehicletype" [(ngModel)] = "services.vehicletype">-->
+                                      <select   class="form-control " data-style="select-with-transition" [(ngModel)]="vehNgModel.vehicleClass" formControlName="vehicleClass" [ngClass]="{'is-invalid':form.get('vehicleClass').touched && form.get('vehicleClass').invalid }">
+                                        <option disabled>Select Class</option>
+
+                                        <option *ngFor="let vehclass of vehicleClassArray" >{{vehclass.className}}</option>
+
+
+                                      </select>
+
                                       <div class="invalid-feedback"  *ngIf="form.get('vehicleClass').touched  && form.get('vehicleClass').invalid" >
-                                      Vehicle Class Field Is Empty
+                                        Vehicle Class Field Is Empty
                                       </div>
 
                                     </div>
+                                  </div>
+
+                                    <!--<div class="col-md-11">-->
+                                        <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
+                                            <!--<label >Vehicle Class</label>-->
+                                        <!--<br>-->
+                                      <!--<input type="text" class="form-control" [(ngModel)]="vehNgModel.vehicleClass" formControlName="vehicleClass" [ngClass]="{'is-invalid':form.get('vehicleClass').touched && form.get('vehicleClass').invalid }">-->
+
+
+                                    <!--</div>-->
                                 </div>
                               <br>
 <br>

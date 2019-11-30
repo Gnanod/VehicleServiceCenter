@@ -1,5 +1,3 @@
-
-
 <div class="row">
   <div class="col-md-12">
     <div class="card">
@@ -22,7 +20,8 @@
               <br>
 
               <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedSupplierCompany" #mySelect1 (change)="getSuppliersNames(mySelect1.value)" >
-                <option  *ngFor="let sup of suppliers  ">{{sup.companyName}}</option>
+                <option disabled value="Select">Select</option>
+                <option  *ngFor="let sup of suppliers">{{sup.companyName}}</option>
 
               </select>
             </div>
@@ -46,27 +45,6 @@
 
         <div class="row">
 
-          <!--<div class="col-sm-2">-->
-          <!--<div class="form-group">-->
-          <!--<label>Barcode</label>-->
-          <!--&lt;!&ndash;<input type="text" class="form-control" (keyup)="searchItemDetailsByBarcode($event)" [(ngModel)]="seachItemBarcode">&ndash;&gt;-->
-          <!--<input type="text" class="form-control" >-->
-
-          <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-sm-3">-->
-            <!--<div class="form-group">-->
-              <!--<label>Item Name</label>-->
-              <!--<input type="text" class="form-control" name="itemName"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemName" (keyup)="searchItemDetailsByName($event)" >-->
-            <!--</div>-->
-          <!--</div>-->
-          <!--<div class="col-md-3">-->
-            <!--<div class="form-group">-->
-              <!--<label> Search Item</label>-->
-              <!--<br>-->
-              <!--<input type="text" class="form-control" placeholder="Search Item"  [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem1" (keyup)="searchItemDetailsByName1($event)">-->
-            <!--</div>-->
-          <!--</div>-->
           <div class="col-sm-3">
             <div class="form-group">
               <br>
@@ -85,27 +63,10 @@
 
               <input type="text" class="form-control" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemDetails.itemName" style="margin-top: 4px">
 
-              <!--<select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedItem" #mySelect2 (change)="getAllItemDetailsToUI(mySelect2.value)">-->
-
-                <!--<option  *ngFor="let itemsS of searchItemDetailsArray  " [ngValue]="itemsS">{{itemsS.itemName}}</option>-->
-
-              <!--</select >-->
 
             </div>
 
           </div>
-          <!--<div class="col-md-2">-->
-
-            <!--<div class="form-group">-->
-              <!--<label >Select Item</label>                                                                             &lt;!&ndash;<div class="dropdown">&ndash;&gt;-->
-              <!--<select class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemName1" #mySelect1 (change)="getUnitPrice1(mySelect1.value)">          &lt;!&ndash;<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">&ndash;&gt;-->
-                <!--<option *ngFor="let make of searchItemDetails1" [value]="make.itemName">{{make.itemName}}</option>       &lt;!&ndash;Item/Job &lt;!&ndash; Current make data&ndash;&gt;&ndash;&gt;-->
-              <!--</select>                                                                                                    &lt;!&ndash;<b class="caret"></b>&ndash;&gt;-->
-            <!--</div>                                                                                                       &lt;!&ndash;</a>&ndash;&gt;-->
-
-          <!--</div>-->
-
-
           <div class="col-sm-3">
             <br>
             <div class="form-group" style="margin-top: -12px">
@@ -156,9 +117,6 @@
               <input type="text" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.itemQuantityType" disabled>
             </div>
           </div>
-          <!--<div class="col-sm-2">-->
-          <!---->
-          <!--</div>-->
           <div class="col-sm-2">
 
             <button type="submit" class="btn btn-behance pull-right" (click)="addToItemTable()">Add To Table</button>
@@ -248,12 +206,7 @@
 
 
           <div class="col-sm-3">
-            <!--<div class="form-group">-->
-              <!---->
-              <!---->
-              <!--&lt;!&ndash;<label>Amount</label>&ndash;&gt;-->
-              <!--&lt;!&ndash;<input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="totAmount" disabled>&ndash;&gt;-->
-            <!--</div>-->
+
             <div class="form-check form-check-radio">
               <label class="form-check-label">
                 <input class="form-check-input" type="radio" name="exampleRadiosu" id=" FullPayment" value="Full Payment" [(ngModel)]="paymentType"  (change)="changeValue()" checked>
@@ -386,27 +339,7 @@
                 <br>
                 <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">
 
-
                   <option  *ngFor="let names of findAllMakesToArray" [value]="names.makeName">{{names.makeName}}</option>
-
-                  <!--<option value="Any">Any</option>-->
-                  <!--<option >Abarth</option>-->
-                  <!--<option>Acura</option>-->
-                  <!--<option>Alfa Romeo</option>-->
-                  <!--<option>Ambassador</option>-->
-                  <!--<option>Aprilia</option>-->
-                  <!--<option>Audi</option>-->
-                  <!--<option>Austin</option>-->
-                  <!--<option>Bajaj</option>-->
-                  <!--<option>BMW</option>-->
-                  <!--<option>Cadillac</option>-->
-                  <!--<option>Caterpillar</option>-->
-                  <!--<option>Nissan</option>-->
-                  <!--<option>Suzuki</option>-->
-                  <!--<option>Toyota</option>-->
-                  <!--<option>Honda</option>-->
-                  <!--<option>530i</option>-->
-
 
                 </select>
               </div>
@@ -505,125 +438,7 @@
       </div>
     </div>
 
-    <!--<div class="col-md-4">-->
-      <!--<div class="card">-->
-        <!--<div class="card-header card-header-icon card-header-info">-->
-          <!--<div class="card-icon">-->
-            <!--<i class="fas fa-cubes"></i>-->
-          <!--</div>-->
-          <!--<h4 class="card-title">Add Vehicle Type-->
 
-          <!--</h4>-->
-        <!--</div>-->
-        <!--<div class="card-body">-->
-
-          <!--<div class="row">-->
-
-
-          <!--</div>-->
-
-          <!--<div class="row">-->
-            <!--<div class="col-md-6">-->
-              <!--<div class="form-group">-->
-                <!--<label >Select Make</label>-->
-                <!--<br>-->
-                <!--<select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedMake" >-->
-
-
-                  <!--<option  *ngFor="let names of findAllMakesToArray" [ngValue]="names.makeName">{{names.makeName}}</option>-->
-
-                  <!--&lt;!&ndash;<option>Any</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Abarth</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Acura</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Alfa Romeo</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Ambassador</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Aprilia</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Audi</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Austin</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Bajaj</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>BMW</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Cadillac</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Caterpillar</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Nissan</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Suzuki</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Toyota</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>Honda</option>&ndash;&gt;-->
-                  <!--&lt;!&ndash;<option>530i</option>&ndash;&gt;-->
-
-
-                <!--</select>-->
-
-              <!--</div>-->
-
-            <!--</div>-->
-            <!--<div class="col-md-6">-->
-              <!--<button class="btn btn-behance" data-toggle="modal" data-target="#myModal10" style="margin-top: 35px">-->
-                <!--<i class="fa fa-plus" aria-hidden="true"></i>-->
-              <!--</button>-->
-            <!--</div>-->
-
-
-          <!--</div>-->
-          <!--<div class="row">-->
-            <!--<div class="col-md-6">-->
-              <!--<div class="form-group">-->
-                <!--<label class="bmd-label-floating">Model Name</label>-->
-
-                <!--<input  type="text"   class="form-control "  [(ngModel)]="addTableModel" >-->
-                <!--&lt;!&ndash;<small [class.d-none]="name.valid || name.untouched" ]>Model Name Is required</small>&ndash;&gt;-->
-              <!--</div>-->
-            <!--</div>-->
-            <!--<div class="col-md-6">-->
-              <!--<div class="form-group">-->
-
-                <!--<button type="submit" class="btn btn-behance pull-right" (click)="addToTable()">Add To Table</button>-->
-
-              <!--</div>-->
-            <!--</div>-->
-          <!--</div>-->
-
-          <!--<div class="row">-->
-
-            <!--<div class="table-responsive">-->
-              <!--<table class="table">-->
-                <!--<thead class=" text-primary">-->
-                <!--<th>-->
-                  <!--Name Of Make-->
-                <!--</th>-->
-                <!--<th>-->
-                  <!--Name Of Model-->
-                <!--</th>-->
-
-
-                <!--</thead>-->
-                <!--<tbody>-->
-
-                <!--<tr  *ngFor="let brandMake of tableMakeModel  ">-->
-
-                  <!--<td>-->
-                    <!--{{brandMake.makeName}}-->
-                  <!--</td>-->
-                  <!--<td>-->
-                    <!--{{brandMake.modelName}}-->
-                  <!--</td>-->
-
-                  <!--<td class="td-actions ">-->
-                    <!--<button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteMakeModel(brandMake.modelName)">-->
-                      <!--<i class="fas fa-times"></i>-->
-                    <!--</button>-->
-                  <!--</td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
-              <!--</table>-->
-            <!--</div>-->
-
-          <!--</div>-->
-          <!--<button type="submit" class="btn btn-behance pull-right" (click)="addMakeModelDetails()">Save Details</button>-->
-
-
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
   </div>
 
 </div>
@@ -640,41 +455,7 @@
 </div>
 
 
-<!--<div class="modal fade modal-mini modal-primary" id="myModal10" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
-  <!--<div class="modal-dialog modal-small">-->
-    <!--<div class="modal-content">-->
-      <!--<div class="modal-header">-->
-        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true"> <i class="fas fa-times"></i></button>-->
-      <!--</div>-->
-      <!--<div class="modal-body">-->
-        <!--<p>Add New Make Name</p>-->
-        <!--<div class="row">-->
-          <!--<div class="col-md-12">-->
-            <!--<div class="form-group">-->
-              <!--<label class="bmd-label-floating">Make Name</label>-->
-              <!--<input type="text" class="form-control"  [(ngModel)]="addMakeName" >-->
-            <!--</div>-->
-          <!--</div>-->
 
-        <!--</div>-->
-      <!--</div>-->
-      <!--&lt;!&ndash;<div class="modal-footer justify-content-center">&ndash;&gt;-->
-
-
-        <!--<div class="row">-->
-
-          <!--<div class="col-md-12">-->
-            <!--<button type="submit" class="btn btn-behance pull-right" (click)="addMake()">Save Name</button>-->
-          <!--</div>-->
-        <!--</div>-->
-
-
-
-
-      <!--&lt;!&ndash;</div>&ndash;&gt;-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
 
 
 

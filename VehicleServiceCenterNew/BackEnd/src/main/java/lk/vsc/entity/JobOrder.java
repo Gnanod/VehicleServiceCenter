@@ -1,13 +1,10 @@
 package lk.vsc.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class JobOrder {
@@ -27,9 +24,13 @@ public class JobOrder {
     private double grossAmount;
     private String serviceId;
 
-
     @ManyToOne
     private Vehicle vehicle;
+
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "jobOrder")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<JobOrderItemDetails> jobOrderItemDetails;
 
     public double getLubeJobAmount() {
         return lubeJobAmount;
@@ -95,9 +96,6 @@ public class JobOrder {
         this.creditBalance = creditBalance;
     }
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "jobOrder")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<JobOrderItemDetails> jobOrderItemDetails;
 
 
     public int getJobID() {
@@ -138,12 +136,10 @@ public class JobOrder {
     }
 
     public void setJobOrderItemDetails(List<JobOrderItemDetails> jobOrderItemDetails) {
-
         for (JobOrderItemDetails j : jobOrderItemDetails
         ) {
             j.setJobOrder(this);
         }
-
         this.jobOrderItemDetails = jobOrderItemDetails;
 
     }

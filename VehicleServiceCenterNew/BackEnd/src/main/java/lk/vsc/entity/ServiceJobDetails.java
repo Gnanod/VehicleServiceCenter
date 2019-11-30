@@ -23,16 +23,8 @@ public class ServiceJobDetails {
         return servicedetailsID;
     }
 
-    public void setServicedetailsID(int joborderdetailsid) {
-        this.servicedetailsID = joborderdetailsid;
-    }
-
-    public ServiceJob getServiceJob() {
-        return serviceJob;
-    }
-
-    public void setServiceJob(ServiceJob serviceJob) {
-        this.serviceJob = serviceJob;
+    public void setServicedetailsID(int servicedetailsID) {
+        this.servicedetailsID = servicedetailsID;
     }
 
     public Services getServices() {
@@ -41,5 +33,13 @@ public class ServiceJobDetails {
 
     public void setServices(Services services) {
         this.services = services;
+    }
+
+    public ServiceJob getServiceJob() {
+        return serviceJob;
+    }
+
+    public void setServiceJob(ServiceJob serviceJob) {
+        this.serviceJob = serviceJob;
     }
 }

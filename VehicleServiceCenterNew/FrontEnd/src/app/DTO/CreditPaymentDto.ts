@@ -7,5 +7,6 @@ export class CreditPaymentDto {
   credit_balance:number;
   stock_payement_date:string;
   payment:number;
+  paymentType :string;
 
 }

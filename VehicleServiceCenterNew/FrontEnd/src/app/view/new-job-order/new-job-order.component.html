@@ -35,9 +35,7 @@
                     <br>
                     <input type="text" id="vehiNumber" class="form-control"
                            [(ngModel)]="searchVehicleNumber">
-                    <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
                   </div>
-
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
@@ -46,7 +44,6 @@
                     <br>
                     <input type="text" id="vehiEngineNumber" class="form-control" name="engineNumber"
                            [(ngModel)]="engineNumber">
-                    <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
                   </div>
                 </div>
               </div>
@@ -130,26 +127,28 @@
 
                   <div class="form-group">
                     <label>Select Service</label>
-                    <select class="form-control " data-style="select-with-transition"
-                            [(ngModel)]="insertSelectedServiceType" #mySelect24
-                            (change)="sendIdToAddService(mySelect24.value)">
+                    <!--<select class="form-control " data-style="select-with-transition"-->
+                            <!--[(ngModel)]="insertSelectedServiceType" #mySelect24-->
+                            <!--(change)="sendIdToAddService(mySelect24.value)">-->
+                    <!--<select class="form-control " data-style="select-with-transition"-->
+                            <!--[(ngModel)]="insertSelectedServiceType" #mySelect24-->
+                            <!--(change)="sendIdToAddService()">-->
 
-                      <option *ngFor="let serviceVehi of allServicesDescArray" [value]="serviceVehi.serviceId">
-                        {{serviceVehi.serviceName}}
-                      </option>
+                      <!--<option *ngFor="let serviceVehi of allServicesDescArray">-->
+                        <!--{{serviceVehi.serviceName}}-->
+                      <!--</option>-->
 
+                    <!--</select>-->
+
+                    <select   class="form-control " data-style="select-with-transition" [(ngModel)]="serviceType"(change)="sendModelToService()" >
+                      <option disabled>Select Class</option>
+                      <option *ngFor="let serviceVehi of allServicesDescArray" [ngValue]="serviceVehi">{{serviceVehi.serviceName}}</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-md-2">
-                  <!--<button class="btn btn-success" rel="tooltip" type="button" (click)="searchServiceByIdAndAddToList()">-->
-                  <!--<i class="material-icons">add</i>-->
-                  <!--</button>-->
-
-                  <button class="btn btn-success" (click)="searchServiceByIdAndAddToList()"style="margin-top: 35px">Add</button>
-                  <!--<button class="btn btn-success" rel="tooltip" type="button" (click)="searchServiceByIdAndAddToList()" style="margin-top: 20px">-->
-                    <!--ADD-->
-                  <!--</button>-->
+                  <!--<button class="btn btn-success" (click)="searchServiceByIdAndAddToList()"style="margin-top: 35px">Add</button>-->
+                  <button class="btn btn-success" (click)="AddDetailsToTable()"style="margin-top: 35px">Add</button>
                 </div>
               </div>
               <div class="col-md-12">
@@ -177,16 +176,16 @@
 
                         <tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">
                           <td>
-                            {{servicesall.serviceName}}
+                            {{servicesall.services.serviceName}}
                           </td>
                           <td>
-                            {{servicesall.serviceDesc}}
+                            {{servicesall.services.serviceDesc}}
                           </td>
                           <td>
-                            {{servicesall.vehicletype}}
+                            {{servicesall.services.vehicletype}}
                           </td>
                           <td>
-                            {{servicesall.servicePrice}}
+                            {{servicesall.services.servicePrice}}
                           </td>
                           <td class="td-actions ">
 
@@ -199,11 +198,29 @@
                         </tbody>
                       </table>
 
-                      <div class="col-md-2">
+                      <div class="row">
+                        <div class="col-md-10">
 
-                        <button class="btn btn-info "  data-toggle="modal" data-target="#noticeModal" style="margin-left: 780px" >Preview</button>
-
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <label>Amount</label>
+                            <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="serviceOrderTot" disabled>
+                          </div>
+                        </div>
                       </div>
+
+                      <div class="row">
+                        <div class="col-md-10">
+
+                        </div>
+                        <div class="col-sm-2">
+                          <div class="form-group">
+                            <button class="btn btn-info "  data-toggle="modal" data-target="#noticeModal"  >   Preview</button>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                 </div>
@@ -247,7 +264,7 @@
                       <br/>
                       Turismo Vehicle Service Center
                       <br/>
-                      Service Number #: {{this.lastId.serviceJobId}}<br>
+                      Service Number #: {{serviceJobId}}<br>
                       Date: {{todayDate}}<br>
                     </td>
                   </tr>
@@ -293,11 +310,11 @@
 
             <tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">
               <td>
-                {{servicesall.serviceName}}
+                {{servicesall.services.serviceName}}
               </td>
 
               <td>
-                {{servicesall.servicePrice}}
+                {{servicesall.services.servicePrice}}
               </td>
 
             </tr>
@@ -308,7 +325,7 @@
 
               <td>
                 <!--<span style="font-weight: normal">VAT: € {{exvat}}</span><br/>-->
-                Total: € {{total}}
+                Total: € {{serviceOrderTot}}
               </td>
             </tr>
           </table>

@@ -36,4 +36,12 @@ export class StockService {
     return this.http.get<Array<CreditPaymentDto>>(environment.backend_url + URL + '/getCreditPaymentDetails');
 
   }
+
+
+
+  updateStockPayments(creditPaymentDto: CreditPaymentDto) {
+
+    return this.http.post<String>(environment.backend_url + URL + '/updateStockPayments',creditPaymentDto);
+
+  }
 }

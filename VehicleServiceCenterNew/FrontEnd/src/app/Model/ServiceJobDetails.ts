@@ -3,5 +3,7 @@ import {Services} from "./Services";
 
 
 export class ServiceJobDetails {
-  service :Services;
+  servicedetailsID: number;
+  services: Services;
+  serviceJob: ServiceJob;
 }

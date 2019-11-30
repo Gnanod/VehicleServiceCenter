@@ -9,6 +9,9 @@ import {MakeModel} from "../../Model/MakeModel";
 import {MakeModelService} from "../../Service/make-model.service";
 import {Make} from "../../Model/Make";
 import {MakeServiceService} from "../../Service/make-service.service";
+import {VehicleClass} from "../../DTO/VehicleClass";
+import {ServicesService} from "../../Service/services.service";
+import {VehicleClassService} from "../../Service/vehicle-class.service";
 
 @Component({
   selector: 'app-vehicle',
@@ -52,14 +55,14 @@ export class VehicleComponent implements OnInit {
   })
 
 
-  constructor(private customerService :CustomerService,private vehicleService :VehicleService,private make_model_service :MakeModelService,private makeService:MakeServiceService) {
+  constructor(public vehicleClassService: VehicleClassService,private customerService :CustomerService,private vehicleService :VehicleService,private make_model_service :MakeModelService,private makeService:MakeServiceService) {
       this.selectVehicleClass.setValue('A');
   }
 
   ngOnInit() {
 
     this.findAllMakes();
-
+    this.getAllClass();
   }
 
     addCustomerDetails(){
@@ -93,6 +96,7 @@ export class VehicleComponent implements OnInit {
            alert('Vehicle Added SuccessFully');
            this.vehNgModel = new Vehicle();
            this.form.reset();
+          this.getAllClass();
         }
     })
     
@@ -248,6 +252,18 @@ console.log("Value"+value);
 
         this.findAllMakesToArray = result;
 
+      }
+
+    });
+  }
+  vehicleClassArray: Array<VehicleClass> = new Array<VehicleClass>();
+
+
+  getAllClass() {
+    this.vehicleClassService.getAllClass().subscribe((result) => {
+
+      if (result != null) {
+        this.vehicleClassArray = result;
       }
 
     });

@@ -5,7 +5,6 @@ import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
 import java.util.List;
-import java.util.Set;
 
 @Entity
 public class ServiceJob {
@@ -18,17 +17,17 @@ public class ServiceJob {
     @ManyToOne
     private Vehicle vehicle;
 
-    public Vehicle getVehicle() {
-        return vehicle;
-    }
-
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
-
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "serviceJob")
     @OnDelete(action = OnDeleteAction.CASCADE)
-    private Set<ServiceJobDetails> serviceJobDetails;
+    private List<ServiceJobDetails> serviceJobDetails;
+
+    public String getServiceJobId() {
+        return serviceJobId;
+    }
+
+    public void setServiceJobId(String serviceJobId) {
+        this.serviceJobId = serviceJobId;
+    }
 
     public String getDate() {
         return date;
@@ -54,34 +53,29 @@ public class ServiceJob {
         this.employeeName = employeeName;
     }
 
-//    public Vehicle getVehicle() {
-//        return vehicle;
-//    }
-//
-//    public void setVehicle(Vehicle vehicle) {
-//        this.vehicle = vehicle;
-//    }
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
 
-    public Set<ServiceJobDetails> getServiceJobDetails() {
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public List<ServiceJobDetails> getServiceJobDetails() {
         return serviceJobDetails;
     }
 
-    public void setServiceJobDetails(Set<ServiceJobDetails> serviceJobDetails) {
+    public void setServiceJobDetails(List<ServiceJobDetails> serviceJobDetails) {
         for (ServiceJobDetails j: serviceJobDetails
         ) {
+//            System.out.println(j.getServices().serviceId);
+//            System.out.println(j.getServiceJob().serviceJobId);
             j.setServiceJob(this);
+            System.out.println("GGG"+j.getServiceJob().getServiceJobId());
         }
 
         this.serviceJobDetails = serviceJobDetails;
     }
 
-    public String getServiceJobId() {
-        return serviceJobId;
-    }
-
-
-    public void setServiceJobId(String serviceJobId) {
-        this.serviceJobId = serviceJobId;
-    }
 
 }

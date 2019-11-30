@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {JobOrder} from "../../Model/JobOrder";
 import {JoborderService} from "../../Service/joborder.service";
 import {ServicesService} from "../../Service/services.service";
@@ -39,72 +39,77 @@ import {ServicesDTO} from "../../DTO/ServicesDTO";
 export class NewJobOrderComponent implements OnInit {
 
   private joborder: JobOrder = new JobOrder();
-  todayDate : string;
-  constructor(private joborderservice : JoborderService, private servicesService: ServicesService
-    ,private vehicleservice : VehicleService,private make_model_service :MakeModelService , private  itemService:ItemService ,private jobOrderService :JoborderService,private datePipe :DatePipe,private serviceJobService: ServicejobService) {
+  todayDate: string;
+
+  constructor(private joborderservice: JoborderService, private servicesService: ServicesService
+    , private vehicleservice: VehicleService, private make_model_service: MakeModelService, private  itemService: ItemService, private jobOrderService: JoborderService, private datePipe: DatePipe, private serviceJobService: ServicejobService) {
 
 
   }
+
+  ngOnInit() {
+
+    this.getAllServicesDesc();
+    this.todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+  }
+
+
   ////////////////////////////////////////////////////////
 
-  serviceInvoice :ServiceInvoiceDTO = new ServiceInvoiceDTO();
-
+  serviceInvoice: ServiceInvoiceDTO = new ServiceInvoiceDTO();
 
 
 ///////////////////
 
-  insertItemModel:string;
+  insertItemModel: string;
 
 
-  insertselectedMake:string;
+  insertselectedMake: string;
 
 
+  itemId: string;
+
+  item: Item = new Item();
 
 
-  itemId :string;
+  type: string;
 
-  item :Item = new Item();
+  quantity: number;
 
-
-
-  type :string;
-
-  quantity:number;
-
-  totAmount :number=0;
+  totAmount: number = 0;
 
 
-  jobOrderItemDetailsArray:Array<JobOrderItemDetails> = new Array<JobOrderItemDetails>();
+  jobOrderItemDetailsArray: Array<JobOrderItemDetails> = new Array<JobOrderItemDetails>();
 
 
-  searchMakesByModel :Array<MakeModel>= new Array<MakeModel>();
-  searchVehicleDetails : Vehicle = new Vehicle();
-  searchVehicleNumber : string;
+  searchMakesByModel: Array<MakeModel> = new Array<MakeModel>();
+  searchVehicleDetails: Vehicle = new Vehicle();
+  searchVehicleNumber: string;
 
-  vehicleId : Number;
+  vehicleId: Number;
   vehicleNumber: string;
   engineNumber: string;
   vehicleClass: string;
   vehicleMake: string;
   vehicleModel: string;
-  yearOfManufacture:string;
+  yearOfManufacture: string;
   customer: Customer;
   customername: string;
   customerphone: string;
   customeraddress: string;
   customeremail: string;
-  serviceJobId:string;
+  serviceJobId: string;
 
-  searchVehicleNumbers(event :any) {
+  searchVehicleNumbers(event: any) {
 
-    if(this.serviceJobId.length!=0){
+    if (this.serviceJobId.length != 0) {
 
-      if(event.which ===13){
+      if (event.which === 13) {
         this.vehicleservice.searchVehicleNumbers(this.serviceJobId).subscribe((result) => {
 
-          if(result!=null){
+          if (result != null) {
             this.searchVehicleDetailsByNumber(result.vehicleNumber);
-          }else{
+          } else {
 
             alert("Job Order Not Found");
           }
@@ -117,8 +122,8 @@ export class NewJobOrderComponent implements OnInit {
 
   }
 
-  searchVehicleDetailsByNumber(value:string){
-    this.vehicleservice.searchVehicleDetails(value).subscribe((result)=>{
+  searchVehicleDetailsByNumber(value: string) {
+    this.vehicleservice.searchVehicleDetails(value).subscribe((result) => {
       if (result == null) {
         this.vehicleId = null;
         this.engineNumber = null;
@@ -128,15 +133,15 @@ export class NewJobOrderComponent implements OnInit {
         this.yearOfManufacture = null;
         this.customer = null;
 
-        this.customername= null;
-        this.customerphone= null;
-        this.customeraddress= null;
-        this.customeremail= null;
+        this.customername = null;
+        this.customerphone = null;
+        this.customeraddress = null;
+        this.customeremail = null;
       }
       else {
         this.searchVehicleDetails = result;
         this.vehicleId = this.searchVehicleDetails.vehicleId;
-        this.searchVehicleNumber=value;
+        this.searchVehicleNumber = value;
         this.vehicleNumber = this.searchVehicleDetails.vehicleNumber;
         this.engineNumber = this.searchVehicleDetails.engineNumber;
         this.vehicleClass = this.searchVehicleDetails.vehicleClass;
@@ -146,10 +151,10 @@ export class NewJobOrderComponent implements OnInit {
         this.yearOfManufacture = this.searchVehicleDetails.yearOfManufacture;
         this.customer = this.searchVehicleDetails.customer;
 
-        this.customername= this.customer.firstName;
-        this.customerphone= this.customer.phoneNumber;
-        this.customeraddress= this.customer.address;
-        this.customeremail= this.customer.email;
+        this.customername = this.customer.firstName;
+        this.customerphone = this.customer.phoneNumber;
+        this.customeraddress = this.customer.address;
+        this.customeremail = this.customer.email;
 
 
       }
@@ -157,22 +162,14 @@ export class NewJobOrderComponent implements OnInit {
   }
 
 
+  getMakeModelDetails(value: string) {
 
-  ngOnInit() {
+    console.log("JJJJ" + this.insertselectedMake);
+    this.make_model_service.getMakeModelDetails(this.insertselectedMake).subscribe((result) => {
 
-    this.getAllServicesDesc();
-    this.todayDate= this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-  }
+      if (result != null) {
 
-
-  getMakeModelDetails(value :string){
-
-    console.log("JJJJ"+this.insertselectedMake);
-    this.make_model_service.getMakeModelDetails(this.insertselectedMake).subscribe((result)=>{
-
-      if(result!=null){
-
-        this.searchMakesByModel=result;
+        this.searchMakesByModel = result;
         //this.addTableModel=null;
 
       }
@@ -181,22 +178,17 @@ export class NewJobOrderComponent implements OnInit {
   }
 
 
+  deleteRow(id) {
 
+    for (let i = 0; i < this.jobOrderItemDetailsArray.length; ++i) {
+      if (this.jobOrderItemDetailsArray[i].item.itemId === id) {
 
-
-
-
-  deleteRow(id){
-
-    for(let i = 0; i <  this.jobOrderItemDetailsArray.length; ++i){
-      if ( this.jobOrderItemDetailsArray[i].item.itemId === id) {
-
-        let buyingPrice : number =  this.jobOrderItemDetailsArray[i].item.quantityOfPrice;
-        let quantity :number =  this.jobOrderItemDetailsArray[i].qty;
-        let totAmount :number = buyingPrice * quantity ;
+        let buyingPrice: number = this.jobOrderItemDetailsArray[i].item.quantityOfPrice;
+        let quantity: number = this.jobOrderItemDetailsArray[i].qty;
+        let totAmount: number = buyingPrice * quantity;
 
         this.totAmount = this.totAmount - totAmount;
-        this.jobOrderItemDetailsArray.splice(i,1);
+        this.jobOrderItemDetailsArray.splice(i, 1);
 
       }
     }
@@ -204,15 +196,15 @@ export class NewJobOrderComponent implements OnInit {
   }
 
 
-  allServicesDescArray: Array<Services>= new Array<Services>();
+  allServicesDescArray: Array<Services> = new Array<Services>();
 
-  insertSelectedServiceType: number;
-  servicesOfTheServiceJobArrray: Array<Services> = new Array<Services>();
+  insertSelectedServiceType: Services;
+  servicesOfTheServiceJobArrray: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
 
-  getAllServicesDesc(){
+  getAllServicesDesc() {
 
-    this.servicesService.getAllServices().subscribe((result)=>{
-      if(result!=null){
+    this.servicesService.getAllServices().subscribe((result) => {
+      if (result != null) {
         this.allServicesDescArray = result;
       }
 
@@ -221,77 +213,45 @@ export class NewJobOrderComponent implements OnInit {
   }
 
 
-
-  servicestoadd: Services;
-  sendIdToAddService(value: Services){
-    this.servicestoadd = value;
-  }
-
-  searchServiceByIdAndAddToList(){
-
-    this.servicesService.getServicebyId(this.insertSelectedServiceType).subscribe((result)=>{
-
-      if(result==null){
-
-      }else{
-        let ser : Services;
-        ser = result;
-        this.servicesOfTheServiceJobArrray.push(ser);
+  // insertSelectedServiceType:Services;
+  // servicestoadd: Services;
+  // sendIdToAddService(){
+  //    this.servicestoadd =insertSelectedServiceType;
+  //  console.log(this.servicestoadd.serviceName);
+  //  console.log(this.servicestoadd.serviceId);
+  //
+  // }
 
 
-        this.serviceInvoice.invoiceNumber = this.serviceJobId;
-        this.serviceInvoice.chasisNumber= this.engineNumber;
-        this.serviceInvoice.make = this.vehicleMake;
-        this.serviceInvoice.model = this.vehicleModel;
-        this.serviceInvoice.vehicleNumber= this.searchVehicleNumber;
-        this.serviceInvoice.year  = this.yearOfManufacture;
-        this.serviceInvoice.customerName = this.customername;
-        this.serviceInvoice.customerAddress = this.customeraddress;
-        this.serviceInvoice.customerPhoneNumber = this.customerphone;
-        this.serviceInvoice.services = this.servicesOfTheServiceJobArrray;
+  addToServiceJob() {
 
-      }
-    });
-  }
+     let s1 : ServiceJob = new ServiceJob();
+     s1.serviceJobId= this.serviceJobId;
+     s1.employeeName = "GGGG";
+     s1.date  = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+     s1.serviceJobDetails = this.servicesOfTheServiceJobArrray;
+     s1.total = this.serviceOrderTot;
+     s1.vehicle = this.searchVehicleDetails;
 
 
-  serviceJDArray: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
-  serviceOrder : ServiceJob = new ServiceJob();
-  serviceOrderTot: number = 0;
 
-  addToServiceJob(){
-
-
-    let i: number ;
-    let serviceJD : ServiceJobDetails = new ServiceJobDetails();
-
-    let all : number = this.servicesOfTheServiceJobArrray.length;
-    for (i=0; i<all; i++){
-      this.serviceOrderTot += this.servicesOfTheServiceJobArrray[i].servicePrice;
-      serviceJD.service = this.servicesOfTheServiceJobArrray[i];
-    }
-    this.serviceJDArray.push(serviceJD);
-
-
-    this.serviceOrder.serviceJobId= this.serviceJobId;
+    this.serviceOrder.serviceJobId = this.serviceJobId;
     this.serviceOrder.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-    this.serviceOrder.employeeName= "Fudddd";
-    this.serviceOrder.serviceJobDetails = this.serviceJDArray;
+    this.serviceOrder.employeeName = "Fudddd";
+
+    this.serviceOrder.serviceJobDetails = this.servicesOfTheServiceJobArrray;
     this.serviceOrder.total = this.serviceOrderTot;
-    this.serviceOrder.vehicle = this.searchVehicleDetails;
 
-    let sendServiceDetail : ServicesDTO = new ServicesDTO();
 
+
+
+    let sendServiceDetail: ServicesDTO = new ServicesDTO();
     sendServiceDetail.serviceInvoice = this.serviceInvoice;
-    sendServiceDetail.serviceOrder = this.serviceOrder;
-
-    this.serviceJobService.addServiceJobs(sendServiceDetail).subscribe((result)=>{
-      if(result !=null){
-
-
+    sendServiceDetail.serviceOrder = s1;
+    this.serviceJobService.addServiceJobs(sendServiceDetail).subscribe((result) => {
+      if (result != null) {
         alert("Service Added Successfully");
-
-        this.servicesOfTheServiceJobArrray = new Array<Services>();
+        this.servicesOfTheServiceJobArrray = new Array<ServiceJobDetails>();
         this.serviceJobId = null;
         this.searchVehicleNumber = null;
         this.engineNumber = null;
@@ -313,20 +273,84 @@ export class NewJobOrderComponent implements OnInit {
 
       }
 
-   });
+    });
 
   }
 
 
-  lastId :ServiceJob = new ServiceJob();
+  // searchServiceByIdAndAddToList(){
+  //
+  //   this.servicesService.getServicebyId(this.insertSelectedServiceType).subscribe((result)=>{
+  //
+  //     if(result==null){
+  //
+  //     }else{
+  //       let ser : Services;
+  //       ser = result;
+  //       this.servicesOfTheServiceJobArrray.push(ser);
+  //       this.serviceInvoice.invoiceNumber = this.serviceJobId;
+  //       this.serviceInvoice.chasisNumber= this.engineNumber;
+  //       this.serviceInvoice.make = this.vehicleMake;
+  //       this.serviceInvoice.model = this.vehicleModel;
+  //       this.serviceInvoice.vehicleNumber= this.searchVehicleNumber;
+  //       this.serviceInvoice.year  = this.yearOfManufacture;
+  //       this.serviceInvoice.customerName = this.customername;
+  //       this.serviceInvoice.customerAddress = this.customeraddress;
+  //       this.serviceInvoice.customerPhoneNumber = this.customerphone;
+  //       this.serviceInvoice.services = this.servicesOfTheServiceJobArrray;
+  //
+  //
+  //       let i: number ;
+  //
+  //       let all : number = this.servicesOfTheServiceJobArrray.length;
+  //       for (i=0; i<all; i++){
+  //         this.serviceOrderTot += this.servicesOfTheServiceJobArrray[i].servicePrice;
+  //         this.serviceJD.service = this.servicesOfTheServiceJobArrray[i];
+  //       }
+  //       this.serviceJDArray.push(this.serviceJD);
+  //     }
+  //   });
+  // }
 
 
+  // serviceJDArray: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
+  serviceOrder: ServiceJob = new ServiceJob();
+  serviceOrderTot: number = 0;
+   inServices :Array<Services> = new Array<Services>();
+  AddDetailsToTable() {
 
+    let serviceJobDetail : ServiceJobDetails = new ServiceJobDetails();
 
+    serviceJobDetail.services = this.serviceType;
 
+    this.servicesOfTheServiceJobArrray.push(serviceJobDetail);
+    this.inServices.push(this.serviceType);
+    let i: number;
+    let tot: number = 0;
+    let all: number = this.servicesOfTheServiceJobArrray.length;
+    for (i = 0; i < all; i++) {
+       console.log("this.servicesOfTheServiceJobArrray[i].servicePrice" + this.servicesOfTheServiceJobArrray[i].services.serviceId);
+      tot += this.servicesOfTheServiceJobArrray[i].services.servicePrice;
+      //this.serviceJD.service = this.servicesOfTheServiceJobArrray[i];
+    }
+    this.serviceOrderTot = tot;
+    this.serviceInvoice.invoiceNumber = this.serviceJobId;
+    this.serviceInvoice.chasisNumber= this.engineNumber;
+    this.serviceInvoice.make = this.vehicleMake;
+    this.serviceInvoice.model = this.vehicleModel;
+    this.serviceInvoice.vehicleNumber= this.searchVehicleNumber;
+    this.serviceInvoice.year  = this.yearOfManufacture;
+    this.serviceInvoice.customerName = this.customername;
+    this.serviceInvoice.customerAddress = this.customeraddress;
+    this.serviceInvoice.customerPhoneNumber = this.customerphone;
+    this.serviceInvoice.services = this.inServices;
+    this.serviceInvoice.total = tot;
 
+  }
 
+  serviceType: Services;
 
+  sendModelToService() {
 
-
+  }
 }
