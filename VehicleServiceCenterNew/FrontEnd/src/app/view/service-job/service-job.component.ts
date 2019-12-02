@@ -75,7 +75,7 @@ export class ServiceJobComponent implements OnInit {
 
   getAllServicesDesc(){
 
-      this.servicesService.getAllServices().subscribe((result)=>{
+      this.servicesService.getAllServiceDetails().subscribe((result)=>{
         if(result!=null){
           this.allServicesDescArray = result;
 
@@ -134,7 +134,7 @@ export class ServiceJobComponent implements OnInit {
       let all : number = this.servicesOfTheServiceJobArrray.length;
       for (i=0; i<all; i++){
         this.serviceOrderTot += this.servicesOfTheServiceJobArrray[i].servicePrice;
-        serviceJD.service = this.servicesOfTheServiceJobArrray[i];
+        // serviceJD.services = this.servicesOfTheServiceJobArrray[i];
       }
       this.serviceJDArray.push(serviceJD);
 
@@ -143,7 +143,7 @@ export class ServiceJobComponent implements OnInit {
 
       this.serviceOrder.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
       this.serviceOrder.employeeName= "Fudddd";
-      this.serviceOrder.serviceJobDetails = this.serviceJDArray;
+      // this.serviceOrder.serviceJobDetails = this.serviceJDArray;
       this.serviceOrder.total = this.serviceOrderTot;
       this.serviceOrder.vehicle = this.searchVehicleDetails;
 

@@ -43,11 +43,8 @@ export class PrintJobCardComponent implements OnInit {
   serviceInvoice: ServiceInvoiceDTO = new ServiceInvoiceDTO();
 
   searchVehDetailsByNumber() {
-
-
     this.vehicleservice.searchVehicleDetails(this.searchVehicleNumber).subscribe((result) => {
       if (result == null) {
-
         this.vehicleId = null;
         this.engineNumber = null;
         this.vehicleClass = null;
@@ -55,26 +52,21 @@ export class PrintJobCardComponent implements OnInit {
         this.vehicleModel = null;
         this.yearOfManufacture = null;
         this.customer = null;
-
         this.customername = null;
         this.customerphone = null;
         this.customeraddress = null;
         this.customeremail = null;
       }
       else {
-
-
         this.searchVehicleDetails = result;
         this.vehicleId = this.searchVehicleDetails.vehicleId;
         this.vehicleNumber = this.searchVehicleDetails.vehicleNumber;
         this.engineNumber = this.searchVehicleDetails.engineNumber;
         this.vehicleClass = this.searchVehicleDetails.vehicleClass;
-
         this.vehicleMake = this.searchVehicleDetails.vehicleMake;
         this.vehicleModel = this.searchVehicleDetails.vehicleModel;
         this.yearOfManufacture = this.searchVehicleDetails.yearOfManufacture;
         this.customer = this.searchVehicleDetails.customer;
-
         this.customername = this.customer.firstName;
         this.customerphone = this.customer.phoneNumber;
         this.customeraddress = this.customer.address;

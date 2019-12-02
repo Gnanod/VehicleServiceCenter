@@ -4,6 +4,7 @@ import lk.vsc.DTO.DocumentDto;
 import lk.vsc.DTO.ServiceInvoiceDTO;
 import lk.vsc.DTO.ServicesDTO;
 import lk.vsc.entity.ServiceJob;
+import lk.vsc.entity.ServiceJobDetails;
 import lk.vsc.entity.Services;
 import lk.vsc.service.ServiceJobService;
 import net.sf.jasperreports.engine.*;
@@ -27,11 +28,11 @@ public class ServiceJobController {
     private String outputFile;
 
     @PostMapping(value = "/addServiceJob")
-    public DocumentDto addItem(@RequestBody ServicesDTO serviceJob) {
+    public DocumentDto addServiceJob(@RequestBody ServicesDTO serviceJob) {
 
         ServiceJob s3 = serviceJob.getServiceOrder();
-
-        String s = serviceJobService.addServiceJob(s3);
+        List<ServiceJobDetails> j1 = serviceJob.getServiceJobDetails();
+        String s = serviceJobService.addServiceJobs(s3,j1);
         if (s.length() != 0) {
             DocumentDto d= createJasperReport(serviceJob);
             return d;

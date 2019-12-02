@@ -1,10 +1,9 @@
 package lk.vsc.entity;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Services {
@@ -13,25 +12,23 @@ public class Services {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int serviceId;
-//
-//    @Column(unique = true)
     String serviceDesc;
     String serviceName;
     double servicePrice;
     String vehicletype;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "services")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<ServiceJobDetails> serviceJobDetails;
+//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "services")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private List<ServiceJobDetails> serviceJobDetails;
 
 
-    public List<ServiceJobDetails> getServiceJobDetails() {
-        return serviceJobDetails;
-    }
-
-    public void setServiceJobDetails(List<ServiceJobDetails> serviceJobDetails) {
-        this.serviceJobDetails = serviceJobDetails;
-    }
+//    public List<ServiceJobDetails> getServiceJobDetails() {
+////        return serviceJobDetails;
+////    }
+////
+////    public void setServiceJobDetails(List<ServiceJobDetails> serviceJobDetails) {
+////        this.serviceJobDetails = serviceJobDetails;
+////    }
 
     public String getVehicletype() {
         return vehicletype;

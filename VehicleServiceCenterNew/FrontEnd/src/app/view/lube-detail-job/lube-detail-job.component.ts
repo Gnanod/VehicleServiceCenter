@@ -625,7 +625,7 @@ export class LubeDetailJobComponent implements OnInit {
 
   getAllServicesDesc(){
 
-    this.servicesService.getAllServices().subscribe((result)=>{
+    this.servicesService.getAllServiceDetails().subscribe((result)=>{
       if(result!=null){
         this.allServicesDescArray = result;
 

@@ -1,3 +1,5 @@
+import {ServiceJobDetails} from "./ServiceJobDetails";
+
 export class Services{
 
   serviceId: number;
@@ -5,6 +7,9 @@ export class Services{
   serviceName: string;
   servicePrice: number;
   vehicletype: string; //vehicle class
+  // serviceJobDetails:Array<ServiceJobDetails>;
+
+
 
 
 }

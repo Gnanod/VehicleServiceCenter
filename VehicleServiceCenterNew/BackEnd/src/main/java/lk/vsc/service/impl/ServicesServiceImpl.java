@@ -1,6 +1,5 @@
 package lk.vsc.service.impl;
 import lk.vsc.entity.Services;
-import lk.vsc.entity.Supplier;
 import lk.vsc.repository.ServicesRepository;
 import lk.vsc.service.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +25,9 @@ public class ServicesServiceImpl implements ServicesService {
     }
 
     @Override
-    public List<Services> getAllServices() {
+    public List<Services> getAllServices(String vehicleType) {
 
-        List<Object[]> s1 = servicesRepository.getAllDetails();
+        List<Object[]> s1 = servicesRepository.getAllDetails(vehicleType);
 
         List<Services> r = new ArrayList<>();
         for (Object o[] : s1
@@ -69,6 +68,24 @@ public class ServicesServiceImpl implements ServicesService {
 
     }
 
+    @Override
+    public List<Services> getAllSerivce() {
+
+
+        List<Object[]> sd1 = servicesRepository.getAllSerivce();
+        List<Services> r = new ArrayList<>();
+        for (Object o[] : sd1
+        ) {
+            Services r1 = new Services();
+            r1.setServiceDesc(o[2].toString());
+            r1.setServiceId(Integer.parseInt(o[0].toString()));
+            r1.setServiceName(o[1].toString());
+            r1.setVehicletype(o[3].toString());
+            r1.setServicePrice(Double.parseDouble(o[4].toString()));
+            r.add(r1);
+        }
+        return r;
+    }
 
 
 }

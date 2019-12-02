@@ -64,7 +64,7 @@ export class ServiceManagementComponent implements OnInit {
 
   getAllServices() {
 
-    this.servicesService.getAllServices().subscribe((result) => {
+    this.servicesService.getAllServiceDetails().subscribe((result) => {
       this.serviceItemArray = result;
     });
 

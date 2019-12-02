@@ -10,14 +10,17 @@ public interface ServicesRepository extends JpaRepository<Services,Integer> {
     @Query(value = "from Services where serviceId=?1")
     Services searchByServicesNumber(int employeeId);
 
-    @Query(value = "select serviceId, serviceName,serviceDesc, vehicletype,servicePrice from Services")
-    List<Object[]> getAllDetails();
+    @Query(value = "select serviceId, serviceName,serviceDesc, vehicletype,servicePrice from Services where vehicletype =:vehicleType")
+    List<Object[]> getAllDetails(@Param("vehicleType") String vehicleType);
 
     @Query(value = "select serviceDesc from Services where serviceDesc like CONCAT('%',:searchByServiceName,'%')")
     List<Object[]> getServiceDesc(@Param("searchByServiceName") String searchByServiceName);
 
     @Query(value = "from Services where serviceId=?1")
     Services getServicebyId(int serviceId);
+
+    @Query(value = "select serviceId, serviceName,serviceDesc, vehicletype,servicePrice from Services")
+    List<Object[]> getAllSerivce();
 
 //    select service_desc from services where service_name='Wax'
 }

@@ -49,7 +49,7 @@ export class NewJobOrderComponent implements OnInit {
 
   ngOnInit() {
 
-    this.getAllServicesDesc();
+
     this.todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   }
 
@@ -109,6 +109,7 @@ export class NewJobOrderComponent implements OnInit {
 
           if (result != null) {
             this.searchVehicleDetailsByNumber(result.vehicleNumber);
+
           } else {
 
             alert("Job Order Not Found");
@@ -156,7 +157,7 @@ export class NewJobOrderComponent implements OnInit {
         this.customeraddress = this.customer.address;
         this.customeremail = this.customer.email;
 
-
+        this.getAllServicesDesc(this.vehicleClass);
       }
     });
   }
@@ -179,31 +180,28 @@ export class NewJobOrderComponent implements OnInit {
 
 
   deleteRow(id) {
+    let tot:number=0;
+    for (let i = 0; i < this.servicesArray.length; ++i) {
 
-    for (let i = 0; i < this.jobOrderItemDetailsArray.length; ++i) {
-      if (this.jobOrderItemDetailsArray[i].item.itemId === id) {
-
-        let buyingPrice: number = this.jobOrderItemDetailsArray[i].item.quantityOfPrice;
-        let quantity: number = this.jobOrderItemDetailsArray[i].qty;
-        let totAmount: number = buyingPrice * quantity;
-
-        this.totAmount = this.totAmount - totAmount;
-        this.jobOrderItemDetailsArray.splice(i, 1);
+      if ( this.servicesArray[i].serviceId === id) {
+        this.servicesArray.splice(i,1);
 
       }
-    }
 
+    }
+    for (let i = 0; i < this.servicesArray.length; ++i) {
+        tot += this.servicesArray[i].servicePrice;
+    }
+    this.serviceOrderTot = tot;
   }
 
 
   allServicesDescArray: Array<Services> = new Array<Services>();
-
   insertSelectedServiceType: Services;
   servicesOfTheServiceJobArrray: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
 
-  getAllServicesDesc() {
-
-    this.servicesService.getAllServices().subscribe((result) => {
+  getAllServicesDesc(value:string) {
+    this.servicesService.getAllServices(value).subscribe((result) => {
       if (result != null) {
         this.allServicesDescArray = result;
       }
@@ -229,7 +227,7 @@ export class NewJobOrderComponent implements OnInit {
      s1.serviceJobId= this.serviceJobId;
      s1.employeeName = "GGGG";
      s1.date  = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-     s1.serviceJobDetails = this.servicesOfTheServiceJobArrray;
+     // s1.serviceJobDetails = this.servicesOfTheServiceJobArrray;
      s1.total = this.serviceOrderTot;
      s1.vehicle = this.searchVehicleDetails;
 
@@ -239,15 +237,15 @@ export class NewJobOrderComponent implements OnInit {
     this.serviceOrder.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.serviceOrder.employeeName = "Fudddd";
 
-    this.serviceOrder.serviceJobDetails = this.servicesOfTheServiceJobArrray;
+    // this.serviceOrder.serviceJobDetails = this.servicesOfTheServiceJobArrray;
     this.serviceOrder.total = this.serviceOrderTot;
-
-
 
 
     let sendServiceDetail: ServicesDTO = new ServicesDTO();
     sendServiceDetail.serviceInvoice = this.serviceInvoice;
     sendServiceDetail.serviceOrder = s1;
+    sendServiceDetail.serviceJobDetails=this.details;
+
     this.serviceJobService.addServiceJobs(sendServiceDetail).subscribe((result) => {
       if (result != null) {
         alert("Service Added Successfully");
@@ -263,7 +261,10 @@ export class NewJobOrderComponent implements OnInit {
         this.customerphone = null;
         this.customeremail = null;
         this.customeraddress = null;
+        this.servicesArray= new Array<Services>();
+        this.allServicesDescArray= new Array<Services>();
 
+        this.serviceOrderTot=null;
         const linkSource = 'data:application/pdf;base64,' + result.pdf;
         const downloadLink = document.createElement("a");
         const fileName = "ServiceJobCard.pdf";
@@ -317,22 +318,28 @@ export class NewJobOrderComponent implements OnInit {
   serviceOrder: ServiceJob = new ServiceJob();
   serviceOrderTot: number = 0;
    inServices :Array<Services> = new Array<Services>();
+   servicesArray : Array<Services> = new Array<Services>();
+   details : Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
+
+
   AddDetailsToTable() {
 
-    let serviceJobDetail : ServiceJobDetails = new ServiceJobDetails();
+    // let serviceJobDetail : ServiceJobDetails = new ServiceJobDetails();
 
-    serviceJobDetail.services = this.serviceType;
-
-    this.servicesOfTheServiceJobArrray.push(serviceJobDetail);
+    // let servicesArray : Array<Services> = new Array<Services>();
+    this.servicesArray.push(this.serviceType);
     this.inServices.push(this.serviceType);
     let i: number;
     let tot: number = 0;
-    let all: number = this.servicesOfTheServiceJobArrray.length;
+    let all: number = this.servicesArray.length;
+    let s :ServiceJobDetails = new ServiceJobDetails();
+    s.serviceJobId=this.serviceJobId;
+    s.serviceId=this.serviceType.serviceId;
+    this.details.push(s);
     for (i = 0; i < all; i++) {
-       console.log("this.servicesOfTheServiceJobArrray[i].servicePrice" + this.servicesOfTheServiceJobArrray[i].services.serviceId);
-      tot += this.servicesOfTheServiceJobArrray[i].services.servicePrice;
-      //this.serviceJD.service = this.servicesOfTheServiceJobArrray[i];
+      tot += this.servicesArray[i].servicePrice;
     }
+
     this.serviceOrderTot = tot;
     this.serviceInvoice.invoiceNumber = this.serviceJobId;
     this.serviceInvoice.chasisNumber= this.engineNumber;

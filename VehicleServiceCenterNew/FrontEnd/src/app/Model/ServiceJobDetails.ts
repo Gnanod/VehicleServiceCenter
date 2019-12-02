@@ -4,6 +4,8 @@ import {Services} from "./Services";
 
 export class ServiceJobDetails {
   servicedetailsID: number;
-  services: Services;
-  serviceJob: ServiceJob;
+  serviceJobId:string;
+  serviceId:number;
+  // services: Services;
+  // serviceJob: ServiceJob;
 }

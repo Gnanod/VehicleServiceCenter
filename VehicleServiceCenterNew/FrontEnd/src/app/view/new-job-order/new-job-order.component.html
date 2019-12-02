@@ -174,23 +174,27 @@
                         </thead>
                         <tbody>
 
-                        <tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">
+                        <!--<tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">-->
+                        <tr *ngFor="let services of servicesArray async">
                           <td>
-                            {{servicesall.services.serviceName}}
+                            {{services.serviceId}}
                           </td>
                           <td>
-                            {{servicesall.services.serviceDesc}}
+                            {{services.serviceName}}
                           </td>
                           <td>
-                            {{servicesall.services.vehicletype}}
+                            {{services.serviceDesc}}
                           </td>
                           <td>
-                            {{servicesall.services.servicePrice}}
+                            {{services.vehicletype}}
+                          </td>
+                          <td>
+                            {{services.servicePrice}}
                           </td>
                           <td class="td-actions ">
 
                             <button type="button" rel="tooltip" class="btn btn-danger"
-                                    (click)="deleteRow()">
+                                    (click)="deleteRow(services.serviceId)">
                               <i class="fas fa-times"></i>
                             </button>
                           </td>
@@ -308,13 +312,14 @@
               </td>
             </tr>
 
-            <tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">
+            <!--<tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">-->
+            <tr *ngFor="let servicesall of servicesArray async">
               <td>
-                {{servicesall.services.serviceName}}
+                {{servicesall.serviceName}}
               </td>
 
               <td>
-                {{servicesall.services.servicePrice}}
+                {{servicesall.servicePrice}}
               </td>
 
             </tr>

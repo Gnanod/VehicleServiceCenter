@@ -20,9 +20,14 @@ export class ServicesService {
 
   }
 
-  getAllServices() {
+  getAllServices(value:string) {
 
-    return this.http.get<Array<Services>>(environment.backend_url + URL + '/getAllServices');
+    return this.http.get<Array<Services>>(environment.backend_url + URL + '/getAllServices/'+value);
+  }
+
+  getAllServiceDetails() {
+
+    return this.http.get<Array<Services>>(environment.backend_url + URL + '/getAllServiceDetails');
   }
 
   deleteService(retServiceId: number) {

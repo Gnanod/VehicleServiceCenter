@@ -1,10 +1,8 @@
 package lk.vsc.entity;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import javax.persistence.*;
-import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ServiceJob {
@@ -17,9 +15,9 @@ public class ServiceJob {
     @ManyToOne
     private Vehicle vehicle;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "serviceJob")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<ServiceJobDetails> serviceJobDetails;
+//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "serviceJob")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private List<ServiceJobDetails> serviceJobDetails;
 
     public String getServiceJobId() {
         return serviceJobId;
@@ -61,21 +59,22 @@ public class ServiceJob {
         this.vehicle = vehicle;
     }
 
-    public List<ServiceJobDetails> getServiceJobDetails() {
-        return serviceJobDetails;
-    }
+//    public List<ServiceJobDetails> getServiceJobDetails() {
+//        return serviceJobDetails;
+//    }
 
-    public void setServiceJobDetails(List<ServiceJobDetails> serviceJobDetails) {
-        for (ServiceJobDetails j: serviceJobDetails
-        ) {
-//            System.out.println(j.getServices().serviceId);
-//            System.out.println(j.getServiceJob().serviceJobId);
-            j.setServiceJob(this);
-            System.out.println("GGG"+j.getServiceJob().getServiceJobId());
-        }
-
-        this.serviceJobDetails = serviceJobDetails;
-    }
+//    public void setServiceJobDetails(List<ServiceJobDetails> serviceJobDetails) {
+//        for (ServiceJobDetails j: serviceJobDetails
+//        ) {
+////            System.out.println(j.getServices().serviceId);
+////            System.out.println(j.getServiceJob().serviceJobId);
+//            j.setServiceJob(this);
+//            System.out.println("GGG"+j.getServiceJob().getServiceJobId());
+//            System.out.println("GGG"+j.getServices().getServiceId());
+//        }
+//
+//        this.serviceJobDetails = serviceJobDetails;
+//    }
 
 
 }

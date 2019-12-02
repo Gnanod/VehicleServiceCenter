@@ -9,6 +9,6 @@ export class ServiceJob {
   employeeName: String;
   date : string;
   total : number;
-  serviceJobDetails :Array<ServiceJobDetails>
+  // serviceJobDetails :Array<ServiceJobDetails>
 
 }

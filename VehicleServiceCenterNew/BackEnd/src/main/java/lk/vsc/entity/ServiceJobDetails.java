@@ -1,9 +1,9 @@
 package lk.vsc.entity;
 
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class ServiceJobDetails {
@@ -11,12 +11,31 @@ public class ServiceJobDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int servicedetailsID;
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Services services;
-    @ManyToOne
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private ServiceJob serviceJob;
+    private String serviceJobId;
+    private int  serviceId;
+
+    public String getServiceJobId() {
+        return serviceJobId;
+    }
+
+    public void setServiceJobId(String serviceJobId) {
+        this.serviceJobId = serviceJobId;
+    }
+
+    public int getServiceId() {
+        return serviceId;
+    }
+
+    public void setServiceId(int serviceId) {
+        this.serviceId = serviceId;
+    }
+
+    //    @ManyToOne
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private Services services;
+//    @ManyToOne
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private ServiceJob serviceJob;
 
 
     public int getServicedetailsID() {
@@ -27,19 +46,19 @@ public class ServiceJobDetails {
         this.servicedetailsID = servicedetailsID;
     }
 
-    public Services getServices() {
-        return services;
-    }
-
-    public void setServices(Services services) {
-        this.services = services;
-    }
-
-    public ServiceJob getServiceJob() {
-        return serviceJob;
-    }
-
-    public void setServiceJob(ServiceJob serviceJob) {
-        this.serviceJob = serviceJob;
-    }
+//    public Services getServices() {
+//        return services;
+//    }
+//
+//    public void setServices(Services services) {
+//        this.services = services;
+//    }
+//
+//    public ServiceJob getServiceJob() {
+//        return serviceJob;
+//    }
+//
+//    public void setServiceJob(ServiceJob serviceJob) {
+//        this.serviceJob = serviceJob;
+//    }
 }

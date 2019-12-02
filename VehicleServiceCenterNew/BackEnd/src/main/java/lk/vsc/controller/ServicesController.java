@@ -1,6 +1,5 @@
 package lk.vsc.controller;
 import lk.vsc.entity.Services;
-import lk.vsc.entity.Vehicle;
 import lk.vsc.service.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -22,11 +21,18 @@ public class ServicesController {
 
     }
 
-    @GetMapping(value = "/getAllServices")
-    public List<Services> getAllSerivces(){
+    @GetMapping(value = "/getAllServices/{vehicleType}")
+    public List<Services> getAllSerivces(@PathVariable String vehicleType){
 
-        return this.servicesService.getAllServices();
+        return this.servicesService.getAllServices(vehicleType);
     }
+
+    @GetMapping(value = "/getAllServiceDetails")
+    public List<Services> getAllServiceDetails(){
+        System.out.println("Gnanod");
+        return this.servicesService.getAllSerivce();
+    }
+
 
     @DeleteMapping("/deleteService/{serviceId}")
     void deleteEmployee(@PathVariable int serviceId) {
@@ -35,7 +41,7 @@ public class ServicesController {
 
     @GetMapping(value = "/getServicebyId/{serviceId}")
     public Services getServicebyId(@PathVariable int serviceId){
-        System.out.println("GGGGGGGGGGGGGGG");
+
         return servicesService.getServicebyId(serviceId);
     }
 
