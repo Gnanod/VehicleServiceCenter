@@ -5,6 +5,7 @@ import {CreditPaymentDto} from "../../DTO/CreditPaymentDto";
 import {StockService} from "../../Service/stock.service";
 import {Router} from "@angular/router";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-update-supplier-payments',
@@ -34,7 +35,13 @@ export class UpdateSupplierPaymentsComponent implements OnInit {
       this.creditPaymentDto.credit_balance = credit;
 
     }else{
-      alert('Pay Amount is greater than Credit Balance')
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Pay Amount is greater than Credit Balance.',
+        showConfirmButton: false,
+        timer: 1500
+      })
       this.payAmount = parseFloat(this.payAmount.toString().substring(0,this.payAmount.toString().length-1));
     }
   }
@@ -48,7 +55,14 @@ export class UpdateSupplierPaymentsComponent implements OnInit {
    }
     this.stockService.updateStockPayments(this.creditPaymentDto).subscribe((result) => {
       if (result != null) {
-       alert("Updated Successfully");
+       // alert("Updated Successfully");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Updated Successfully.',
+          showConfirmButton: false,
+          timer: 1500
+        })
        this.router.navigate(['/main/SupplierPayments']);
       }
 

@@ -85,7 +85,7 @@
 
                 <div class="collapse" id="formsExamples2">
                   <ul class="nav">
-                    <li class="nav-item " [ngClass]="{'active': headerText=='PrintJobCard'}" (click)="changeRoute(printJobCard.innerHTML)">
+                    <li class="nav-item " [ngClass]="{'active': headerText=='Print Job Card'}" (click)="changeRoute(printJobCard.innerHTML)">
                       <a class="nav-link" >
                         <span class="sidebar-mini"> PJC </span>
                         <span class="sidebar-normal" #printJobCard>Print Job Card</span>
@@ -98,7 +98,7 @@
                         <span class="sidebar-normal" #Services>Services</span>
                       </a>
                     </li>
-                    <li class="nav-item " [ngClass]="{'active': headerText=='Lube & Detail Jobs'}" (click)="changeRoute(lubeJob.innerHTML)">
+                    <li class="nav-item " [ngClass]="{'active': headerText=='Lube Detail Job'}" (click)="changeRoute(lubeJob.innerHTML)">
                       <a class="nav-link" >
                         <span class="sidebar-mini"> LDJ </span>
                         <span class="sidebar-normal" #lubeJob>Details</span>
@@ -122,10 +122,17 @@
                 <div class="collapse" id="formsExamples4">
                   <ul class="nav">
 
-                    <li class="nav-item " [ngClass]="{'active': headerText=='Customer Payments'}" (click)="changeRoute(customerPayments.innerHTML)">
+                    <li class="nav-item " [ngClass]="{'active': headerText=='View Customer Payments'}" (click)="changeRoute(viewcustomerPayments.innerHTML)">
                       <a class="nav-link" >
-                        <span class="sidebar-mini"> CP </span>
-                        <span class="sidebar-normal" #customerPayments>Customer Payments</span>
+                        <span class="sidebar-mini"> VCP </span>
+                        <span class="sidebar-normal" #viewcustomerPayments>Customer Payments</span>
+                      </a>
+                    </li>
+
+                    <li class="nav-item " [ngClass]="{'active': headerText=='Update Customer Payments'}" (click)="changeRoute(customerPayments.innerHTML)">
+                      <a class="nav-link" >
+                        <span class="sidebar-mini"> UCP </span>
+                        <span class="sidebar-normal" #customerPayments>Update Customer Payments</span>
                       </a>
                     </li>
 
@@ -155,19 +162,19 @@
                   <div class="collapse" id="formsExamples1">
                     <ul class="nav">
 
-                      <li class="nav-item " [ngClass]="{'active': headerText=='SearchVehicle'}" (click)="changeRoute(LowStockLevel.innerHTML)">
+                      <li class="nav-item " [ngClass]="{'active': headerText=='Low Stock Level'}" (click)="changeRoute(LowStockLevel.innerHTML)">
                         <a class="nav-link" >
                           <span class="sidebar-mini"> LSL </span>
                           <span class="sidebar-normal" #LowStockLevel>LowStockLevel</span>
                         </a>
                       </li>
 
-                      <li class="nav-item " [ngClass]="{'active': headerText=='SupplierCreditReports'}" (click)="changeRoute(SupplierCreditReports.innerHTML)">
-                        <a class="nav-link" >
-                          <span class="sidebar-mini"> SCR </span>
-                          <span class="sidebar-normal" #SupplierCreditReports>Supplier Payments Reports</span>
-                        </a>
-                      </li>
+                      <!--<li class="nav-item " [ngClass]="{'active': headerText=='SupplierCreditReports'}" (click)="changeRoute(SupplierCreditReports.innerHTML)">-->
+                        <!--<a class="nav-link" >-->
+                          <!--<span class="sidebar-mini"> SCR </span>-->
+                          <!--<span class="sidebar-normal" #SupplierCreditReports>Supplier Payments Reports</span>-->
+                        <!--</a>-->
+                      <!--</li>-->
 
                     </ul>
                   </div>

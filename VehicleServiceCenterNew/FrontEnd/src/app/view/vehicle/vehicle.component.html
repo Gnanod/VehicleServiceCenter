@@ -343,7 +343,7 @@
                                             <label>Customer Nic</label>
 
 <br>
-                                          <input type="text" class="form-control" name="nic"[(ngModel)]="nic" formControlName="nic1" [ngClass]="{'is-invalid':form.get('nic1').touched && form.get('nic1').invalid }">
+                                          <input type="text" class="form-control" name="nic1"[(ngModel)]="nic1" formControlName="nic1" [ngClass]="{'is-invalid':form.get('nic1').touched && form.get('nic1').invalid }">
                                           <div class="invalid-feedback"  *ngIf="form.get('nic1').touched  && form.get('nic1').invalid">
                                             NIC Field Is Empty
                                           </div>
@@ -400,15 +400,6 @@
 
                                     </div>
                                   </div>
-
-                                    <!--<div class="col-md-11">-->
-                                        <!--&lt;!&ndash;<mat-form-field>&ndash;&gt;-->
-                                            <!--<label >Vehicle Class</label>-->
-                                        <!--<br>-->
-                                      <!--<input type="text" class="form-control" [(ngModel)]="vehNgModel.vehicleClass" formControlName="vehicleClass" [ngClass]="{'is-invalid':form.get('vehicleClass').touched && form.get('vehicleClass').invalid }">-->
-
-
-                                    <!--</div>-->
                                 </div>
                               <br>
 <br>
@@ -504,7 +495,7 @@
                                 </div>
 
 
-                                <button type="submit" class="btn btn-behance  pull-right" (click)="addVehicleDetails()" [disabled]="!form.valid">Add Vehicle Details</button>
+                                <button type="submit" class="btn btn-behance  pull-right" (click)="addVehicleDetails()" >Add Vehicle Details</button>
                                 <div class="clearfix"></div>
                             </form>
                         </div>

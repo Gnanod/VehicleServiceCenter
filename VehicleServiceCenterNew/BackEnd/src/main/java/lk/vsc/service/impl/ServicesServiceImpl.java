@@ -5,6 +5,7 @@ import lk.vsc.service.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,11 +16,13 @@ public class ServicesServiceImpl implements ServicesService {
 
     @Override
     public void deleteService(int serviceId) {
+
         servicesRepository.deleteById(serviceId);
     }
 
     @Override
     public Services addServices(Services services) {
+
 
         return servicesRepository.save(services);
     }
@@ -34,10 +37,14 @@ public class ServicesServiceImpl implements ServicesService {
         ) {
             Services r1 = new Services();
 
+//            DecimalFormat df = new DecimalFormat("0.00");
+//            String price = df.format(o[4].toString());
+////            services.setServicePrice(Double.parseDouble(price));
             r1.setServiceId(Integer.parseInt(o[0].toString()));
             r1.setServiceName(o[1].toString());
             r1.setServiceDesc(o[2].toString());
             r1.setVehicletype(o[3].toString());
+           // System.out.println("Double Value"+Double.parseDouble(price));
             r1.setServicePrice(Double.parseDouble(o[4].toString()));
             r.add(r1);
         }
@@ -77,6 +84,8 @@ public class ServicesServiceImpl implements ServicesService {
         for (Object o[] : sd1
         ) {
             Services r1 = new Services();
+            DecimalFormat df = new DecimalFormat("0.00");
+            String price = df.format(Double.parseDouble(o[4].toString()));
             r1.setServiceDesc(o[2].toString());
             r1.setServiceId(Integer.parseInt(o[0].toString()));
             r1.setServiceName(o[1].toString());

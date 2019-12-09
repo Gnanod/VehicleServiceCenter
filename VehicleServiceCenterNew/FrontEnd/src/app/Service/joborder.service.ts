@@ -64,22 +64,7 @@ export class JoborderService {
   // }
   addJobOrder(jobOrderDto: JobOrderDTO) {
 
-    console.log("LLLLL")
-
-      return this.http.post<string>(environment.backend_url + URL + '/addJobOrder',jobOrderDto);
-
-  }
-
-  getServicesDesc(insertSelectedService: string) {
-
-    return this.http.get<Array<Services>>(environment.backend_url + URL+'/getServiceDesc/'+insertSelectedService);
-
-
-  }
-
-
-  getServicesVehicleClass(value: string, value2: string) {
-    return null;
+      return this.http.post<DocumentDto>(environment.backend_url + URL + '/addJobOrder',jobOrderDto);
 
   }
 
@@ -96,18 +81,7 @@ export class JoborderService {
 
   }
 
-  printJobOrder() {
-
-    return this.http.get<any>(environment.backend_url + URL+'/printJobOrder');
-
-  }
-
-
   printJobOrders(sendServiceDetail:ServicesDTO) {
-
-    // return this.http.get<any>(environment.backend_url + URL+'/printJobOrder/'+sendServiceDetail);
-    // return this.http.get<JobOrder>(environment.backend_url + URL+'/print/'+sendServiceDetail);
-    console.log(sendServiceDetail);
 
     return this.http.post<DocumentDto>(environment.backend_url + URL+'/downloadJobOrder/',sendServiceDetail);
   }

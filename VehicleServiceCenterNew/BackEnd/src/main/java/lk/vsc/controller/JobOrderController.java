@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -199,16 +200,14 @@ public class JobOrderController {
 
 
     @PostMapping(value = "/addJobOrder")
-    public String addItem(@RequestBody JobOrderDTO jobOrder) {
+    public DocumentDto addJobOrder(@RequestBody JobOrderDTO jobOrder) {
 
         JobOrder j1 = jobOrder.getJobOrder();
-
         List<JobOrderItemDetails> s3 = new ArrayList<>();
-
         List<JobOrderItemDetails> s1 = jobOrder.getJobOrderItemDetailsArray();
         List<JobOrderItemDetails> s2 = jobOrder.getJobOrderItemDetailsArray1();
-        for (JobOrderItemDetails i : s1) {
 
+        for (JobOrderItemDetails i : s1) {
             JobOrderItemDetails j2 = new JobOrderItemDetails();
             j2.setItem(i.getItem());
             j2.setQty(i.getQty());
@@ -238,8 +237,10 @@ public class JobOrderController {
         String s = jobOrderService.setJobOrder(j1);
 
         if (s != null) {
-            printBill(jobOrder);
-            return s;
+            String bytes =printBill(jobOrder);
+            DocumentDto d = new DocumentDto();
+            d.setPdf(bytes);
+            return d;
         } else {
             return null;
         }
@@ -248,7 +249,7 @@ public class JobOrderController {
     }
 
 
-    public void printBill(JobOrderDTO jt) {
+    public String printBill(JobOrderDTO jt) {
 
         JobOrder jobOrder = jt.getJobOrder();
         List<JobOrderItemDetails> lubejob = jt.getJobOrderItemDetailsArray();
@@ -257,36 +258,54 @@ public class JobOrderController {
         ArrayList<JobOrderItemDetailsDTO> s1 = new ArrayList<>();
         ArrayList<JobOrderItemDetailsDTO> s2 = new ArrayList<>();
 
+        ArrayList<PrintJobOrderItemDetailsDTO> s5 = new ArrayList<>();
+        ArrayList<PrintJobOrderItemDetailsDTO> s6 = new ArrayList<>();
+
+
         for (JobOrderItemDetails j1 : lubejob) {
             JobOrderItemDetailsDTO j = new JobOrderItemDetailsDTO();
 
-            j.setItemCode(j1.getItem().getItemId());
-            j.setMake(j1.getMake());
-            j.setMaterial(j1.getItem().getItemName());
-            j.setModel(j1.getModel());
-            j.setPrice(Double.toString(j1.getPrice()));
-            j.setQuantity(j1.getQty());
-            System.out.println("GGGGGGG34Kl" + j1.getQty());
+            PrintJobOrderItemDetailsDTO j2 = new PrintJobOrderItemDetailsDTO();
 
-            s1.add(j);
+            j2.setItemCode(j1.getItem().getItemId());
+            j2.setMake(j1.getMake());
+            j2.setMaterial(j1.getItem().getItemName());
+            j2.setModel(j1.getModel());
+
+            DecimalFormat df = new DecimalFormat("0.00");
+            String price = df.format(j1.getPrice());
+            j2.setPrice(price);
+
+            String qty = df.format(j1.getQty());
+            j2.setQuantity(qty);
+            s5.add(j2);
         }
 
         for (JobOrderItemDetails j1 : detailJob) {
             JobOrderItemDetailsDTO j = new JobOrderItemDetailsDTO();
 
-            j.setItemCode(j1.getItem().getItemId());
-            j.setMake(j1.getMake());
-            j.setMaterial(j1.getItem().getItemName());
-            j.setModel(j1.getModel());
-            j.setPrice(Double.toString(j1.getPrice()));
-            j.setQuantity(j1.getQty());
-            j.setType(j1.getLubeJobType());
-            System.out.println("GGGGGGG34KLOP" + j1.getQty());
-            s2.add(j);
-        }
+            PrintJobOrderItemDetailsDTO j2 = new PrintJobOrderItemDetailsDTO();
 
-        JRBeanCollectionDataSource s3 = new JRBeanCollectionDataSource(s1);
-        JRBeanCollectionDataSource s4 = new JRBeanCollectionDataSource(s2);
+            j2.setItemCode(j1.getItem().getItemId());
+            j2.setMake(j1.getMake());
+            j2.setMaterial(j1.getItem().getItemName());
+            System.out.println("ItemNAme"+j1.getItem().getItemName());
+            j2.setModel(j1.getModel());
+
+            DecimalFormat df = new DecimalFormat("0.00");
+            String price = df.format(j1.getPrice());
+            j2.setPrice(price);
+
+            String qty = df.format(j1.getQty());
+            j2.setQuantity(qty);
+
+            j2.setType(j1.getLubeJobType());
+            s6.add(j2);
+        }
+        System.out.println("SIZE"+s2.size());
+
+        JRBeanCollectionDataSource s3 = new JRBeanCollectionDataSource(s5);
+        JRBeanCollectionDataSource s4 = new JRBeanCollectionDataSource(s6);
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("lubeJobItems", s3);
@@ -300,16 +319,28 @@ public class JobOrderController {
         parameters.put("customerName", jobOrder.getVehicle().getCustomer().getFirstName() + " " + jobOrder.getVehicle().getCustomer().getLastName());
         parameters.put("customerPhoneNumber", jobOrder.getVehicle().getCustomer().getPhoneNumber());
         parameters.put("customerAddress", jobOrder.getVehicle().getCustomer().getAddress());
-        parameters.put("total", Double.toString(jobOrder.getTotal()));
-        parameters.put("lubeJobAmount", Double.toString(jobOrder.getLubeJobAmount()));
-        parameters.put("detailJobAmount", Double.toString(jobOrder.getDetailJobAmount()));
+
+        DecimalFormat df = new DecimalFormat("0.00");
+        String total = df.format(jobOrder.getTotal());
+        String lubeJobAmount = df.format(jobOrder.getLubeJobAmount());
+        String detailJobAmount = df.format(jobOrder.getDetailJobAmount());
+        String paidAmount = df.format(jobOrder.getPaidAmount());
+        String creditBalance = df.format(jobOrder.getCreditBalance());
+        String serviceAmount = df.format(jobOrder.getServiceAmount());
+        String grossAmount = df.format(jobOrder.getGrossAmount());
+
+        System.out.println("Details Job amount"+detailJobAmount);
+
+        parameters.put("total", total);
+        parameters.put("lubeJobAmount", lubeJobAmount);
+        parameters.put("detailJobAmount",detailJobAmount);
         parameters.put("paymentType", jobOrder.getPaymentType());
-        parameters.put("paidAmount", Double.toString(jobOrder.getPaidAmount()));
-        parameters.put("creditBalance", Double.toString(jobOrder.getCreditBalance()));
-        parameters.put("serviceAmount", Double.toString(jobOrder.getServiceAmount()));
-        parameters.put("grossAmount", Double.toString(jobOrder.getGrossAmount()));
+        parameters.put("paidAmount", paidAmount);
+        parameters.put("creditBalance", creditBalance);
+        parameters.put("serviceAmount", serviceAmount);
+        parameters.put("grossAmount", grossAmount);
 
-
+        String bytes = null;
         String userHomeDirectory = System.getProperty("user.home");
         /* Output file location */
 
@@ -320,7 +351,7 @@ public class JobOrderController {
 //        /* Using compiled version(.jasper) of Jasper report to generate PDF */
         JasperPrint jasperPrint;
         try {
-            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/hobAndJube.jasper", parameters, new JREmptyDataSource());
+            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/FinalInvoice.jasper", parameters, new JREmptyDataSource());
 
             /* outputStream to create PDF */
             OutputStream outputStream = new FileOutputStream(new File(outputFile));
@@ -328,14 +359,19 @@ public class JobOrderController {
             JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
 
             System.out.println("File Generated: " + outputFile);
-
+            File f = new File(outputFile);
+             bytes = downloadPdf(f);
 
         } catch (JRException e) {
 
             e.printStackTrace();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+
+        return bytes;
 
     }
 
@@ -365,9 +401,9 @@ public class JobOrderController {
             crunchifyInputStream = new FileInputStream(crunchifyFile);
             crunchifyInputStream.read(crunchifyByteStream);
             crunchifyInputStream.close();
-            for (int counter = 0; counter < crunchifyByteStream.length; counter++) {
-                System.out.print((char) crunchifyByteStream[counter]);
-            }
+//            for (int counter = 0; counter < crunchifyByteStream.length; counter++) {
+////                System.out.print((char) crunchifyByteStream[counter]);
+//            }
         } catch (Exception e) {
             e.printStackTrace();
         }

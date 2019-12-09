@@ -1,6 +1,7 @@
 package lk.vsc.controller;
 
 import lk.vsc.DTO.DocumentDto;
+import lk.vsc.DTO.PrintServiceJobDTO;
 import lk.vsc.DTO.ServiceInvoiceDTO;
 import lk.vsc.DTO.ServicesDTO;
 import lk.vsc.entity.ServiceJob;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
 import java.text.DateFormat;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -32,9 +34,9 @@ public class ServiceJobController {
 
         ServiceJob s3 = serviceJob.getServiceOrder();
         List<ServiceJobDetails> j1 = serviceJob.getServiceJobDetails();
-        String s = serviceJobService.addServiceJobs(s3,j1);
+        String s = serviceJobService.addServiceJobs(s3, j1);
         if (s.length() != 0) {
-            DocumentDto d= createJasperReport(serviceJob);
+            DocumentDto d = createJasperReport(serviceJob);
             return d;
         } else {
             return null;
@@ -64,9 +66,22 @@ public class ServiceJobController {
 
         ServiceInvoiceDTO v1 = serviceJob.getServiceInvoice();
         ArrayList<Services> v2 = v1.getServices();
+        ArrayList<PrintServiceJobDTO> v3 = new ArrayList<>();
+        System.out.println("Services Length"+v1.getServices().size());
+        for (Services s : v1.getServices()) {
+            PrintServiceJobDTO p1 = new PrintServiceJobDTO();
+            p1.setServiceId(s.getServiceId());
+            p1.setServiceDesc(s.getServiceDesc());
+            p1.setServiceName(s.getServiceName());
+            p1.setVehicletype(s.getVehicletype());
+            DecimalFormat df = new DecimalFormat("0.00");
+            String price = df.format(s.getServicePrice());
+            p1.setServicePrice(price);
+            v3.add(p1);
+        }
 
         /* Convert List to JRBeanCollectionDataSource */
-        JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(v2);
+        JRBeanCollectionDataSource itemsJRBean = new JRBeanCollectionDataSource(v3);
 
         /* Map to hold Jasper report Parameters */
         Map<String, Object> parameters = new HashMap<String, Object>();
@@ -80,7 +95,9 @@ public class ServiceJobController {
         parameters.put("customerName", v1.getCustomerName());
         parameters.put("customerPhoneNumber", v1.getCustomerPhoneNumber());
         parameters.put("customerAddress", v1.getCustomerAddress());
-        parameters.put("total", Double.toString(v1.getTotal()));
+        DecimalFormat df = new DecimalFormat("0.00");
+        String price = df.format(v1.getTotal());
+        parameters.put("total", price);
 
         String userHomeDirectory = System.getProperty("user.home");
         /* Output file location */
@@ -121,8 +138,7 @@ public class ServiceJobController {
     }
 
 
-
-    public String  downloadPdf(File crunchifyFile) throws IOException {
+    public String downloadPdf(File crunchifyFile) throws IOException {
         FileInputStream crunchifyInputStream = null;
         byte[] crunchifyByteStream = new byte[(int) crunchifyFile.length()];
         try {
@@ -135,7 +151,7 @@ public class ServiceJobController {
             e.printStackTrace();
         }
         String s = Base64.getEncoder().encodeToString(crunchifyByteStream);
-        return  s;
+        return s;
     }
 
 }

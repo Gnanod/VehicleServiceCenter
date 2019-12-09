@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {SupplierService} from "../../Service/supplier.service";
 import {UpdateJobPrice} from "../../DTO/UpdateJobPrice";
 import {DatePipe} from "@angular/common";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-customer-payements',
@@ -33,7 +34,14 @@ export class CustomerPayementsComponent implements OnInit {
         this.creditBalance = result.creditBalance;
         this.tempCredit=this.creditBalance;
       } else {
-        alert('Service Details Is Not Found')
+        // alert('Service Details Is Not Found');
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Service Details Is Not Found.',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     });
   }
@@ -43,7 +51,13 @@ export class CustomerPayementsComponent implements OnInit {
       let credit :number = this.tempCredit -  this.payAmount;
       this.creditBalance = credit;
     }else{
-      alert('Pay Amount is greater than Credit Balance')
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Pay Amount is greater than Credit Balance.',
+        showConfirmButton: false,
+        timer: 1500
+      })
       this.payAmount = parseFloat(this.payAmount.toString().substring(0,this.payAmount.toString().length-1));
     }
   }
@@ -61,7 +75,13 @@ export class CustomerPayementsComponent implements OnInit {
 
     this.supplierService.updateSupplierPayments(uj).subscribe((result) => {
       if (result != null) {
-        alert('Payment Updated SuccessFully')
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Payment Updated SuccessFully.',
+          showConfirmButton: false,
+          timer: 1500
+        })
 
         this.vehicleNumber=null;
         this.date =null;
@@ -71,7 +91,14 @@ export class CustomerPayementsComponent implements OnInit {
         this.serviceId=null;
 
       } else {
-        alert('Service Details Is Not Found')
+        // alert('Service Details Is Not Found')
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Service Details Is Not Found.',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     });
   }

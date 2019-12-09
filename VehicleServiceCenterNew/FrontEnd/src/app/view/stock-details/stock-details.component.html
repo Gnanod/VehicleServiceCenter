@@ -73,7 +73,7 @@
               <br>
 
               <label>Buying Price</label>
-              <input type="number" class="form-control" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchBuyingPrice" style="margin-top: 4px">
+              <input type="number" class="form-control" id="buyingPrice" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchBuyingPrice" style="margin-top: 4px">
             </div>
           </div>
           <div class="col-sm-3">
@@ -195,7 +195,7 @@
           <div class="col-sm-2">
             <div class="form-group">
               <label>Amount</label>
-              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="totAmount" disabled>
+              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="displayTotAmount" disabled>
             </div>
           </div>
         </div>
@@ -205,31 +205,27 @@
           <div class="col-sm-1"></div>
 
 
-          <div class="col-sm-3">
-
-            <div class="form-check form-check-radio">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="exampleRadiosu" id=" FullPayment" value="Full Payment" [(ngModel)]="paymentType"  (change)="changeValue()" checked>
-                Full Payment
-                <span class="circle">
-            <span class="check"></span>
-            </span>
-              </label>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Discount(%)</label>
+              <input type="number" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="discountPresentage" (keypress)="calculteDiscount($event)">
             </div>
-
-            <div class="form-check form-check-radio">
-              <label class="form-check-label">
-                <input class="form-check-input" type="radio" name="exampleRadiosu" id="CreditPayment" value="Credit Payment"  [(ngModel)]="paymentType" >
-                Credit Payment
-                <span class="circle">
-            <span class="check"></span>
-            </span>
-              </label>
-            </div>
-
-
           </div>
         </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Final Total</label>
+              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="finaltotString" disabled>
+            </div>
+          </div>
+        </div>
+
 
         <div class="row">
           <div class="col-sm-4"></div>
@@ -240,7 +236,7 @@
           <div class="col-sm-2">
             <div class="form-group">
               <label>Credit Payment</label>
-              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="creditBalance" >
+              <input type="number" class="form-control" id="creditPayment"  [ngModelOptions]="{standalone: true}"[(ngModel)]="creditBalance" (keyup)="choosePaymentType()">
             </div>
           </div>
         </div>

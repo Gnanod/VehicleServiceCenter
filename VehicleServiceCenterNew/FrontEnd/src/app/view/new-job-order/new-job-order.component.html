@@ -209,7 +209,8 @@
                         <div class="col-sm-2">
                           <div class="form-group">
                             <label>Amount</label>
-                            <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="serviceOrderTot" disabled>
+                            <!--<input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="serviceOrderTot" disabled>-->
+                            <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="FinalTotal" disabled>
                           </div>
                         </div>
                       </div>
@@ -330,7 +331,7 @@
 
               <td>
                 <!--<span style="font-weight: normal">VAT: € {{exvat}}</span><br/>-->
-                Total: € {{serviceOrderTot}}
+                Total: RS : {{FinalTotal}}
               </td>
             </tr>
           </table>

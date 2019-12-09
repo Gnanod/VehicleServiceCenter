@@ -21,6 +21,7 @@ import {SupplierPayementsComponent} from "./view/supplier-payements/supplier-pay
 import {CustomerPayementsComponent} from "./view/customer-payements/customer-payements.component";
 import {PrintJobCardComponent} from "./view/print-job-card/print-job-card.component";
 import {UpdateSupplierPaymentsComponent} from "./view/update-supplier-payments/update-supplier-payments.component";
+import {CustomerPaymentViewComponent} from "./view/customer-payment-view/customer-payment-view.component";
 
 const routes: Routes = [
     {
@@ -103,6 +104,10 @@ const routes: Routes = [
           {
             path:'UpdateSupplierPayments',
             component : UpdateSupplierPaymentsComponent
+          },
+          {
+            path:'viewCustomerPayments',
+            component:CustomerPaymentViewComponent
           }
 
 

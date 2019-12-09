@@ -13,9 +13,12 @@ public interface StockRepository extends JpaRepository<Stock,Integer> {
     @Query(value ="select i.itemId,i.itemName,i.quantityOnHand from Item i where  i.quantityOnHand < i.stockLevel")
     List<Object[]> getLowStockLevelReport();
 
-    @Query(value ="select c.companyName,c.agentName,c.phoneNumber,s.payment,s.stockPayementDate,s.creditBalance,s.stockId from Stock s,Supplier c  where c.supplierId= s.supplier.supplierId and s.paymentType='Credit Payment'")
+    @Query(value ="select c.companyName,c.agentName,c.phoneNumber,s.finalDiscountedTotal,s.stockPayementDate,s.creditBalance,s.stockId from Stock s,Supplier c  where c.supplierId= s.supplier.supplierId and s.paymentType='Credit Payment'")
     List<Object[]> getCreditPaymentDetails();
 
     @Query(value = "from Stock where stockId=?1")
     Stock getStockById(int stockId);
+
+    @Query(value = "select c.firstName,c.lastName,c.email,c.address,c.phoneNumber,v.vehicleNumber,j.date,j.creditBalance from JobOrder j,Customer c,Vehicle v where v.customer.nic= c.nic and j.vehicle.vehicleId= v.vehicleId and j.paymentType='Credit Payment'")
+    List<Object[]> getCustomerPaymentDetails();
 }

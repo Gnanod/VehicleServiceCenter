@@ -42,11 +42,30 @@ export class MainComponent implements OnInit {
         }else if(this.router.url == '/main/SupplierCreditReports'){
           this.headerText="Supplier Payments Report";
         }else if(this.router.url == '/main/SupplierPayments'){
+
           this.headerText="Supplier Payments";
 
         }else if(this.router.url == '/main/CustomerPayments') {
 
-          this.headerText = "Customer Payments";
+          this.headerText = "Update Customer Payments";
+        }else if(this.router.url == '/main/LowStockLevel'){
+          this.headerText="Low Stock Level";
+        }else if(this.router.url == 'main/SupplierCreditReports'){
+          this.headerText="Supplier Credit Reports";
+        }else if(this.router.url == '/main/SupplierCreditReports'){
+          this.headerText="Supplier Payments Reports";
+        }else if(this.router.url == '/main/SupplierPayments'){
+          this.headerText="Supplier Payments";
+        }else if(this.router.url == '/main/CustomerPayments'){
+          this.headerText="Update Customer Payments";
+        }else if(this.router.url == '/main/LubeDetailJob'){
+          this.headerText="Lube Detail Job";
+        }else if(this.router.url == '/main/printJobCard'){
+        this.headerText="Print Job Card";
+        }else if(this.router.url == '/main/viewCustomerPayments'){
+          this.headerText="View Customer Payments";
+        }else if(this.router.url == '/main/jobOrder'){
+          this.headerText="Services";
         }
 
     }
@@ -86,9 +105,10 @@ export class MainComponent implements OnInit {
 
           this.router.navigate(['main/SupplierPayments'])
 
-        }else if(button == 'Customer Payments'){
+        }else if(button == 'Update Customer Payments'){
 
           this.router.navigate(['main/CustomerPayments'])
+
         }else if(button == 'Details'){
 
           this.router.navigate(['main/LubeDetailJob'])
@@ -96,6 +116,10 @@ export class MainComponent implements OnInit {
         }else if(button == 'Print Job Card'){
 
           this.router.navigate(['main/printJobCard'])
+
+        }else if(button == 'Customer Payments'){
+
+          this.router.navigate(['main/viewCustomerPayments'])
 
         }
 

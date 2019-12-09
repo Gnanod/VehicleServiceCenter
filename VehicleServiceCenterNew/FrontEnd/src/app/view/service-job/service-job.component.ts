@@ -28,10 +28,6 @@ export class ServiceJobComponent implements OnInit {
   insertSelectedServiceType: number;
   allServicesDescArray: Array<Services>= new Array<Services>();
   getServiceToAddById: number;
-  searchServiceDescByName: Array<Services>;
-  serviceAllArray: Array<Services>= new Array<Services>();
-
-
   /////VEHICLEEE/////////////////////////////////////////////////////
 
   searchVehicleDetails : Vehicle = new Vehicle();
@@ -39,8 +35,6 @@ export class ServiceJobComponent implements OnInit {
 
   searchItemDetails : Array<Item> = new Array<Item>();
   searchItemDetails1 :Array<Item> = new Array<Item>();
-
-
   searchItem1 : string;
   vehicleId : Number;
   vehicleNumber: string;
@@ -63,57 +57,31 @@ export class ServiceJobComponent implements OnInit {
   ngOnInit() {
     this.getAllServicesDesc();
   }
-
-
   servicestoadd: Services;
   sendIdToAddService(value: Services){
     this.servicestoadd = value;
   }
-
-
-
-
   getAllServicesDesc(){
-
       this.servicesService.getAllServiceDetails().subscribe((result)=>{
         if(result!=null){
           this.allServicesDescArray = result;
-
         }
-
       });
-
     }
-
   addServiceJobsToFrontEndList(){
     this.servicesService.getServicebyId(this.getServiceToAddById).subscribe((result)=>{
       if(result!=null){
         this.addedServiceBeforeConfirm = result;
-
       }
     });
-
-
   }
-
   ilen: number;
   addToJobOrderServiceDetails(){
-
     console.log("The object"+this.servicestoadd.serviceDesc+"ADDEDD"+this.insertSelectedServiceType);
   }
-
-
-
-
   searchServiceByIdAndAddToList(){
-
       this.servicesService.getServicebyId(this.insertSelectedServiceType).subscribe((result)=>{
-
         if(result==null){
-
-          // alert('Item Not Found ')
-          // this.searchItemDetails.quantityOnHand=10;
-
         }else{
           let ser : Services;
           ser = result;
@@ -138,8 +106,6 @@ export class ServiceJobComponent implements OnInit {
       }
       this.serviceJDArray.push(serviceJD);
 
-      console.log("PRICE IS" + this.serviceOrderTot);
-
 
       this.serviceOrder.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
       this.serviceOrder.employeeName= "Fudddd";
@@ -150,8 +116,6 @@ export class ServiceJobComponent implements OnInit {
 
       this.serviceJobService.addServiceJob(this.serviceOrder).subscribe((result)=>{
         if(result !=null){
-
-          console.log("LLLL"+result)
           alert("Service Added Successfully");
 
 
@@ -165,7 +129,6 @@ export class ServiceJobComponent implements OnInit {
 
 
   searchVehicleDetailsByNumber(){
-
     this.vehicleservice.searchVehicleDetails(this.searchVehicleNumber).subscribe((result)=>{
       if (result == null) {
         this.vehicleId = null;
@@ -187,36 +150,15 @@ export class ServiceJobComponent implements OnInit {
         this.vehicleNumber = this.searchVehicleDetails.vehicleNumber;
         this.engineNumber = this.searchVehicleDetails.engineNumber;
         this.vehicleClass = this.searchVehicleDetails.vehicleClass;
-
         this.vehicleMake = this.searchVehicleDetails.vehicleMake;
         this.vehicleModel = this.searchVehicleDetails.vehicleModel;
         this.yearOfManufacture = this.searchVehicleDetails.yearOfManufacture;
         this.customer = this.searchVehicleDetails.customer;
-
         this.customername= this.customer.firstName;
         this.customerphone= this.customer.phoneNumber;
         this.customeraddress= this.customer.address;
         this.customeremail= this.customer.email;
-
-
       }
     });
   }
-
-
-  // getServices(value: string) {
-  //
-  //   console.log('hhhhhhhh'+this.insertSelectedServiceType)
-  //
-  //   this.jobOrderService.getServicesDesc(this.insertSelectedServiceType).subscribe((result)=>{
-  //
-  //     if(result!=null){
-  //
-  //       this.allServicesDescArray=result;
-  //       //this.addTableModel=null;
-  //       console.log("sadasd"+result[0].serviceDesc);
-  //
-  //     }
-  //   });
-  // }
 }

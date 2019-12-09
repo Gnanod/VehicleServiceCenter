@@ -15,7 +15,7 @@
            </div>
            <div class="col-lg-3">
              <input type="text" class="form-control" placeholder="JobOrderId"
-                    [ngModelOptions]="{standalone: true}" [(ngModel)]="serviceJobOrderId" style="margin-left: -100px" (keyup)="searchServiceDetails()">
+                    [ngModelOptions]="{standalone: true}" [(ngModel)]="serviceJobOrderId" style="margin-left: -100px" (keyup)="searchServiceDetails($event)">
 
            </div>
 
@@ -25,7 +25,7 @@
            </div>
            <div class="col-lg-3">
              <input type="text" class="form-control" placeholder="JobOrderId"
-                    [ngModelOptions]="{standalone: true}" [(ngModel)]="serviceTotAmount" style="margin-left: -180px" >
+                    [ngModelOptions]="{standalone: true}" [(ngModel)]="serviceTotAmount" style="margin-left: -180px" disabled>
 
            </div>
          </div>
@@ -39,30 +39,6 @@
               <div class="form-group">
                 <label>Select Make</label>
                 <br>
-                <!--<select class="form-control " data-style="select-with-transition"-->
-                        <!--[(ngModel)]="insertselectedMake" #mySelect-->
-                        <!--(change)="getMakeModelDetails(mySelect.value)">-->
-
-                  <!--<option value="Any">Any</option>-->
-                  <!--<option>Abarth</option>-->
-                  <!--<option>Acura</option>-->
-                  <!--<option>Alfa Romeo</option>-->
-                  <!--<option>Ambassador</option>-->
-                  <!--<option>Aprilia</option>-->
-                  <!--<option>Audi</option>-->
-                  <!--<option>Austin</option>-->
-                  <!--<option>Bajaj</option>-->
-                  <!--<option>BMW</option>-->
-                  <!--<option>Cadillac</option>-->
-                  <!--<option>Caterpillar</option>-->
-                  <!--<option>Nissan</option>-->
-                  <!--<option>Suzuki</option>-->
-                  <!--<option>Toyota</option>-->
-                  <!--<option>Honda</option>-->
-                  <!--<option>530i</option>-->
-
-
-                <!--</select>-->
                 <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)" >
 
                   <option  *ngFor="let names of findAllMakesToArray" [ngValue]="names.makeName">{{names.makeName}}</option>
@@ -93,30 +69,30 @@
                 <br>
                 <input type="text" class="form-control" placeholder="Search Item"
                        [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem"
-                       (keyup)="searchItemDetailsByName($event)" style="margin-top: 5px">
+                       (keypress)="searchItemDetailsByName($event)" style="margin-top: 5px">
               </div>
 
 
             </div>
 
-            <div class="col-md-2">
+            <!--<div class="col-md-2">-->
 
+              <!--<div class="form-group">-->
+                <!--<label>Select Item</label>&lt;!&ndash;<div class="dropdown">&ndash;&gt;-->
+                <!--<input type="text" class="form-control" placeholder="Search Item"-->
+                       <!--[ngModelOptions]="{standalone: true}" [(ngModel)]="insertItemName" id="insertItemName" (keypress)="getUnitPrice()"-->
+                       <!--&gt;-->
+
+              <!--</div>&lt;!&ndash;</a>&ndash;&gt;-->
+
+            <!--</div>-->
+            <div class="col-md-3">
               <div class="form-group">
-                <label>Select Item</label><!--<div class="dropdown">-->
-                <input type="text" class="form-control" placeholder="Search Item"
-                       [ngModelOptions]="{standalone: true}" [(ngModel)]="insertItemName" id="insertItemName" (keypress)="getUnitPrice()"
-                       >
-
-                <!--<select class="form-control " data-style="select-with-transition"-->
-                        <!--[(ngModel)]="insertItemName" #mySelect1-->
-                        <!--(change)="getUnitPrice($event)">-->
-                  <!--&lt;!&ndash;<a href="#" class="btn dropdown-toggle" data-toggle="dropdown">&ndash;&gt;-->
-                  <!--<option *ngFor="let make of searchItemDetails" [value]="make.itemName">-->
-                    <!--{{make.itemName}}-->
-                  <!--</option>       &lt;!&ndash;Item/Job &lt;!&ndash; Current make data&ndash;&gt;&ndash;&gt;-->
-                <!--</select>&lt;!&ndash;<b class="caret"></b>&ndash;&gt;-->
-              </div><!--</a>-->
-
+                <label style="margin-top: 0px">Item Name</label>
+                <br>
+                <input type="text" class="form-control" placeholder="Item Name"
+                       [ngModelOptions]="{standalone: true}" [(ngModel)]="insertItemName" id="insertItemName"  style="margin-top: 5px" disabled>
+              </div>
             </div>
 
             <div class="col-md-3">
@@ -141,7 +117,7 @@
               <div class="form-group">
                 <label>Quantity</label>
                 <br>
-                <input type="text" class="form-control" placeholder="Quantity"
+                <input type="text" class="form-control" placeholder="Quantity" id="Quantity"
                        [ngModelOptions]="{standalone: true}" [(ngModel)]="quantity">
               </div>
             </div>
@@ -210,7 +186,7 @@
               <div class="form-group">
                 <label>Amount</label>
                 <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
-                       [(ngModel)]="totAmount">
+                       [(ngModel)]="totAmountString">
               </div>
             </div>
 
@@ -220,12 +196,6 @@
           <div class="row">
             <div class="col-sm-4"></div>
             <div class="col-sm-4"></div>
-
-
-            <!--<div class="col-sm-4">-->
-              <!--<button type="submit" class="btn btn-behance pull-right" (click)="addJobOrderToDatabase()">Save Details-->
-              <!--</button>-->
-            <!--</div>-->
 
           </div>
 
@@ -242,32 +212,7 @@
               <div class="form-group">
                 <label>Select Make</label>
                 <br>
-                <!--<select class="form-control " data-style="select-with-transition"-->
-                        <!--[(ngModel)]="insertselectedMake1" #mySelect-->
-                        <!--(change)="getMakeModelDetails1(mySelect.value)">-->
-
-                  <!--<option value="Any">Any</option>-->
-                  <!--<option>Abarth</option>-->
-                  <!--<option>Acura</option>-->
-                  <!--<option>Alfa Romeo</option>-->
-                  <!--<option>Ambassador</option>-->
-                  <!--<option>Aprilia</option>-->
-                  <!--<option>Audi</option>-->
-                  <!--<option>Austin</option>-->
-                  <!--<option>Bajaj</option>-->
-                  <!--<option>BMW</option>-->
-                  <!--<option>Cadillac</option>-->
-                  <!--<option>Caterpillar</option>-->
-                  <!--<option>Nissan</option>-->
-                  <!--<option>Suzuki</option>-->
-                  <!--<option>Toyota</option>-->
-                  <!--<option>Honda</option>-->
-                  <!--<option>530i</option>-->
-
-
-                <!--</select>-->
                 <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake1" #mySelect (change)="getMakeModelDetails1(mySelect.value)" >
-
                   <option  *ngFor="let names of findAllMakesToArray" [ngValue]="names.makeName">{{names.makeName}}</option>
 
                 </select>
@@ -290,24 +235,19 @@
               <div class="form-group">
                 <label style="margin-top: 0px"> Search Item</label>
                 <br>
-                <input type="text" class="form-control" placeholder="Search Item"
+                <input type="text" class="form-control" placeholder="Item ID"
                        [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItem1"
-                       (keyup)="searchItemDetailsByName1($event)" style="margin-top: 5px">
+                       (keypress)="searchItemDetailsByName1($event)" style="margin-top: 5px">
               </div>
             </div>
-
-            <div class="col-md-4">
-
+            <div class="col-md-3">
               <div class="form-group">
-                <label>Select Item</label><!--<div class="dropdown">-->
-                <input type="text" class="form-control" placeholder="Search Item"
-                       [ngModelOptions]="{standalone: true}" [(ngModel)]="insertItemName1" id="insertItemName1" (keypress)="getUnitPrice1()" style="margin-top: 25px"
-                >
-
-              </div><!--</a>-->
-
+                <label style="margin-top: 0px">Item Name</label>
+                <br>
+                <input type="text" class="form-control" placeholder="itemName" style="margin-top: 5px"
+                       [ngModelOptions]="{standalone: true}" [(ngModel)]="insertItemName1" id="insertItemName1" disabled>
+              </div>
             </div>
-
 
 
 
@@ -323,7 +263,7 @@
               <div class="form-check">
                 <label class="form-check-label" style="margin-top: 15px">
                   <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1"
-                         value="Change" [(ngModel)]="type" checked> Change
+                         value="Change" [(ngModel)]="type" > Change
                   <span class="circle">
                                                         <span class="check"></span>
                                                       </span>
@@ -416,7 +356,7 @@
               <div class="form-group">
                 <label>Amount</label>
                 <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
-                       [(ngModel)]="totAmount1">
+                       [(ngModel)]="totAmount1String" disabled>
               </div>
             </div>
 
@@ -429,7 +369,7 @@
             </div>
             <div class="col-sm-4">
               <div class="form-group">
-                <label class="form-control">LubeJob Amount<span style="margin-left: 40px"> :{{totAmount}}</span></label>
+                <label class="form-control">LubeJob Amount<span style="margin-left: 40px"> :{{totAmountString}}</span></label>
                 <!--<label class="form-control "> {{grossAmount}}</label>-->
                 <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
                 <!--[(ngModel)]="totAmount">-->
@@ -444,23 +384,7 @@
             </div>
             <div class="col-sm-4">
               <div class="form-group">
-                <label class="form-control">DetailJob Amount <span style="margin-left: 35px"> :{{totAmount1}}</span> </label>
-                <!--<label class="form-control "> {{grossAmount}}</label>-->
-                <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
-                <!--[(ngModel)]="totAmount">-->
-              </div>
-            </div>
-
-          </div>
-
-          <div class="row">
-
-            <div class="col-sm-8">
-
-            </div>
-            <div class="col-sm-4">
-              <div class="form-group">
-                <label class="form-control">Service Amount  <span style="margin-left: 48px"> : {{serviceTotAmount}} </span></label>
+                <label class="form-control">DetailJob Amount <span style="margin-left: 35px"> :{{totAmount1String}}</span> </label>
                 <!--<label class="form-control "> {{grossAmount}}</label>-->
                 <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
                 <!--[(ngModel)]="totAmount">-->
@@ -476,7 +400,7 @@
             </div>
             <div class="col-sm-4">
               <div class="form-group">
-                <label class="form-control">Gross Amount  <span style="margin-left: 55px"> : {{grossAmount}}</span></label>
+                <label class="form-control">Service Amount  <span style="margin-left: 48px"> : {{serviceTotAmountString}} </span></label>
                 <!--<label class="form-control "> {{grossAmount}}</label>-->
                 <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
                 <!--[(ngModel)]="totAmount">-->
@@ -491,39 +415,21 @@
 
             </div>
             <div class="col-sm-4">
-
-              <div class="row">
-
-                <div class="col-sm-6">
-                  Payment Type
-                </div>
-                <div class="col-sm-3">
-                  <div class="form-check">
-                    <label class="form-check-label" style="margin-top: 0px;margin-left: -15px">
-                      <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios3"
-                             value="Credit" [(ngModel)]="PaymentType" checked> Credit
-                      <span class="circle">
-                                                        <span class="check"></span>
-                                                      </span>
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-3">
-                  <div class="form-check">
-                    <label class="form-check-label">
-                      <input class="form-check-input" type="radio" name="exampleRadios3" id="exampleRadios4"
-                             value="Full" [(ngModel)]="PaymentType" (change)="changeValue()"> Full
-                      <span class="circle">
-                                                        <span class="check"></span>
-                                                      </span>
-                    </label>
-                  </div>
-                </div>
-              </div>
               <div class="form-group">
+                <label class="form-control">Gross Amount  <span style="margin-left: 55px"> : {{grossAmountString}}</span></label>
+                <!--<label class="form-control "> {{grossAmount}}</label>-->
+                <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
+                <!--[(ngModel)]="totAmount">-->
               </div>
             </div>
 
+          </div>
+
+          <div class="row">
+
+            <div class="col-sm-8">
+
+            </div>
 
             <div class="col-sm-8">
 
@@ -563,7 +469,7 @@
                 <div class="col-sm-6">
 
                   <input type="text" class="form-control" [ngModelOptions]="{standalone: true}"
-                         [(ngModel)]="newcreditBalance" style="margin-top: -20px ;margin-left: -10px" disabled>
+                         [(ngModel)]="newcreditBalanceString" style="margin-top: -20px ;margin-left: -10px" disabled>
                 </div>
 
               </div>
@@ -796,7 +702,7 @@
                 </td>
 
                 <td>
-                  Total : {{totAmount }}
+                  Total : {{totAmountString }}
                 </td>
               </tr>
 
@@ -865,7 +771,7 @@
               </td>
 
                 <td>
-                  Total : {{totAmount1 }}
+                  Total : {{totAmount1String }}
                 </td>
               </tr>
               </tbody>
@@ -883,7 +789,7 @@
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label class="form-control">LubeJob Amount <span style="margin-left: 40px"> :{{totAmount}}</span> </label>
+              <label class="form-control">LubeJob Amount <span style="margin-left: 40px"> :{{totAmountString}}</span> </label>
               <!--<label class="form-control "> {{grossAmount}}</label>-->
               <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
               <!--[(ngModel)]="totAmount">-->
@@ -898,23 +804,7 @@
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label class="form-control">DetailJob Amount <span style="margin-left: 35px"> :{{totAmount1}}</span> </label>
-              <!--<label class="form-control "> {{grossAmount}}</label>-->
-              <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
-              <!--[(ngModel)]="totAmount">-->
-            </div>
-          </div>
-
-        </div>
-
-        <div class="row">
-
-          <div class="col-sm-8">
-
-          </div>
-          <div class="col-sm-4">
-            <div class="form-group">
-              <label class="form-control">Service Amount  <span style="margin-left: 45px"> :{{serviceTotAmount}}</span> </label>
+              <label class="form-control">DetailJob Amount <span style="margin-left: 35px"> :{{totAmount1String}}</span> </label>
               <!--<label class="form-control "> {{grossAmount}}</label>-->
               <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
               <!--[(ngModel)]="totAmount">-->
@@ -930,7 +820,23 @@
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label class="form-control">Gross Amount   <span style="margin-left: 55px"> :{{grossAmount}} </span></label>
+              <label class="form-control">Service Amount  <span style="margin-left: 45px"> :{{serviceTotAmountString}}</span> </label>
+              <!--<label class="form-control "> {{grossAmount}}</label>-->
+              <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
+              <!--[(ngModel)]="totAmount">-->
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-8">
+
+          </div>
+          <div class="col-sm-4">
+            <div class="form-group">
+              <label class="form-control">Gross Amount   <span style="margin-left: 55px"> :{{grossAmountString}} </span></label>
               <!--<label class="form-control "> {{grossAmount}}</label>-->
               <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
               <!--[(ngModel)]="totAmount">-->
@@ -978,7 +884,7 @@
           </div>
           <div class="col-sm-4">
             <div class="form-group">
-              <label class="form-control">Credit Balance  <span style="margin-left: 52px"> : {{newcreditBalance}}</span></label>
+              <label class="form-control">Credit Balance  <span style="margin-left: 52px"> : {{newcreditBalanceString}}</span></label>
               <!--<label class="form-control "> {{grossAmount}}</label>-->
               <!--<input type="text" class="form-control" [ngModelOptions]="{standalone: true}"-->
               <!--[(ngModel)]="totAmount">-->

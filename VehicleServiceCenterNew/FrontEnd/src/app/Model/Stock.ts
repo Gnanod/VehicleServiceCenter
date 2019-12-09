@@ -11,5 +11,7 @@ export class Stock {
   stockItemDetails: Array<StockItemDetail>
   paymentType :string;
   creditBalance :number;
+  discount:number;
+  finalDiscountedTotal :number;
 
 }

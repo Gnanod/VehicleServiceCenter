@@ -1,0 +1,139 @@
+<div class="row">
+
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-info card-header-icon">
+        <div class="card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h4 class="card-title">All Customer Payments</h4>
+      </div>
+      <div class="card-body">
+        <div class="row" >
+
+
+
+
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+
+              <th class="text-center">Customer Name</th>
+              <th class="text-center">Address</th>
+              <th class="text-center">Phone Number</th>
+              <th class="text-center">Email</th>
+              <th class="text-center">Job Order Date</th>
+              <th class="text-center">Vehicle Number</th>
+              <th class="text-center">Amount</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let credit of creditPaymentDto">
+
+
+
+              <td class="text-center">
+                {{credit.name}}
+              </td>
+              <td class="text-center">
+                {{credit.address}}
+              </td>
+              <td class="text-center">
+                {{credit.phoneNumber}}
+              </td >
+              <td  class="text-center">
+                {{credit.email}}
+              </td>
+              <td class="text-center">
+                {{credit.date}}
+              </td >
+              <td class="text-center">
+                {{credit.vehicleNumber}}
+              </td >
+              <td class="text-center" style="color: red; font-size: 20px ;font-style: inherit">
+                {{credit.amount}}
+              </td >
+              <!--<td class="td-actions ">-->
+                <!--<button type="button" rel="tooltip" class="btn btn-behance">-->
+                  <!--<i class="far fa-edit"></i>-->
+                <!--</button>-->
+              <!--</td>-->
+            </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="modal fade modal-mini modal-primary" id="myModal10" tabindex="-1" role="dialog"
+     aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-small">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Update Supplier Payment</p>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Stock Id </label>
+              <input type="text" class="form-control" [(ngModel)]="stockId">
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="bmd-label-floating">Credit Balance </label>
+              <input type="text" class="form-control" [(ngModel)]="modelCreditBalance">
+            </div>
+          </div>
+
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="bmd-label-floating">Pay Amount </label>
+            <input type="text" class="form-control" [(ngModel)]="modelAmount">
+          </div>
+        </div>
+
+      </div>
+      <!--<div class="modal-footer justify-content-center">-->
+
+
+      <div class="row">
+
+        <div class="col-md-12">
+          <button type="submit" class="btn btn-behance pull-right" (click)="addMake()" >Save Name</button>
+        </div>
+      </div>
+
+
+      <!--</div>-->
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $(document).on('click',function(e){
+      if($(e.target).hasClass("cus_see_stock")){
+        reloadStockForGiven(e.target);
+      }
+    });
+  });
+  function showModel() {
+
+    $("#myModal10").model('show');
+  }
+</script>

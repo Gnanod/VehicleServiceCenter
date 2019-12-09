@@ -22,6 +22,7 @@ import {constants} from "zlib";
 import {toHtml} from "@fortawesome/fontawesome-svg-core";
 import {ServiceInvoiceDTO} from "../../DTO/ServiceInvoiceDTO";
 import {ServicesDTO} from "../../DTO/ServicesDTO";
+import Swal from "sweetalert2";
 
 // const {join} = require('path');
 // const moment = require('moment');
@@ -112,7 +113,13 @@ export class NewJobOrderComponent implements OnInit {
 
           } else {
 
-            alert("Job Order Not Found");
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Job Order Not Found.',
+              showConfirmButton: false,
+              timer: 1500
+            })
           }
 
         });
@@ -180,19 +187,20 @@ export class NewJobOrderComponent implements OnInit {
 
 
   deleteRow(id) {
-    let tot:number=0;
+    let tot: number = 0;
     for (let i = 0; i < this.servicesArray.length; ++i) {
 
-      if ( this.servicesArray[i].serviceId === id) {
-        this.servicesArray.splice(i,1);
+      if (this.servicesArray[i].serviceId === id) {
+        this.servicesArray.splice(i, 1);
 
       }
 
     }
     for (let i = 0; i < this.servicesArray.length; ++i) {
-        tot += this.servicesArray[i].servicePrice;
+      tot += this.servicesArray[i].servicePrice;
     }
     this.serviceOrderTot = tot;
+    this.FinalTotal = tot.toFixed(2);
   }
 
 
@@ -200,7 +208,7 @@ export class NewJobOrderComponent implements OnInit {
   insertSelectedServiceType: Services;
   servicesOfTheServiceJobArrray: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
 
-  getAllServicesDesc(value:string) {
+  getAllServicesDesc(value: string) {
     this.servicesService.getAllServices(value).subscribe((result) => {
       if (result != null) {
         this.allServicesDescArray = result;
@@ -210,27 +218,15 @@ export class NewJobOrderComponent implements OnInit {
 
   }
 
-
-  // insertSelectedServiceType:Services;
-  // servicestoadd: Services;
-  // sendIdToAddService(){
-  //    this.servicestoadd =insertSelectedServiceType;
-  //  console.log(this.servicestoadd.serviceName);
-  //  console.log(this.servicestoadd.serviceId);
-  //
-  // }
-
-
   addToServiceJob() {
 
-     let s1 : ServiceJob = new ServiceJob();
-     s1.serviceJobId= this.serviceJobId;
-     s1.employeeName = "GGGG";
-     s1.date  = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
-     // s1.serviceJobDetails = this.servicesOfTheServiceJobArrray;
-     s1.total = this.serviceOrderTot;
-     s1.vehicle = this.searchVehicleDetails;
-
+    let s1: ServiceJob = new ServiceJob();
+    s1.serviceJobId = this.serviceJobId;
+    s1.employeeName = "GGGG";
+    s1.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+    // s1.serviceJobDetails = this.servicesOfTheServiceJobArrray;
+    s1.total = this.serviceOrderTot;
+    s1.vehicle = this.searchVehicleDetails;
 
 
     this.serviceOrder.serviceJobId = this.serviceJobId;
@@ -244,11 +240,17 @@ export class NewJobOrderComponent implements OnInit {
     let sendServiceDetail: ServicesDTO = new ServicesDTO();
     sendServiceDetail.serviceInvoice = this.serviceInvoice;
     sendServiceDetail.serviceOrder = s1;
-    sendServiceDetail.serviceJobDetails=this.details;
+    sendServiceDetail.serviceJobDetails = this.details;
 
     this.serviceJobService.addServiceJobs(sendServiceDetail).subscribe((result) => {
       if (result != null) {
-        alert("Service Added Successfully");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Service Added Successfully.',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.servicesOfTheServiceJobArrray = new Array<ServiceJobDetails>();
         this.serviceJobId = null;
         this.searchVehicleNumber = null;
@@ -261,10 +263,13 @@ export class NewJobOrderComponent implements OnInit {
         this.customerphone = null;
         this.customeremail = null;
         this.customeraddress = null;
-        this.servicesArray= new Array<Services>();
-        this.allServicesDescArray= new Array<Services>();
+        this.servicesArray = new Array<Services>();
+        this.allServicesDescArray = new Array<Services>();
+        this.serviceInvoice = new ServiceInvoiceDTO();
+        this.details = new Array<ServiceJobDetails>();
+        this.inServices=new Array<Services>();
 
-        this.serviceOrderTot=null;
+        this.serviceOrderTot = null;
         const linkSource = 'data:application/pdf;base64,' + result.pdf;
         const downloadLink = document.createElement("a");
         const fileName = "ServiceJobCard.pdf";
@@ -278,80 +283,64 @@ export class NewJobOrderComponent implements OnInit {
 
   }
 
-
-  // searchServiceByIdAndAddToList(){
-  //
-  //   this.servicesService.getServicebyId(this.insertSelectedServiceType).subscribe((result)=>{
-  //
-  //     if(result==null){
-  //
-  //     }else{
-  //       let ser : Services;
-  //       ser = result;
-  //       this.servicesOfTheServiceJobArrray.push(ser);
-  //       this.serviceInvoice.invoiceNumber = this.serviceJobId;
-  //       this.serviceInvoice.chasisNumber= this.engineNumber;
-  //       this.serviceInvoice.make = this.vehicleMake;
-  //       this.serviceInvoice.model = this.vehicleModel;
-  //       this.serviceInvoice.vehicleNumber= this.searchVehicleNumber;
-  //       this.serviceInvoice.year  = this.yearOfManufacture;
-  //       this.serviceInvoice.customerName = this.customername;
-  //       this.serviceInvoice.customerAddress = this.customeraddress;
-  //       this.serviceInvoice.customerPhoneNumber = this.customerphone;
-  //       this.serviceInvoice.services = this.servicesOfTheServiceJobArrray;
-  //
-  //
-  //       let i: number ;
-  //
-  //       let all : number = this.servicesOfTheServiceJobArrray.length;
-  //       for (i=0; i<all; i++){
-  //         this.serviceOrderTot += this.servicesOfTheServiceJobArrray[i].servicePrice;
-  //         this.serviceJD.service = this.servicesOfTheServiceJobArrray[i];
-  //       }
-  //       this.serviceJDArray.push(this.serviceJD);
-  //     }
-  //   });
-  // }
-
-
   // serviceJDArray: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
   serviceOrder: ServiceJob = new ServiceJob();
-  serviceOrderTot: number = 0;
-   inServices :Array<Services> = new Array<Services>();
-   servicesArray : Array<Services> = new Array<Services>();
-   details : Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
+  FinalTotal: string;
+  serviceOrderTot: number = parseFloat('0');
+  inServices: Array<Services> = new Array<Services>();
+  servicesArray: Array<Services> = new Array<Services>();
+  details: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
 
+
+  calcTotal(){
+    let all: number = this.servicesArray.length;
+
+  }
 
   AddDetailsToTable() {
 
-    // let serviceJobDetail : ServiceJobDetails = new ServiceJobDetails();
 
-    // let servicesArray : Array<Services> = new Array<Services>();
-    this.servicesArray.push(this.serviceType);
-    this.inServices.push(this.serviceType);
+
+
+
+    if(this.serviceType !=null){
+      let s: ServiceJobDetails = new ServiceJobDetails();
+      s.serviceJobId = this.serviceJobId;
+      s.serviceId = this.serviceType.serviceId;
+      this.servicesArray.push(this.serviceType);
+      this.inServices.push(this.serviceType);
+      this.details.push(s);
+
+    }else{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Please Select Service Type.',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
     let i: number;
     let tot: number = 0;
     let all: number = this.servicesArray.length;
-    let s :ServiceJobDetails = new ServiceJobDetails();
-    s.serviceJobId=this.serviceJobId;
-    s.serviceId=this.serviceType.serviceId;
-    this.details.push(s);
     for (i = 0; i < all; i++) {
       tot += this.servicesArray[i].servicePrice;
     }
 
     this.serviceOrderTot = tot;
     this.serviceInvoice.invoiceNumber = this.serviceJobId;
-    this.serviceInvoice.chasisNumber= this.engineNumber;
+    this.serviceInvoice.chasisNumber = this.engineNumber;
     this.serviceInvoice.make = this.vehicleMake;
     this.serviceInvoice.model = this.vehicleModel;
-    this.serviceInvoice.vehicleNumber= this.searchVehicleNumber;
-    this.serviceInvoice.year  = this.yearOfManufacture;
+    this.serviceInvoice.vehicleNumber = this.searchVehicleNumber;
+    this.serviceInvoice.year = this.yearOfManufacture;
     this.serviceInvoice.customerName = this.customername;
     this.serviceInvoice.customerAddress = this.customeraddress;
     this.serviceInvoice.customerPhoneNumber = this.customerphone;
     this.serviceInvoice.services = this.inServices;
+    console.log("invoice Services Length :"+this.serviceInvoice.services.length);
     this.serviceInvoice.total = tot;
+    this.FinalTotal = tot.toFixed(2);
 
   }
 

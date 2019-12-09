@@ -31,7 +31,7 @@ export class ServicesService {
   }
 
   deleteService(retServiceId: number) {
-    return this.http.delete<number>(environment.backend_url + URL + '/deleteService/' + retServiceId);
+    return this.http.delete<string>(environment.backend_url + URL + '/deleteService/' + retServiceId);
   }
 
   // getServicesDesc(insertSelectedService: string) {

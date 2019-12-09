@@ -2,6 +2,7 @@ package lk.vsc.controller;
 
 
 import lk.vsc.DTO.CreditPaymentDto;
+import lk.vsc.DTO.CustomerPaymentViewDto;
 import lk.vsc.DTO.LowStockLevelDTO;
 import lk.vsc.entity.Stock;
 import lk.vsc.service.StockService;
@@ -60,6 +61,14 @@ public class StockController {
         }
 
     }
+
+
+    @GetMapping(value = "/getCustomerPaymentDetails")
+    public List<CustomerPaymentViewDto> getCustomerPaymentDetails(){
+
+        return stockService.getCustomerPaymentDetails();
+    }
+
 }
 
 

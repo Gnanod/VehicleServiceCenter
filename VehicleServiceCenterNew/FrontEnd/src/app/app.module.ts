@@ -32,6 +32,7 @@ import {NgbModalModule } from "@ng-bootstrap/ng-bootstrap";
 import {PopupService} from "@ng-bootstrap/ng-bootstrap/util/popup";
 import { PrintJobCardComponent } from './view/print-job-card/print-job-card.component';
 import { UpdateSupplierPaymentsComponent } from './view/update-supplier-payments/update-supplier-payments.component';
+import { CustomerPaymentViewComponent } from './view/customer-payment-view/customer-payment-view.component';
 
 
 // @ts-ignore
@@ -56,7 +57,8 @@ import { UpdateSupplierPaymentsComponent } from './view/update-supplier-payments
     SupplierPayementsComponent,
     CustomerPayementsComponent,
     PrintJobCardComponent,
-    UpdateSupplierPaymentsComponent
+    UpdateSupplierPaymentsComponent,
+    CustomerPaymentViewComponent
   ],
   imports: [
     BrowserModule,

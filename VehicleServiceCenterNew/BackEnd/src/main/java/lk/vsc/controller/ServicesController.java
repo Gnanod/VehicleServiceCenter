@@ -35,8 +35,10 @@ public class ServicesController {
 
 
     @DeleteMapping("/deleteService/{serviceId}")
-    void deleteEmployee(@PathVariable int serviceId) {
+    String deleteEmployee(@PathVariable int serviceId) {
+
         this.servicesService.deleteService(serviceId);
+        return  "9";
     }
 
     @GetMapping(value = "/getServicebyId/{serviceId}")

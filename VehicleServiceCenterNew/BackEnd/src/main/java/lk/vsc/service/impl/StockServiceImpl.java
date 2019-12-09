@@ -1,6 +1,7 @@
 package lk.vsc.service.impl;
 
 import lk.vsc.DTO.CreditPaymentDto;
+import lk.vsc.DTO.CustomerPaymentViewDto;
 import lk.vsc.DTO.LowStockLevelDTO;
 import lk.vsc.entity.Item;
 import lk.vsc.entity.Stock;
@@ -105,5 +106,31 @@ public class StockServiceImpl implements StockService {
     @Override
     public Stock updateStock(Stock s1) {
         return stockRepository.save(s1);
+    }
+
+    @Override
+    public List<CustomerPaymentViewDto> getCustomerPaymentDetails() {
+
+        List<Object[]> creditPayment=stockRepository.getCustomerPaymentDetails();
+
+        List<CustomerPaymentViewDto> l1 = new ArrayList<>();
+        for (Object []ob:creditPayment) {
+
+            CustomerPaymentViewDto c1 = new CustomerPaymentViewDto();
+            c1.setName(ob[0].toString()+" "+ob[1].toString());
+            c1.setEmail(ob[2].toString());
+            c1.setAddress(ob[3].toString());
+            c1.setPhoneNumber(ob[4].toString());
+            c1.setVehicleNumber(ob[5].toString());
+            c1.setDate(ob[6].toString());
+            c1.setAmount(ob[7].toString());
+            l1.add(c1);
+        }
+
+        if(l1.size()==0){
+            return null;
+        }else{
+            return l1;
+        }
     }
 }

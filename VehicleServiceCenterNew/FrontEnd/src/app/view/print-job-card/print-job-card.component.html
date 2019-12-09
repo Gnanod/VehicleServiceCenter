@@ -18,7 +18,7 @@
             <div class="form-group">
               <label>Vehilce Number</label>
               <br>
-              <input type="text" id="vehiNumber" class="form-control" (keyup)="searchVehDetailsByNumber()"
+              <input type="text" id="vehiNumber" class="form-control" (keyup)="searchVehDetailsByNumber($event)"
                      [(ngModel)]="searchVehicleNumber">
               <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
             </div>

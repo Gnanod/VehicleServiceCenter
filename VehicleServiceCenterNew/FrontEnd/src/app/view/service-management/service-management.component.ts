@@ -4,6 +4,7 @@ import {Services} from "../../Model/Services";
 import {VehicleService} from "../../Service/vehicle.service";
 import {VehicleClassService} from "../../Service/vehicle-class.service";
 import {VehicleClass} from "../../DTO/VehicleClass";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-service-management',
@@ -42,22 +43,56 @@ export class ServiceManagementComponent implements OnInit {
             this.servicesService.addService(this.services).subscribe((result) => {
               console.log("Nic" + this.services.serviceDesc);
               if (result != null) {
-                alert("Add/Update Successful");
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'success',
+                  title: 'Add/Update Successful',
+                  showConfirmButton: false,
+                  timer: 1500
+                })
                 this.services = new Services();
                 this.getAllServices();
               }
             })
           } else {
-            alert("Service Price Field  Is Empty");
+            // alert("Service Price Field  Is Empty");
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Service Price Field  Is Empty',
+              showConfirmButton: false,
+              timer: 1500
+            })
           }
         } else {
-          alert("Service Description Field  Is Empty");
+          // alert("Service Description Field  Is Empty");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Service Description Field  Is Empty',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       } else {
-        alert("Service Name Field  Is Empty");
+        // alert("Service Name Field  Is Empty");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Service Name Field  Is Empty',
+          showConfirmButton: false,
+          timer: 1500
+        })
       }
     } else {
-      alert("Vehicle Class Is Not Selected");
+      // alert("Vehicle Class Is Not Selected");
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Vehicle Class Is Not Selected',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }
 
   }
@@ -86,11 +121,26 @@ export class ServiceManagementComponent implements OnInit {
 
         if (result == null) {
 
-          alert('Service Deleted SuccessFully');
-          this.getAllServices();
+          // alert('Service Deleted SuccessFully');
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Service Deleted Fail',
+            showConfirmButton: false,
+            timer: 1500
+          })
         } else {
 
-          alert('Employee Deleted Fail');
+          // alert('Employee Deleted Fail');
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Employee Deleted Successfully',
+            showConfirmButton: false,
+            timer: 1500
+          });
+
+          this.getAllServices();
 
         }
       });
@@ -112,7 +162,14 @@ export class ServiceManagementComponent implements OnInit {
     this.vehicleClassService.addVehicleClass(this.vehicleClassServiceModel).subscribe((result) => {
 
       if (result != null) {
-        alert('Vehicle Class Is Added Successfully');
+        // alert('Vehicle Class Is Added Successfully');
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Vehicle Class Is Added Successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
         this.getAllClass();
       }
 

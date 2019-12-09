@@ -3,6 +3,7 @@ import {Employee} from "../../Model/Employee";
 import {EmployeeService} from "../../Service/employee.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Login} from "../../Model/Login";
+import Swal from "sweetalert2";
 
 
 @Component({
@@ -72,9 +73,23 @@ export class EmployeeComponent implements OnInit {
 
         if (result != null) {
 
-          alert("Employee Updated SuccessFully");
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Employee Updated SuccessFully',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.updateEmployee = new Employee();
 
+        }else{
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Employee Updated Fail',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
 
       });
@@ -188,8 +203,23 @@ export class EmployeeComponent implements OnInit {
         this.employeeService.addEmployee(this.employee).subscribe((result) => {
 
           if (result != null) {
-            alert("Added Successfully");
+            // alert("Added Successfully");
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Added Successfully',
+              showConfirmButton: false,
+              timer: 1500
+            })
             this.employee = new Employee();
+          }else{
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Added Fail',
+              showConfirmButton: false,
+              timer: 1500
+            })
           }
 
         })
@@ -321,14 +351,25 @@ export class EmployeeComponent implements OnInit {
         this.employeeService.deleteEmployee(empId).subscribe((result) => {
 
           if (result == null) {
-
-            alert('Employee Deleted SuccessFully');
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Employee Deleted SuccessFully',
+              showConfirmButton: false,
+              timer: 1500
+            })
             this.searchEmployeeValuesIf = true;
             this.searchEmployeeDetails = new Array<Employee>();
           } else {
 
-            alert('Employee Deleted Fail');
-
+            // alert('Employee Deleted Fail');
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Employee Deleted Fail',
+              showConfirmButton: false,
+              timer: 1500
+            })
           }
         });
       } else {

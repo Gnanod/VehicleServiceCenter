@@ -8,6 +8,7 @@ import {Supplier} from "../Model/Supplier";
 import {LowStockLevelComponent} from "../view/low-stock-level/low-stock-level.component";
 import {LowStockLevelDTO} from "../DTO/LowStockLevelDTO";
 import {CreditPaymentDto} from "../DTO/CreditPaymentDto";
+import {CustomerPaymentViewDto} from "../DTO/CustomerPaymentViewDto";
 
 
 const URL ='/StockController';
@@ -42,6 +43,12 @@ export class StockService {
   updateStockPayments(creditPaymentDto: CreditPaymentDto) {
 
     return this.http.post<String>(environment.backend_url + URL + '/updateStockPayments',creditPaymentDto);
+
+  }
+
+  getCustomerPaymentDetails() {
+
+    return this.http.get<Array<CustomerPaymentViewDto>>(environment.backend_url + URL + '/getCustomerPaymentDetails');
 
   }
 }

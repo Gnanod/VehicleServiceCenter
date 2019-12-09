@@ -1,6 +1,5 @@
 package lk.vsc.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
@@ -15,9 +14,12 @@ public class Stock {
     private int stockId;
     private String date;
     private double payment;
+    private double discount;
+    private double finalDiscountedTotal;
     private  String paymentType;
     private double creditBalance;
     private String stockPayementDate;
+
     @ManyToOne
     private Supplier supplier;
 
@@ -31,6 +33,14 @@ public class Stock {
 
     public void setStockPayementDate(String stockPayementDate) {
         this.stockPayementDate = stockPayementDate;
+    }
+
+    public double getFinalDiscountedTotal() {
+        return finalDiscountedTotal;
+    }
+
+    public void setFinalDiscountedTotal(double finalDiscountedTotal) {
+        this.finalDiscountedTotal = finalDiscountedTotal;
     }
 
     public String getPaymentType() {
@@ -92,5 +102,13 @@ public class Stock {
         }
 
         this.stockItemDetails = stockItemDetails;
+    }
+
+    public double getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(double discount) {
+        this.discount = discount;
     }
 }
