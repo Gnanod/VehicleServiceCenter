@@ -335,6 +335,14 @@ export class LubeDetailJobComponent implements OnInit {
                   sameId = 0;
                 }
                 this.calcTotal();
+                this.itemId = null;
+                  this.insertselectedMake = null;
+                  this.insertItemName = null;
+                  this.quantity = null;
+                  this.unitPrice = null;
+                  this.searchItem = null;
+                  this.searchMakesByModel = null;
+                  this.searchItemDetails = new Array<Item>();
               }
             } else {
               Swal.fire({
@@ -721,20 +729,21 @@ export class LubeDetailJobComponent implements OnInit {
       }
     }
 
-    let amountJob: number = 0;
-    let amountJob1: number = 0;
-
-    for (let i = 0; i < this.jobOrderItemDetailsArray.length; ++i) {
-      amountJob = amountJob + this.jobOrderItemDetailsArray[i].price;
-    }
-
-    for (let i = 0; i < this.lubejobOrderItemDetailsArray1.length; ++i) {
-      amountJob1 = amountJob1 + this.lubejobOrderItemDetailsArray1[i].price;
-    }
-
-    this.totAmount = amountJob;
-    this.totAmount1 = amountJob1;
-    this.grossAmount = this.totAmount + this.serviceTotAmount + this.totAmount1;
+    this.calcTotal();
+    // let amountJob: number = 0;
+    // let amountJob1: number = 0;
+    //
+    // for (let i = 0; i < this.jobOrderItemDetailsArray.length; ++i) {
+    //   amountJob = amountJob + this.jobOrderItemDetailsArray[i].price;
+    // }
+    //
+    // for (let i = 0; i < this.lubejobOrderItemDetailsArray1.length; ++i) {
+    //   amountJob1 = amountJob1 + this.lubejobOrderItemDetailsArray1[i].price;
+    // }
+    //
+    // this.totAmount = amountJob;
+    // this.totAmount1 = amountJob1;
+    // this.grossAmount = this.totAmount + this.serviceTotAmount + this.totAmount1;
   }
 
   deleteRow1(id) {
@@ -743,17 +752,18 @@ export class LubeDetailJobComponent implements OnInit {
         this.lubejobOrderItemDetailsArray1.splice(i, 1);
       }
     }
-    let amountJob: number = 0;
-    let amountJob1: number = 0;
-    for (let i = 0; i < this.jobOrderItemDetailsArray.length; ++i) {
-      amountJob = amountJob + this.jobOrderItemDetailsArray[i].price;
-    }
-    for (let i = 0; i < this.lubejobOrderItemDetailsArray1.length; ++i) {
-      amountJob1 = amountJob1 + this.lubejobOrderItemDetailsArray1[i].price;
-    }
-    this.totAmount = amountJob;
-    this.totAmount1 = amountJob1;
-    this.grossAmount = this.totAmount + this.serviceTotAmount + this.totAmount1;
+    this.calcTotal();
+    // let amountJob: number = 0;
+    // let amountJob1: number = 0;
+    // for (let i = 0; i < this.jobOrderItemDetailsArray.length; ++i) {
+    //   amountJob = amountJob + this.jobOrderItemDetailsArray[i].price;
+    // }
+    // for (let i = 0; i < this.lubejobOrderItemDetailsArray1.length; ++i) {
+    //   amountJob1 = amountJob1 + this.lubejobOrderItemDetailsArray1[i].price;
+    // }
+    // this.totAmount = amountJob;
+    // this.totAmount1 = amountJob1;
+    // this.grossAmount = this.totAmount + this.serviceTotAmount + this.totAmount1;
   }
 
   allServicesDescArray: Array<Services> = new Array<Services>();

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Supplier} from "../../Model/Supplier";
 import {SupplierService} from "../../Service/supplier.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-supplier',
@@ -36,7 +37,14 @@ export class SupplierComponent implements OnInit {
 
       if (result != null) {
 
-        alert("Supplier Updated SuccessFully");
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Supplier Updated SuccessFully.',
+          showConfirmButton: false,
+          timer: 1500
+        });
+
         this.updateSuppliers = new Supplier();
 
       }
@@ -67,9 +75,24 @@ export class SupplierComponent implements OnInit {
     this.supplierService.addSupplier(this.supplier).subscribe((result) => {
 
       if (result != null) {
-        alert("Added Successfully");
+
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Added Successfully.',
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.supplier = new Supplier();
         this.form.reset();
+      }else{
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: 'Added Fail.',
+          showConfirmButton: false,
+          timer: 1500
+        });
       }
 
     })
@@ -85,14 +108,29 @@ export class SupplierComponent implements OnInit {
 
         if (result == null) {
 
-          alert('Supplier Deleted SuccessFully');
+          // alert('Supplier Deleted SuccessFully');
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Supplier Deleted SuccessFully.',
+            showConfirmButton: false,
+            timer: 1500
+          });
+
           this.searchSupplierDetails= new Array<Supplier>();
           this.searchSupplierValuesIf = true;
         } else {
 
 
-          alert('Supplier Deleted Fail');
+          // alert('Supplier Deleted Fail');
 
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Supplier Deleted Fail.',
+            showConfirmButton: false,
+            timer: 1500
+          });
         }
       });
     } else {
@@ -144,8 +182,14 @@ export class SupplierComponent implements OnInit {
 
     this.supplierService.updateSupplier(this.updateSupplierVar).subscribe(result => {
       if (result != null) {
-        alert("Updated successfully")
-
+        // alert("Updated successfully")
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Updated successfully...',
+          showConfirmButton: false,
+          timer: 1500
+        });
         this.upSupplierId=null;
         this.upSupplierAgent=null;
         this.upSupplierEmail=null;

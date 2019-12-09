@@ -165,7 +165,7 @@ export class ServiceManagementComponent implements OnInit {
         // alert('Vehicle Class Is Added Successfully');
         Swal.fire({
           position: 'top-end',
-          icon: 'error',
+          icon: 'success',
           title: 'Vehicle Class Is Added Successfully',
           showConfirmButton: false,
           timer: 1500
