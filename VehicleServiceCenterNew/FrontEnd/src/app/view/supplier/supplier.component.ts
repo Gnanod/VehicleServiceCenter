@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Supplier} from "../../Model/Supplier";
 import {SupplierService} from "../../Service/supplier.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
@@ -13,21 +13,23 @@ export class SupplierComponent implements OnInit {
 
   form = new FormGroup({
 
-    agentName:new FormControl('',Validators.required),
-    email:new FormControl('',[Validators.required,Validators.email]),
-    address:new FormControl('',Validators.required),
-    companyName:new FormControl('',Validators.required),
-    phoneNumber:new FormControl('',[Validators.required,Validators.maxLength(10)]),
+    agentName: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    address: new FormControl('', Validators.required),
+    companyName: new FormControl('', Validators.required),
+    phoneNumber: new FormControl('', [Validators.required, Validators.maxLength(10)]),
 
   });
 
   public supplier: Supplier = new Supplier();
+
   constructor(public supplierService: SupplierService) {
 
   }
+
   searchSupplierValuesIf = true;
   searchSupplierDetails: Array<Supplier> = new Array<Supplier>();
-  updateSuppliers :Supplier;
+  updateSuppliers: Supplier;
   updateSupplierDetails: Supplier = new Supplier();
   searchSupplierNumber: number;
 
@@ -85,7 +87,7 @@ export class SupplierComponent implements OnInit {
         });
         this.supplier = new Supplier();
         this.form.reset();
-      }else{
+      } else {
         Swal.fire({
           position: 'top-end',
           icon: 'error',
@@ -100,7 +102,7 @@ export class SupplierComponent implements OnInit {
 
   }
 
-  deleteSupplier(id:any) {
+  deleteSupplier(id: any) {
 
     if (confirm("Do you really want to Delete......!")) {
 
@@ -117,7 +119,7 @@ export class SupplierComponent implements OnInit {
             timer: 1500
           });
 
-          this.searchSupplierDetails= new Array<Supplier>();
+          this.searchSupplierDetails = new Array<Supplier>();
           this.searchSupplierValuesIf = true;
         } else {
 
@@ -164,8 +166,6 @@ export class SupplierComponent implements OnInit {
     this.upSupplierPhone = searchSupplierDetails.phoneNumber;
 
 
-
-
   }
 
 
@@ -173,31 +173,88 @@ export class SupplierComponent implements OnInit {
 
   updateSupplier() {
 
-    this.updateSupplierVar.supplierId = this.upSupplierId;
-    this.updateSupplierVar.agentName = this.upSupplierAgent;
-    this.updateSupplierVar.email = this.upSupplierEmail;
-    this.updateSupplierVar.address = this.upSupplierAddress;
-    this.updateSupplierVar.companyName = this.upSupplierCompany;
-    this.updateSupplierVar.phoneNumber = this.upSupplierPhone;
+    if (this.upSupplierId != null) {
+      if (this.upSupplierAgent.length != 0) {
+        if (this.upSupplierAddress.length != 0) {
+          if (this.upSupplierCompany.length != 0) {
+            if (this.upSupplierPhone.length != 0) {
+              this.updateSupplierVar.supplierId = this.upSupplierId;
+              this.updateSupplierVar.agentName = this.upSupplierAgent;
+              if (this.upSupplierEmail == null) {
+                this.updateSupplierVar.email = "-";
+              } else {
+                this.updateSupplierVar.email = this.upSupplierEmail;
+              }
+              this.updateSupplierVar.address = this.upSupplierAddress;
+              this.updateSupplierVar.companyName = this.upSupplierCompany;
+              this.updateSupplierVar.phoneNumber = this.upSupplierPhone;
 
-    this.supplierService.updateSupplier(this.updateSupplierVar).subscribe(result => {
-      if (result != null) {
-        // alert("Updated successfully")
+              this.supplierService.updateSupplier(this.updateSupplierVar).subscribe(result => {
+                if (result != null) {
+                  // alert("Updated successfully")
+                  Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Updated successfully...',
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                  this.upSupplierId = null;
+                  this.upSupplierAgent = null;
+                  this.upSupplierEmail = null;
+                  this.upSupplierAddress = null;
+                  this.upSupplierCompany = null;
+                  this.upSupplierPhone = null;
+                }
+              });
+            } else {
+
+              Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: 'Phone Number Field Is Empty',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          } else {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Company Name Field Is Empty',
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
+        } else {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Supplier Address Field Is Empty',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
+      } else {
         Swal.fire({
           position: 'top-end',
-          icon: 'success',
-          title: 'Updated successfully...',
+          icon: 'error',
+          title: 'Supplier Name Field Is Empty',
           showConfirmButton: false,
           timer: 1500
         });
-        this.upSupplierId=null;
-        this.upSupplierAgent=null;
-        this.upSupplierEmail=null;
-        this.upSupplierAddress=null;
-        this.upSupplierCompany=null;
-        this.upSupplierPhone=null;
       }
-    });
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Supplier Id Field Is Empty',
+        showConfirmButton: false,
+        timer: 1500
+      });
+    }
+
+
   }
 
 

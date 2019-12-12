@@ -9,7 +9,7 @@ import java.util.List;
 
 public interface StockService {
 
-   String addStock(Stock stock);
+    String addStock(Stock stock);
 
     List<LowStockLevelDTO> getLowStockLevelReport();
 
@@ -20,4 +20,6 @@ public interface StockService {
     Stock updateStock(Stock s1);
 
     List<CustomerPaymentViewDto> getCustomerPaymentDetails();
+
+
 }

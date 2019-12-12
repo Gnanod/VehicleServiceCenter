@@ -14,6 +14,7 @@ import {StockService} from "../../Service/stock.service";
 import {MakeServiceService} from "../../Service/make-service.service";
 import {Make} from "../../Model/Make";
 import Swal from "sweetalert2";
+import {StockPayment} from "../../Model/StockPayment";
 
 @Component({
   selector: 'app-stock-details',
@@ -452,7 +453,14 @@ export class StockDetailsComponent implements OnInit {
     let supplier: Supplier = new Supplier();
     supplier.supplierId = this.selectedSupplier.supplierId;
     stock.supplier = supplier;
-    stock.payment = this.totAmount;
+
+    let stockPaymentArray :Array<StockPayment> = new Array<StockPayment>();
+
+    let stockPayment :StockPayment = new StockPayment();
+    stockPayment.payment=this.creditBalance;
+    stockPaymentArray.push(stockPayment);
+    stock.stockPayment= stockPaymentArray;
+    stock.beforeDiscountTotal = this.totAmount;
 
     let balance: number = 0;
     balance = this.finalTotal - this.creditBalance;

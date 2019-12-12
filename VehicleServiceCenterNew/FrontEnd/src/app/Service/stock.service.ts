@@ -51,4 +51,14 @@ export class StockService {
     return this.http.get<Array<CustomerPaymentViewDto>>(environment.backend_url + URL + '/getCustomerPaymentDetails');
 
   }
+
+  gettotalOutComeForToday() {
+    return this.http.get<number>(environment.backend_url + URL + '/getTodayTotalOutCome');
+
+  }
+
+  getMonthlyOutComeForMonth() {
+    return this.http.get<number>(environment.backend_url + URL + '/getMonthlyTotalOutCome');
+
+  }
 }

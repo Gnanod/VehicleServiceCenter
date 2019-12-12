@@ -50,9 +50,12 @@ export class UpdateSupplierPaymentsComponent implements OnInit {
    if(this.creditPaymentDto.credit_balance==0){
      this.creditPaymentDto.paymentType='Full Payment';
 
-   }else if(this.creditPaymentDto.credit_balance > this.payAmount){
+   }else if(this.creditPaymentDto.credit_balance!=0 && this.creditPaymentDto.credit_balance>=0 ){
      this.creditPaymentDto.paymentType='Credit Payment';
    }
+
+   this.creditPaymentDto.payment=this.payAmount;
+
     this.stockService.updateStockPayments(this.creditPaymentDto).subscribe((result) => {
       if (result != null) {
        // alert("Updated Successfully");

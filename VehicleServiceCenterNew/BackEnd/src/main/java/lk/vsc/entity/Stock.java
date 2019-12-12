@@ -4,6 +4,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -13,7 +14,7 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int stockId;
     private String date;
-    private double payment;
+   private double beforeDiscountTotal;
     private double discount;
     private double finalDiscountedTotal;
     private  String paymentType;
@@ -26,6 +27,24 @@ public class Stock {
     @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "stock")
     @OnDelete(action = OnDeleteAction.CASCADE)
     private Set<StockItemDetails> stockItemDetails;
+
+    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "stock")
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private List<StockPayment> stockPayment;
+
+
+    public List<StockPayment> getStockPayment() {
+        return stockPayment;
+    }
+
+    public void setStockPayment(List<StockPayment> stockPayment) {
+        for (StockPayment i: stockPayment
+        ) {
+            i.setStock(this);
+        }
+
+        this.stockPayment = stockPayment;
+    }
 
     public String getStockPayementDate() {
         return stockPayementDate;
@@ -75,13 +94,13 @@ public class Stock {
         this.date = date;
     }
 
-    public double getPayment() {
-        return payment;
-    }
+//    public double getPayment() {
+//        return payment;
+//    }
 
-    public void setPayment(double payment) {
-        this.payment = payment;
-    }
+//    public void setPayment(double payment) {
+//        this.payment = payment;
+//    }
 
     public Supplier getSupplier() {
         return supplier;
@@ -110,5 +129,13 @@ public class Stock {
 
     public void setDiscount(double discount) {
         this.discount = discount;
+    }
+
+    public double getBeforeDiscountTotal() {
+        return beforeDiscountTotal;
+    }
+
+    public void setBeforeDiscountTotal(double beforeDiscountTotal) {
+        this.beforeDiscountTotal = beforeDiscountTotal;
     }
 }
