@@ -20,6 +20,7 @@ import {Make} from "../../Model/Make";
 import {MakeServiceService} from "../../Service/make-service.service";
 import {VehicleCustomerDTO} from "../../DTO/VehicleCustomerDTO";
 import Swal from "sweetalert2";
+import {JobOrderPayment} from "../../Model/JobOrderPayment";
 
 @Component({
   selector: 'app-lube-detail-job',
@@ -618,6 +619,10 @@ export class LubeDetailJobComponent implements OnInit {
     jobOrder.vehicle.customer = cust;
     jobOrder.total = this.grossAmount;
     jobOrder.creditBalance = this.newcreditBalance;
+
+    console.log("new CreditBalance"+this.newcreditBalance);
+    console.log("new CreditBalance String"+this.newcreditBalanceString);
+
     jobOrder.lubeJobAmount = this.totAmount;
     jobOrder.detailJobAmount = parseFloat(this.totAmount1String);
     jobOrder.paymentType = this.PaymentType;
@@ -625,6 +630,12 @@ export class LubeDetailJobComponent implements OnInit {
     jobOrder.serviceAmount = this.serviceTotAmount;
     jobOrder.grossAmount = this.grossAmount;
     jobOrder.serviceId = this.serviceJobOrderId;
+
+    let jobPaymentArray :Array<JobOrderPayment> = new Array<JobOrderPayment>();
+    let p1:JobOrderPayment = new JobOrderPayment();
+    p1.payment=this.paidAmount.toString();
+    jobPaymentArray.push(p1);
+    jobOrder.jobOrderPayments=jobPaymentArray;
 
     jobOrder.employeeName = "FFFFFFF";
 
@@ -849,8 +860,9 @@ export class LubeDetailJobComponent implements OnInit {
       })
       this.paidAmount = parseFloat(this.paidAmount.toString().substring(0, this.paidAmount.toString().length - 1));
 
-      this.newcreditBalance = 0;
+      // this.newcreditBalance = 0;
     } else {
+
       this.newcreditBalance = this.grossAmount - this.paidAmount;
       this.newcreditBalanceString = this.newcreditBalance.toFixed(2);
       // this.paidAmountShowString = this.paidAmount.toFixed(2);

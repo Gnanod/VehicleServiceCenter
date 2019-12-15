@@ -4,6 +4,7 @@ package lk.vsc.controller;
 import lk.vsc.DTO.CreditPaymentDto;
 import lk.vsc.DTO.CustomerPaymentViewDto;
 import lk.vsc.DTO.LowStockLevelDTO;
+import lk.vsc.DTO.MonthlyOutComeReport;
 import lk.vsc.entity.Stock;
 import lk.vsc.entity.StockPayment;
 import lk.vsc.service.StockPaymentService;
@@ -94,6 +95,12 @@ public class StockController {
     public double getTodayTotalOutCome() {
 
         return stockPaymentService.getTodayTotalOutCome();
+    }
+
+    @GetMapping(value = "/getMonthlyOutCome")
+    public List<MonthlyOutComeReport> getMonthlyOutCome() {
+
+        return stockPaymentService.getMonthlyOutCome();
     }
 }
 

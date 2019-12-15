@@ -17,13 +17,13 @@ public interface JobOrderRepository extends JpaRepository<JobOrder,Integer> {
     @Query(value = "select quantityOfPrice,itemId,itemName,quantityOnHand,stockLevel,itemQuantityType from Item where itemName =:itemName")
     List<Object[]> searchUnitPrice(@Param("itemName")String itemName);
 
-    @Query(value = "select SUM(j.total) from  job_order j where CURDATE()=date",nativeQuery = true)
+    @Query(value = "select SUM(j.payment) from  job_order_payment j where CURDATE()=date",nativeQuery = true)
     Object getTotalSales();
 
     @Query(value = "select COUNT(jobid) from  job_order j where CURDATE()=date",nativeQuery = true)
     Object getTodayJobCount();
 
-    @Query(value = "select SUM(j.total) from job_order j where MONTH(CURDATE())=MONTH(date);",nativeQuery = true)
+    @Query(value = "select SUM(j.payment) from job_order_payment j where MONTH(CURDATE())=MONTH(date);",nativeQuery = true)
     Object getMonthlyTotalSales();
 
     @Query(value = "from JobOrder  where  serviceId=?1")

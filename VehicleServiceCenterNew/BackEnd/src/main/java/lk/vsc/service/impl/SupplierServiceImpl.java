@@ -2,14 +2,14 @@ package lk.vsc.service.impl;
 
 import lk.vsc.DTO.UpdateJobPrice;
 import lk.vsc.entity.JobOrder;
+import lk.vsc.entity.JobOrderPayment;
 import lk.vsc.entity.Supplier;
+import lk.vsc.repository.JobOrderPaymentRepository;
 import lk.vsc.repository.JobOrderRepository;
 import lk.vsc.repository.SupplierRepository;
 import lk.vsc.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,8 @@ public class SupplierServiceImpl implements SupplierService{
 
     @Autowired
     private JobOrderRepository jobOrder;
+    @Autowired
+    private JobOrderPaymentRepository jobOrderPaymentRepository;
 
     @Override
     public Supplier addSupplier(Supplier supplier) {
@@ -120,9 +122,22 @@ public class SupplierServiceImpl implements SupplierService{
         j2.setDate(u.getDate());
         j2.setGrossAmount(u.getGrossAmount());
         j2.setPaidAmount(u.getPayAmount());
-        j2.setPaymentType("Full");
+        if(u.getCreditBalance()==0){
+            j2.setPaymentType("Full Payment");
+        }else{
+            j2.setPaymentType("Credit Payment");
+        }
+
+        List<JobOrderPayment> p1 = new ArrayList<>();
+        JobOrderPayment j3 = new JobOrderPayment();
+        j3.setPayment(u.getPayAmount());
+        j3.setJobOrder(j2);
+
+        p1.add(j3);
+//        j2.setJobOrderPayments(p1);
         JobOrder s3 = jobOrder.save(j2);
         if(s3!=null){
+            jobOrderPaymentRepository.save(j3);
             return "0";
         }else{
             return null;

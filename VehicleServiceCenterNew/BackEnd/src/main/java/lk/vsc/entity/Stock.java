@@ -14,7 +14,7 @@ public class Stock {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int stockId;
     private String date;
-   private double beforeDiscountTotal;
+    private double beforeDiscountTotal;
     private double discount;
     private double finalDiscountedTotal;
     private  String paymentType;

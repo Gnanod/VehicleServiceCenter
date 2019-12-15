@@ -1,5 +1,5 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
 import {MainComponent} from "./view/main/main.component";
 import {EmployeeComponent} from "./view/employee/employee.component";
 import {DashboardComponent} from "./view/dashboard/dashboard.component";
@@ -22,104 +22,108 @@ import {CustomerPayementsComponent} from "./view/customer-payements/customer-pay
 import {PrintJobCardComponent} from "./view/print-job-card/print-job-card.component";
 import {UpdateSupplierPaymentsComponent} from "./view/update-supplier-payments/update-supplier-payments.component";
 import {CustomerPaymentViewComponent} from "./view/customer-payment-view/customer-payment-view.component";
+import {MonthlyOutComeReportComponent} from "./view/monthly-out-come-report/monthly-out-come-report.component";
 
 const routes: Routes = [
-    {
-        path: 'main',
-        component: MainComponent,
-        children: [
-            {
-                path: 'employee',
-                component: EmployeeComponent
-            },
-            {
-                path: 'dashboard',
-                component: DashboardComponent
-            },
-            {
-                path: 'searchVehicle',
-                component: CustomerVehicleUpdateComponent
-            },
-            {
-              path :'customerVehicle',
-              component:VehicleComponent
-            },
-            {
-                path :'supplier',
-                component : SupplierComponent
-            },
+  {
+    path: 'main',
+    component: MainComponent,
+    children: [
+      {
+        path: 'employee',
+        component: EmployeeComponent
+      },
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: 'searchVehicle',
+        component: CustomerVehicleUpdateComponent
+      },
+      {
+        path: 'customerVehicle',
+        component: VehicleComponent
+      },
+      {
+        path: 'supplier',
+        component: SupplierComponent
+      },
 
-            {
+      {
 
-            path :"StockManagement",
-            component : StockDetailsComponent
+        path: "StockManagement",
+        component: StockDetailsComponent
 
-          },
-          {
+      },
+      {
 
-            path :"ServiceJob",
-            component : ServiceJobComponent
+        path: "ServiceJob",
+        component: ServiceJobComponent
 
-          },
-          {
-              path :"ServiceManagement",
-              component : ServiceManagementComponent
+      },
+      {
+        path: "ServiceManagement",
+        component: ServiceManagementComponent
+
+      },
+      {
+        path: "LowStockLevel",
+        component: LowStockLevelComponent
+      },
+      {
+        path: "SupplierCreditReports",
+        component: SupplierCreditReportComponent
+      },
+      {
+
+        path: "jobOrder",
+        component: NewJobOrderComponent
+        //component:JoborderComponent
+      },
+      {
+        path: 'LubeDetailJob',
+        component: LubeDetailJobComponent
+      },
+      {
+        path: 'SupplierPayments',
+        component: SupplierPayementsComponent
+      },
+      {
+        path: 'CustomerPayments',
+        component: CustomerPayementsComponent
+      },
+      {
+        path: 'printJobCard',
+        component: PrintJobCardComponent
+      },
+      {
+        path: 'updatePaymentDetails',
+        component: SupplierPayementsComponent
+      },
+      {
+        path: 'UpdateSupplierPayments',
+        component: UpdateSupplierPaymentsComponent
+      },
+      {
+        path: 'viewCustomerPayments',
+        component: CustomerPaymentViewComponent
+      },
+      {
+        path: 'MonthlyOutComeReport',
+        component: MonthlyOutComeReportComponent
+      }
 
 
-            },
-            {
-              path:"LowStockLevel",
-              component:LowStockLevelComponent
-            },
-          {
-            path:"SupplierCreditReports",
-            component:SupplierCreditReportComponent
-          },
-          {
-
-            path :"jobOrder",
-            component : NewJobOrderComponent
-            //component:JoborderComponent
-          },
-          {
-            path :'LubeDetailJob',
-            component: LubeDetailJobComponent
-          },
-          {
-            path :'SupplierPayments',
-            component: SupplierPayementsComponent
-          },
-          {
-            path :'CustomerPayments',
-            component: CustomerPayementsComponent
-          },
-          {
-            path :'printJobCard',
-            component:PrintJobCardComponent
-          },
-          {
-            path : 'updatePaymentDetails',
-            component : SupplierPayementsComponent
-          },
-          {
-            path:'UpdateSupplierPayments',
-            component : UpdateSupplierPaymentsComponent
-          },
-          {
-            path:'viewCustomerPayments',
-            component:CustomerPaymentViewComponent
-          }
-
-
-        ]
-    },
-    {
-      path:"login",
-      component: LoginComponent
-    },
+    ]
+  },
+  {
+    path: "login",
+    component: LoginComponent
+  },
 
   {
-      path: '', pathMatch: "full", redirectTo: 'login'
+    path: '', pathMatch: "full", redirectTo: 'login'
   }
 ];
 
@@ -127,4 +131,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

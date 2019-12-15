@@ -1,6 +1,7 @@
 import {Vehicle} from "./Vehicle";
 import {Employee} from "./Employee";
 import {JobOrderItemDetails} from "./JobOrderItemDetails";
+import {JobOrderPayment} from "./JobOrderPayment";
 
 export class JobOrder{
 
@@ -17,5 +18,6 @@ export class JobOrder{
   creditBalance :number;
   serviceAmount:number;
   grossAmount :number;
+  jobOrderPayments:Array<JobOrderPayment>;
 
 }

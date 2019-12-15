@@ -9,6 +9,7 @@ import {LowStockLevelComponent} from "../view/low-stock-level/low-stock-level.co
 import {LowStockLevelDTO} from "../DTO/LowStockLevelDTO";
 import {CreditPaymentDto} from "../DTO/CreditPaymentDto";
 import {CustomerPaymentViewDto} from "../DTO/CustomerPaymentViewDto";
+import {MonthlyOutComeReport} from "../DTO/MonthlyOutComeReport";
 
 
 const URL ='/StockController';
@@ -61,4 +62,8 @@ export class StockService {
     return this.http.get<number>(environment.backend_url + URL + '/getMonthlyTotalOutCome');
 
   }
+  getMonthlyOutCome(){
+    return this.http.get<Array<MonthlyOutComeReport>>(environment.backend_url + URL + '/getMonthlyOutCome');
+  }
 }
+

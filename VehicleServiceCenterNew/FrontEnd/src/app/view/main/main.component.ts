@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 export class MainComponent implements OnInit {
 
     headerText: string;
+    loginStatus:string;
 
     public constructor(private router:Router) {
 
@@ -19,6 +20,11 @@ export class MainComponent implements OnInit {
     }
 
   ngOnInit() {
+      if(localStorage.getItem("Admin")==="admin"){
+        this.loginStatus="Admin";
+      }else{
+        this.loginStatus="Cashier"
+      }
   }
 
     setHeaderTextAndButtons() {
@@ -66,6 +72,8 @@ export class MainComponent implements OnInit {
           this.headerText="View Customer Payments";
         }else if(this.router.url == '/main/jobOrder'){
           this.headerText="Services";
+        }else if(this.router.url == '/main/MonthlyOutComeReport'){
+          this.headerText="Monthly OutCome Report";
         }
 
     }
@@ -120,6 +128,10 @@ export class MainComponent implements OnInit {
         }else if(button == 'Customer Payments'){
 
           this.router.navigate(['main/viewCustomerPayments'])
+
+        }else if(button == 'Monthly OutCome'){
+
+          this.router.navigate(['main/MonthlyOutComeReport'])
 
         }
 

@@ -70,6 +70,11 @@ export class CustomerPayementsComponent implements OnInit {
     uj.date =this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     uj.grossAmount = this.amount;
     uj.creditBalance = this.creditBalance;
+    if(this.creditBalance===0){
+        uj.paymentType='Full Payment';
+    }else{
+      uj.paymentType='Credit Payment'
+    }
     uj.payAmount = this.payAmount;
     uj.service_id = this.serviceId;
 

@@ -1,8 +1,6 @@
 package lk.vsc.service.impl;
 
-import lk.vsc.entity.Employee;
 import lk.vsc.entity.Login;
-import lk.vsc.entity.Vehicle;
 import lk.vsc.repository.LoginRepository;
 import lk.vsc.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,24 +18,26 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public String loginFunction(String nic, String password) {
 
-        Object error = loginRepository.loginFunction(nic,password);
+        Object error = loginRepository.loginFunction(nic, password);
+        String retString =null;
+        if (error != null) {
+            if (error.toString().equals("Admin")) {
 
-        String type = error.toString();
+                retString= "1";
 
-        if(type.equals("Admin")){
+            }
+            if (error.toString().equals("Cashier")) {
 
-            return "1";
+                retString ="2";
 
-        }else if(type.equals("Cashier")){
+            }
+        } else {
 
-            return "2";
-
-        }else{
-
-            return null;
-
+            retString = "3";
+            System.out.println("HHHHH");
         }
 
+        return retString;
 //        if(error!=null){
 //
 //            System.out.println("ErrorObjectNotNull "+error);

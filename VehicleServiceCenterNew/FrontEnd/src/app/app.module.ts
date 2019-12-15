@@ -33,6 +33,7 @@ import {PopupService} from "@ng-bootstrap/ng-bootstrap/util/popup";
 import { PrintJobCardComponent } from './view/print-job-card/print-job-card.component';
 import { UpdateSupplierPaymentsComponent } from './view/update-supplier-payments/update-supplier-payments.component';
 import { CustomerPaymentViewComponent } from './view/customer-payment-view/customer-payment-view.component';
+import { MonthlyOutComeReportComponent } from './view/monthly-out-come-report/monthly-out-come-report.component';
 
 
 // @ts-ignore
@@ -58,7 +59,8 @@ import { CustomerPaymentViewComponent } from './view/customer-payment-view/custo
     CustomerPayementsComponent,
     PrintJobCardComponent,
     UpdateSupplierPaymentsComponent,
-    CustomerPaymentViewComponent
+    CustomerPaymentViewComponent,
+    MonthlyOutComeReportComponent
   ],
   imports: [
     BrowserModule,

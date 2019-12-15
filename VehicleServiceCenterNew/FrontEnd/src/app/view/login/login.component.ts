@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Employee} from "../../Model/Employee";
 import {LoginService} from "../../Service/login.service";
 import {Router} from "@angular/router";
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-login',
@@ -32,16 +33,25 @@ export class LoginComponent implements OnInit {
           console.log("error"+result)
             
           if(this.error=="1"){
+
             this.router.navigate(['/main/dashboard']);
+            localStorage.setItem("Admin",'admin');
           }
 
           if(this.error=="2"){
             this.router.navigate(['/jobOrder']);
+            localStorage.setItem("Cashier",'cashier');
           }
 
           if(this.error=="3"){
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: 'Login UnSuccess .Please Input Valid Login Details.',
+              showConfirmButton: false,
+              timer: 1500
+            })
 
-            alert("Login UnSuccess .Please Input Valid Login Details");
           }
 
           
