@@ -30,17 +30,20 @@ export class LoginComponent implements OnInit {
         this.loginService.loginFucntion(this.emp).subscribe((result)=>{
           
           this.error =result;
-          console.log("error"+result)
+         // console.log("error"+result)
             
           if(this.error=="1"){
-
-            this.router.navigate(['/main/dashboard']);
             localStorage.setItem("Admin",'admin');
+            this.router.navigate(['/main/dashboard']);
+           //
+            //console.log("GGGGGG"+localStorage.getItem("Admin"))
           }
 
           if(this.error=="2"){
-            this.router.navigate(['/jobOrder']);
             localStorage.setItem("Cashier",'cashier');
+            this.router.navigate(['/main/supplier']);
+            console.log("KKKKKKKKK");
+
           }
 
           if(this.error=="3"){

@@ -20,10 +20,16 @@ export class MainComponent implements OnInit {
     }
 
   ngOnInit() {
-      if(localStorage.getItem("Admin")==="admin"){
+      console.log("Get Item Admin"+localStorage.getItem("Admin"));
+    console.log("Get Item Cashier"+localStorage.getItem("Cashier"));
+
+    if(localStorage.getItem("Admin")==="admin"){
         this.loginStatus="Admin";
+        console.log('Admin')
       }else{
-        this.loginStatus="Cashier"
+        this.loginStatus="Cashier";
+        console.log('Cashier')
+
       }
   }
 
@@ -132,6 +138,14 @@ export class MainComponent implements OnInit {
         }else if(button == 'Monthly OutCome'){
 
           this.router.navigate(['main/MonthlyOutComeReport'])
+
+        }else if(button == 'LogOut'){
+
+          this.router.navigate(['login'])
+          localStorage.clear();
+          localStorage.removeItem('Admin');
+          localStorage.removeItem('Cashier');
+
 
         }
 

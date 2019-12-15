@@ -10,11 +10,11 @@
       </a>
     </div>
     <div class="sidebar-wrapper">
-      <ul class="nav">
+      <ul class="nav" style="cursor: pointer;">
 
-        <li class="nav-item" [ngClass]="{'active': headerText=='Dashboard'}"
-            (click)="changeRoute(dashboard.innerHTML)">
-          <a class="nav-link">
+        <li *ngIf="loginStatus=='Admin'" class="nav-item" [ngClass]="{'active': headerText=='Dashboard'}"
+            (click)="changeRoute(dashboard.innerHTML)" >
+          <a class="nav-link" >
             <i class="fas fa-home"></i>
 
             <p #dashboard>Dashboard</p>
@@ -22,7 +22,8 @@
             <!--<p #dashboard>Dashboard</p>-->
           </a>
         </li>
-        <li class="nav-item" [ngClass]="{'active': headerText=='Employees'}" (click)="changeRoute(employee.innerHTML)">
+        <li *ngIf="loginStatus=='Admin'" class="nav-item" [ngClass]="{'active': headerText=='Employees'}"
+            (click)="changeRoute(employee.innerHTML)">
           <a class="nav-link">
             <i class="fas fa-users"></i>
             <p #employee>Employees</p>
@@ -159,7 +160,7 @@
           </div>
         </li>
 
-        <li *ngIf="loginStatus=='Admin'"  class="nav-item ">
+        <li *ngIf="loginStatus=='Admin'" class="nav-item ">
 
 
           <a class="nav-link" href="#formsExamples1" data-toggle="collapse">
@@ -195,6 +196,14 @@
 
             </ul>
           </div>
+        </li>
+
+        <li class="nav-item" [ngClass]="{'active': headerText=='LogOut'}"
+            (click)="changeRoute(logOut.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-sign-out-alt"></i>
+            <p #logOut>LogOut</p>
+          </a>
         </li>
 
       </ul>

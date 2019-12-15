@@ -3,6 +3,7 @@ import {JoborderService} from "../../Service/joborder.service";
 import {Vehicle} from "../../Model/Vehicle";
 import {Customer} from "../../Model/Customer";
 import {StockService} from "../../Service/stock.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -11,9 +12,18 @@ import {StockService} from "../../Service/stock.service";
 })
 export class DashboardComponent implements OnInit {
 
-  public constructor(private jobOrderService :JoborderService,private stockService:StockService) { }
+  public constructor(private jobOrderService :JoborderService,private stockService:StockService,private router:Router) { }
 
   ngOnInit() {
+
+    if(localStorage.getItem("Admin")!='admin'){
+      this.router.navigate(['login']);
+      localStorage.clear();
+      localStorage.removeItem("Admin");
+      localStorage.removeItem("Cashier")
+    }
+
+
     this.getTotalSales();
     this.getTodayJobCount();
     this.getMonthlyTotalSales();

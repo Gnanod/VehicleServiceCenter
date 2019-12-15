@@ -4,6 +4,7 @@ import {EmployeeService} from "../../Service/employee.service";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {Login} from "../../Model/Login";
 import Swal from "sweetalert2";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -56,7 +57,7 @@ export class EmployeeComponent implements OnInit {
   public employee: Employee = new Employee();
 
 
-  public constructor(public employeeService: EmployeeService) {}
+  public constructor(public employeeService: EmployeeService,public router:Router) {}
 
 
 
@@ -382,6 +383,12 @@ export class EmployeeComponent implements OnInit {
 
     ngOnInit()
     {
+      if(localStorage.getItem("Admin")!='admin'){
+        this.router.navigate(['login']);
+        localStorage.clear();
+        localStorage.removeItem("Admin");
+        localStorage.removeItem("Cashier")
+      }
     }
 
 
@@ -421,7 +428,13 @@ export class EmployeeComponent implements OnInit {
         this.employeeService.LoginDetail(loginDet).subscribe((result) => {
 
           if (result != null) {
-            alert("Added Successfully");
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Employee Added SuccessFully',
+              showConfirmButton: false,
+              timer: 1500
+            })
             // this.employee = new Employee();
             this.confirmPassword = null;
             this.loginUserName = null;
