@@ -24,7 +24,8 @@ import java.util.*;
 @RequestMapping(value = "/ServiceJobController")
 public class ServiceJobController {
 
-
+	private final String SERVICE_REPORT_FILE_NAME = "ServiceReport.jasper";
+	
     @Autowired
     private ServiceJobService serviceJobService;
     private String outputFile;
@@ -105,14 +106,20 @@ public class ServiceJobController {
         String fileName = "Service_Bill_" + getCurrentDate() + "_" + getCurrentTime() + ".pdf";
 
         outputFile = userHomeDirectory + File.separatorChar + "Documents/" + fileName;
-
+        
+     
+        ClassLoader classLoader = new ServiceJobController().getClass().getClassLoader();
+ 
+        //get the file from resources
+        File file = new File(classLoader.getResource(SERVICE_REPORT_FILE_NAME).getFile());
+        
+      
 //        /* Using compiled version(.jasper) of Jasper report to generate PDF */
         String bytes = null;
         JasperPrint jasperPrint;
         try {
 
-
-            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/ServiceReport.jasper", parameters, new JREmptyDataSource());
+            jasperPrint = JasperFillManager.fillReport(file.getAbsolutePath(), parameters, new JREmptyDataSource());
 
             /* outputStream to create PDF */
             OutputStream outputStream = new FileOutputStream(new File(outputFile));
