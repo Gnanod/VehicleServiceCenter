@@ -3,8 +3,13 @@ package lk.vsc.service.impl;
 import lk.vsc.entity.Login;
 import lk.vsc.repository.LoginRepository;
 import lk.vsc.service.LoginService;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 @Service
 public class LoginServiceImpl implements LoginService {
@@ -32,9 +37,25 @@ public class LoginServiceImpl implements LoginService {
 
             }
         } else {
-
-            retString = "3";
-            System.out.println("HHHHH");
+        	
+        	List<Login> loginList = new ArrayList<Login>(); 
+        	loginList = loginRepository.findAll();
+        	
+        	if( loginList.size() == 0 ) {
+        		
+        		Login login = new Login();
+        		
+        		login.setUserName("admin");
+        		login.setPassword("admin@turismo");
+        		login.setType("Admin");
+        		
+        		loginRepository.save(login);
+        		
+        		retString = "1";
+        	}else {
+        	    retString = "3";
+                System.out.println("HHHHH");
+        	}
         }
 
         return retString;
