@@ -34,7 +34,7 @@
                                 <table class="table">
                                     <thead>
                                     <tr >
-                                        <th >Nic</th>
+                                        <th >Customer ID</th>
                                         <th>Frist Name</th>
                                         <th>Last Name</th>
                                         <th >Email Address</th>
@@ -164,8 +164,8 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label  >Nic</label>
-                                          <input type="text" class="form-control" name="nic" id="nic" [(ngModel)]="addCustomer.nic" formControlName="nic" [ngClass]="{'is-invalid':form1.get('nic').touched && form1.get('nic').invalid }">
+                                            <label  >Customer ID</label>
+                                          <input type="text" class="form-control" name="nic" id="nic" [(ngModel)]="addCustomer.nic" formControlName="nic" [ngClass]="{'is-invalid':form1.get('nic').touched && form1.get('nic').invalid }" disabled>
                                           <div class="invalid-feedback"  *ngIf="form1.get('nic').touched  && form1.get('nic').invalid">
                                             NIC Is Empty
                                           </div>
@@ -340,7 +340,7 @@
                                 <div class="row">
                                     <div class="col-md-11">
                                         <div class="form-group">
-                                            <label>Customer Nic</label>
+                                            <label>Customer ID</label>
 
 <br>
                                           <input type="text" class="form-control" name="nic1"[(ngModel)]="nic1" formControlName="nic1" [ngClass]="{'is-invalid':form.get('nic1').touched && form.get('nic1').invalid }">

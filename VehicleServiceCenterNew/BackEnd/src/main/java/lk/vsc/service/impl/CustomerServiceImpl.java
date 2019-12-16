@@ -50,4 +50,16 @@ public class CustomerServiceImpl implements CustomerService {
     public Customer findByCustomerId(String nic) {
         return customerRepository.findCustomerDetails(nic);
     }
+
+    @Override
+    public String getResult() {
+        Object lastId =customerRepository.getLastId();
+//        System.out.println("lastId "+idRepository.getLastId());
+//        System.out.println("lastId Null"+idRepository.getLastId().toString());
+        if(lastId!=null){
+            return lastId.toString();
+        }else{
+            return null;
+        }
+    }
 }

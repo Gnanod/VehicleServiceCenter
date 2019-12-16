@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import {Customer} from "../Model/Customer";
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
+import {ServiceJob} from "../Model/ServiceJob";
 
 const URL ='/CustomerController';
+const URL1 ='/CustomerIdController';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +40,14 @@ export class CustomerService {
         return this.http.post<Customer>(environment.backend_url + URL + '/updateCustomer',updateCustomerDetails);
 
     }
+
+  getCustomerlLastId() {
+
+    return this.http.get<Customer>(environment.backend_url + URL1 + '/getLastID',);
+    // return this.http.post<String>(url, purchaseOrderCustom,
+    //   {headers: this.he , responseType:'text'})
+    //   .pipe (catchError(this.handleError('postPurchaseOrderCustom', 'I am an error')));
+  }
 
     
 }

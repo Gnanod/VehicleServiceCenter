@@ -75,6 +75,22 @@ export class VehicleComponent implements OnInit {
 
     this.findAllMakes();
     this.getAllClass();
+    this.getCustomerLastId();
+  }
+
+  getCustomerLastId(){
+    this.customerService.getCustomerlLastId().subscribe((result) => {
+      if (result != null) {
+
+        this.addCustomer.nic = result.nic;
+        // this.stringLastId == this.lastId.serviceJobId;
+        //
+        // this.serviceInvoice.invoiceNumber = this.lastId.serviceJobId;
+
+
+      }
+
+    });
   }
 
   addCustomerDetails() {
@@ -93,6 +109,7 @@ export class VehicleComponent implements OnInit {
         })
         this.addCustomer = new Customer();
         this.form1.reset();
+        this.getCustomerLastId();
 
       }
     });

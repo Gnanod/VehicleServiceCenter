@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af9e2364-84a4-4155-851c-7af85f36ef51" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerIdController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/JobOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/JobOrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/customer-payment-view/customer-payment-view.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/customer-payment-view/customer-payment-view.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/joborder/joborder.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/joborder/joborder.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/supplier-payements/supplier-payements.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/supplier-payements/supplier-payements.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/ServiceJobController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/ServiceJobController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/LoginRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/LoginRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/LoginServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/LoginServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/Service/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/Service/customer.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/BackEnd/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -143,9 +152,10 @@
         <counts>
           <entry key="css" value="1" />
           <entry key="dummy" value="40" />
-          <entry key="html" value="2893" />
-          <entry key="java" value="9160" />
-          <entry key="ts" value="14436" />
+          <entry key="html" value="2928" />
+          <entry key="java" value="9235" />
+          <entry key="properties" value="5" />
+          <entry key="ts" value="14504" />
           <entry key="txt" value="23" />
           <entry key="xml" value="6" />
         </counts>
@@ -153,10 +163,11 @@
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="1" />
-          <entry key="HTML" value="2893" />
-          <entry key="JAVA" value="9160" />
+          <entry key="HTML" value="2928" />
+          <entry key="JAVA" value="9235" />
           <entry key="PLAIN_TEXT" value="63" />
-          <entry key="TypeScript" value="14436" />
+          <entry key="Properties" value="5" />
+          <entry key="TypeScript" value="14504" />
           <entry key="XML" value="6" />
         </counts>
       </usages-collector>
@@ -164,67 +175,49 @@
         <counts>
           <entry key="class" value="2" />
           <entry key="css" value="4" />
-          <entry key="html" value="185" />
+          <entry key="html" value="186" />
           <entry key="jasper" value="35" />
-          <entry key="java" value="490" />
+          <entry key="java" value="501" />
           <entry key="java___jb_tmp___" value="1" />
           <entry key="jrxml" value="5" />
-          <entry key="properties" value="1" />
-          <entry key="ts" value="388" />
-          <entry key="xml" value="4" />
+          <entry key="properties" value="2" />
+          <entry key="ts" value="394" />
+          <entry key="xml" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="CSS" value="4" />
-          <entry key="HTML" value="185" />
-          <entry key="JAVA" value="490" />
+          <entry key="HTML" value="186" />
+          <entry key="JAVA" value="501" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Properties" value="1" />
-          <entry key="TypeScript" value="388" />
-          <entry key="XML" value="44" />
+          <entry key="Properties" value="2" />
+          <entry key="TypeScript" value="394" />
+          <entry key="XML" value="45" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerIdController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="86">
-              <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/customer-payements/customer-payements.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+            <state relative-caret-position="157">
+              <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/customer-payment-view/customer-payment-view.component.html">
+        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceIdController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="52">
-              <caret line="115" column="8" selection-start-line="115" selection-start-column="12" selection-end-line="117" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/JobOrderController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="37">
-              <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
+            <state relative-caret-position="190">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
             </state>
           </provider>
         </entry>
@@ -234,9 +227,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="TypeScript File" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -280,14 +273,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ServicesService.java" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/print-job-card/print-job-card.component.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/customer-vehicle-update/customer-vehicle-update.component.html" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/customer-vehicle-update/customer-vehicle-update.component.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.ts" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/employee/employee.component.html" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/Model/StockPayment.ts" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/stock-details/stock-details.component.ts" />
@@ -331,6 +316,14 @@
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/supplier-payements/supplier-payements.component.html" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/customer-payment-view/customer-payment-view.component.html" />
         <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/JobOrderController.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/CustomerService.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/CustomerRepository.java" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/Service/customer.service.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerIdController.java" />
       </list>
     </option>
   </component>
@@ -412,11 +405,50 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="vsc" type="462c0819:PsiDirectoryNode" />
+              <item name="common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vsc" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vsc" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vsc" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
               <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -431,22 +463,6 @@
               <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="DTO" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
@@ -471,133 +487,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="customer-payements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="customer-payment-view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="customer-vehicle-update" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="dashboard" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="employee" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="joborder" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="low-stock-level" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="lube-detail-job" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="monthly-out-come-report" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="stock-details" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="supplier" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="supplier-payements" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="update-supplier-payments" type="462c0819:PsiDirectoryNode" />
+              <item name="print-job-card" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
@@ -621,7 +511,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576482671216" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576505797251" />
     <property name="last_opened_file_path" value="C:/xampp/htdocs/gsimport" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -733,12 +623,12 @@
       <workItem from="1575811267134" duration="33172000" />
       <workItem from="1576118400538" duration="593000" />
       <workItem from="1576155478386" duration="39076000" />
-      <workItem from="1576461982352" duration="3391000" />
+      <workItem from="1576461982352" duration="7899000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="593786000" />
+    <option name="totallyTimeSpent" value="598294000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -752,7 +642,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7754386" visible="true" weight="0.2602428" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7754386" visible="true" weight="0.2602428" />
       <window_info id="Structure" order="1" sideWeight="0.22456141" side_tool="true" weight="0.25644916" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -763,7 +653,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3295082" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32888147" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5569044" weight="0.33222038" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5569044" weight="0.57429045" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -775,7 +665,7 @@
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.3294509" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" />
       <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49924356" weight="0.27879798" />
-      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.49772382" visible="true" weight="0.4524207" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="15" sideWeight="0.49772382" visible="true" weight="0.33555928" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -859,114 +749,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/low-stock-level/low-stock-level.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="29" column="53" selection-start-line="29" selection-start-column="40" selection-end-line="29" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/monthly-out-come-report/monthly-out-come-report.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="29" column="51" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/StockController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="102" column="40" lean-forward="true" selection-start-line="102" selection-start-column="40" selection-end-line="102" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/StockPaymentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="14" column="30" selection-start-line="14" selection-start-column="30" selection-end-line="14" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/StockPaymentServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="49" column="9" lean-forward="true" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/DTO/MonthlyOutComeReport.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MonthlyOutComeReport.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/StockPayment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="22" column="8" selection-start-line="22" selection-start-column="8" selection-end-line="25" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/Stock.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="31" column="46" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="31" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/Model/JobOrderPayment.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/Model/JobOrderItemDetails.ts">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/Model/JobOrder.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="34" lean-forward="true" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="36" column="12" selection-start-line="36" selection-start-column="12" selection-end-line="36" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/lube-detail-job/lube-detail-job.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="471" column="60" selection-start-line="471" selection-start-column="38" selection-end-line="471" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/stock-details/stock-details.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="463" lean-forward="true" selection-start-line="463" selection-end-line="463" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/lube-detail-job/lube-detail-job.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="624" lean-forward="true" selection-start-line="624" selection-end-line="624" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/Service/stock.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -1013,6 +795,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="8" column="28" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1020,6 +805,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
           <caret line="5" column="81" selection-start-line="5" selection-start-column="81" selection-end-line="5" selection-end-column="81" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1069,6 +857,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="36" selection-start-line="17" selection-start-column="19" selection-end-line="17" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1220,8 +1011,139 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/JobOrderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="37">
-          <caret line="114" column="17" selection-start-line="114" selection-start-column="17" selection-end-line="114" selection-end-column="17" />
+        <state relative-caret-position="5984">
+          <caret line="367" column="13" selection-start-line="367" selection-start-column="13" selection-end-line="367" selection-end-column="13" />
+          <folding>
+            <element signature="e#2576#2592#0" expanded="true" />
+            <element signature="e#10698#10714#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1444" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServiceIdServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceIdReository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="108" lean-forward="true" selection-start-line="8" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/CustomerRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="45" selection-start-line="17" selection-start-column="45" selection-end-line="17" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="55" column="50" lean-forward="true" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/CustomerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="4" selection-end-line="20" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceJobController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="47" column="4" selection-start-line="47" selection-start-column="4" selection-end-line="53" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/Service/servicejob.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="26" column="1" lean-forward="true" selection-start-line="26" selection-start-column="1" selection-end-line="32" selection-end-column="3" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/service-job/service-job.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714">
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/print-job-card/print-job-card.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="173" column="4" lean-forward="true" selection-start-line="173" selection-start-column="4" selection-end-line="184" selection-end-column="7" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/Service/customer.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="245">
+          <caret line="43" column="20" selection-start-line="43" selection-start-column="2" selection-end-line="43" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="109" column="25" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#48#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="342" column="62" selection-start-line="342" selection-start-column="62" selection-end-line="342" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceIdController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerIdController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="35" column="50" selection-start-line="35" selection-start-column="50" selection-end-line="35" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
