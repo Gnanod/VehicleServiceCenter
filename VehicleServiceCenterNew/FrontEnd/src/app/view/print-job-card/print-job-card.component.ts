@@ -130,6 +130,7 @@ export class PrintJobCardComponent implements OnInit {
           this.customerphone = null;
           this.customeraddress = null;
           this.customeremail = null;
+          this.searchVehicleNumber=null;
         } else {
 
           Swal.fire({

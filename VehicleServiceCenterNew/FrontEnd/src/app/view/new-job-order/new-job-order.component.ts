@@ -242,44 +242,63 @@ export class NewJobOrderComponent implements OnInit {
     sendServiceDetail.serviceOrder = s1;
     sendServiceDetail.serviceJobDetails = this.details;
 
-    this.serviceJobService.addServiceJobs(sendServiceDetail).subscribe((result) => {
-      if (result != null) {
+    if (s1.serviceJobId != null) {
+      if (this.servicesArray.length != 0) {
+        this.serviceJobService.addServiceJobs(sendServiceDetail).subscribe((result) => {
+          if (result != null) {
+            Swal.fire({
+              position: 'top-end',
+              icon: 'success',
+              title: 'Service Added Successfully.',
+              showConfirmButton: false,
+              timer: 1500
+            })
+            this.servicesOfTheServiceJobArrray = new Array<ServiceJobDetails>();
+            this.serviceJobId = null;
+            this.searchVehicleNumber = null;
+            this.engineNumber = null;
+            this.vehicleClass = null;
+            this.vehicleMake = null;
+            this.vehicleModel = null;
+            this.yearOfManufacture = null;
+            this.customername = null;
+            this.customerphone = null;
+            this.customeremail = null;
+            this.customeraddress = null;
+            this.servicesArray = new Array<Services>();
+            this.allServicesDescArray = new Array<Services>();
+            this.serviceInvoice = new ServiceInvoiceDTO();
+            this.details = new Array<ServiceJobDetails>();
+            this.inServices = new Array<Services>();
+
+            this.serviceOrderTot = null;
+            const linkSource = 'data:application/pdf;base64,' + result.pdf;
+            const downloadLink = document.createElement("a");
+            const fileName = "ServiceJobCard.pdf";
+            downloadLink.href = linkSource;
+            downloadLink.download = fileName;
+            downloadLink.click();
+
+          }
+        });
+      } else {
         Swal.fire({
           position: 'top-end',
-          icon: 'success',
-          title: 'Service Added Successfully.',
+          icon: 'error',
+          title: 'Please Add Services To Table.',
           showConfirmButton: false,
           timer: 1500
         })
-        this.servicesOfTheServiceJobArrray = new Array<ServiceJobDetails>();
-        this.serviceJobId = null;
-        this.searchVehicleNumber = null;
-        this.engineNumber = null;
-        this.vehicleClass = null;
-        this.vehicleMake = null;
-        this.vehicleModel = null;
-        this.yearOfManufacture = null;
-        this.customername = null;
-        this.customerphone = null;
-        this.customeremail = null;
-        this.customeraddress = null;
-        this.servicesArray = new Array<Services>();
-        this.allServicesDescArray = new Array<Services>();
-        this.serviceInvoice = new ServiceInvoiceDTO();
-        this.details = new Array<ServiceJobDetails>();
-        this.inServices=new Array<Services>();
-
-        this.serviceOrderTot = null;
-        const linkSource = 'data:application/pdf;base64,' + result.pdf;
-        const downloadLink = document.createElement("a");
-        const fileName = "ServiceJobCard.pdf";
-        downloadLink.href = linkSource;
-        downloadLink.download = fileName;
-        downloadLink.click();
-
       }
-
-    });
+    } else {
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Service Job Id Field is Empty.',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
 
   }
 
@@ -292,7 +311,7 @@ export class NewJobOrderComponent implements OnInit {
   details: Array<ServiceJobDetails> = new Array<ServiceJobDetails>();
 
 
-  calcTotal(){
+  calcTotal() {
     let all: number = this.servicesArray.length;
 
   }
@@ -300,10 +319,7 @@ export class NewJobOrderComponent implements OnInit {
   AddDetailsToTable() {
 
 
-
-
-
-    if(this.serviceType !=null){
+    if (this.serviceType != null) {
       let s: ServiceJobDetails = new ServiceJobDetails();
       s.serviceJobId = this.serviceJobId;
       s.serviceId = this.serviceType.serviceId;
@@ -311,7 +327,7 @@ export class NewJobOrderComponent implements OnInit {
       this.inServices.push(this.serviceType);
       this.details.push(s);
 
-    }else{
+    } else {
       Swal.fire({
         position: 'top-end',
         icon: 'error',
@@ -338,7 +354,7 @@ export class NewJobOrderComponent implements OnInit {
     this.serviceInvoice.customerAddress = this.customeraddress;
     this.serviceInvoice.customerPhoneNumber = this.customerphone;
     this.serviceInvoice.services = this.inServices;
-    console.log("invoice Services Length :"+this.serviceInvoice.services.length);
+    console.log("invoice Services Length :" + this.serviceInvoice.services.length);
     this.serviceInvoice.total = tot;
     this.FinalTotal = tot.toFixed(2);
 

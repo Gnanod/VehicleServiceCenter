@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="42f7cc41-c64c-424f-8562-0a28d735b347" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/VehicleServiceCenterNew/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/VehicleServiceCenterNew/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -14,13 +15,39 @@
     <session id="431965121">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
-          <entry key="project.open.time.1" value="1" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="4" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="class" value="2" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="CLASS" value="2" />
         </counts>
       </usages-collector>
     </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/VehicleServiceCenterNew/FrontEnd/src/app/view/employee/employee.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="138" column="105" selection-start-line="138" selection-start-column="79" selection-end-line="138" selection-end-column="105" />
+              <folding>
+                <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -40,15 +67,19 @@
       <path value="$PROJECT_DIR$/VehicleServiceCenterNew/FrontEnd/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="width" value="1364" />
-    <option name="height" value="735" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-7" />
+    <option name="y" value="2" />
+    <option name="width" value="1378" />
+    <option name="height" value="733" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -61,12 +92,63 @@
               <item name="newVehicleServiceCenter1" type="462c0819:PsiDirectoryNode" />
               <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="newVehicleServiceCenter1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newVehicleServiceCenter1" type="462c0819:PsiDirectoryNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newVehicleServiceCenter1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newVehicleServiceCenter1" type="462c0819:PsiDirectoryNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="bin" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newVehicleServiceCenter1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newVehicleServiceCenter1" type="462c0819:PsiDirectoryNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newVehicleServiceCenter1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newVehicleServiceCenter1" type="462c0819:PsiDirectoryNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newVehicleServiceCenter1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newVehicleServiceCenter1" type="462c0819:PsiDirectoryNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newVehicleServiceCenter1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newVehicleServiceCenter1" type="462c0819:PsiDirectoryNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="newVehicleServiceCenter1" type="b2602c69:ProjectViewProjectNode" />
+              <item name="newVehicleServiceCenter1" type="462c0819:PsiDirectoryNode" />
+              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
+              <item name="FrontEnd" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="employee" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -100,16 +182,19 @@
       <updated>1576144919915</updated>
       <workItem from="1576144923249" duration="253000" />
       <workItem from="1576155437673" duration="29000" />
+      <workItem from="1576551020458" duration="311000" />
+      <workItem from="1576565202308" duration="714000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="282000" />
+    <option name="totallyTimeSpent" value="1307000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25340393" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -148,5 +233,23 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/VehicleServiceCenterNew/BackEnd/bin/src/main/java/lk/vsc/repository/JobOrderRepository.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VehicleServiceCenterNew/BackEnd/bin/src/main/java/lk/vsc/repository/MakeModelRepository.class">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VehicleServiceCenterNew/FrontEnd/src/app/view/employee/employee.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="138" column="105" selection-start-line="138" selection-start-column="79" selection-end-line="138" selection-end-column="105" />
+          <folding>
+            <element signature="n#style#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>
