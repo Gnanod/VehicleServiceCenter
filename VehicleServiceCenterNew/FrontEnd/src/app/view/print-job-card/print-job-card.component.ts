@@ -7,7 +7,7 @@ import {ServicejobService} from "../../Service/servicejob.service";
 import {ServiceJob} from "../../Model/ServiceJob";
 import {ServicesDTO} from "../../DTO/ServicesDTO";
 import {ServiceInvoiceDTO} from "../../DTO/ServiceInvoiceDTO";
-import {saveAs} from 'file-saver/dist/filesaver';
+import * as saveAs from 'file-saver';
 import Swal from "sweetalert2";
 
 @Component({
