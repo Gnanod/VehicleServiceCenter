@@ -19,8 +19,8 @@
               <label >Select Supplier Company</label>
               <br>
 
-              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedSupplierCompany" #mySelect1 (change)="getSuppliersNames(mySelect1.value)" >
-                <option disabled value="Select">Select</option>
+              <select class="form-control "  [(ngModel)]="selectedSupplierCompany" #mySelect1 (change)="getSuppliersNames(mySelect1.value)" >
+                <option disabled selected value="Select">Select</option>
                 <option  *ngFor="let sup of suppliers">{{sup.companyName}}</option>
 
               </select>

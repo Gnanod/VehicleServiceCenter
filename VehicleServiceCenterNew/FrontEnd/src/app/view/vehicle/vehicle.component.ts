@@ -436,32 +436,47 @@ export class VehicleComponent implements OnInit {
 
     this.makeModel.makeName = this.addMakeName;
 
-    this.makeService.addMakes(this.makeModel).subscribe((result) => {
+    console.log('KKKKKKKKK'+this.addMakeName);
+    if(this.addMakeName!=null ){
+      this.makeService.addMakes(this.makeModel).subscribe((result) => {
 
-      if (result != null) {
+        if (result != null) {
 
-        // alert("Stock Added Successfully");
+          // alert("Stock Added Successfully");
 
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Make Added Successfully.',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        this.findAllMakes();
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Make Added Successfully.',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.findAllMakes();
+          this.addMakeName=null;
 
-      } else {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'error',
-          title: 'Make Added Fail.',
-          showConfirmButton: false,
-          timer: 1500
-        })
-      }
+          // document.getElementById('myModal10').
+        } else {
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'Make Added Fail.',
+            showConfirmButton: false,
+            timer: 1500
+          });
+        }
 
-    });
+
+      });
+    }else{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'error',
+        title: 'Make Field Is Empty',
+        showConfirmButton: false,
+        timer: 1500
+      })
+    }
+
   }
 
   findAllMakesToArray: Array<Make> = new Array<Make>();
@@ -492,4 +507,13 @@ export class VehicleComponent implements OnInit {
     });
   }
 
+
+  modalPopUp =false;
+  openModal(){
+    this.modalPopUp=true;
+  }
+
+  closeModal(){
+    this.modalPopUp=false;
+  }
 }

@@ -1,8 +1,6 @@
 package lk.vsc.controller;
 
-import lk.vsc.entity.Employee;
 import lk.vsc.entity.Login;
-import lk.vsc.entity.Vehicle;
 import lk.vsc.service.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -23,11 +21,10 @@ public class LoginController {
     }
 
 
-    
+
     @GetMapping(value = "/Login/{nic}/{password}")
     public String Login(@PathVariable String nic,@PathVariable String password){
-        Employee emp = new Employee();
-        System.out.println("GGGGGGGGGGGGGGG");
+        System.out.println("ffff");
         return loginService.loginFunction(nic,password);
 
     }
