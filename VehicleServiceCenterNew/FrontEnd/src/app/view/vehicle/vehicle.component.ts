@@ -340,20 +340,35 @@ export class VehicleComponent implements OnInit {
   selectedMake: string;
   addTableModel: string;
   tableMakeModel: Array<MakeModel> = new Array<MakeModel>();
-
+  existMakeModel = false;
   addToTable() {
-
-    console.log('GGGGGG');
-
     let makeModel: MakeModel = new MakeModel();
-    console.log("selectedmake" + this.selectedMake);
     makeModel.makeName = this.selectedMake;
     makeModel.modelName = this.addTableModel;
+
 
     if (this.selectedMake != null) {
       if (this.addTableModel != null) {
 
-        this.tableMakeModel.push(makeModel);
+        for(let i=0;i<this.tableMakeModel.length;i++){
+          if(this.tableMakeModel[i].modelName===makeModel.modelName &&this.tableMakeModel[i].makeName=== makeModel.makeName ){
+            this.existMakeModel=true;;
+          }
+        }
+        if(!this.existMakeModel){
+          this.tableMakeModel.push(makeModel);
+        }else{
+          Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: 'This Model Name Is Allredy in the table',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.existMakeModel=false;;
+
+        }
+
 
       } else {
         Swal.fire({
@@ -508,12 +523,7 @@ export class VehicleComponent implements OnInit {
   }
 
 
-  modalPopUp =false;
-  openModal(){
-    this.modalPopUp=true;
-  }
 
-  closeModal(){
-    this.modalPopUp=false;
-  }
+
+
 }

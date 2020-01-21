@@ -50,7 +50,6 @@ export class NewJobOrderComponent implements OnInit {
 
   ngOnInit() {
 
-
     this.todayDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
   }
 

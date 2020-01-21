@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af9e2364-84a4-4155-851c-7af85f36ef51" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/JobOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/JobOrderController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/ServiceJobController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/ServiceJobController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/stock-details/stock-details.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/stock-details/stock-details.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/src/environments/environment.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/BackEnd/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -158,7 +147,7 @@
           <entry key="html" value="3022" />
           <entry key="java" value="9250" />
           <entry key="properties" value="7" />
-          <entry key="ts" value="15010" />
+          <entry key="ts" value="15185" />
           <entry key="txt" value="23" />
           <entry key="xml" value="6" />
         </counts>
@@ -170,7 +159,7 @@
           <entry key="JAVA" value="9250" />
           <entry key="PLAIN_TEXT" value="63" />
           <entry key="Properties" value="7" />
-          <entry key="TypeScript" value="15010" />
+          <entry key="TypeScript" value="15185" />
           <entry key="XML" value="6" />
         </counts>
       </usages-collector>
@@ -178,13 +167,13 @@
         <counts>
           <entry key="class" value="2" />
           <entry key="css" value="6" />
-          <entry key="html" value="195" />
+          <entry key="html" value="196" />
           <entry key="jasper" value="35" />
           <entry key="java" value="519" />
           <entry key="java___jb_tmp___" value="1" />
           <entry key="jrxml" value="5" />
           <entry key="properties" value="5" />
-          <entry key="ts" value="418" />
+          <entry key="ts" value="421" />
           <entry key="xml" value="5" />
         </counts>
       </usages-collector>
@@ -192,11 +181,11 @@
         <counts>
           <entry key="CLASS" value="2" />
           <entry key="CSS" value="6" />
-          <entry key="HTML" value="195" />
+          <entry key="HTML" value="196" />
           <entry key="JAVA" value="519" />
           <entry key="PLAIN_TEXT" value="1" />
           <entry key="Properties" value="5" />
-          <entry key="TypeScript" value="418" />
+          <entry key="TypeScript" value="421" />
           <entry key="XML" value="45" />
         </counts>
       </usages-collector>
@@ -207,53 +196,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/stock-details/stock-details.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+            <state relative-caret-position="391">
+              <caret line="80" column="26" lean-forward="true" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/stock-details/stock-details.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="175" column="30" selection-start-line="175" selection-start-column="30" selection-end-line="175" selection-end-column="30" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="141" column="119" selection-start-line="141" selection-start-column="119" selection-end-line="141" selection-end-column="119" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="465" selection-start-line="465" selection-end-line="465" />
+            <state relative-caret-position="277">
+              <caret line="353" column="123" selection-start-line="353" selection-start-column="123" selection-end-line="353" selection-end-column="123" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4983">
+              <caret line="51" selection-start-line="51" selection-end-line="51" />
             </state>
           </provider>
         </entry>
@@ -261,8 +223,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="532" column="91" selection-start-line="532" selection-start-column="80" selection-end-line="532" selection-end-column="91" />
+            <state relative-caret-position="328">
+              <caret line="265" column="98" lean-forward="true" selection-start-line="265" selection-start-column="98" selection-end-line="265" selection-end-column="98" />
               <folding>
                 <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#!!top" expanded="true" />
               </folding>
@@ -283,15 +245,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>discount</find>
-      <find>getCreditPaymentDetails</find>
-      <find>getItemDetailsByNameToArray</find>
       <find>getItemsToArray</find>
       <find>Search Item</find>
       <find>paid</find>
       <find>/main/CustomerPayments</find>
       <find>/main/LowStockLevel</find>
-      <find>Add Vehicle Type</find>
       <find>Add Vehicle Details</find>
       <find>date</find>
       <find>deleteService</find>
@@ -313,6 +271,10 @@
       <find>Make A</find>
       <find>Make added</find>
       <find>Makes</find>
+      <find>Add Item Details</find>
+      <find>closemodal</find>
+      <find>close</find>
+      <find>Add Vehicle Type</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -359,7 +321,6 @@
         <option value="$PROJECT_DIR$/FrontEnd/src/app/Service/customer.service.ts" />
         <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerIdController.java" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.html" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.ts" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/print-job-card/print-job-card.component.ts" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/customer-vehicle-update/customer-vehicle-update.component.ts" />
         <option value="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" />
@@ -367,11 +328,12 @@
         <option value="$PROJECT_DIR$/FrontEnd/src/environments/environment.prod.ts" />
         <option value="$PROJECT_DIR$/FrontEnd/src/environments/environment.ts" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/app.component.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.html" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts" />
         <option value="$PROJECT_DIR$/FrontEnd/src/app/view/stock-details/stock-details.component.html" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.ts" />
+        <option value="$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts" />
       </list>
     </option>
   </component>
@@ -389,7 +351,7 @@
       <path value="$PROJECT_DIR$/FrontEnd/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -619,7 +581,7 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579620392115" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579624341757" />
     <property name="last_opened_file_path" value="D:/Git Hub Clone Projects/New Project ITp" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -737,12 +699,12 @@
       <workItem from="1577326134681" duration="596000" />
       <workItem from="1577542918947" duration="591000" />
       <workItem from="1579018100527" duration="4339000" />
-      <workItem from="1579591714463" duration="9999000" />
+      <workItem from="1579591714463" duration="12889000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="614846000" />
+    <option name="totallyTimeSpent" value="617736000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -768,7 +730,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3295082" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32888147" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5569044" visible="true" weight="0.105175294" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.5569044" visible="true" weight="0.076794654" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -862,6 +824,18 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts</url>
+          <line>343</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/customer-payment-view/customer-payment-view.component.html">
@@ -1042,13 +1016,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4471">
-          <caret line="287" column="46" selection-start-line="287" selection-start-column="46" selection-end-line="287" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5593">
@@ -1187,16 +1154,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="532" column="91" selection-start-line="532" selection-start-column="80" selection-end-line="532" selection-end-column="91" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/service-management/service-management.component.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
@@ -1211,20 +1168,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="465" selection-start-line="465" selection-end-line="465" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="55" column="23" lean-forward="true" selection-start-line="55" selection-start-column="23" selection-end-line="55" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/stock-details/stock-details.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1234,8 +1177,39 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/stock-details/stock-details.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="21" column="44" selection-start-line="21" selection-start-column="44" selection-end-line="21" selection-end-column="44" />
+        <state relative-caret-position="-1072">
+          <caret line="273" column="49" selection-start-line="273" selection-start-column="33" selection-end-line="273" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/app-routing.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="80" column="26" lean-forward="true" selection-start-line="80" selection-start-column="26" selection-end-line="80" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/new-job-order/new-job-order.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4983">
+          <caret line="51" selection-start-line="51" selection-end-line="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="265" column="98" lean-forward="true" selection-start-line="265" selection-start-column="98" selection-end-line="265" selection-end-column="98" />
+          <folding>
+            <element signature="n#style#0;n#button#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#2;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/FrontEnd/src/app/view/vehicle/vehicle.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="353" column="123" selection-start-line="353" selection-start-column="123" selection-end-line="353" selection-end-column="123" />
         </state>
       </provider>
     </entry>
