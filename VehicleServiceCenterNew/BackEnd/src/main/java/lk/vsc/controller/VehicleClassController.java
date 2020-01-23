@@ -19,7 +19,26 @@ public class VehicleClassController {
     @PostMapping(value = "addVehicleClass")
     public VehicleClass addVehicleClass(@RequestBody VehicleClass vehClass) {
 
+        System.out.println("KKKKKKKLLLLLLLLLLLLLIIIIIIIIIIIIIIIIIIIIII");
         return vehicleClassService.addVehicleClass(vehClass);
+
+    }
+
+    @PostMapping(value = "addVehicleClasses")
+    public VehicleClass addVehicleClasses(@RequestBody VehicleClass vehClass) {
+        System.out.println(vehClass.getClassName());
+        System.out.println("KKKKKKKLLLLLLLLLLLLLPPPPPPPPPPPPPPp");
+        return null;
+//        return vehicleClassService.addVehicleClass(vehClass);
+
+    }
+
+
+    @PostMapping(value = "addVehicleClassesNew")
+    public VehicleClass addVehicleClassesNew(@RequestBody VehicleClass vehClass) {
+
+
+       return vehicleClassService.addVehicleClass(vehClass);
 
     }
 

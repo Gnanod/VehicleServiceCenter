@@ -80,6 +80,8 @@ export class MainComponent implements OnInit {
           this.headerText="Services";
         }else if(this.router.url == '/main/MonthlyOutComeReport'){
           this.headerText="Monthly OutCome Report";
+        }else if(this.router.url == '/main/stockview'){
+          this.headerText="Stock View";
         }
 
     }
@@ -146,6 +148,9 @@ export class MainComponent implements OnInit {
           localStorage.removeItem('Admin');
           localStorage.removeItem('Cashier');
 
+
+        }else if(button == 'Stock View'){
+          this.router.navigate(['main/stockview'])
 
         }
 

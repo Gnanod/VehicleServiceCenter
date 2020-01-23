@@ -161,9 +161,10 @@ export class ServiceManagementComponent implements OnInit {
     this.vehicleClassServiceModel.className = this.className;
     console.log('class Name'+this.className);
     if(this.className!=null){
-      this.vehicleClassService.addVehicleClass(this.vehicleClassServiceModel).subscribe((result) => {
+      this.vehicleClassService.addVehicleClasses(this.vehicleClassServiceModel).subscribe((result) => {
 
         if (result != null) {
+          console.log('sUCCESS')
           // alert('Vehicle Class Is Added Successfully');
           Swal.fire({
             position: 'top-end',
@@ -190,10 +191,34 @@ export class ServiceManagementComponent implements OnInit {
 
   }
 
+  addVehicleClassNew(){
+    this.vehicleClassServiceModel.className = this.className;
+
+    this.vehicleClassService.addVehicleClassesNew(this.vehicleClassServiceModel).subscribe((result) => {
+
+      if (result != null) {
+        console.log('sUCCESS')
+        // alert('Vehicle Class Is Added Successfully');
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: 'Vehicle Class Is Added Successfully',
+          showConfirmButton: false,
+          timer: 1500
+        })
+        this.getAllClass();
+        this.className=null;
+      }
+
+    });
+  }
+
   getAllClass() {
     this.vehicleClassService.getAllClass().subscribe((result) => {
 
+
       if (result != null) {
+        console.log(result);
         this.vehicleClassArray = result;
       }
 

@@ -37,4 +37,9 @@ console.log('hhhhh'+item.makeModelDetails[0].makeModel);
     return this.http.get<Array<Item>>(environment.backend_url + URL+"/getItemDetailsByNameToArray/"+searchStockItemName);
 
   }
+
+  getAllItems(){
+    return this.http.get<Array<Item>>(environment.backend_url + URL+"/getAllItems");
+
+  }
 }

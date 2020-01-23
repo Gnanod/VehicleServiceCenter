@@ -13,4 +13,5 @@ public interface ItemService {
     List<Item> getItemsToArray(String itemName);
 
 
+    List<Item> getAllItems();
 }

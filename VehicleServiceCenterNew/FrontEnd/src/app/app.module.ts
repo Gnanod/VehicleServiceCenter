@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainComponent } from './view/main/main.component';
@@ -34,6 +33,9 @@ import { PrintJobCardComponent } from './view/print-job-card/print-job-card.comp
 import { UpdateSupplierPaymentsComponent } from './view/update-supplier-payments/update-supplier-payments.component';
 import { CustomerPaymentViewComponent } from './view/customer-payment-view/customer-payment-view.component';
 import { MonthlyOutComeReportComponent } from './view/monthly-out-come-report/monthly-out-come-report.component';
+import { ItemAllviewComponent } from './view/item-allview/item-allview.component';
+import {Ng2SearchPipeModule} from "ng2-search-filter";
+import {NgxPaginationModule} from "ngx-pagination";
 
 
 // @ts-ignore
@@ -60,13 +62,15 @@ import { MonthlyOutComeReportComponent } from './view/monthly-out-come-report/mo
     PrintJobCardComponent,
     UpdateSupplierPaymentsComponent,
     CustomerPaymentViewComponent,
-    MonthlyOutComeReportComponent
+    MonthlyOutComeReportComponent,
+    ItemAllviewComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, HttpClientModule, FormsModule,NgbModule,NgbPaginationModule, NgbAlertModule,ReactiveFormsModule,
       BrowserAnimationsModule,MatButtonModule,MatSelectModule,  MatFormFieldModule,
-      MatInputModule
+      MatInputModule, Ng2SearchPipeModule,NgxPaginationModule
   ],
   providers: [
     DatePipe

@@ -1,18 +1,14 @@
 package lk.vsc.service.impl;
 
 import lk.vsc.entity.Item;
-import lk.vsc.entity.MakeModel;
-import lk.vsc.entity.MakeModelDetails;
 import lk.vsc.repository.ItemRepository;
 import lk.vsc.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.criteria.CriteriaBuilder;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class ItemServiceImpl implements ItemService {
@@ -64,6 +60,11 @@ public class ItemServiceImpl implements ItemService {
 
         return item1;
 
+    }
+
+    @Override
+    public List<Item> getAllItems() {
+        return itemRepository.findAll();
     }
 
 }

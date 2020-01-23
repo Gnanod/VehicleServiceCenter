@@ -23,6 +23,7 @@ import {PrintJobCardComponent} from "./view/print-job-card/print-job-card.compon
 import {UpdateSupplierPaymentsComponent} from "./view/update-supplier-payments/update-supplier-payments.component";
 import {CustomerPaymentViewComponent} from "./view/customer-payment-view/customer-payment-view.component";
 import {MonthlyOutComeReportComponent} from "./view/monthly-out-come-report/monthly-out-come-report.component";
+import {ItemAllviewComponent} from "./view/item-allview/item-allview.component";
 
 const routes: Routes = [
   {
@@ -112,6 +113,10 @@ const routes: Routes = [
       {
         path: 'MonthlyOutComeReport',
         component: MonthlyOutComeReportComponent
+      },
+      {
+        path :'stockview',
+        component: ItemAllviewComponent
       }
 
 

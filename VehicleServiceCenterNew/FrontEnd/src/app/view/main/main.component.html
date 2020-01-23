@@ -73,6 +73,13 @@
             <p #StockManagement>Stock Management</p>
           </a>
         </li>
+        <li class="nav-item" [ngClass]="{'active': headerText=='Stock View'}"
+            (click)="changeRoute(stockView.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-box-open"></i>
+            <p #stockView>Stock View</p>
+          </a>
+        </li>
 
         <li class="nav-item" [ngClass]="{'active': headerText=='Service Management'}"
             (click)="changeRoute(ServiceManagement.innerHTML)">

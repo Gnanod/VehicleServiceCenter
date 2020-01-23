@@ -1,11 +1,8 @@
 package lk.vsc.controller;
 
 import lk.vsc.entity.Item;
-import lk.vsc.entity.MakeModel;
 import lk.vsc.entity.MakeModelDetails;
-import lk.vsc.entity.Supplier;
 import lk.vsc.service.ItemService;
-import lk.vsc.service.MakeModelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,6 +41,14 @@ public class ItemController {
         List<Item> i = itemService.getItemsToArray(itemName);
 
         return itemService.getItemsToArray(itemName);
+    }
+
+    @GetMapping(value = "/getAllItems")
+    public List<Item> getAllItems(){
+
+
+
+        return itemService.getAllItems();
     }
 
 }

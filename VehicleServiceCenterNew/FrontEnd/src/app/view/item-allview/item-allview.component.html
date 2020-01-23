@@ -1,0 +1,65 @@
+<div class="row">
+
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-info card-header-icon">
+        <div class="card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h4 class="card-title">View All Items</h4>
+      </div>
+      <div class="card-body">
+        <div class="row" >
+            <div class="col-md-4">
+              <div class="form-group">
+                <label class="bmd-label-floating"><i class="fas fa-search"></i>Search By Item Code</label>
+
+                <input type="text" class="form-control" [(ngModel)]="searchPartNumber">
+
+              </div>
+            </div>
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr>
+
+              <th class="text-center">Item Id</th>
+              <th class="text-center">Item Name</th>
+              <th class="text-center">Item Quantity Type</th>
+              <th class="text-center">Item Curent Quantity</th>
+              <th class="text-center">Item Quantity Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of items |filter:searchPartNumber |paginate :{ itemsPerPage :10, currentPage :paginationNumber}">
+
+
+
+              <td class="text-center">
+                {{item.itemId}}
+              </td>
+              <td class="text-center">
+                {{item.itemName}}
+              </td>
+              <td style="color: red; font-size: 25px ;font-style: inherit" class="text-center">
+                {{item.itemQuantityType}}
+              </td>
+              <td style="color: red; font-size: 25px ;font-style: inherit" class="text-center">
+                {{item.quantityOnHand}}
+              </td>
+              <td style="color: red; font-size: 25px ;font-style: inherit" class="text-center">
+                {{item.quantityOfPrice}}
+              </td>
+            </tr>
+
+            </tbody>
+            <pagination-controls (pageChange)="paginationNumber=$event"></pagination-controls>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
