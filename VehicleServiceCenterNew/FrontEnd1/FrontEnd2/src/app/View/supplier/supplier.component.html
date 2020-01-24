@@ -1,0 +1,256 @@
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-info">
+          <div class="card-icon">
+            <i class="fas fa-users"></i>
+          </div>
+          <h4 class="card-title">Add Supplier Details
+
+          </h4>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form" name="form" >
+            <div class="row">
+
+
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating" >Agent Name</label>
+                  <input type="text" class="form-control" name="agentName" [(ngModel)]="supplier.agentName" formControlName="agentName" [ngClass]="{'is-invalid':form.get('agentName').touched && form.get('agentName').invalid }">
+                  <div class="invalid-feedback"  *ngIf="form.get('agentName').touched  && form.get('agentName').invalid">
+                    Agent Field Is Empty
+                  </div>
+
+
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Email</label>
+                  <input type="text" class="form-control" name="email" [(ngModel)]="supplier.email" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid }">
+                  <div class="invalid-feedback"  *ngIf="form.get('email').touched  && form.get('email').invalid">
+                    <div  *ngIf="form.get('email').errors.required">Email Field Is Empty</div>
+                    <div *ngIf="form.get('email').errors.email" >Email Is Not Valid</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label class="bmd-label-floating" >Phone Number</label>
+                  <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="supplier.phoneNumber" formControlName="phoneNumber" [ngClass]="{'is-invalid':form.get('phoneNumber').touched && form.get('phoneNumber').invalid}">
+
+                  <div class="invalid-feedback"  *ngIf="form.get('phoneNumber').touched  && form.get('phoneNumber').invalid">
+                    <div  *ngIf="form.get('phoneNumber').errors.required">Phone Number Field Is Empty</div>
+                    <div  *ngIf="form.get('phoneNumber').errors.maxlength">Phone Number Must Be in 10 Digits</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Company</label>
+                  <input type="text" class="form-control" name="companyName" [(ngModel)]="supplier.companyName" formControlName="companyName" [ngClass]="{'is-invalid':form.get('companyName').touched && form.get('companyName').invalid}">
+
+                  <div class="invalid-feedback"  *ngIf="form.get('companyName').touched  && form.get('companyName').invalid">
+                    <div  *ngIf="form.get('companyName').errors.required">Company Field Is Empty</div>
+
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label class="bmd-label-floating">Address</label>
+                  <input type="text" class="form-control" name="address" [(ngModel)]="supplier.address" formControlName="address" [ngClass]="{'is-invalid':form.get('address').touched && form.get('address').invalid}">
+
+                  <div class="invalid-feedback"  *ngIf="form.get('address').touched  && form.get('address').invalid">
+                    <div  *ngIf="form.get('address').errors.required">Address Field Is Empty</div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+            <button (click)="addSupplierDetails()" type="submit" class="btn btn-behance pull-right" [disabled]="!form.valid">Save Details</button>
+            <div class="clearfix"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<div class="row">
+
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-info card-header-icon">
+        <div class="card-icon">
+          <i class="fas fa-search"></i>
+        </div>
+        <h4 class="card-title">Search Supplier</h4>
+      </div>
+      <div class="card-body">
+        <div class="row" >
+
+          <div class="col-md-4" style="margin-left: 250px">
+            <div class="form-group">
+              <label class="bmd-label-floating">Search By Name</label>
+              <input type="text" class="form-control" style="width: 300px" (keyup)="searchSupplierDetailsByName()" [(ngModel)]="supplierName">
+            </div>
+          </div>
+          <div class="col-md-4" style="margin-left: -280px ;margin-top: 0px">
+            <button type="submit" class="btn btn-behance pull-right"  (click)="searchSupplierDetailsByName()" >    <i class="fas fa-search"></i></button>
+          </div>
+
+        </div>
+
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr >
+              <th>Agent Name</th>
+              <th>Company Name</th>
+              <th >Email Address</th>
+              <th >Address</th>
+              <th >Phone Number</th>
+              <th ></th>
+              <th ></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngIf="searchSupplierValuesIf;else elseBlock">
+              <td colspan="8" class="alert alert-danger" style="text-align: center">
+                Supplier Not Found
+              </td>
+            </tr>
+
+            <ng-template #elseBlock>
+
+              <tr *ngFor="let supplier of searchSupplierDetails">
+                <td class="text-center">
+                  {{supplier.agentName}}
+                </td>
+                <td class="text-center">
+                  {{supplier.companyName}}
+                </td>
+                <td class="text-center">
+                  {{supplier.email}}
+                </td >
+
+                <td class="text-center">
+                  {{supplier.address}}
+                </td>
+                <td>
+                  {{supplier.phoneNumber}}
+                </td>
+
+
+                <td class="td-actions ">
+                  <button type="button" rel="tooltip" class="btn btn-info" (click)="editSupplier(supplier)">
+                    <i class="far fa-edit"></i>
+                  </button>
+                </td>
+
+                <td class="td-actions ">
+                  <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteSupplier(supplier.supplierId)">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </td>
+              </tr>
+
+            </ng-template>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header card-header-icon card-header-info">
+        <div class="card-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <h4 class="card-title">Update Supplier Details
+
+        </h4>
+      </div>
+      <div class="card-body">
+        <div class="row">
+
+
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label >Supplier Id</label>
+              <input type="text" class="form-control" disabled [(ngModel)]="upSupplierId">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label >Agent Name</label>
+              <input type="text" class="form-control" [(ngModel)]="upSupplierAgent">
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label >Email Name</label>
+              <input type="text" class="form-control" [(ngModel)]="upSupplierEmail">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label >Address</label>
+              <input type="email" class="form-control" [(ngModel)]="upSupplierAddress">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label>Company</label>
+              <input type="text" class="form-control" [(ngModel)]="upSupplierCompany">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4">
+          <div class="form-group">
+            <label >Phone Number</label>
+            <input type="text" class="form-control" [(ngModel)]="upSupplierPhone">
+          </div>
+        </div>
+
+
+
+        <button type="submit" class="btn btn-behance pull-right" (click)="updateSupplier()">Update Details</button>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+
+</div>

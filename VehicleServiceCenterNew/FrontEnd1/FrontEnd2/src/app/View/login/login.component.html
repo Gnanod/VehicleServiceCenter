@@ -1,0 +1,46 @@
+<div class="wrapper wrapper-full-page">
+  <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('./assets/img/login.jpg'); background-size: cover; background-position: top center;">
+  <!--<div class="page-header login-page header-filter" filter-color="black" style="background-image: url('../as'); background-size: cover; background-position: top center;">-->
+    <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+    <div class="container">
+      <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+        <!--<form class="form" method="" action="#">-->
+        <div class="card card-login ">
+          <div class="card-header card-header-info text-center">
+            <h4 class="card-title">Login</h4>
+
+          </div>
+          <div class="card-body ">
+            <!--<p class="card-description text-center">Or Be Classical</p>-->
+            <span class="bmd-form-group">
+
+            </span>
+            <span class="bmd-form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+
+                </div>
+                <input type="text" class="form-control" placeholder="User Name....."  [(ngModel)]="empNic">
+              </div>
+            </span>
+            <span class="bmd-form-group">
+              <div class="input-group">
+                <div class="input-group-prepend">
+
+                </div>
+                <input type="password" class="form-control" placeholder="Password..." [(ngModel)]="empPassword">
+              </div>
+            </span>
+          </div>
+          <div class="card-footer justify-content-center">
+            <!--<a href="main/dashboard" class="btn btn-rose btn-link btn-lg">Lets Go</a>-->
+            <button type="submit" class="btn btn-rose btn-link btn-lg" (click)="LoginFunction()">Login</button>
+
+          </div>
+        </div>
+        <!--</form>-->
+      </div>
+    </div>
+
+  </div>
+</div>

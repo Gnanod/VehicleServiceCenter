@@ -1,0 +1,148 @@
+<div class="row">
+  <div class="col-md-12 ml-auto mr-auto">
+    <!--<div class="page-categories">-->
+
+
+    <!--<div class="tab-content  tab-space tab-subcategories">-->
+
+    <!--<div class="tab-pane active" id="link8">-->
+    <div class="card">
+      <div class="card-header">
+
+      </div>
+      <div class="card-body">
+
+        <div class="row">
+
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Vehilce Number</label>
+              <br>
+              <input type="text" id="vehiNumber" class="form-control" (keyup)="searchVehDetailsByNumber($event)"
+                     [(ngModel)]="searchVehicleNumber">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>
+                Chassis number</label>
+              <br>
+              <input type="text" id="vehiEngineNumber" class="form-control" name="engineNumber"
+                     [(ngModel)]="engineNumber">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Vehicle Class</label>
+              <br>
+              <input type="text" id="vehiClass" class="form-control" name="engineNumber" [(ngModel)]="vehicleClass">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Make</label>
+              <br>
+              <input type="text" id="vehiMake" class="form-control" name="engineNumber" [(ngModel)]="vehicleMake">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Model</label>
+              <br>
+              <input type="text" id="vehiModel" class="form-control" name="engineNumber" [(ngModel)]="vehicleModel">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Year</label>
+              <br>
+              <input type="text" id="vehiYear" class="form-control" name="engineNumber" [(ngModel)]="yearOfManufacture">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+
+          <div class="col-md-3">
+            <div class="form-group">
+              <label>Customer Name</label>
+              <br>
+              <input type="text" id="custName" class="form-control" name="engineNumber" [(ngModel)]="customername">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <label>Customer Phone Number</label>
+              <br>
+              <input type="text" id="custPhoneNum" class="form-control" name="engineNumber" [(ngModel)]="customerphone">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label>Customer Email</label>
+              <br>
+              <input type="text" id="custEmail" class="form-control" name="engineNumber" [(ngModel)]="customeremail">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label>Customer Address</label>
+              <br>
+              <input type="text" id="custAddress" class="form-control" name="engineNumber"
+                     [(ngModel)]="customeraddress">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-5">
+            <div class="form-group">
+              <label>Present Odo Meter</label>
+              <br>
+              <input type="text" id="presentOdoMeter" class="form-control" name="engineNumber" [(ngModel)]="presentOdoMeter">
+              <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-9">
+
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+
+              <button class="btn btn-info "  (click)="printJobOrder()">Download Invoice</button>
+
+            </div>
+          </div>
+          <!--<div class="col-md-10"></div>-->
+          <!--<div class="col-md-2">-->
+
+          <!--<button class="btn btn-info "   style="margin-left: 650px" (click)="printJobOrder()">Download Invoice</button>-->
+
+          <!--</div>-->
+        </div>
+
+
+
+      </div>
+    </div>
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+  </div>
+</div>

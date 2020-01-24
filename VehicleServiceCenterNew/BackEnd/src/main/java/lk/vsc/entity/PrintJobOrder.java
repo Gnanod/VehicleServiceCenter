@@ -11,6 +11,15 @@ public class PrintJobOrder {
     private String  date;
     private String time ;
     private String vehicleNumber;
+    private String presentOdoMeter;
+
+    public String getPresentOdoMeter() {
+        return presentOdoMeter;
+    }
+
+    public void setPresentOdoMeter(String presentOdoMeter) {
+        this.presentOdoMeter = presentOdoMeter;
+    }
 
     public String getVehicleNumber() {
         return vehicleNumber;

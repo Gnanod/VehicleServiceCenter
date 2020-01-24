@@ -1,0 +1,243 @@
+
+<div class="card ">
+  <div class="card-header card-header-info card-header-icon">
+    <div class="card-icon"><i class="fas fa-car"></i>
+    </div>
+    <h4 class="card-title"></h4></div>
+  <div class="card-body ">
+
+    <p>VEHICLE DETAILS</p>
+
+    <div class="row">
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Vehilce ID</label>
+          <br>
+
+          <input type="text" id="vehiID" class="form-control" (keyup)="searchVehicleDetailsByNumber()"
+
+                 [(ngModel)]="vehicleId">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Vehilce Number</label>
+          <br>
+
+          <input type="text" id="vehiNumber" class="form-control" (keyup)="searchVehicleDetailsByNumber()"
+
+                 [(ngModel)]="searchVehicleNumber">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Engine Number</label>
+          <br>
+          <input type="text" id="vehiEngineNumber" class="form-control" name="engineNumber"
+                 [(ngModel)]="engineNumber">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Vehicle Class</label>
+          <br>
+          <input type="text" id="vehiClass" class="form-control" name="engineNumber" [(ngModel)]="vehicleClass">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Make</label>
+          <br>
+          <input type="text" id="vehiMake" class="form-control" name="engineNumber" [(ngModel)]="vehicleMake">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Model</label>
+          <br>
+          <input type="text" id="vehiModel" class="form-control" name="engineNumber" [(ngModel)]="vehicleModel">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Year</label>
+          <br>
+          <input type="text" id="vehiYear" class="form-control" name="engineNumber" [(ngModel)]="yearOfManufacture">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+    </div>
+    <p>CUSTOMER DETAILS</p>
+
+    <div class="row">
+
+      <div class="col-md-3">
+        <div class="form-group">
+          <label>Customer Name</label>
+          <br>
+          <input type="text" id="custName" class="form-control" name="engineNumber" [(ngModel)]="customername">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+
+      </div>
+      <div class="col-md-2">
+        <div class="form-group">
+          <label>Customer Phone Number</label>
+          <br>
+          <input type="text" id="custPhoneNum" class="form-control" name="engineNumber" [(ngModel)]="customerphone">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label>Customer Email</label>
+          <br>
+          <input type="text" id="custEmail" class="form-control" name="engineNumber" [(ngModel)]="customeremail">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label>Customer Address</label>
+          <br>
+          <input type="text" id="custAddress" class="form-control" name="engineNumber"
+                 [(ngModel)]="customeraddress">
+          <!--name="engineNumber" [(ngModel)]="vehNgModel.engineNumber"-->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header card-header-success card-header-icon ">
+      <div class="card-icon"><i class="material-icons">assignment</i>
+      </div>
+      <h4 class="card-title"></h4></div>
+
+
+    <div class="card-body ">
+      <div class="row">
+
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-3">
+
+                <div class="form-group">
+                  <label>Select Service</label>
+                  <select class="form-control " data-style="select-with-transition"
+                          [(ngModel)]="insertSelectedServiceType" #mySelect24
+                          (change)="sendIdToAddService(mySelect24.value)">
+
+                    <option *ngFor="let serviceVehi of allServicesDescArray" [value]="serviceVehi.serviceId">
+                      {{serviceVehi.serviceDesc}}
+                    </option>
+
+                  </select>
+                </div>
+              </div>
+
+              <div class="col-md-2">
+                <button class="btn btn-success" rel="tooltip" type="button" (click)="searchServiceByIdAndAddToList()">
+                  <i class="material-icons">add</i>
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-md-12">
+          <div class="card">
+            <div
+              class="card-header card-header-rose card-header-icon">
+
+              <h4 class="card-title"><b>Service Jobs</b></h4></div>
+            <div class="card-body">
+              <div class="row">
+
+              </div>
+              <div class="table-responsive">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Service</th>
+                    <th>Service Description</th>
+                    <th>Vehicle Class</th>
+                    <th>Price</th>
+                    <th></th>
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <tr *ngFor="let servicesall of servicesOfTheServiceJobArrray async">
+                    <td>
+                      {{servicesall.serviceName}}
+                    </td>
+                    <td>
+                      {{servicesall.serviceDesc}}
+                    </td>
+                    <td>
+                      {{servicesall.vehicletype}}
+                    </td>
+                    <td>
+                      {{servicesall.servicePrice}}
+                    </td>
+                    <td class="td-actions ">
+
+                      <!--<button type="button" rel="tooltip" class="btn btn-danger"-->
+                              <!--(click)="deleteRow()">-->
+                        <!--<i class="fas fa-times"></i>-->
+
+                      <!--</button>-->
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+
+                <div class="col-md-2">
+                  <button class="btn btn-success" rel="tooltip" type="button" (click)="addToServiceJob()">
+                    <i class="material-icons">add</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-12">
+  <div class="card">
+    <div class="card-header card-header-success card-header-icon ">
+      <div class="card-body">
+        The Total : {{this.serviceOrderTot}}
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

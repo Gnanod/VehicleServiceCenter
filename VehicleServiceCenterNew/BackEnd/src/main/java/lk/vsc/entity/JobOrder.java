@@ -23,6 +23,8 @@ public class JobOrder {
     private double serviceAmount;
     private double grossAmount;
     private String serviceId;
+    private String presentOdoMeter;
+
 
     @ManyToOne
     private Vehicle vehicle;
@@ -46,6 +48,14 @@ public class JobOrder {
             j.setJobOrder(this);
         }
         this.jobOrderPayments = jobOrderPayments;
+    }
+
+    public String getPresentOdoMeter() {
+        return presentOdoMeter;
+    }
+
+    public void setPresentOdoMeter(String presentOdoMeter) {
+        this.presentOdoMeter = presentOdoMeter;
     }
 
     public double getLubeJobAmount() {

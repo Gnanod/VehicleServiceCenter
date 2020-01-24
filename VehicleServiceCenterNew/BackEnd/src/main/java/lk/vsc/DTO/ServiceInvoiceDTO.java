@@ -17,6 +17,15 @@ public class ServiceInvoiceDTO {
     String customerAddress;
     ArrayList<Services> services;
     double total;
+    String presentOdoMeter;
+
+    public String getPresentOdoMeter() {
+        return presentOdoMeter;
+    }
+
+    public void setPresentOdoMeter(String presentOdoMeter) {
+        this.presentOdoMeter = presentOdoMeter;
+    }
 
     public String getInvoiceNumber() {
         return invoiceNumber;

@@ -1,0 +1,466 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-icon card-header-info">
+        <div class="card-icon">
+          <i class="fas fa-cubes"></i>
+        </div>
+        <h4 class="card-title">Add Stock Details
+
+        </h4>
+      </div>
+      <br>
+      <br>
+      <div class="card-body">
+
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label >Select Supplier Company</label>
+              <br>
+
+              <select class="form-control "  [(ngModel)]="selectedSupplierCompany" #mySelect1 (change)="getSuppliersNames(mySelect1.value)" >
+                <option disabled selected value="Select">Select</option>
+                <option  *ngFor="let sup of suppliers">{{sup.companyName}}</option>
+
+              </select>
+            </div>
+
+          </div>
+
+          <div class="col-md-4">
+            <div class="form-group">
+              <label >Select Supplier Name</label>
+              <br>
+              <select class="form-control "  data-style="select-with-transition" [(ngModel)]="selectedSupplier" >
+
+                <option  *ngFor="let names of suppliersNames" [ngValue]="names">{{names.agentName}}</option>
+
+              </select >
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="row">
+
+          <div class="col-sm-3">
+            <div class="form-group">
+              <br>
+              <br>
+              <label style="margin-top: 10px">Search Item By Code</label>
+              <input type="text" class="form-control" name="Search Item" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchStockItemName" (keyup)="searchItemDetailsByName($event)" style="margin-top: -12px">
+            </div>
+          </div>
+
+          <div class="col-md-3">
+            <br>
+            <div class="form-group"  style="margin-top: -12px">
+
+              <br>
+              <label >Select Item Name</label>
+
+              <input type="text" class="form-control" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchItemDetails.itemName" style="margin-top: 4px">
+
+
+            </div>
+
+          </div>
+          <div class="col-sm-3">
+            <br>
+            <div class="form-group" style="margin-top: -12px">
+              <br>
+
+              <label>Buying Price</label>
+              <input type="number" class="form-control" id="buyingPrice" name="buyingPrice" [ngModelOptions]="{standalone: true}" [(ngModel)]="searchBuyingPrice" style="margin-top: 4px">
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <br>
+            <div class="form-group" style="margin-top: -12px">
+
+              <br>
+              <label>Stock Payment Date</label>
+              <input type="date" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="stockPayementDate" style="margin-top: 4px" >
+              <!--<input type="text" class="form-control" name="itemId" [ngModelOptions]="{standalone: true}" [(ngModel)]="selectedItem.itemId" style="margin-top: 4px">-->
+
+            </div>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Retail Price</label>
+              <!--<input type="number" class="form-control" name="retailPrice"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchRetailPrice">-->
+              <input type="number" class="form-control" name="retailPrice"[ngModelOptions]="{standalone: true}" [(ngModel)]="searchRetailPrice">
+
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Quantity</label>
+              <input type="number" class="form-control" [ngModelOptions]="{standalone: true}" [(ngModel)]="itemQuantity">
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Quantity On Hand</label>
+              <input type="number" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.quantityOnHand" disabled>
+            </div>
+          </div>
+
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Quantity Type</label>
+              <input type="text" class="form-control" name="itemQty" [ngModelOptions]="{standalone: true}"[(ngModel)]="searchItemDetails.itemQuantityType" disabled>
+            </div>
+          </div>
+          <div class="col-sm-2">
+
+            <button type="submit" class="btn btn-behance pull-right" (click)="addToItemTable()">Add To Table</button>
+
+          </div>
+        </div>
+        <br>
+        <br>
+        <div class="row">
+
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+              <th>
+                ItemId
+              </th>
+              <th>
+                ItemName
+              </th>
+              <th>
+                Selling Price
+              </th>
+
+              <th>
+                Quantity
+              </th>
+
+              <th>
+                BuyingPrice
+              </th>
+
+              <th>
+                Quantity On Hand
+              </th>
+
+              </thead>
+              <tbody>
+
+              <tr *ngFor="let items of itemsTable async" [attr.id]="items.item.barCode">
+                <td>
+                  {{items.item.itemId}}
+                </td>
+                <td>
+                  {{items.item.itemName}}
+                </td>
+                <td>
+                  {{items.item.quantityOfPrice}}
+                </td>
+                <td>
+                  {{items.quantity}}
+                </td>
+                <td>
+                  {{items.buyingPrice}}
+                </td>
+                <td>
+                  {{items.item.quantityOnHand}}
+                </td>
+
+                <td class="td-actions ">
+                  <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteRow(items.item.itemId)">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Amount</label>
+              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="displayTotAmount" disabled>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Discount(%)</label>
+              <input type="number" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="discountPresentage" (keypress)="calculteDiscount($event)">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Final Total</label>
+              <input type="text" class="form-control"  [ngModelOptions]="{standalone: true}"[(ngModel)]="finaltotString" disabled>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label>Credit Payment</label>
+              <input type="number" class="form-control" id="creditPayment"  [ngModelOptions]="{standalone: true}"[(ngModel)]="creditBalance" (keyup)="choosePaymentType()">
+            </div>
+          </div>
+        </div>
+
+
+        <div class="row">
+          <div class="col-sm-4"></div>
+          <div class="col-sm-4"></div>
+          <div class="col-sm-1"></div>
+
+
+          <div class="col-sm-2">
+            <!--<button type="submit" class="btn btn-behance pull-right" (click)="addToItemTable()">Add To Table</button>-->
+
+            <button type="submit" class="btn btn-behance pull-right" (click)="saveStock()">Save Details</button>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-header card-header-icon card-header-info">
+          <div class="card-icon">
+            <i class="fas fa-cubes"></i>
+          </div>
+          <h4 class="card-title">Add Item Details
+
+          </h4>
+        </div>
+        <div class="card-body">
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Item Code</label>
+                <input type="text" class="form-control"  [(ngModel)]="itemId" >
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Item Name</label>
+                <input type="text" class="form-control"  [(ngModel)]="itemName" >
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-check form-check-radio">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="liters" [(ngModel)]="itemQuantityType">
+              Liters
+              <span class="circle">
+            <span class="check"></span>
+            </span>
+            </label>
+          </div>
+
+          <div class="form-check form-check-radio">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="Cans"  [(ngModel)]="itemQuantityType" >
+              Cans
+              <span class="circle">
+            <span class="check"></span>
+            </span>
+            </label>
+          </div>
+          <div class="form-check form-check-radio">
+            <label class="form-check-label">
+              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="Units"  [(ngModel)]="itemQuantityType" >
+              Units
+              <span class="circle">
+            <span class="check"></span>
+            </span>
+            </label>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label class="bmd-label-floating">Stock Level</label>
+                <input type="number" class="form-control"  [(ngModel)]="stockLevel" >
+              </div>
+            </div>
+
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label >Select Make</label>
+                <br>
+                <select class="form-control " data-style="select-with-transition" [(ngModel)]="insertselectedMake" #mySelect (change)="getMakeModelDetails(mySelect.value)">
+
+                  <option  *ngFor="let names of findAllMakesToArray" [value]="names.makeName">{{names.makeName}}</option>
+
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+
+                <label >Select Model</label>
+                <select   class="form-control " data-style="select-with-transition"  [(ngModel)]="insertItemModel">
+                  <option disabled>Select Model</option>
+                  <ng-container *ngFor="let make of searchMakesByModel">
+                    <option  *ngIf="modelNameif" [value]="make.modelName">{{make.modelName}}</option>
+
+                  </ng-container>
+
+                </select>
+              </div>
+
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-behance pull-right" (click)="addToItemsTable()">Add To Table</button>
+          <!--<button type="submit" class="btn btn-rose pull-right" (click)="addItemsToDB()">Save Details</button>-->
+          <div class="clearfix"></div>
+
+          <div class="row">
+
+            <div class="table-responsive">
+              <table class="table">
+                <thead class=" text-primary">
+                <th>
+                  Item Code
+                </th>
+                <th>
+                  Name Of Item
+                </th>
+                <th>
+                  Name Of Make
+                </th>
+                <th>
+                  Name Of Model
+                </th>
+                <th>
+                  Model Id
+                </th>
+                <th>
+                  Item Quantity Type
+                </th>
+                <th>
+                  Stock Level
+                </th>
+                </thead>
+                <tbody>
+
+                <tr  *ngFor="let item of insertItemToTable  ">
+
+                  <td>
+                    {{item.item.itemId}}
+                  </td>
+
+                  <td>
+                    {{item.item.itemName}}
+                  </td>
+                  <td>
+                    {{item.makeModel.makeName}}
+                  </td>
+                  <td>
+                    {{item.makeModel.modelName}}
+                  </td>
+                  <td>
+                    {{item.makeModel.makeModelId}}
+                  </td>
+                  <td>
+                    {{item.item.itemQuantityType}}
+                  </td>
+                  <td>
+                    {{item.stockLevel}}
+                  </td>
+                  <td class="td-actions ">
+                    <button type="button" rel="tooltip" class="btn btn-danger" (click)="deleteItemTableRow(item.makeModel.modelName)">
+                      <i class="fas fa-times"></i>
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+          <button type="submit" class="btn btn-behance pull-right" (click)="addItemsToDB()">Save Details</button>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<div class="row">
+
+  <div class="col-md-12">
+    <div class="card">
+
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+

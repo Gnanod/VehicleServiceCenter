@@ -1,0 +1,276 @@
+<div class="wrapper ">
+  <div class="sidebar" data-color="purple" data-background-color="black" data-image="assets/img/sidebar-1.jpg">
+
+    <div class="logo">
+      <!--<a href="" class="simple-text logo-mini">-->
+      <!---->
+      <!--</a>-->
+      <a href="" class="simple-text logo-normal" style="margin-left: 30px">
+        &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;Tourismo
+      </a>
+    </div>
+    <div class="sidebar-wrapper">
+      <ul class="nav" style="cursor: pointer;">
+
+        <li *ngIf="loginStatus=='Admin'" class="nav-item" [ngClass]="{'active': headerText=='Dashboard'}"
+            (click)="changeRoute(dashboard.innerHTML)" >
+          <a class="nav-link" >
+            <i class="fas fa-home"></i>
+
+            <p #dashboard>Dashboard</p>
+            <!--<i class="material-icons">dashboard</i>-->
+            <!--<p #dashboard>Dashboard</p>-->
+          </a>
+        </li>
+        <li *ngIf="loginStatus=='Admin'" class="nav-item" [ngClass]="{'active': headerText=='Employees'}"
+            (click)="changeRoute(employee.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-users"></i>
+            <p #employee>Employees</p>
+          </a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': headerText=='Supplier'}" (click)="changeRoute(supplier.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-truck-moving"></i>
+            <p #supplier>Supplier</p>
+          </a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': headerText=='Vehicle History'}" (click)="changeRoute(vehicleHistory.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-truck-moving"></i>
+            <p #vehicleHistory>Vehicle History</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" data-toggle="collapse" href="#formsExamples">
+            <i class="fas fa-car"></i>
+            <p> Customer Vehicle Details
+              <b class="caret"></b>
+            </p>
+          </a>
+
+          <div class="collapse" id="formsExamples">
+            <ul class="nav">
+
+              <li class="nav-item " [ngClass]="{'active': headerText=='SearchVehicle'}"
+                  (click)="changeRoute(searchVehicle.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> SV </span>
+                  <span class="sidebar-normal" #searchVehicle>SearchVehicle</span>
+                </a>
+              </li>
+              <li class="nav-item " [ngClass]="{'active': headerText=='AddVehicle'}"
+                  (click)="changeRoute(addVehicle.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> VF </span>
+                  <span class="sidebar-normal" #addVehicle>AddVehicle</span>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </li>
+
+
+        <li class="nav-item" [ngClass]="{'active': headerText=='Stock Management'}"
+            (click)="changeRoute(StockManagement.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-box-open"></i>
+            <p #StockManagement>Stock Management</p>
+          </a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': headerText=='Stock View'}"
+            (click)="changeRoute(stockView.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-box-open"></i>
+            <p #stockView>Stock View</p>
+          </a>
+        </li>
+
+        <li class="nav-item" [ngClass]="{'active': headerText=='Service Management'}"
+            (click)="changeRoute(ServiceManagement.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-shower"></i>
+            <p #ServiceManagement>Service Management</p>
+          </a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" data-toggle="collapse" href="#formsExamples2">
+            <i class="fas fa-car"></i>
+            <p> JobOrder
+              <b class="caret"></b>
+            </p>
+          </a>
+
+          <div class="collapse" id="formsExamples2">
+            <ul class="nav">
+              <li class="nav-item " [ngClass]="{'active': headerText=='Print Job Card'}"
+                  (click)="changeRoute(printJobCard.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> PJC </span>
+                  <span class="sidebar-normal" #printJobCard>Job Open</span>
+                </a>
+              </li>
+
+              <li class="nav-item " [ngClass]="{'active': headerText=='Services'}"
+                  (click)="changeRoute(Services.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> SJ </span>
+                  <span class="sidebar-normal" #Services>Print Job Card</span>
+                </a>
+              </li>
+              <li class="nav-item " [ngClass]="{'active': headerText=='Lube Detail Job'}"
+                  (click)="changeRoute(lubeJob.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> LDJ </span>
+                  <span class="sidebar-normal" #lubeJob>Job Close</span>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item ">
+
+
+          <a class="nav-link" href="#formsExamples4" data-toggle="collapse">
+            <i class="fas fa-clipboard-list"></i>
+            <p> Payments
+              <b class="caret"></b>
+            </p>
+          </a>
+
+          <div class="collapse" id="formsExamples4">
+            <ul class="nav">
+
+              <li class="nav-item " [ngClass]="{'active': headerText=='View Customer Payments'}"
+                  (click)="changeRoute(viewcustomerPayments.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> VCP </span>
+                  <span class="sidebar-normal" #viewcustomerPayments>Customer Payments</span>
+                </a>
+              </li>
+
+              <li class="nav-item " [ngClass]="{'active': headerText=='Update Customer Payments'}"
+                  (click)="changeRoute(customerPayments.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> UCP </span>
+                  <span class="sidebar-normal" #customerPayments>Update Customer Payments</span>
+                </a>
+              </li>
+
+              <li class="nav-item " [ngClass]="{'active': headerText=='Supplier Payments'}"
+                  (click)="changeRoute(supplierPayement.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> SP </span>
+                  <span class="sidebar-normal" #supplierPayement>Supplier Payements</span>
+                </a>
+              </li>
+
+
+            </ul>
+          </div>
+        </li>
+
+        <li *ngIf="loginStatus=='Admin'" class="nav-item ">
+
+
+          <a class="nav-link" href="#formsExamples1" data-toggle="collapse">
+            <i class="fas fa-clipboard-list"></i>
+            <p> Report
+              <b class="caret"></b>
+            </p>
+          </a>
+
+          <div class="collapse" id="formsExamples1">
+            <ul class="nav">
+
+              <li class="nav-item " [ngClass]="{'active': headerText=='Low Stock Level'}"
+                  (click)="changeRoute(LowStockLevel.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> LSL </span>
+                  <span class="sidebar-normal" #LowStockLevel>LowStockLevel</span>
+                </a>
+              </li>
+              <li class="nav-item " [ngClass]="{'active': headerText=='Monthly OutCome Report'}"
+                  (click)="changeRoute(monthlyOutCome.innerHTML)">
+                <a class="nav-link">
+                  <span class="sidebar-mini"> MLC </span>
+                  <span class="sidebar-normal" #monthlyOutCome>Monthly OutCome</span>
+                </a>
+              </li>
+              <!--<li class="nav-item " [ngClass]="{'active': headerText=='SupplierCreditReports'}" (click)="changeRoute(SupplierCreditReports.innerHTML)">-->
+              <!--<a class="nav-link" >-->
+              <!--<span class="sidebar-mini"> SCR </span>-->
+              <!--<span class="sidebar-normal" #SupplierCreditReports>Supplier Payments Reports</span>-->
+              <!--</a>-->
+              <!--</li>-->
+
+            </ul>
+          </div>
+        </li>
+
+        <li class="nav-item" [ngClass]="{'active': headerText=='LogOut'}"
+            (click)="changeRoute(logOut.innerHTML)">
+          <a class="nav-link">
+            <i class="fas fa-sign-out-alt"></i>
+            <p #logOut>LogOut</p>
+          </a>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+  <div class="main-panel">
+
+
+    <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+      <div class="container-fluid">
+        <div class="navbar-wrapper">
+          <a class="navbar-brand" href="#pablo">{{headerText}}</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index"
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+          <span class="navbar-toggler-icon icon-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            <!--<li class="nav-item">-->
+            <!--<a class="nav-link" href="#pablo"><i class="fas fa-bell"></i></a>-->
+            <!--</li>-->
+            <!-- your navbar here -->
+          </ul>
+        </div>
+      </div>
+
+      <div class="navbar-form"></div>
+
+    </nav>
+    <div class="content">
+
+      <router-outlet></router-outlet>
+
+    </div>
+    <footer class="footer">
+      <div class="container-fluid">
+        <nav class="float-left">
+          <ul>
+            <li>
+              <a href="">
+
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+  </div>
+</div>
+
+
+

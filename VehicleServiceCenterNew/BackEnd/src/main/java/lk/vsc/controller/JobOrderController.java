@@ -22,9 +22,11 @@ import java.util.*;
 @RequestMapping(value = "/JobOrderController")
 public class JobOrderController {
 
-	private final String BLANK_A4_FILE_NAME = System.getProperty("user.home") + "/src/Blank_A4.jasper";
-	private final String FINAL_INVOICE_FILE_NAME = System.getProperty("user.home") + "/src/FinalInvoice.jasper";
-	
+	//private final String BLANK_A4_FILE_NAME = System.getProperty("user.home") + "/src/Blank_A4.jasper";
+	private final String BLANK_A4_FILE_NAME = System.getProperty("user.home") + "/BackEnd/src/main/java/lk/vsc/jasper/Blank_A4.jasper";
+	//private final String FINAL_INVOICE_FILE_NAME = System.getProperty("user.home") + "/src/FinalInvoice.jasper";
+	private final String FINAL_INVOICE_FILE_NAME = System.getProperty("user.home") + "/BackEnd/src/main/java/lk/vsc/jasper/FinalInvoice.jasper";
+
     private String outputFile;
     @Autowired
     private JobOrderService jobOrderService;
@@ -98,32 +100,40 @@ public class JobOrderController {
         parameters.put("customerPhoneNumber", v1.getCustomerPhoneNumber());
         parameters.put("customerAddress", v1.getCustomerAddress());
         parameters.put("total", Double.toString(v1.getTotal()));
-
+        parameters.put("presentOdoMeter",v1.getPresentOdoMeter()+"KM");
         String userHomeDirectory = System.getProperty("user.home");
         String fileName = "Service_Bill.pdf";
-        outputFile = userHomeDirectory + File.separatorChar + "src/" + fileName;
 
+//        outputFile = userHomeDirectory + File.separatorChar + "src/" + fileName;
+        outputFile = userHomeDirectory + File.separatorChar + "Documents/" + fileName;
 
         PrintJobOrder j1 = new PrintJobOrder();
         j1.setDate(getCurrentDate() );
         j1.setServiceJobId(v1.getInvoiceNumber());
         j1.setTime(getCurrentTime());
         j1.setVehicleNumber(v1.getVehicleNumber());
+        j1.setPresentOdoMeter(v1.getPresentOdoMeter());
         String s1 = jobOrderService.printJobOrder(j1);
 //        byte[] bytes=null;
         String bytes = null;
         if(s1!=null) {
-        	
+
         	   ClassLoader classLoader = new JobOrderController().getClass().getClassLoader();
-        	   
+
                //get the file from resources
                //File file = new File(classLoader.getResource(BLANK_A4_FILE_NAME).getFile());
 
             JasperPrint jasperPrint;
             try {
-                jasperPrint = JasperFillManager.fillReport(BLANK_A4_FILE_NAME, parameters, new JREmptyDataSource());
+                jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/Blank_A4.jasper", parameters, new JREmptyDataSource());
+
+//                jasperPrint = JasperFillManager.fillReport(BLANK_A4_FILE_NAME, parameters, new JREmptyDataSource());
                 /* outputStream to create PDF */
+
+
                 OutputStream outputStream = new FileOutputStream(new File(outputFile));
+
+
                 /* Write content to PDF file */
                 JasperExportManager.exportReportToPdfStream(jasperPrint, outputStream);
 
@@ -354,11 +364,14 @@ public class JobOrderController {
 
         String fileName = "Service_Bill.pdf";
 
-        outputFile = userHomeDirectory + File.separatorChar + "src/" + fileName;
+        //outputFile = userHomeDirectory + File.separatorChar + "src/" + fileName;
+        outputFile = userHomeDirectory + File.separatorChar + "Documents/" + fileName;
+
+
 
         //---------------------------------------load data from resources-------------------------------------------------------
         ClassLoader classLoader = new JobOrderController().getClass().getClassLoader();
- 	   
+
         //get the file from resources
         //File file = new File(classLoader.getResource(FINAL_INVOICE_FILE_NAME).getFile());
 
@@ -366,7 +379,10 @@ public class JobOrderController {
 //        /* Using compiled version(.jasper) of Jasper report to generate PDF */
         JasperPrint jasperPrint;
         try {
-            jasperPrint = JasperFillManager.fillReport(FINAL_INVOICE_FILE_NAME, parameters, new JREmptyDataSource());
+
+           // jasperPrint = JasperFillManager.fillReport(FINAL_INVOICE_FILE_NAME, parameters, new JREmptyDataSource());
+
+            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/FinalInvoice.jasper", parameters, new JREmptyDataSource());
 
             /* outputStream to create PDF */
             OutputStream outputStream = new FileOutputStream(new File(outputFile));
