@@ -71,7 +71,7 @@ export class MainComponent implements OnInit {
     }else if(this.router.url == '/main/CustomerPayments'){
       this.headerText="Update Customer Payments";
     }else if(this.router.url == '/main/LubeDetailJob'){
-      this.headerText="Lube Detail Job";
+      this.headerText="Job Close";
     }else if(this.router.url == '/main/printJobCard'){
       this.headerText="Job Open";
     }else if(this.router.url == '/main/viewCustomerPayments'){
@@ -82,7 +82,7 @@ export class MainComponent implements OnInit {
       this.headerText="Monthly OutCome Report";
     }else if(this.router.url == '/main/stockview'){
       this.headerText="Stock View";
-    }else if(this.router.url=='main/vehiclehistory'){
+    }else if(this.router.url=='/main/vehiclehistory'){
       this.headerText="Vehicle History";
 
     }

@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface SupplierRepository extends JpaRepository<Supplier,Integer> {
 
-    @Query(value = "from Supplier where agentName = :supplierId")
+    @Query(value = "from Supplier where agentName   Like CONCAT('%',:supplierId,'%')")
     List<Supplier> searchBySupplierNumber(@Param("supplierId") String supplierId);
 
     @Query(value = "select distinct companyName from Supplier ")

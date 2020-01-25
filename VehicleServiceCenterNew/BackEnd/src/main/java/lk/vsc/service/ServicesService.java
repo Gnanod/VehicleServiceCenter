@@ -1,4 +1,7 @@
 package lk.vsc.service;
+import lk.vsc.DTO.VehicleHistoryDTO;
+import lk.vsc.DTO.ViewItemDetailsDTO;
+import lk.vsc.DTO.ViewServicesDTO;
 import lk.vsc.entity.Services;
 
 import java.util.List;
@@ -14,4 +17,10 @@ public interface ServicesService {
     Services getServicebyId(int serviceId);
 
     List<Services> getAllSerivce();
+
+    List<VehicleHistoryDTO> getAllVehicleHistoryByUsingVehNumber(String vehNumber);
+
+    List<ViewServicesDTO> viewServiceForThisJob(String serviceID);
+
+    List<ViewItemDetailsDTO> viewItemDetails(String jobId);
 }

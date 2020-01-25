@@ -14,7 +14,15 @@ public class VehicleCustomerDTO {
     private String  year ;
     private double  serviceTotal ;
     private String customerAddress;
+    private String presentOdometer;
 
+    public String getPresentOdometer() {
+        return presentOdometer;
+    }
+
+    public void setPresentOdometer(String presentOdometer) {
+        this.presentOdometer = presentOdometer;
+    }
 
     public String getVehicleId() {
         return vehicleId;

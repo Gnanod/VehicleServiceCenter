@@ -9,6 +9,7 @@ export class ServiceJob {
   employeeName: String;
   date : string;
   total : number;
+  presentOdoMeter:string;
   // serviceJobDetails :Array<ServiceJobDetails>
 
 }

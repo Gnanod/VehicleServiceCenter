@@ -1,4 +1,7 @@
 package lk.vsc.service.impl;
+import lk.vsc.DTO.VehicleHistoryDTO;
+import lk.vsc.DTO.ViewItemDetailsDTO;
+import lk.vsc.DTO.ViewServicesDTO;
 import lk.vsc.entity.Services;
 import lk.vsc.repository.ServicesRepository;
 import lk.vsc.service.ServicesService;
@@ -91,6 +94,58 @@ public class ServicesServiceImpl implements ServicesService {
             r1.setServiceName(o[1].toString());
             r1.setVehicletype(o[3].toString());
             r1.setServicePrice(Double.parseDouble(o[4].toString()));
+            r.add(r1);
+        }
+        return r;
+    }
+
+    @Override
+    public List<VehicleHistoryDTO> getAllVehicleHistoryByUsingVehNumber(String vehNumber) {
+        List<Object[]> sd1 = servicesRepository.getAllVehicleHistoryByUsingVehNumber(vehNumber);
+        List<VehicleHistoryDTO> r = new ArrayList<>();
+        for (Object o[] : sd1
+        ) {
+            VehicleHistoryDTO r1 = new VehicleHistoryDTO();
+                r1.setDate(o[0].toString());
+                r1.setServiceId(o[1].toString());
+                r1.setDetailJobAmount(o[2].toString());
+                r1.setLubeJobAmount(o[3].toString());
+                r1.setServiceAmount(o[4].toString());
+                r1.setPresentOdometer(o[5].toString());
+                r1.setJobId(o[6].toString());
+            r.add(r1);
+        }
+        return r;
+    }
+
+    @Override
+    public List<ViewServicesDTO> viewServiceForThisJob(String serviceID) {
+        List<Object[]> sd1 = servicesRepository.viewServiceForThisJob(serviceID);
+        List<ViewServicesDTO> r = new ArrayList<>();
+        for (Object o[] : sd1
+        ) {
+            ViewServicesDTO r1 = new ViewServicesDTO();
+            r1.setServiceId(o[0].toString());
+            System.out.println(serviceID);
+            System.out.println(o[0].toString());
+
+            r.add(r1);
+        }
+        return r;
+    }
+
+    @Override
+    public List<ViewItemDetailsDTO> viewItemDetails(String jobId) {
+        List<Object[]> sd1 = servicesRepository.viewItemDetails(Integer.parseInt(jobId));
+        List<ViewItemDetailsDTO> r = new ArrayList<>();
+        for (Object o[] : sd1
+        ) {
+            ViewItemDetailsDTO r1 = new ViewItemDetailsDTO();
+            r1.setItemCode(o[0].toString());
+            Double qty = Double.parseDouble(o[1].toString());
+
+            r1.setItemQuantity(Double.toString(qty));
+            r1.setItemQuantityType(o[2].toString());
             r.add(r1);
         }
         return r;

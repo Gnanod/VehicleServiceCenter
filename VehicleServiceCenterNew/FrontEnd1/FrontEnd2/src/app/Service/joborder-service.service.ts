@@ -7,6 +7,9 @@ import {JobOrderDTO} from "../DTO/JoOrderDTO";
 import {ServicesDTO} from "../DTO/ServicesDTO";
 import {HttpClient} from "@angular/common/http";
 import {Item} from "../Model/Item";
+import {VehicleHistoryDTO} from "../DTO/VehicleHistoryDTO";
+import {ViewServicesDTO} from "../DTO/ViewServicesDTO";
+import {ViewItemDetailsDTO} from "../DTO/ViewItemDetailsDTO";
 
 const URL = '/JobOrderController';
 @Injectable({
@@ -76,5 +79,21 @@ export class JoborderServiceService {
   printJobOrders(sendServiceDetail:ServicesDTO) {
 
     return this.http.post<DocumentDto>(environment.backend_url + URL+'/downloadJobOrder/',sendServiceDetail);
+  }
+
+  getAllVehicleHistoryByUsingVehNumber(searchvehicleNumber: string) {
+
+    return this.http.get<Array<VehicleHistoryDTO>>(environment.backend_url + URL+'/getAllVehicleHistoryByUsingVehNumber/'+searchvehicleNumber);
+
+  }
+
+  viewServiceForThisJob(serviceId: any) {
+    return this.http.get<Array<ViewServicesDTO>>(environment.backend_url + URL+'/viewServiceForThisJob/'+serviceId);
+
+  }
+
+  viewItemDetails(jobId: string) {
+    return this.http.get<Array<ViewItemDetailsDTO>>(environment.backend_url + URL+'/viewItemDetails/'+jobId);
+
   }
 }

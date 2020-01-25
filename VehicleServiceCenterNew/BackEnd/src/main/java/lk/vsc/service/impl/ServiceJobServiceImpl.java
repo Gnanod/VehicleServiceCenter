@@ -18,31 +18,6 @@ public class ServiceJobServiceImpl implements ServiceJobService {
     @Autowired
     private ServiceJobDetailRepository serviceJobDetailRepository;
 
-//    @Override
-//    @Transactional
-//    public String addServiceJob(ServiceJob serviceJob) {
-//
-////        List<ServiceJobDetails> serviceJobDetails = serviceJob.getServiceJobDetails();
-////        for (ServiceJobDetails s:serviceJobDetails
-////             ) {
-////            System.out.println("DDDDDDDDDDDD"+s.getServices().getServiceId());
-////            System.out.println("DDDDDDDDDDDD"+s.getServiceJob().getServiceJobId());
-////        }
-//
-//        ServiceJob s1 = serviceJobRepository.save(serviceJob);
-//        if (s1 != null) {
-//
-//            List<ServiceJobDetails> serviceJobDetails = serviceJob.get
-////        for (ServiceJobDetails s:serviceJobDetails
-////             ) {
-////            System.out.println("DDDDDDDDDDDD"+s.getServices().getServiceId());
-////            System.out.println("DDDDDDDDDDDD"+s.getServiceJob().getServiceJobId());
-////        }
-//
-//        }
-//        return "sd";
-//    }
-
     @Override
     public String addServiceJobs(ServiceJob s3, List<ServiceJobDetails> j1) {
         ServiceJob s1 = serviceJobRepository.save(s3);

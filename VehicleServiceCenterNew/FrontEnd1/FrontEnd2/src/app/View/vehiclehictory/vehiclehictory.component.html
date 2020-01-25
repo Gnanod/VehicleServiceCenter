@@ -14,7 +14,7 @@
             <div class="form-group">
               <label class="bmd-label-floating"><i class="fas fa-search"></i>Search By Vehicle Number</label>
 
-              <!--<input type="text" class="form-control" [(ngModel)]="searchvehicleNumber"><input type="text" class="form-control" [(ngModel)]="searchvehicleNumber">-->
+            <input type="text" class="form-control" [(ngModel)]="searchvehicleNumber" (keyup)="getAllVehicleHistoryByUsingVehNumber()" >
 
             </div>
           </div>
@@ -26,6 +26,10 @@
             <tr>
 
               <th class="text-center">Date</th>
+              <th class="text-center">Service Id</th>
+              <th class="text-center">Detail JobAmount</th>
+              <th class="text-center">Lube Job Amount</th>
+              <th class="text-center">Service Amount</th>
               <th class="text-center">Mileage</th>
               <th class="text-center">Services</th>
               <th class="text-center">Items</th>
@@ -33,33 +37,142 @@
             </tr>
             </thead>
             <tbody>
-            <!--<tr *ngFor="let item of items |filter:searchPartNumber |paginate :{ itemsPerPage :10, currentPage :paginationNumber}">-->
 
+            <tr *ngIf="searchVehicleHistoryValuesIf;else elseBlock">
+              <td colspan="8" class="alert alert-danger" style="text-align: center">
+                Vehicle Details Not Found
+              </td>
+            </tr>
 
+            <ng-template #elseBlock>
+              <tr *ngFor="let veh of vehicleDetails">
+                <td>
+                  {{veh.date}}
+                </td>
+                <td>
+                  {{veh.serviceId}}
+                </td>
+                <td>
+                  {{veh.detailJobAmount}}
+                </td>
+                <td>
+                  {{veh.lubeJobAmount}}
+                </td>
+                <td>
+                  {{veh.serviceAmount}}
+                </td>
+                <td>
+                  {{veh.presentOdometer}}
+                </td>
 
-              <!--<td class="text-center">-->
-                <!--{{item.itemId}}-->
-              <!--</td>-->
-              <!--<td class="text-center">-->
-                <!--{{item.itemName}}-->
-              <!--</td>-->
-              <!--<td style="color: red; font-size: 25px ;font-style: inherit" class="text-center">-->
-                <!--{{item.itemQuantityType}}-->
-              <!--</td>-->
-              <!--<td style="color: red; font-size: 25px ;font-style: inherit" class="text-center">-->
-                <!--{{item.quantityOnHand}}-->
-              <!--</td>-->
-              <!--<td style="color: red; font-size: 25px ;font-style: inherit" class="text-center">-->
-                <!--{{item.quantityOfPrice}}-->
-              <!--</td>-->
-            <!--</tr>-->
-
+                <td class="td-actions ">
+                 <button type="button" rel="tooltip" class="btn btn-behance"   data-toggle="modal" data-target="#serviceModal" (click)="viewServiceForThisJob(veh.serviceId)">
+                  <i class="far fa-edit"></i>
+                  </button>
+                </td>
+                <td class="td-actions ">
+                  <button type="button" rel="tooltip" class="btn btn-behance" data-toggle="modal" data-target="#itemModal" (click)="getItemDetails(veh.jobId)">
+                    <i class="far fa-edit"></i>
+                  </button>
+                </td>
+              </tr>
+            </ng-template>
             </tbody>
-            <!--<pagination-controls (pageChange)="paginationNumber=$event"></pagination-controls>-->
           </table>
         </div>
       </div>
     </div>
   </div>
 
+</div>
+
+
+<div class="modal fade modal-mini modal-primary" id="serviceModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-small">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> <i class="fas fa-times"></i></button>
+      </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr>
+
+            <th class="text-center" style="color: black">Service Names</th>
+
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngIf="viewServiceForThisJobValuesIf;else elseBlocks">
+            <td colspan="2" class="alert alert-danger" style="text-align: center">
+              Service  Details Not Found
+            </td>
+          </tr>
+
+          <ng-template #elseBlocks>
+            <tr *ngFor="let service of serviceDetails">
+              <td class="text-center text-dark">
+                {{service.serviceId}}
+              </td>
+
+            </tr>
+          </ng-template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade modal-mini modal-primary" id="itemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"> <i class="fas fa-times"></i></button>
+      </div>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+          <tr>
+
+            <th class="text-center" style="color: black">Item Name</th>
+            <th class="text-center" style="color: black">Quantity Type</th>
+            <th class="text-center" style="color: black">Quantity</th>
+
+          </tr>
+          </thead>
+          <tbody>
+
+          <tr *ngIf="viewItemDetailsValuesIf;else elseBlockss">
+            <td colspan="3" class="alert alert-danger" style="text-align: center">
+              Items  Details Not Found
+            </td>
+          </tr>
+
+          <ng-template #elseBlockss>
+            <tr *ngFor="let item of itemDetails">
+              <td class="text-center text-dark">
+                {{item.itemCode}}
+
+              </td>
+              <td class="text-center text-dark">
+
+                {{item.itemQuantityType}}
+
+              </td>
+              <td class="text-center text-dark">
+
+                {{item.itemQuantity}}
+
+              </td>
+
+            </tr>
+          </ng-template>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
 </div>

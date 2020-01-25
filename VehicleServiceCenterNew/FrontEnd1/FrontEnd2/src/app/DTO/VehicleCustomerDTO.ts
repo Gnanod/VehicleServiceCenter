@@ -11,6 +11,6 @@ export class VehicleCustomerDTO {
   model: string;
   year: string;
   serviceTotal: number;
-
+  presentOdometer:string;
 
 }

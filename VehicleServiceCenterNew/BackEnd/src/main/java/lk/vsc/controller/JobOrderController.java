@@ -62,6 +62,39 @@ public class JobOrderController {
 
     }
 
+
+    @GetMapping(value = "/getAllVehicleHistoryByUsingVehNumber/{vehNumber}")
+    public List<VehicleHistoryDTO> getAllVehicleHistoryByUsingVehNumber(@PathVariable String vehNumber) {
+
+        List<VehicleHistoryDTO> l1 = servicesService1.getAllVehicleHistoryByUsingVehNumber(vehNumber);
+
+        //System.out.println("GGGGG"+insertSelectedService);
+        return l1;
+
+    }
+
+    @GetMapping(value = "/viewServiceForThisJob/{serviceID}")
+    public List<ViewServicesDTO> viewServiceForThisJob(@PathVariable String serviceID) {
+
+        List<ViewServicesDTO> l1 = servicesService1.viewServiceForThisJob(serviceID);
+
+        //System.out.println("GGGGG"+insertSelectedService);
+        return l1;
+
+    }
+
+
+    @GetMapping(value = "/viewItemDetails/{jobId}")
+    public List<ViewItemDetailsDTO> viewItemDetails(@PathVariable String jobId) {
+
+        List<ViewItemDetailsDTO> l1 = servicesService1.viewItemDetails(jobId);
+
+        //System.out.println("GGGGG"+insertSelectedService);
+        return l1;
+
+    }
+
+
     @GetMapping(value = "/getTotalSales")
     public double getTotalSales() {
 
@@ -207,7 +240,7 @@ public class JobOrderController {
             v.setYear(v1.getYearOfManufacture());
             v.setVehicleNumber(v1.getVehicleNumber());
             v.setServiceTotal(Double.parseDouble(arr[1]));
-
+                v.setPresentOdometer(arr[2]);
             return v;
         } else {
             return null;
@@ -334,7 +367,7 @@ public class JobOrderController {
         parameters.put("make", jobOrder.getVehicle().getVehicleMake());
         parameters.put("year", jobOrder.getVehicle().getYearOfManufacture());
         parameters.put("model", jobOrder.getVehicle().getVehicleModel());
-        parameters.put("customerName", jobOrder.getVehicle().getCustomer().getFirstName() + " " + jobOrder.getVehicle().getCustomer().getLastName());
+        parameters.put("customerName", jobOrder.getVehicle().getCustomer().getFirstName());
         parameters.put("customerPhoneNumber", jobOrder.getVehicle().getCustomer().getPhoneNumber());
         parameters.put("customerAddress", jobOrder.getVehicle().getCustomer().getAddress());
 

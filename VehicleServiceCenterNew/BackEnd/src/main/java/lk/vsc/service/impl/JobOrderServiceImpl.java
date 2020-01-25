@@ -163,10 +163,11 @@ public class JobOrderServiceImpl implements JobOrderService {
 
 //        System.out.println("Ob1"+ob[0].toString());
 //        System.out.println("Ob2"+ob[1]);
-           String []arr = new String[2] ;
+           String []arr = new String[3] ;
            if(s1!=null){
                arr[0]=Integer.toString(s1.getVehicle().getVehicleId());
                arr[1]=Double.toString(s1.getTotal());
+               arr[2]=s1.getPresentOdoMeter();
                return arr;
            }else{
                return  null;

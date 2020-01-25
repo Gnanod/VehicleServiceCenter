@@ -213,6 +213,7 @@ export class NewJobOrderComponent implements OnInit {
     let s1: ServiceJob = new ServiceJob();
     s1.serviceJobId = this.serviceJobId;
     s1.employeeName = "GGGG";
+    s1.presentOdoMeter =this.odoMeter;
     s1.date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     // s1.serviceJobDetails = this.servicesOfTheServiceJobArrray;
     s1.total = this.serviceOrderTot;

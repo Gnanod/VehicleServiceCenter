@@ -104,25 +104,25 @@
 
           <div class="collapse" id="formsExamples2">
             <ul class="nav">
-              <li class="nav-item " [ngClass]="{'active': headerText=='Print Job Card'}"
+              <li class="nav-item " [ngClass]="{'active': headerText=='Job Open'}"
                   (click)="changeRoute(printJobCard.innerHTML)">
                 <a class="nav-link">
-                  <span class="sidebar-mini"> PJC </span>
+                  <span class="sidebar-mini"> JO </span>
                   <span class="sidebar-normal" #printJobCard>Job Open</span>
                 </a>
               </li>
 
-              <li class="nav-item " [ngClass]="{'active': headerText=='Services'}"
+              <li class="nav-item " [ngClass]="{'active': headerText=='Print Job Card'}"
                   (click)="changeRoute(Services.innerHTML)">
                 <a class="nav-link">
-                  <span class="sidebar-mini"> SJ </span>
+                  <span class="sidebar-mini"> PJC </span>
                   <span class="sidebar-normal" #Services>Print Job Card</span>
                 </a>
               </li>
-              <li class="nav-item " [ngClass]="{'active': headerText=='Lube Detail Job'}"
+              <li class="nav-item " [ngClass]="{'active': headerText=='Job Close'}"
                   (click)="changeRoute(lubeJob.innerHTML)">
                 <a class="nav-link">
-                  <span class="sidebar-mini"> LDJ </span>
+                  <span class="sidebar-mini"> JC </span>
                   <span class="sidebar-normal" #lubeJob>Job Close</span>
                 </a>
               </li>

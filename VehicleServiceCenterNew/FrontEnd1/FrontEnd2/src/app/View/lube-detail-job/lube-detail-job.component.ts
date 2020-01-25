@@ -628,6 +628,7 @@ export class LubeDetailJobComponent implements OnInit {
     jobOrder.serviceAmount = this.serviceTotAmount;
     jobOrder.grossAmount = this.grossAmount;
     jobOrder.serviceId = this.serviceJobOrderId;
+    jobOrder.presentOdoMeter = this.odoMeter;
 
     let jobPaymentArray :Array<JobOrderPayment> = new Array<JobOrderPayment>();
     let p1:JobOrderPayment = new JobOrderPayment();
@@ -803,7 +804,7 @@ export class LubeDetailJobComponent implements OnInit {
   vehicleCustomerDTO: VehicleCustomerDTO = new VehicleCustomerDTO();
   serviceTotAmount: number = 0;
   serviceTotAmountString: string;
-
+  odoMeter :string;
   searchServiceDetails(event) {
     if (event.which == 13) {
       if (this.serviceJobOrderId.length != 0) {
@@ -812,7 +813,9 @@ export class LubeDetailJobComponent implements OnInit {
             this.vehicleCustomerDTO = result;
             this.serviceTotAmount = this.vehicleCustomerDTO.serviceTotal;
             this.serviceTotAmountString = this.serviceTotAmount.toFixed(2);
-
+            this.odoMeter = this.vehicleCustomerDTO.presentOdometer;
+            console.log('kkkkk')
+            console.log(this.odoMeter);
             // this.grossAmount = this.serviceTotAmount;
             this.calcTotal();
           } else {

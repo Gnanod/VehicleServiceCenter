@@ -4,13 +4,14 @@ package lk.vsc.repository;
 import lk.vsc.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
 public interface CustomerRepository extends JpaRepository<Customer,String> {
-    
-    @Query(value = "from Customer  where first_name=?1")
-    List<Customer> searchByCustomerName(String customerName);
+
+    @Query(value = "from Customer  where first_name Like CONCAT('%',:customerName,'%')")
+    List<Customer> searchByCustomerName(@Param("customerName")String customerName);
 
     @Query(value = "from Customer  where  nic=?1")
     Customer findCustomerDetails(String nic);

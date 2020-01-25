@@ -73,20 +73,6 @@ public class VehicleServiceImpl implements VehicleService{
     public Vehicle searchVehicleNumbers(String serviceJobId) {
         Object o = vehicleRepository.searchVehicleNumbers(serviceJobId);
 
-
-
-
-//
-//        if(o!=null){
-//            Vehicle v1 = new Vehicle();
-//
-//            v1.setVehicleNumber(o.toString());
-//            v1.set(o.toString());
-//            return v1;
-//        }else{
-//            return null;
-//        }
-
         List<Object[]> vehicle = vehicleRepository.searchVehicleNumbers(serviceJobId);
 
         Vehicle v1 = new Vehicle();
