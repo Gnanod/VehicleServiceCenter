@@ -13,31 +13,31 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     private CustomerRepository customerRepository;
-    
-    
+
+
     @Override
     public Customer addCustomer(Customer customer) {
-        
+
         return customerRepository.save(customer);
-        
+
     }
 
     @Override
     public List<Customer> getAllCustomers() {
-        
+
         return customerRepository.findAll();
     }
 
     @Override
     public List<Customer> searchByCustomerName(String name) {
-        
+
         return customerRepository.searchByCustomerName(name);
-        
+
     }
 
     @Override
     public void deleteCustomer(String nic) {
-        
+
        customerRepository.deleteById(nic);
     }
 
@@ -54,12 +54,21 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public String getResult() {
         Object lastId =customerRepository.getLastId();
-//        System.out.println("lastId "+idRepository.getLastId());
-//        System.out.println("lastId Null"+idRepository.getLastId().toString());
         if(lastId!=null){
             return lastId.toString();
         }else{
             return null;
         }
+    }
+
+    @Override
+    public String checkCustomer(String nic) {
+        Object id =customerRepository.checkCustomer(nic);
+        if(id==null){
+            return "0";
+        }else{
+            return "1";
+        }
+
     }
 }

@@ -1,8 +1,7 @@
 package lk.vsc.service;
 
-import lk.vsc.entity.Item;
-import lk.vsc.entity.JobOrder;
-import lk.vsc.entity.PrintJobOrder;
+import lk.vsc.DTO.FinalJobCloseDTO;
+import lk.vsc.entity.*;
 
 import java.util.List;
 
@@ -25,4 +24,12 @@ public interface JobOrderService {
     JobOrder serchPreviousJobs(String vehicleId);
 
     String printJobOrder(PrintJobOrder j1);
+
+    JobOrderItemDetails getJobOrderDetailsAccordingToId(int id);
+
+    String saveJobClose(FinalJobCloseDTO jobClose);
+
+    JobClose searchServiceAndItemDetailsAmountByServiceId(String serviceId);
+
+    String[] getDetailsAccordingToServiceIdReOpen(String id);
 }

@@ -23,4 +23,6 @@ public interface ServicesService {
     List<ViewServicesDTO> viewServiceForThisJob(String serviceID);
 
     List<ViewItemDetailsDTO> viewItemDetails(String jobId);
+
+    String reOpenJob(String id, String newJobStatus);
 }

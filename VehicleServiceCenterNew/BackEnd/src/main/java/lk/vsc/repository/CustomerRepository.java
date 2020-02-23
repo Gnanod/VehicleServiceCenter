@@ -18,4 +18,7 @@ public interface CustomerRepository extends JpaRepository<Customer,String> {
 
     @Query(value = " select nic from customer order by 1 desc limit 1",nativeQuery = true)
     Object getLastId();
+
+    @Query(value = "select nic from Customer  where  nic=?1")
+    Object checkCustomer(String nic);
 }

@@ -17,6 +17,7 @@ public class ServiceIdServiceImpl implements ServiceIdService {
 //        System.out.println("lastId "+idRepository.getLastId());
 //        System.out.println("lastId Null"+idRepository.getLastId().toString());
         if(lastId!=null){
+            System.out.println("Last Id"+lastId.toString());
             return lastId.toString();
         }else{
             return null;

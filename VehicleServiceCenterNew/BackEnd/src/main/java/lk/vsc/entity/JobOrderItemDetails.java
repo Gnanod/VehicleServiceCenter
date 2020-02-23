@@ -11,7 +11,7 @@ public class JobOrderItemDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int jobOrderServiceDetails;
-    private int qty;
+    private double qty;
 
 
     @ManyToOne
@@ -25,7 +25,26 @@ public class JobOrderItemDetails {
     private String make;
     private String model;
     private String lubeJobType;
+    private String itemStatus;
+//    @ManyToOne
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private JobClose jobClose;
 
+    public String getItemStatus() {
+        return itemStatus;
+    }
+
+    public void setItemStatus(String itemStatus) {
+        this.itemStatus = itemStatus;
+    }
+
+//    public JobClose getJobClose() {
+//        return jobClose;
+//    }
+//
+//    public void setJobClose(JobClose jobClose) {
+//        this.jobClose = jobClose;
+//    }
 
     public int getJobOrderServiceDetails() {
         return jobOrderServiceDetails;
@@ -51,11 +70,11 @@ public class JobOrderItemDetails {
         this.item = item;
     }
 
-    public int getQty() {
+    public double getQty() {
         return qty;
     }
 
-    public void setQty(int qty) {
+    public void setQty(double qty) {
         this.qty = qty;
     }
 

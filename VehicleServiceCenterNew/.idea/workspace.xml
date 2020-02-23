@@ -1,12 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/FinalInvoiceServiceImpl.java" line="21" mnemonic="1" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="af9e2364-84a4-4155-851c-7af85f36ef51" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/Blank_A4.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/UpdatefinalInvoice.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/finalInvoiceFive.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/finalInvoiceFour.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/finalInvoiceOne.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/finalInvoiceThree.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/finalInvoiceTwo.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/FinalJobCloseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/InvoiceItemsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/InvoiceServiceDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/JobCloseDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/JobCloseItemDetailsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/JobCloseServiceDetailsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MakeModelDetailsDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MonthlyInComeReport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/FinalInvoiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/InvoiceController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/FinalInvoice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/FinalInvoicePayment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobClose.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/UpdatefinalInvoice.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/finalInvoiceFive.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/finalInvoiceFour.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/finalInvoiceOne.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/finalInvoiceThree.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/finalInvoiceTwo.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/performaInvoice.jasper" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/ServiceReportNew_1.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/UpdatefinalInvoice.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/finalInvoiceFive.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/finalInvoiceFour.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/finalInvoiceOne.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/finalInvoiceThree.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/finalInvoiceTwo.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/performaInvoice.jrxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/FinalInvoicePaymentRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/FinalInvoiceRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/JobCloseRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/JobOrderItemDetailsRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/FinalInvoiceService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/FinalInvoiceServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/performaInvoice.jasper" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/Blank_A4.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/Blank_A4.jasper" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/common/GenerateServiceInvoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/common/GenerateServiceInvoice.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/Blank_A4.jrxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/ServiceReport.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/ServiceReport.jasper" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/CustomerPaymentViewDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/CustomerPaymentViewDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MonthlyOutComeReport.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MonthlyOutComeReport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/PrintServiceJobDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/PrintServiceJobDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/UpdateJobPrice.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/UpdateJobPrice.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/VehicleCustomerDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/VehicleCustomerDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ViewItemStockDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ViewItemStockDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/JobOrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/JobOrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceIdController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceIdController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceJobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceJobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/StockController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/StockController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/SupplierController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/SupplierController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/VehicleClassController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/VehicleClassController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrderItemDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrderItemDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/ServiceJob.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/ServiceJob.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/ServiceJobDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/ServiceJobDetails.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/ServiceReport.jasper" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/ServiceReport.jasper" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/FinalInvoice.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/FinalInvoice.jrxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/ServiceReport.jrxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/JobOrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/JobOrderRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceIdReository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceIdReository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceJobDetailRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceJobDetailRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceJobRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceJobRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServicesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServicesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/StockPaymentRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/StockPaymentRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/StockRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/StockRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/SupplierRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/SupplierRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/CustomerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/CustomerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ItemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ItemService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/JobOrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/JobOrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ServiceJobService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ServiceJobService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ServicesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ServicesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/StockPaymentService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/StockPaymentService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/StockService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/StockService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ItemServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ItemServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/JobOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/JobOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServiceIdServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServiceIdServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServiceJobServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServiceJobServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServicesServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServicesServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/StockPaymentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/StockPaymentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/StockServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/StockServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/SupplierServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/SupplierServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/resources/ServiceReport.jasper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/ServiceReport.jasper" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/CustomerPaymentViewDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/CustomerPaymentViewDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/MonthlyOutComeReport.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/MonthlyOutComeReport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/PrintServiceJobDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/PrintServiceJobDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/UpdateJobPrice.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/UpdateJobPrice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/VehicleCustomerDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/DTO/VehicleCustomerDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/common/GenerateServiceInvoice.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/common/GenerateServiceInvoice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/CustomerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/CustomerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/ItemController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/JobOrderController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/JobOrderController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/ServiceIdController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/ServiceIdController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/ServiceJobController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/ServiceJobController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/StockController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/StockController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/SupplierController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/SupplierController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/VehicleClassController.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/controller/VehicleClassController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/entity/JobOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/entity/JobOrder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/entity/JobOrderItemDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/entity/JobOrderItemDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/entity/ServiceJob.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/entity/ServiceJob.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/entity/ServiceJobDetails.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/entity/ServiceJobDetails.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/CustomerRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/CustomerRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/ItemRepository.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/JobOrderRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/JobOrderRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/ServiceIdReository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/ServiceIdReository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/ServiceJobDetailRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/ServiceJobDetailRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/ServiceJobRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/ServiceJobRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/ServicesRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/ServicesRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/StockPaymentRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/StockPaymentRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/StockRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/StockRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/SupplierRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/repository/SupplierRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/CustomerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/CustomerService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/JobOrderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/JobOrderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/ServiceJobService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/ServiceJobService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/ServicesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/ServicesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/StockPaymentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/StockPaymentService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/StockService.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/StockService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/CustomerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/CustomerServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/ItemServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/JobOrderServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/JobOrderServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/ServiceIdServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/ServiceIdServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/ServiceJobServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/ServiceJobServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/ServicesServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/ServicesServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/StockPaymentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/StockPaymentServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/StockServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/StockServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/SupplierServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/target/classes/lk/vsc/service/impl/SupplierServiceImpl.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/BackEnd/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -114,41 +247,48 @@
     <session id="1994094992">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="17" />
+          <entry key="project.closed" value="28" />
           <entry key="project.open.time.0" value="1" />
-          <entry key="project.open.time.11" value="2" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.11" value="3" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
-          <entry key="project.open.time.16" value="1" />
-          <entry key="project.open.time.17" value="1" />
+          <entry key="project.open.time.16" value="2" />
+          <entry key="project.open.time.17" value="2" />
           <entry key="project.open.time.18" value="1" />
-          <entry key="project.open.time.19" value="1" />
-          <entry key="project.open.time.2" value="2" />
-          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.19" value="2" />
+          <entry key="project.open.time.2" value="4" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.22" value="2" />
           <entry key="project.open.time.23" value="1" />
           <entry key="project.open.time.25" value="1" />
+          <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.28" value="1" />
-          <entry key="project.open.time.3" value="4" />
+          <entry key="project.open.time.3" value="5" />
           <entry key="project.open.time.31" value="1" />
           <entry key="project.open.time.32" value="1" />
           <entry key="project.open.time.37" value="1" />
           <entry key="project.open.time.4" value="3" />
+          <entry key="project.open.time.48" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="2" />
-          <entry key="project.opened" value="29" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
         <counts>
-          <entry key="TypeScriptServerServiceImpl" value="26" />
+          <entry key="TypeScriptServerServiceImpl" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="2" />
-          <entry key="dummy" value="40" />
+          <entry key="dummy" value="42" />
           <entry key="html" value="3994" />
-          <entry key="java" value="10649" />
+          <entry key="java" value="18636" />
           <entry key="properties" value="8" />
           <entry key="ts" value="16926" />
           <entry key="txt" value="23" />
@@ -159,39 +299,41 @@
         <counts>
           <entry key="CSS" value="2" />
           <entry key="HTML" value="3994" />
-          <entry key="JAVA" value="10649" />
-          <entry key="PLAIN_TEXT" value="63" />
+          <entry key="JAVA" value="18587" />
+          <entry key="PLAIN_TEXT" value="65" />
           <entry key="Properties" value="8" />
+          <entry key="SQL" value="27" />
+          <entry key="Spring Data QL" value="22" />
           <entry key="TypeScript" value="16926" />
           <entry key="XML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="3" />
+          <entry key="class" value="4" />
           <entry key="css" value="14" />
-          <entry key="html" value="312" />
-          <entry key="jasper" value="41" />
-          <entry key="java" value="612" />
+          <entry key="html" value="313" />
+          <entry key="jasper" value="87" />
+          <entry key="java" value="957" />
           <entry key="java___jb_tmp___" value="1" />
-          <entry key="jrxml" value="5" />
+          <entry key="jrxml" value="9" />
           <entry key="js" value="1" />
-          <entry key="properties" value="9" />
-          <entry key="ts" value="695" />
-          <entry key="xml" value="6" />
+          <entry key="properties" value="12" />
+          <entry key="ts" value="697" />
+          <entry key="xml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="3" />
+          <entry key="CLASS" value="4" />
           <entry key="CSS" value="14" />
-          <entry key="HTML" value="312" />
-          <entry key="JAVA" value="612" />
+          <entry key="HTML" value="313" />
+          <entry key="JAVA" value="957" />
           <entry key="JavaScript" value="1" />
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Properties" value="9" />
-          <entry key="TypeScript" value="695" />
-          <entry key="XML" value="52" />
+          <entry key="Properties" value="12" />
+          <entry key="TypeScript" value="697" />
+          <entry key="XML" value="103" />
         </counts>
       </usages-collector>
     </session>
@@ -199,51 +341,68 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/SupplierRepository.java">
+        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ItemService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="63" />
+            <state relative-caret-position="255">
+              <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/VehicleRepository.java">
+        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ItemController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
+            <state relative-caret-position="146">
+              <caret line="67" column="3" selection-start-line="67" selection-start-column="3" selection-end-line="72" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BackEnd/src/Blank_A4.jasper">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ItemServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="92" column="5" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="92" selection-end-column="5" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/common/GenerateServiceInvoice.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/CustomerRepository.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ItemRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="17" column="95" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="95" />
+            <state relative-caret-position="225">
+              <caret line="27" column="84" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="27" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/MakeModelDetails.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="22" column="21" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/MakeModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="14" column="27" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/Item.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="884">
+              <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+              <folding>
+                <element signature="e#1842#1843#0" expanded="true" />
+                <element signature="e#1881#1882#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -253,44 +412,44 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="TypeScript File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addMake</find>
-      <find>preview</find>
-      <find>main/jobOrder</find>
-      <find>add make</find>
-      <find>Make A</find>
-      <find>Make added</find>
-      <find>Makes</find>
-      <find>Add Item Details</find>
-      <find>closemodal</find>
-      <find>close</find>
-      <find>Add Vehicle Type</find>
-      <find>Select Make</find>
-      <find>addVehicleClass</find>
-      <find>addVehicleClass()</find>
-      <find>Print Job Card</find>
-      <find>Services</find>
-      <find>Details</find>
-      <find>getAllItems</find>
-      <find>downloadJobOrder</find>
-      <find>searchVehicleNumbers</find>
-      <find>/main/jobOrder</find>
       <find>/main/LubeDetailJob</find>
-      <find>addServiceJob</find>
       <find>LubeDetailJob</find>
       <find>searchByVehicleId</find>
       <find>Invoice</find>
-      <find>getDetailsAccordingToServiceId</find>
-      <find>addJobOrder</find>
       <find>main/CustomerPayments</find>
       <find>CustomerPayments</find>
+      <find>getLastID</find>
+      <find>getMonthlyTotalOutCome</find>
+      <find>addServiceJob</find>
+      <find>addServiceJobs</find>
+      <find>searchServiceAndItemDetailsBtServiceId</find>
+      <find>getSserviceJob</find>
+      <find>getTotalSales</find>
+      <find>getMonthlyTotalSales</find>
+      <find>getTodayJobCount</find>
+      <find>searchServiceDetailsByNumber</find>
+      <find>updateSupplierPayments</find>
+      <find>getDetailsAccordingToServiceId</find>
+      <find>getDetailsAccordingToService</find>
+      <find>getAllVehicleHistoryByUsingVehNumber</find>
+      <find>get</find>
+      <find>getMonthlyOutCome</find>
+      <find>getMonthlyInComeReport</find>
+      <find>checkCustomer</find>
+      <find>searchServiceAndItemDetailsAmountByServiceId</find>
+      <find>addJobOrder</find>
+      <find>setJobOrder</find>
+      <find>saveJobClose</find>
+      <find>getCustomerPaymentDetails</find>
+      <find>getAllItems</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -299,57 +458,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/vehicle/vehicle.component.ts" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ItemServiceImpl.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ViewItemStockDTO.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ItemController.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/ViewItemStockDTO.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/Service/item-service.service.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/item-allview/item-allview.component.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/item-allview/item-allview.component.html" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrder.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/Model/JobOrder.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/ServiceInvoiceDTO.ts" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ServiceInvoiceDTO.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/PrintJobOrder.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceJobController.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/print-job-card/print-job-card.component.html" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/print-job-card/print-job-card.component.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/new-job-order/new-job-order.component.html" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/service-management/service-management.component.css" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/service-job/service-job.component.css" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/new-job-order/new-job-order.component.css" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServiceIdServiceImpl.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceIdController.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/StockService.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/InvoiceServiceDTO.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/InvoiceItemsDTO.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/JobCloseDTO.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ServiceJobService.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceJobDetailRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/InvoiceController.java" />
         <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServiceJobServiceImpl.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/ServiceJob.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/Model/ServiceJob.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/new-job-order/new-job-order.component.ts" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/VehicleCustomerDTO.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/VehicleServiceImpl.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/VehicleCustomerDTO.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/lube-detail-job/lube-detail-job.component.ts" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/JobOrderServiceImpl.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/main/main.component.html" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/main/main.component.ts" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/VehicleHistoryDTO.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/VehicleHistoryDTO.ts" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/Vehicle.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/service-management/service-management.component.html" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/ViewServicesDTO.ts" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ViewServicesDTO.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/ViewItemDetailsDTO.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/vehiclehictory/vehiclehictory.component.ts" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/Service/joborder-service.service.ts" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ViewItemDetailsDTO.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrder.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrderPayment.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/FinalInvoicePayment.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/FinalInvoiceService.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/FinalInvoiceServiceImpl.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/JobOrderRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/FinalInvoice.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/SupplierRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/FinalInvoiceRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/FinalInvoicePaymentRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/SupplierServiceImpl.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/UpdateJobPrice.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/SupplierController.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/JobOrderService.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceJobRepository.java" />
         <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/JobOrderController.java" />
         <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ServicesService.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrderItemDetails.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServicesRepository.java" />
         <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServicesServiceImpl.java" />
-        <option value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/vehiclehictory/vehiclehictory.component.html" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/SupplierRepository.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/CustomerRepository.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/VehicleRepository.java" />
-        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/common/GenerateServiceInvoice.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServicesRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/StockPaymentService.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/StockController.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/StockPaymentRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceJobController.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/VehicleClassController.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MonthlyInComeReport.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/CustomerPaymentViewDto.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/StockServiceImpl.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MonthlyOutComeReport.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/StockPaymentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerController.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/FinalInvoiceController.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/JobOrderServiceImpl.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/JobCloseRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/StockRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ViewItemStockDTO.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MakeModelDetailsDTO.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ItemServiceImpl.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ItemService.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ItemRepository.java" />
+        <option value="$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ItemController.java" />
       </list>
     </option>
   </component>
@@ -369,7 +528,7 @@
       <path value="$PROJECT_DIR$/FrontEnd1/FrontEnd2/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
     <option name="y" value="2" />
     <option name="width" value="1378" />
@@ -382,6 +541,7 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -432,147 +592,63 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="vsc" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vsc" type="462c0819:PsiDirectoryNode" />
               <item name="DTO" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="customer-payment-view" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="employee" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="lube-detail-job" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vsc" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="print-job-card" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vsc" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="service-management" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vsc" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
               <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
+              <item name="BackEnd" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="supplier" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="vehicle" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="VehicleServiceCenterNew" type="b2602c69:ProjectViewProjectNode" />
-              <item name="VehicleServiceCenterNew" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd1" type="462c0819:PsiDirectoryNode" />
-              <item name="FrontEnd2" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="View" type="462c0819:PsiDirectoryNode" />
-              <item name="vehiclehictory" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vsc" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -582,25 +658,26 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1579935119291" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1582479982690" />
+    <property name="last_opened_file_path" value="D:/Projects/Turismo Vehicle Service Center/FrontEnd" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\FrontEnd1\FrontEnd2\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\BackEnd\src" />
-      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\BackEnd\src\main\java\lk\vsc\jasperJRXML" />
-      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\BackEnd\src\main\java\lk\vsc\jasper" />
-      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\FrontEnd1\FrontEnd2\src" />
-      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\FrontEnd1\FrontEnd2\src\app" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\BackEnd\src\main\java\lk\vsc\jasperJRXML" />
       <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\FrontEnd1\FrontEnd2\src\app\View" />
       <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\FrontEnd\src\app\view" />
       <recent name="D:\Git Hub Clone Projects\VehicleServiceCenterNew\VehicleServiceCenterNew\FrontEnd\src\app\view" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\BackEnd\src" />
+      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\BackEnd\src\main\java\lk\vsc\jasper" />
+      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\BackEnd\src\main\java\lk\vsc\jasperJRXML" />
+      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\FrontEnd1\FrontEnd2\src" />
+      <recent name="C:\Users\GNANOD\Desktop\newVehicleServiceCenter1\VehicleServiceCenterNew\FrontEnd1\FrontEnd2\src\app" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -712,11 +789,27 @@
       <workItem from="1579851706645" duration="19025000" />
       <workItem from="1579920471442" duration="13517000" />
       <workItem from="1580316198616" duration="191000" />
+      <workItem from="1580351505459" duration="1886000" />
+      <workItem from="1581427682605" duration="9422000" />
+      <workItem from="1581474547211" duration="614000" />
+      <workItem from="1581512968303" duration="14233000" />
+      <workItem from="1581559740645" duration="34047000" />
+      <workItem from="1581650015030" duration="1193000" />
+      <workItem from="1581686035034" duration="18552000" />
+      <workItem from="1581779726212" duration="10736000" />
+      <workItem from="1581861098907" duration="11283000" />
+      <workItem from="1581908812482" duration="706000" />
+      <workItem from="1581946024753" duration="21243000" />
+      <workItem from="1581992070109" duration="5804000" />
+      <workItem from="1582079372490" duration="21262000" />
+      <workItem from="1582211297969" duration="591000" />
+      <workItem from="1582305235258" duration="599000" />
+      <workItem from="1582392163737" duration="6705000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="682959000" />
+    <option name="totallyTimeSpent" value="841835000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -728,10 +821,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="2" width="1378" height="733" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7754386" visible="true" weight="0.30955994" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7754386" visible="true" weight="0.30408472" />
       <window_info id="Structure" order="1" sideWeight="0.22456141" side_tool="true" weight="0.25644916" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -742,19 +834,19 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3295082" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32888147" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.55614567" weight="0.5442404" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.85508347" visible="true" weight="0.3295082" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.28714523" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.28688523" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.44385433" side_tool="true" weight="0.40901503" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32923076" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.14491653" side_tool="true" weight="0.25041735" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.0" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.32888147" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32888147" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49924356" weight="0.27879798" />
-      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.49772382" weight="0.17529215" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49924356" weight="0.27868852" />
+      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.49772382" weight="0.34754097" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -768,7 +860,7 @@
       <window_info anchor="right" id="Coverage" order="10" side_tool="true" weight="0.32980332" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.7754386" visible="true" weight="0.30500758" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.7754386" visible="true" weight="0.290469" />
       <window_info id="Structure" order="1" sideWeight="0.22456141" side_tool="true" weight="0.25644916" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -779,19 +871,19 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.3295082" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.32888147" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.55614567" visible="true" weight="0.19532554" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.85508347" visible="true" weight="0.3229508" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" weight="0.28714523" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.44385433" side_tool="true" weight="0.40901503" />
-      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32923076" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.14491653" side_tool="true" weight="0.25041735" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.0" />
       <window_info anchor="bottom" id="Spring" order="11" />
       <window_info anchor="bottom" id="TypeScript" order="12" weight="0.32888147" />
       <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32888147" />
-      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49924356" weight="0.27879798" />
-      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.49772382" weight="0.41402337" />
+      <window_info anchor="bottom" id="Messages" order="14" sideWeight="0.49924356" weight="0.27868852" />
+      <window_info anchor="bottom" id="Terminal" order="15" sideWeight="0.49772382" weight="0.34754097" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -845,352 +937,376 @@
           <line>343</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/Application.java</url>
+          <line>5</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/VehicleCustomerDTO.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/SupplierController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="34" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="34" />
+        <state relative-caret-position="962">
+          <caret line="119" lean-forward="true" selection-start-line="119" selection-end-line="119" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/lube-detail-job/lube-detail-job.component.html">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServicesController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="17" column="131" lean-forward="true" selection-start-line="17" selection-start-column="131" selection-end-line="17" selection-end-column="131" />
+        <state relative-caret-position="102">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServiceJobRepository.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceJobController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="61" column="38" selection-start-line="61" selection-start-column="38" selection-end-line="61" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ServiceIdController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/JobOrderService.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/EmployeeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="22" column="43" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="43" />
+        <state relative-caret-position="119">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/lube-detail-job/lube-detail-job.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="666" column="37" lean-forward="true" selection-start-line="666" selection-start-column="37" selection-end-line="666" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/main/main.component.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/main/main.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="37" column="79" selection-start-line="37" selection-start-column="79" selection-end-line="37" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/print-job-card/print-job-card.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="17" column="103" selection-start-line="17" selection-start-column="60" selection-end-line="17" selection-end-column="103" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/VehicleHistoryDTO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/supplier/supplier.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="58" column="2" selection-start-line="58" selection-start-column="2" selection-end-line="70" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/supplier/supplier.component.html">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerIdController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
-          <caret line="140" column="17" lean-forward="true" selection-start-line="136" selection-start-column="12" selection-end-line="140" selection-end-column="17" />
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/customer-payment-view/customer-payment-view.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="59" column="17" lean-forward="true" selection-start-line="59" selection-start-column="17" selection-end-line="61" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/Vehicle.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/MakeModelController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="14" column="32" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="32" />
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/vehicle/vehicle.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="29" column="2" selection-start-line="29" selection-start-column="2" selection-end-line="29" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/vehicle/vehicle.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-357">
-          <caret line="27" column="85" lean-forward="true" selection-start-line="27" selection-start-column="85" selection-end-line="27" selection-end-column="85" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/service-management/service-management.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="46" column="92" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/ViewItemStockDTO.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/VehicleCustomerDTO.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/VehicleHistoryDTO.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" selection-start-line="1" selection-end-line="11" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/ViewServicesDTO.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ViewServicesDTO.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
-          <caret line="7" column="34" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/JobOrderServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="165" column="38" selection-start-line="165" selection-start-column="38" selection-end-line="165" selection-end-column="38" />
+        <state relative-caret-position="-622">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/ServiceJob.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/AddMakeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/InvoiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1877">
+          <caret line="26" column="56" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/Customer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" selection-start-line="9" selection-end-line="9" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/Make.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" lean-forward="true" selection-start-line="10" selection-start-column="3" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MonthlyInComeReport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="36" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/StockPaymentService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
-          <caret line="15" column="14" lean-forward="true" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <caret line="17" column="52" selection-start-line="17" selection-start-column="30" selection-end-line="17" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServiceJobServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/CustomerPaymentViewDto.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
+        <state relative-caret-position="391">
+          <caret line="47" column="32" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/UpdateJobPrice.ts">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MonthlyOutComeReport.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="221">
+          <caret line="19" column="32" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/Service/joborder-service.service.ts">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/StockPaymentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1564">
-          <caret line="95" column="99" selection-start-line="95" selection-start-column="84" selection-end-line="95" selection-end-column="99" />
+        <state relative-caret-position="273">
+          <caret line="64" column="60" selection-start-line="64" selection-start-column="60" selection-end-line="64" selection-end-column="60" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/DTO/ViewItemDetailsDTO.ts">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/CustomerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="4" selection-end-column="23" />
+        <state relative-caret-position="629">
+          <caret line="44" column="35" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ViewItemDetailsDTO.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/CustomerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        <state relative-caret-position="340">
+          <caret line="22" column="24" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/CustomerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/net/DualStackPlainSocketImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="78" selection-start-line="78" selection-end-line="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/finalInvoiceFive.jasper">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/finalInvoiceFive.jasper">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/finalInvoiceFive.jrxml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasper/performaInvoice.jasper">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/performaInvoice.jasper">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobClose.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="15" column="32" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/JobOrderController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="89" column="70" lean-forward="true" selection-start-line="89" selection-start-column="70" selection-end-line="89" selection-end-column="70" />
+        <state relative-caret-position="211">
+          <caret line="226" column="39" lean-forward="true" selection-start-line="226" selection-start-column="39" selection-end-line="226" selection-end-column="39" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ServicesService.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/JobCloseRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="24" column="28" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="28" />
+        <state relative-caret-position="221">
+          <caret line="17" column="80" selection-start-line="17" selection-start-column="80" selection-end-line="17" selection-end-column="80" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/ServiceJobDetails.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/StockController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="13" column="25" lean-forward="true" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        <state relative-caret-position="1224">
+          <caret line="81" column="37" selection-start-line="81" selection-start-column="37" selection-end-line="81" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrder.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/StockService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="22" column="58" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/StockServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1649">
+          <caret line="112" column="62" selection-start-line="112" selection-start-column="62" selection-end-line="112" selection-end-column="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/resources/application.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/FinalInvoiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="71" column="113" selection-start-line="71" selection-start-column="113" selection-end-line="71" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/JobOrderService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="29" column="23" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/JobOrderServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4607">
+          <caret line="280" column="45" selection-start-line="280" selection-start-column="45" selection-end-line="280" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/Application.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="6" column="26" lean-forward="true" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/StockRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="46" column="23" selection-start-line="46" selection-start-column="23" selection-end-line="46" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/ViewItemStockDTO.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
-          <caret line="13" column="21" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="21" />
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#387#388#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/Item.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/DTO/MakeModelDetailsDTO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="35" />
+        <state relative-caret-position="259">
+          <caret line="32" selection-start-line="32" selection-end-line="32" />
+          <folding>
+            <element signature="e#151#152#0" expanded="true" />
+            <element signature="e#180#181#0" expanded="true" />
+            <element signature="e#224#225#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#326#327#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#482#483#0" expanded="true" />
+            <element signature="e#532#533#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/JobOrderItemDetails.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ServicesServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="144" column="47" selection-start-line="144" selection-start-column="47" selection-end-line="144" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ServicesRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="32" column="60" selection-start-line="32" selection-start-column="60" selection-end-line="32" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/vehiclehictory/vehiclehictory.component.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="185">
-          <caret line="166" column="35" selection-start-line="166" selection-start-column="35" selection-end-line="166" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/vehiclehictory/vehiclehictory.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="64" column="35" selection-start-line="64" selection-start-column="35" selection-end-line="64" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/main/main.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="128" column="50" selection-start-line="128" selection-start-column="29" selection-end-line="128" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/app-routing.module.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/FrontEnd1/FrontEnd2/src/app/View/customer-payements/customer-payements.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-901">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/SupplierServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/VehicleClassRepository.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/FinalInvoiceRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/EmployeeRepository.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/JobOrderItemDetailsRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="187">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/SupplierRepository.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/Item.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="13" column="42" selection-start-line="13" selection-start-column="42" selection-end-line="13" selection-end-column="63" />
+        <state relative-caret-position="884">
+          <caret line="73" column="33" selection-start-line="73" selection-start-column="33" selection-end-line="73" selection-end-column="33" />
+          <folding>
+            <element signature="e#1842#1843#0" expanded="true" />
+            <element signature="e#1881#1882#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/CustomerRepository.java">
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/MakeModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="81" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
+        <state relative-caret-position="153">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="16" selection-end-line="14" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/entity/MakeModelDetails.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="21" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/ItemService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="18" column="75" selection-start-line="18" selection-start-column="75" selection-end-line="18" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/controller/ItemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="67" column="3" selection-start-line="67" selection-start-column="3" selection-end-line="72" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/service/impl/ItemServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="92" column="5" lean-forward="true" selection-start-line="76" selection-start-column="4" selection-end-line="92" selection-end-column="5" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/ItemRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="95" selection-start-line="17" selection-start-column="66" selection-end-line="17" selection-end-column="95" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/jasperJRXML/Blank_A4.jasper">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/repository/VehicleRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="12" column="31" selection-start-line="12" selection-start-column="31" selection-end-line="12" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/Blank_A4.jasper">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BackEnd/src/main/java/lk/vsc/common/GenerateServiceInvoice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        <state relative-caret-position="225">
+          <caret line="27" column="84" lean-forward="true" selection-start-line="26" selection-start-column="3" selection-end-line="27" selection-end-column="84" />
         </state>
       </provider>
     </entry>

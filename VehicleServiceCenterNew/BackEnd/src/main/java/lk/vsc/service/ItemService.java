@@ -1,5 +1,6 @@
 package lk.vsc.service;
 
+import lk.vsc.DTO.MakeModelDetailsDTO;
 import lk.vsc.entity.Item;
 
 import java.util.List;
@@ -14,4 +15,6 @@ public interface ItemService {
 
 
     List<Item> getAllItems();
+
+    List<MakeModelDetailsDTO> viewMakeModelDetailsForThisItem(String itemId);
 }

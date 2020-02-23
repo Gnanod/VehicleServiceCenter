@@ -1,5 +1,9 @@
 package lk.vsc.DTO;
 
+import lk.vsc.entity.MakeModelDetails;
+
+import java.util.Set;
+
 public class ViewItemStockDTO {
 
     private String itemCode;
@@ -7,6 +11,15 @@ public class ViewItemStockDTO {
     private String quantityType;
     private String currentQty;
     private String qtyPrice;
+    private Set<MakeModelDetails> makeModelDetailsList;
+
+    public Set<MakeModelDetails> getMakeModelDetailsList() {
+        return makeModelDetailsList;
+    }
+
+    public void setMakeModelDetailsList(Set<MakeModelDetails> makeModelDetailsList) {
+        this.makeModelDetailsList = makeModelDetailsList;
+    }
 
     public String getItemCode() {
         return itemCode;

@@ -1,5 +1,6 @@
 package lk.vsc.service.impl;
 
+import lk.vsc.DTO.MakeModelDetailsDTO;
 import lk.vsc.entity.Item;
 import lk.vsc.repository.ItemRepository;
 import lk.vsc.service.ItemService;
@@ -65,7 +66,30 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<Item> getAllItems() {
 
+        List<Item> l1 = itemRepository.findAll();
+        for (Item i:l1
+             ) {
+            System.out.println("HHHH"+i.getMakeModelDetails());
+        }
         return itemRepository.findAll();
+    }
+
+    @Override
+    public List<MakeModelDetailsDTO> viewMakeModelDetailsForThisItem(String itemId) {
+        List<Object []> ob= itemRepository.viewMakeModelDetailsForThisItem(itemId);
+
+        List<MakeModelDetailsDTO> m = new ArrayList<>();
+        for (Object s2[] :ob
+        ) {
+
+            MakeModelDetailsDTO i = new MakeModelDetailsDTO();
+            i.setModelName(s2[0].toString());
+            i.setMakeName(s2[1].toString());
+
+
+            m.add(i);
+        }
+        return m;
     }
 
 }

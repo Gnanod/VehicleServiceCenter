@@ -3,7 +3,7 @@ package lk.vsc.DTO;
 public class MonthlyOutComeReport {
 
     private String month;
-    private String amount;
+    private double amount;
 
     public String getMonth() {
         return month;
@@ -13,11 +13,11 @@ public class MonthlyOutComeReport {
         this.month = month;
     }
 
-    public String getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 }

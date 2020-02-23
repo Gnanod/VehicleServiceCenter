@@ -9,6 +9,15 @@ public class UpdateJobPrice {
     private double payAmount;
     private String date;
     private String paymentType;
+    private double previousCreditBalance;
+
+    public double getPreviousCreditBalance() {
+        return previousCreditBalance;
+    }
+
+    public void setPreviousCreditBalance(double previousCreditBalance) {
+        this.previousCreditBalance = previousCreditBalance;
+    }
 
     public String getPaymentType() {
         return paymentType;

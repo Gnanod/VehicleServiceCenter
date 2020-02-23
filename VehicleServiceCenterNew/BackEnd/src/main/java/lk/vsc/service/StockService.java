@@ -2,6 +2,7 @@ package lk.vsc.service;
 
 import lk.vsc.DTO.CreditPaymentDto;
 import lk.vsc.DTO.CustomerPaymentViewDto;
+import lk.vsc.DTO.JobCloseDTO;
 import lk.vsc.DTO.LowStockLevelDTO;
 import lk.vsc.entity.Stock;
 
@@ -22,4 +23,7 @@ public interface StockService {
     List<CustomerPaymentViewDto> getCustomerPaymentDetails();
 
 
+    JobCloseDTO searchServiceAndItemDetailsBtServiceId(String serviceId);
+
+    JobCloseDTO searchServiceAndItemDetailsBtServiceIdToPerformaInvoice(String serviceId);
 }

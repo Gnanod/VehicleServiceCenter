@@ -19,9 +19,15 @@ public interface SupplierRepository extends JpaRepository<Supplier,Integer> {
     @Query(value = "select agentName,supplierId from Supplier where companyName = :supplierCompany")
     List<Object[]> getSupplierNames(@Param("supplierCompany") String supplierCompany);
 
-    @Query(value = "select v.vehicleNumber,j.serviceId,j.date,j.grossAmount,j.paymentType,j.creditBalance from Vehicle v , JobOrder j where v.vehicleId = j.vehicle.vehicleId AND j.serviceId = :serviceId")
-    List<Object[]> searchServiceDetailsByNumber(@Param("serviceId")String serviceId);
-
+    @Query(value = "" +
+            "select v.vehicle_number,fi.service_id,fi.date,fi.total_amount,fi.payment_type_invoice," +
+            " fi.total_amount-sum(fip.payment) from final_invoice fi " +
+            " left join job_order jo ON fi.service_id = jo.service_id " +
+            " left join final_invoice_payment fip On fi.final_invoice_id = fip.final_invoice_final_invoice_id " +
+            " left join vehicle v ON jo. vehicle_vehicle_id=v.vehicle_id " +
+            " where fi.service_id =?1 " +
+            " group By fip.final_invoice_final_invoice_id",nativeQuery = true)
+    List<Object[]> searchServiceDetailsByNumber(String serviceId);
 
 }
 

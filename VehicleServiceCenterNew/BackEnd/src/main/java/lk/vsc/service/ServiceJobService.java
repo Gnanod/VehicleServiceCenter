@@ -9,4 +9,6 @@ public interface ServiceJobService {
 //    String addServiceJob(ServiceJob serviceJob);
 
     String addServiceJobs(ServiceJob s3, List<ServiceJobDetails> j1);
+
+    ServiceJob getSserviceJob(String jobNo);
 }

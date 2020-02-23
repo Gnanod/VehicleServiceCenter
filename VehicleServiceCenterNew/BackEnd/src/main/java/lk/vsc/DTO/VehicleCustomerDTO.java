@@ -15,6 +15,15 @@ public class VehicleCustomerDTO {
     private double  serviceTotal ;
     private String customerAddress;
     private String presentOdometer;
+    private String jobStatus;
+
+    public String getJobStatus() {
+        return jobStatus;
+    }
+
+    public void setJobStatus(String jobStatus) {
+        this.jobStatus = jobStatus;
+    }
 
     public String getPresentOdometer() {
         return presentOdometer;

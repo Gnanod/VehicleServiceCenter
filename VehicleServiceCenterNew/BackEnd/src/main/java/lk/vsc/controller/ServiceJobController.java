@@ -14,8 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.*;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.text.DateFormat;
-import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -24,7 +25,7 @@ import java.util.*;
 @RequestMapping(value = "/ServiceJobController")
 public class ServiceJobController {
 
-	private final String SERVICE_REPORT_FILE_NAME = System.getProperty("user.home") + "/src/ServiceReport.jasper";
+    private final String SERVICE_REPORT_FILE_NAME = System.getProperty("user.home") + "/src/ServiceReportNew_1.jasper.jasper";
 
     @Autowired
     private ServiceJobService serviceJobService;
@@ -43,6 +44,34 @@ public class ServiceJobController {
             return null;
         }
 
+    }
+
+
+    @GetMapping(value = "/sendMessageToCustomer/{phoneNumber}/{password}/{accountName}")
+    public String getItems(@PathVariable String phoneNumber, @PathVariable String password, @PathVariable String accountName) {
+
+        String msg = "Dear valuable customer, we started servicing your vehicle. -TurismoAuto";
+        String number = "94" + phoneNumber.substring(1);
+        System.out.println("Number"+number);
+        System.out.println("password"+password);
+        System.out.println("accountName"+accountName);
+        System.out.println("msg"+msg);
+        URL textit = null;
+        try {
+            textit = new URL("http://textit.biz/sendmsg/index.php?id="+accountName+"&pw="+password+"&to="+number +"&text=Dear valuable customer, we started servicing your vehicle. -TurismoAuto");
+            BufferedReader in = new BufferedReader(new InputStreamReader(textit.openStream()));
+            String inputLine;
+            while ((inputLine = in.readLine()) != null)
+                System.out.println(inputLine);
+            in.close();
+
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+return "0";
     }
 
     public static String getCurrentDate() {
@@ -66,18 +95,15 @@ public class ServiceJobController {
     public DocumentDto createJasperReport(ServicesDTO serviceJob) {
 
         ServiceInvoiceDTO v1 = serviceJob.getServiceInvoice();
+        System.out.println(v1);
         ArrayList<Services> v2 = v1.getServices();
         ArrayList<PrintServiceJobDTO> v3 = new ArrayList<>();
-        System.out.println("Services Length"+v1.getServices().size());
         for (Services s : v1.getServices()) {
             PrintServiceJobDTO p1 = new PrintServiceJobDTO();
             p1.setServiceId(s.getServiceId());
-            p1.setServiceDesc(s.getServiceDesc());
+            p1.setServiceDescription(s.getServiceDesc());
             p1.setServiceName(s.getServiceName());
             p1.setVehicletype(s.getVehicletype());
-            DecimalFormat df = new DecimalFormat("0.00");
-            String price = df.format(s.getServicePrice());
-            p1.setServicePrice(price);
             v3.add(p1);
         }
 
@@ -93,19 +119,20 @@ public class ServiceJobController {
         parameters.put("make", v1.getMake());
         parameters.put("year", v1.getYear());
         parameters.put("model", v1.getModel());
-        parameters.put("customerName", v1.getCustomerName());
+        parameters.put("customerName", "Mr. " + v1.getCustomerName());
         parameters.put("customerPhoneNumber", v1.getCustomerPhoneNumber());
         parameters.put("customerAddress", v1.getCustomerAddress());
-        DecimalFormat df = new DecimalFormat("0.00");
-        String price = df.format(v1.getTotal());
-        parameters.put("total", price);
+        parameters.put("presentOdoMeters", v1.getPresentOdoMeter() + " KM");
+        // DecimalFormat df = new DecimalFormat("0.00");
+        //  String price = df.format(v1.getTotal());
+        //   parameters.put("total", price);
 
         String userHomeDirectory = System.getProperty("user.home");
         /* Output file location */
 
         String fileName = "Service_Bill.pdf";
 
-      //  outputFile = userHomeDirectory + File.separatorChar + "src/" + fileName;
+        //  outputFile = userHomeDirectory + File.separatorChar + "src/" + fileName;
         outputFile = userHomeDirectory + File.separatorChar + "Documents/" + fileName;
 
 
@@ -120,8 +147,8 @@ public class ServiceJobController {
         JasperPrint jasperPrint;
         try {
 
-          //  jasperPrint = JasperFillManager.fillReport(SERVICE_REPORT_FILE_NAME, parameters, new JREmptyDataSource());
-            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/ServiceReport.jasper", parameters, new JREmptyDataSource());
+            //  jasperPrint = JasperFillManager.fillReport(SERVICE_REPORT_FILE_NAME, parameters, new JREmptyDataSource());
+            jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/ServiceReport.jasper", parameters, new JREmptyDataSource());
 
             /* outputStream to create PDF */
             OutputStream outputStream = new FileOutputStream(new File(outputFile));

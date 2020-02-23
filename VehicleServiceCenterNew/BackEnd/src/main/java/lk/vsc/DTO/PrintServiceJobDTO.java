@@ -2,10 +2,18 @@ package lk.vsc.DTO;
 
 public class PrintServiceJobDTO {
     int serviceId;
-    String serviceDesc;
+    String serviceDescription;
     String serviceName;
-    String servicePrice;
     String vehicletype;
+    String servicePrice;
+
+    public String getServicePrice() {
+        return servicePrice;
+    }
+
+    public void setServicePrice(String servicePrice) {
+        this.servicePrice = servicePrice;
+    }
 
     public int getServiceId() {
         return serviceId;
@@ -15,12 +23,12 @@ public class PrintServiceJobDTO {
         this.serviceId = serviceId;
     }
 
-    public String getServiceDesc() {
-        return serviceDesc;
+    public String getServiceDescription() {
+        return serviceDescription;
     }
 
-    public void setServiceDesc(String serviceDesc) {
-        this.serviceDesc = serviceDesc;
+    public void setServiceDescription(String serviceDescription) {
+        this.serviceDescription = serviceDescription;
     }
 
     public String getServiceName() {
@@ -29,14 +37,6 @@ public class PrintServiceJobDTO {
 
     public void setServiceName(String serviceName) {
         this.serviceName = serviceName;
-    }
-
-    public String getServicePrice() {
-        return servicePrice;
-    }
-
-    public void setServicePrice(String servicePrice) {
-        this.servicePrice = servicePrice;
     }
 
     public String getVehicletype() {

@@ -1,5 +1,6 @@
 package lk.vsc.service;
 
+import lk.vsc.DTO.MonthlyInComeReport;
 import lk.vsc.DTO.MonthlyOutComeReport;
 import lk.vsc.entity.StockPayment;
 
@@ -13,4 +14,6 @@ public interface StockPaymentService {
     double getTodayTotalOutCome();
 
     List<MonthlyOutComeReport> getMonthlyOutCome();
+
+    List<MonthlyInComeReport> getMonthlyInComeReport();
 }

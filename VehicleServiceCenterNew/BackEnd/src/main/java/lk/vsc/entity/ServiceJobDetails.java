@@ -13,6 +13,27 @@ public class ServiceJobDetails {
     private int servicedetailsID;
     private String serviceJobId;
     private int  serviceId;
+    private String job_status;
+
+//    @ManyToOne
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private JobClose jobClose;
+
+//    public JobClose getJobClose() {
+//        return jobClose;
+//    }
+//
+//    public void setJobClose(JobClose jobClose) {
+//        this.jobClose = jobClose;
+//    }
+
+    public String getJob_status() {
+        return job_status;
+    }
+
+    public void setJob_status(String job_status) {
+        this.job_status = job_status;
+    }
 
     public String getServiceJobId() {
         return serviceJobId;

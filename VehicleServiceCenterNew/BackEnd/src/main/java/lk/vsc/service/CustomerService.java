@@ -5,7 +5,7 @@ import lk.vsc.entity.Customer;
 import java.util.List;
 
 public interface CustomerService {
-    
+
     Customer addCustomer(Customer customer);
 
     List<Customer> getAllCustomers();
@@ -19,4 +19,6 @@ public interface CustomerService {
     Customer findByCustomerId(String nic);
 
     String getResult();
+
+    String checkCustomer(String nic);
 }

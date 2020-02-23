@@ -5,7 +5,7 @@ public class CustomerPaymentViewDto {
     private String address;
     private String phoneNumber;
     private String email;
-    private String amount;
+    private double amount;
     private String vehicleNumber;
     private String date;
 
@@ -41,11 +41,11 @@ public class CustomerPaymentViewDto {
         this.email = email;
     }
 
-    public String getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public void setAmount(String amount) {
+    public void setAmount(double amount) {
         this.amount = amount;
     }
 

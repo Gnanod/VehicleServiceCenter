@@ -1,10 +1,7 @@
 package lk.vsc.controller;
 
 
-import lk.vsc.DTO.CreditPaymentDto;
-import lk.vsc.DTO.CustomerPaymentViewDto;
-import lk.vsc.DTO.LowStockLevelDTO;
-import lk.vsc.DTO.MonthlyOutComeReport;
+import lk.vsc.DTO.*;
 import lk.vsc.entity.Stock;
 import lk.vsc.entity.StockPayment;
 import lk.vsc.service.StockPaymentService;
@@ -97,10 +94,30 @@ public class StockController {
         return stockPaymentService.getTodayTotalOutCome();
     }
 
+
+    @GetMapping(value = "/getMonthlyInComeReport")
+    public List<MonthlyInComeReport> getMonthlyInComeReport() {
+
+        return stockPaymentService.getMonthlyInComeReport();
+    }
+
     @GetMapping(value = "/getMonthlyOutCome")
     public List<MonthlyOutComeReport> getMonthlyOutCome() {
 
         return stockPaymentService.getMonthlyOutCome();
+    }
+
+
+    @GetMapping(value = "/searchServiceAndItemDetailsBtServiceId/{serviceId}")
+    public JobCloseDTO searchServiceAndItemDetailsBtServiceId(@PathVariable String serviceId) {
+
+        return stockService.searchServiceAndItemDetailsBtServiceId(serviceId);
+    }
+
+    @GetMapping(value = "/searchServiceAndItemDetailsBtServiceIdToPerformaInvoice/{serviceId}")
+    public JobCloseDTO     searchServiceAndItemDetailsBtServiceIdToPerformaInvoice(@PathVariable String serviceId) {
+
+        return stockService.searchServiceAndItemDetailsBtServiceIdToPerformaInvoice(serviceId);
     }
 }
 

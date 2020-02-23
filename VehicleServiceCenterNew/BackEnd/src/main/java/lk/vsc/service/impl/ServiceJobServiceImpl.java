@@ -22,16 +22,18 @@ public class ServiceJobServiceImpl implements ServiceJobService {
     public String addServiceJobs(ServiceJob s3, List<ServiceJobDetails> j1) {
         ServiceJob s1 = serviceJobRepository.save(s3);
         if (s1 != null) {
-
             List<ServiceJobDetails> serviceJobDetails = j1;
-        for (ServiceJobDetails s:serviceJobDetails
-             ) {
-            System.out.println("MMMMMMMMMMMM"+s.getServiceJobId());
-            System.out.println("MMMMMMMMMMMM"+s.getServiceId());
-            serviceJobDetailRepository.save(s);
-        }
-
+            for (ServiceJobDetails s : serviceJobDetails
+            ) {
+                s.setJob_status("Yes");
+                serviceJobDetailRepository.save(s);
+            }
         }
         return "sd";
+    }
+
+    @Override
+    public ServiceJob getSserviceJob(String jobNo) {
+        return serviceJobDetailRepository.getSserviceJob(jobNo);
     }
 }

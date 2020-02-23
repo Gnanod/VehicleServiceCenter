@@ -1,5 +1,6 @@
 package lk.vsc.controller;
 
+import lk.vsc.DTO.MakeModelDetailsDTO;
 import lk.vsc.DTO.ViewItemStockDTO;
 import lk.vsc.entity.Item;
 import lk.vsc.entity.MakeModelDetails;
@@ -21,10 +22,7 @@ public class ItemController {
 
     @PostMapping(value = "/addItemDB")
     public Item addItem(@RequestBody Item item){
-
-        System.out.println("GGG"+item.getStockLevel());
         Set<MakeModelDetails> l1 = item.getMakeModelDetails();
-
         return  itemService.addItem(item);
 
     }
@@ -58,10 +56,19 @@ public class ItemController {
             v3.setCurrentQty(Double.toString(l2.getQuantityOnHand()));
             v3.setQuantityType(l2.getItemQuantityType());
             v3.setQtyPrice(Double.toString(l2.getQuantityOfPrice()));
+            v3.setMakeModelDetailsList(l2.getMakeModelDetails());
             v1.add(v3);
         }
 
         return v1;
     }
 
+
+
+    @GetMapping(value = "/viewMakeModelDetailsForThisItem/{itemId}")
+    public List<MakeModelDetailsDTO> viewMakeModelDetailsForThisItem(@PathVariable String itemId){
+
+        return   itemService.viewMakeModelDetailsForThisItem(itemId);
+
+    }
 }

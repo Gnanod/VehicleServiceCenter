@@ -53,11 +53,8 @@ public class JobOrderController {
         List<Services> l1 = servicesService1.getServiceDesc(insertSelectedService);
         for (Services l : l1
         ) {
-
             System.out.println("Service Name :" + l.getServiceDesc());
-            // System.out.println();
         }
-        //System.out.println("GGGGG"+insertSelectedService);
         return l1;
 
     }
@@ -67,8 +64,6 @@ public class JobOrderController {
     public List<VehicleHistoryDTO> getAllVehicleHistoryByUsingVehNumber(@PathVariable String vehNumber) {
 
         List<VehicleHistoryDTO> l1 = servicesService1.getAllVehicleHistoryByUsingVehNumber(vehNumber);
-
-        //System.out.println("GGGGG"+insertSelectedService);
         return l1;
 
     }
@@ -77,8 +72,6 @@ public class JobOrderController {
     public List<ViewServicesDTO> viewServiceForThisJob(@PathVariable String serviceID) {
 
         List<ViewServicesDTO> l1 = servicesService1.viewServiceForThisJob(serviceID);
-
-        //System.out.println("GGGGG"+insertSelectedService);
         return l1;
 
     }
@@ -88,8 +81,6 @@ public class JobOrderController {
     public List<ViewItemDetailsDTO> viewItemDetails(@PathVariable String jobId) {
 
         List<ViewItemDetailsDTO> l1 = servicesService1.viewItemDetails(jobId);
-
-        //System.out.println("GGGGG"+insertSelectedService);
         return l1;
 
     }
@@ -158,7 +149,8 @@ public class JobOrderController {
 
             JasperPrint jasperPrint;
             try {
-                jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/Blank_A4.jasper", parameters, new JREmptyDataSource());
+//                jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/Blank_A4.jasper", parameters, new JREmptyDataSource());
+                jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/Blank_A4.jasper", parameters, new JREmptyDataSource());
 
 //                jasperPrint = JasperFillManager.fillReport(BLANK_A4_FILE_NAME, parameters, new JREmptyDataSource());
                 /* outputStream to create PDF */
@@ -217,6 +209,56 @@ public class JobOrderController {
     }
 
 
+    @GetMapping(value = "/searchServiceAndItemDetailsAmountByServiceId/{serviceId}")
+    public JobClose searchServiceAndItemDetailsAmountByServiceId(@PathVariable String serviceId) {
+
+        return jobOrderService.searchServiceAndItemDetailsAmountByServiceId(serviceId);
+
+    }
+
+    @GetMapping(value = "/getJobOrderDetailsAccordingToId/{id}")
+    public JobOrderItemDetails getJobOrderDetailsAccordingToId(@PathVariable int id){
+        return jobOrderService.getJobOrderDetailsAccordingToId(id);
+
+    }
+
+    @PostMapping(value = "/saveJobClose")
+    public String saveJobClose(@RequestBody FinalJobCloseDTO jobClose){
+        return jobOrderService.saveJobClose(jobClose);
+
+    }
+
+    @GetMapping(value = "/getDetailsAccordingToServiceIdReOpen/{id}")
+    public VehicleCustomerDTO getDetailsAccordingToServiceIdReOpen(@PathVariable String id) {
+
+        // Object[] detailsAccordingToServiceId = serviceJobRepository.getDetailsAccordingToServiceId(id);
+
+        String arr[] = jobOrderService.getDetailsAccordingToServiceIdReOpen(id);
+        if (arr != null) {
+            Vehicle v1 = vehicleService.searchByVehicleId(Integer.parseInt(arr[0]));
+            VehicleCustomerDTO v = new VehicleCustomerDTO();
+            v.setChassisNumber(v1.getEngineNumber());
+            v.setVehicleId(arr[0]);
+            v.setCustomerEmail(v1.getCustomer().getEmail());
+            v.setCustomerName(v1.getCustomer().getFirstName() + v1.getCustomer().getLastName());
+            v.setCustomerAddress(v1.getCustomer().getAddress());
+            v.setCustomerPhone(v1.getCustomer().getPhoneNumber());
+            v.setMake(v1.getVehicleMake());
+            v.setModel(v1.getVehicleModel());
+            v.setYear(v1.getYearOfManufacture());
+            v.setVehicleNumber(v1.getVehicleNumber());
+            v.setServiceTotal(Double.parseDouble(arr[1]));
+            v.setPresentOdometer(arr[2]);
+            v.setJobStatus(arr[3]);
+            return v;
+        } else {
+            return null;
+        }
+
+
+    }
+
+
     @GetMapping(value = "/getDetailsAccordingToServiceId/{id}")
     public VehicleCustomerDTO getDetailsAccordingToServiceId(@PathVariable String id) {
 
@@ -224,10 +266,7 @@ public class JobOrderController {
 
         String arr[] = jobOrderService.getDetailsAccordingToServiceId(id);
         if (arr != null) {
-
-
             Vehicle v1 = vehicleService.searchByVehicleId(Integer.parseInt(arr[0]));
-
             VehicleCustomerDTO v = new VehicleCustomerDTO();
             v.setChassisNumber(v1.getEngineNumber());
             v.setVehicleId(arr[0]);
@@ -241,6 +280,7 @@ public class JobOrderController {
             v.setVehicleNumber(v1.getVehicleNumber());
             v.setServiceTotal(Double.parseDouble(arr[1]));
                 v.setPresentOdometer(arr[2]);
+                v.setJobStatus(arr[3]);
             return v;
         } else {
             return null;
@@ -265,7 +305,13 @@ public class JobOrderController {
             j2.setMake(i.getMake());
             j2.setModel(i.getModel());
             j2.setPrice(i.getPrice());
-            j2.setLubeJobType(i.getLubeJobType());
+            j2.setItemStatus("Yes");
+            if(i.getLubeJobType()==null){
+                j2.setLubeJobType("-");
+            }else{
+                j2.setLubeJobType(i.getLubeJobType());
+            }
+
             s3.add(j2);
         }
 //
@@ -277,9 +323,12 @@ public class JobOrderController {
             j3.setMake(i2.getMake());
             j3.setModel(i2.getModel());
             j3.setPrice(i2.getPrice());
-            j3.setLubeJobType(i2.getLubeJobType());
-
-
+            j3.setItemStatus("Yes");
+            if(i2.getLubeJobType()==null){
+                j3.setLubeJobType("-");
+            }else{
+                j3.setLubeJobType(i2.getLubeJobType());
+            }
             s3.add(j3);
         }
 
@@ -288,9 +337,9 @@ public class JobOrderController {
         String s = jobOrderService.setJobOrder(j1);
 
         if (s != null) {
-            String bytes =printBill(jobOrder);
+//            String bytes =printBill(jobOrder);
             DocumentDto d = new DocumentDto();
-            d.setPdf(bytes);
+//            d.setPdf(bytes);
             return d;
         } else {
             return null;
@@ -465,9 +514,6 @@ public class JobOrderController {
             crunchifyInputStream = new FileInputStream(crunchifyFile);
             crunchifyInputStream.read(crunchifyByteStream);
             crunchifyInputStream.close();
-//            for (int counter = 0; counter < crunchifyByteStream.length; counter++) {
-////                System.out.print((char) crunchifyByteStream[counter]);
-//            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -476,7 +522,13 @@ public class JobOrderController {
     }
 
 
+    @GetMapping(value = "/reOpenJob/{serviceId}/{newJobStatus}")
+    public String reOpenJob(@PathVariable String serviceId,@PathVariable String newJobStatus) {
 
+        String s = servicesService1.reOpenJob(serviceId,newJobStatus);
+        return s;
+
+    }
 
 
 }

@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.9.0.final using JasperReports Library version 6.9.0-cb8f9004be492ccc537180b49c026951f4220bf3  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ServiceReportNew_1" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d68f2ee7-84a3-420b-bf5b-b320a4085c2c">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Dataset1" uuid="8b330fae-b3c0-4e00-adbe-4068c58b6c82">
+		<queryString>
+			<![CDATA[]]>
+		</queryString>
+		<field name="serviceName" class="java.lang.String"/>
+		<field name="serviceDescription" class="java.lang.String"/>
+	</subDataset>
+	<parameter name="invoiceNumber" class="java.lang.String"/>
+	<parameter name="vehicleNumber" class="java.lang.String"/>
+	<parameter name="chasisNumber" class="java.lang.String"/>
+	<parameter name="make" class="java.lang.String"/>
+	<parameter name="year" class="java.lang.String"/>
+	<parameter name="model" class="java.lang.String"/>
+	<parameter name="customerName" class="java.lang.String"/>
+	<parameter name="customerPhoneNumber" class="java.lang.String"/>
+	<parameter name="customerAddress" class="java.lang.String"/>
+	<parameter name="presentOdoMeters" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="101" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="210" height="25" uuid="572936f3-e4d4-447b-9564-8584026af2c2">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TURISMO AUTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="25" width="205" height="45" uuid="1480589f-cee0-4549-b25c-da17e7451cfb"/>
+				<text><![CDATA[NO;562/106/A3
+D.S Senanayake Mawatha
+Anuradhapura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="70" width="205" height="31" uuid="520864b8-2d93-4bbc-9153-6f5cca870b66"/>
+				<text><![CDATA[077-1771471
+0252235500]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="334" y="0" width="210" height="25" uuid="ba3ad31c-8fb2-4ed0-a37c-9cbd432f2103">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="19" isBold="true"/>
+				</textElement>
+				<text><![CDATA[              SERVICE JOB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="410" y="30" width="50" height="20" uuid="e527bb7d-c41a-481b-b326-6030ab3004e3"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[Date:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="461" y="30" width="95" height="20" uuid="2ee12e39-b585-4963-ada6-aeda0f95723f"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="410" y="50" width="50" height="20" uuid="7e7e1629-53ed-4153-8efc-c5fdf9a284a6"/>
+				<box rightPadding="4"/>
+				<textElement textAlignment="Left"/>
+				<text><![CDATA[JOB NO]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="461" y="50" width="95" height="20" uuid="6f70380e-1dfe-4cef-b5a0-38dc8c110494"/>
+				<textFieldExpression><![CDATA[$P{invoiceNumber}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="185" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="160" height="25" uuid="9f20ae47-a9e6-40e4-b22c-b9311dd8c00c">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VEHICLE DETAILS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="5" width="194" height="25" uuid="0c9656cb-d746-4a3f-b6c2-4336c8001ee9">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUSTOMER DETAILS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="-1" y="40" width="120" height="28" uuid="04175a82-f1c0-4673-9b36-1361eb249c1c"/>
+				<text><![CDATA[Vehicle Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="67" width="120" height="28" uuid="97a936ec-669c-45a2-bef8-f7c86382ecfe"/>
+				<text><![CDATA[Chasis Number]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="95" width="120" height="28" uuid="43888477-8bb2-4fea-8153-ae946a5524ac"/>
+				<text><![CDATA[Make]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="125" width="120" height="28" uuid="e184ea8a-c888-44a4-848c-f1d516c4792c"/>
+				<text><![CDATA[Model]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="154" width="120" height="28" uuid="641adadc-5178-459a-b797-bee9727dc1dc"/>
+				<text><![CDATA[Present Odo Meter KM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="89" width="120" height="28" uuid="0048ea27-2b46-4992-9e62-a3f34fbffd17"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Customer Address]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="61" width="120" height="28" uuid="f02a41d9-17f3-48f1-8c5f-8fb735129b0d"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Customer PhoneNumber]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="35" width="120" height="28" uuid="576a1e59-f650-4284-9874-68c0f845f7a1"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Customer Name]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="120" y="40" width="120" height="27" uuid="33adc916-ed40-4a5f-ab41-b19f68755b27"/>
+				<textFieldExpression><![CDATA[$P{vehicleNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="68" width="120" height="25" uuid="e9efe3ea-7ea6-4df0-ae6b-d45178b9f2ad"/>
+				<textFieldExpression><![CDATA[$P{chasisNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="93" width="120" height="30" uuid="a767ca80-4503-4d43-879b-ba4213395623"/>
+				<textFieldExpression><![CDATA[$P{make}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="124" width="121" height="30" uuid="a94daedc-d674-45b1-9ba8-5df619ff086c"/>
+				<textFieldExpression><![CDATA[$P{model}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="120" y="154" width="120" height="26" uuid="c27e957a-9f22-4dc8-b4d6-deb0fc777e88"/>
+				<textFieldExpression><![CDATA[$P{presentOdoMeters}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="35" width="150" height="25" uuid="4fe87cea-3494-44f5-88c5-d87f5d62b720"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{customerName}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="61" width="150" height="30" uuid="d4629729-4210-4616-ba7a-249a13476e22"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{customerPhoneNumber}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="93" width="150" height="24" uuid="94720296-bafb-44ea-a0c5-9b1e7baa9a8f"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{customerAddress}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="297" splitType="Stretch">
+			<componentElement>
+				<reportElement x="-1" y="20" width="556" height="50" uuid="269950f7-49a2-426c-a146-87e9d9735643">
+					<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+					<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+					<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+					<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+				</reportElement>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="a26732e5-6c95-4ef8-9019-44fae489ec3e">
+						<dataSourceExpression><![CDATA[$P{servicesDataSource}]]></dataSourceExpression>
+					</datasetRun>
+					<jr:column width="270" uuid="5be01601-278c-4c55-9a14-2d15593eabee">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+						<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="270" height="20" uuid="2c7c3dd6-15ea-45a1-8e3c-691daf461b6b"/>
+								<textElement textAlignment="Center">
+									<font size="12"/>
+								</textElement>
+								<text><![CDATA[Service Name]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="270" height="30" uuid="f0c82ecc-0656-4ad9-81b4-63376fcd7d0b"/>
+								<textElement>
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{serviceName}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="296" uuid="f64cccc4-a5f8-4438-9b5b-2511962cddd2">
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+						<jr:columnHeader style="Table_CH" height="20" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="296" height="20" uuid="5b80bf18-2dd4-4d29-807b-e5487a1d8175"/>
+								<textElement textAlignment="Center">
+									<font size="12"/>
+								</textElement>
+								<text><![CDATA[Service Description]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:detailCell style="Table_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="296" height="30" uuid="4d02d376-e3f7-4caa-9c1e-219ae285debb"/>
+								<textElement>
+									<font size="11"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{serviceDescription}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

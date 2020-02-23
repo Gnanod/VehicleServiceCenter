@@ -8,6 +8,7 @@ import lk.vsc.service.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -109,10 +110,8 @@ public class ServicesServiceImpl implements ServicesService {
                 r1.setDate(o[0].toString());
                 r1.setServiceId(o[1].toString());
                 r1.setDetailJobAmount(o[2].toString());
-                r1.setLubeJobAmount(o[3].toString());
-                r1.setServiceAmount(o[4].toString());
-                r1.setPresentOdometer(o[5].toString());
-                r1.setJobId(o[6].toString());
+                r1.setPresentOdometer(o[3].toString());
+                r1.setJobId(o[4].toString());
             r.add(r1);
         }
         return r;
@@ -149,6 +148,19 @@ public class ServicesServiceImpl implements ServicesService {
             r.add(r1);
         }
         return r;
+    }
+
+    @Override
+    @Transactional
+    public String reOpenJob(String serviceId ,String newJobStatus) {
+
+        int i = servicesRepository.reOpenJob(serviceId,newJobStatus);
+        if(i>0){
+            return "0";
+        }else{
+            return null;
+        }
+
     }
 
 

@@ -34,21 +34,21 @@ public class JobOrder {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<JobOrderItemDetails> jobOrderItemDetails;
 
-    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "jobOrder")
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private List<JobOrderPayment> jobOrderPayments;
+//    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "jobOrder")
+//    @OnDelete(action = OnDeleteAction.CASCADE)
+//    private List<JobOrderPayment> jobOrderPayments;
+//
+//    public List<JobOrderPayment> getJobOrderPayments() {
+//        return jobOrderPayments;
+//    }
 
-    public List<JobOrderPayment> getJobOrderPayments() {
-        return jobOrderPayments;
-    }
-
-    public void setJobOrderPayments(List<JobOrderPayment> jobOrderPayments) {
-        for (JobOrderPayment j : jobOrderPayments
-        ) {
-            j.setJobOrder(this);
-        }
-        this.jobOrderPayments = jobOrderPayments;
-    }
+//    public void setJobOrderPayments(List<JobOrderPayment> jobOrderPayments) {
+//        for (JobOrderPayment j : jobOrderPayments
+//        ) {
+//            j.setJobOrder(this);
+//        }
+//        this.jobOrderPayments = jobOrderPayments;
+//    }
 
     public String getPresentOdoMeter() {
         return presentOdoMeter;

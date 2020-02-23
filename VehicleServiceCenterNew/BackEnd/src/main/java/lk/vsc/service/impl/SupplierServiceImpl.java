@@ -1,12 +1,8 @@
 package lk.vsc.service.impl;
 
 import lk.vsc.DTO.UpdateJobPrice;
-import lk.vsc.entity.JobOrder;
-import lk.vsc.entity.JobOrderPayment;
-import lk.vsc.entity.Supplier;
-import lk.vsc.repository.JobOrderPaymentRepository;
-import lk.vsc.repository.JobOrderRepository;
-import lk.vsc.repository.SupplierRepository;
+import lk.vsc.entity.*;
+import lk.vsc.repository.*;
 import lk.vsc.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +20,10 @@ public class SupplierServiceImpl implements SupplierService{
     private JobOrderRepository jobOrder;
     @Autowired
     private JobOrderPaymentRepository jobOrderPaymentRepository;
-
+    @Autowired
+    private FinalInvoiceRepository finalInvoiceRepository;
+    @Autowired
+    private FinalInvoicePaymentRepository finalInvoicePaymentRepository;
     @Override
     public Supplier addSupplier(Supplier supplier) {
 
@@ -51,7 +50,7 @@ public class SupplierServiceImpl implements SupplierService{
     public List<Supplier> getAllSupplier() {
 
         List<Object[]> companies = supplierRepository.findAllCompanies();
-        
+
         List<Supplier> s1 = new ArrayList<>();
 
         if(companies.size()!=0){
@@ -116,28 +115,28 @@ public class SupplierServiceImpl implements SupplierService{
     @Override
     public String updateSupplierPayments(UpdateJobPrice u) {
 
-        JobOrder j1 = jobOrder .getJobOrder(u.getService_id());
-        JobOrder j2 = j1;
-        j2.setCreditBalance(u.getCreditBalance());
-        j2.setDate(u.getDate());
-        j2.setGrossAmount(u.getGrossAmount());
-        j2.setPaidAmount(u.getPayAmount());
+//        JobOrder j1 = jobOrder .getJobOrder(u.getService_id());
+        FinalInvoice  f1 = finalInvoiceRepository.getFinalInvoice(u.getService_id());
+        FinalInvoice j2 = f1;
         if(u.getCreditBalance()==0){
             j2.setPaymentType("Full Payment");
         }else{
             j2.setPaymentType("Credit Payment");
         }
 
-        List<JobOrderPayment> p1 = new ArrayList<>();
-        JobOrderPayment j3 = new JobOrderPayment();
+        List<FinalInvoicePayment> p1 = new ArrayList<>();
+        FinalInvoicePayment j3 = new FinalInvoicePayment();
         j3.setPayment(u.getPayAmount());
-        j3.setJobOrder(j2);
+        j3.setFinalInvoice(j2);
 
         p1.add(j3);
+       // j2.setFinalInvoicePayments(p1);
+
+//        p1.add(j3);
 //        j2.setJobOrderPayments(p1);
-        JobOrder s3 = jobOrder.save(j2);
+        FinalInvoice s3 = finalInvoiceRepository.save(j2);
         if(s3!=null){
-            jobOrderPaymentRepository.save(j3);
+            finalInvoicePaymentRepository.save(j3);
             return "0";
         }else{
             return null;

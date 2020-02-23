@@ -10,15 +10,23 @@ public class ServiceJob {
     String serviceJobId;
     private String date;
     private double total;
-    private String  employeeName;
+    private String employeeName;
     private String presentOdoMeter;
-
+    private String jobStatus;
     @ManyToOne
     private Vehicle vehicle;
 
 //    @OneToMany(cascade = CascadeType.PERSIST, mappedBy = "serviceJob")
 //    @OnDelete(action = OnDeleteAction.CASCADE)
 //    private List<ServiceJobDetails> serviceJobDetails;
+
+    public String getJobStatus() {
+        return jobStatus;
+    }
+
+    public void setJobStatus(String jobStatus) {
+        this.jobStatus = jobStatus;
+    }
 
     public String getPresentOdoMeter() {
         return presentOdoMeter;

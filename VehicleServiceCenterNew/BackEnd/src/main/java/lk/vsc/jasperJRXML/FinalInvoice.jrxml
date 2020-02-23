@@ -65,7 +65,7 @@
 		<field name="material" class="java.lang.String"/>
 		<field name="model" class="java.lang.String"/>
 		<field name="make" class="java.lang.String"/>
-		<field name="quantity" class="java.lang.Double"/>
+		<field name="quantity" class="java.lang.String"/>
 		<field name="price" class="java.lang.String"/>
 	</subDataset>
 	<subDataset name="Dataset2" uuid="15ab0140-0ea6-48bd-a990-5367b65f2b37">
@@ -76,7 +76,7 @@
 		<field name="material" class="java.lang.String"/>
 		<field name="model" class="java.lang.String"/>
 		<field name="make" class="java.lang.String"/>
-		<field name="quantity" class="java.lang.Double"/>
+		<field name="quantity" class="java.lang.String"/>
 		<field name="price" class="java.lang.String"/>
 		<field name="type" class="java.lang.String"/>
 	</subDataset>
@@ -88,7 +88,7 @@
 		<field name="material" class="java.lang.String"/>
 		<field name="model" class="java.lang.String"/>
 		<field name="make" class="java.lang.String"/>
-		<field name="quantity" class="java.lang.Double"/>
+		<field name="quantity" class="java.lang.String"/>
 		<field name="price" class="java.lang.String"/>
 	</subDataset>
 	<subDataset name="Dataset4" uuid="91f1d1b1-8bd0-44fc-b2e5-fa1573048348">
@@ -99,7 +99,7 @@
 		<field name="material" class="java.lang.String"/>
 		<field name="model" class="java.lang.String"/>
 		<field name="make" class="java.lang.String"/>
-		<field name="quantity" class="java.lang.Double"/>
+		<field name="quantity" class="java.lang.String"/>
 		<field name="price" class="java.lang.String"/>
 		<field name="type" class="java.lang.String"/>
 	</subDataset>
@@ -197,18 +197,22 @@ ANURADHAPURA]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="120" y="110" width="100" height="26" uuid="7fe206b7-9b63-4de1-9246-99eb3c5a1468"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{vehicleNumber}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="120" y="138" width="100" height="25" uuid="681947f7-2b7f-472f-baef-9fd8bca76942"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{chasisNumber}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="120" y="164" width="100" height="27" uuid="4fd7a6ee-3168-48a3-b1b3-329689872d68"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{make}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="120" y="191" width="100" height="30" uuid="f77b2c23-3b68-4c9b-aff5-80dc697a21c8"/>
+				<textElement verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{model}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -421,7 +425,7 @@ ANURADHAPURA]]></text>
 		<band height="15" splitType="Stretch"/>
 	</columnHeader>
 	<detail>
-		<band height="81" splitType="Stretch">
+		<band height="148" splitType="Stretch">
 			<staticText>
 				<reportElement x="0" y="0" width="160" height="25" uuid="8fd9f471-4cbc-426f-b08e-01f3b802889a">
 					<property name="local_mesure_unitheight" value="pixel"/>
@@ -610,13 +614,17 @@ ANURADHAPURA]]></text>
 				<text><![CDATA[Lube Job Amount]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="429" y="10" width="100" height="30" uuid="edcdbb81-62f7-4821-a04b-be705bd66347"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="429" y="10" width="126" height="30" uuid="edcdbb81-62f7-4821-a04b-be705bd66347"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{lubeJobAmount}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="429" y="39" width="100" height="30" uuid="de2c9de1-b640-4ab7-975d-d107dd65c510"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="429" y="39" width="126" height="30" uuid="de2c9de1-b640-4ab7-975d-d107dd65c510"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{detailJobAmount}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -634,13 +642,17 @@ ANURADHAPURA]]></text>
 				<text><![CDATA[Service Amount]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="429" y="70" width="100" height="30" uuid="3a1c5756-12d5-4630-bfcb-58c0310d07c3"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="429" y="70" width="126" height="30" uuid="3a1c5756-12d5-4630-bfcb-58c0310d07c3"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{serviceAmount}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="429" y="101" width="100" height="30" uuid="473dc7a1-91b1-4390-bced-f386a93ff04d"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="429" y="101" width="126" height="30" uuid="473dc7a1-91b1-4390-bced-f386a93ff04d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{grossAmount}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -658,18 +670,24 @@ ANURADHAPURA]]></text>
 				<text><![CDATA[Payment Type]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="429" y="132" width="100" height="30" uuid="092f30d4-0bdd-436c-b215-ba179fdaf6b9"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="429" y="132" width="126" height="30" uuid="092f30d4-0bdd-436c-b215-ba179fdaf6b9"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{paymentType}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="429" y="193" width="100" height="30" uuid="4c8c1a63-6e10-40a7-b5ce-877dc8878eb4"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="429" y="193" width="126" height="30" uuid="4c8c1a63-6e10-40a7-b5ce-877dc8878eb4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{creditBalance}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="429" y="163" width="100" height="30" uuid="0b4c9ec5-3b90-4446-addc-7792930d7be8"/>
-				<textElement verticalAlignment="Middle"/>
+				<reportElement x="429" y="163" width="126" height="30" uuid="0b4c9ec5-3b90-4446-addc-7792930d7be8"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{paidAmount}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -687,40 +705,40 @@ ANURADHAPURA]]></text>
 				<text><![CDATA[Credit Balance]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="27" y="228" width="490" height="20" uuid="cbad659b-899b-4f72-9e6e-08c31d10127c"/>
+				<reportElement x="27" y="250" width="490" height="20" uuid="cbad659b-899b-4f72-9e6e-08c31d10127c"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[I HANDED OVER THE VEHICLE AFTER REMOVING ALL PERSONAL BELONGINGS FROM THE VEHICLE]]></text>
 			</staticText>
 			<line>
-				<reportElement x="38" y="257" width="170" height="1" uuid="5756cd3a-a6fc-432e-a884-6ebc18a049ea">
+				<reportElement x="38" y="279" width="170" height="1" uuid="5756cd3a-a6fc-432e-a884-6ebc18a049ea">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
 			<line>
-				<reportElement x="312" y="257" width="170" height="1" uuid="d5aa4cd8-c2ed-411d-a82b-ee9e082ec1c6">
+				<reportElement x="312" y="279" width="170" height="1" uuid="d5aa4cd8-c2ed-411d-a82b-ee9e082ec1c6">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="332" y="257" width="154" height="20" uuid="6ee1b217-764e-491f-a0e4-1f8fd166c3c5"/>
+				<reportElement x="332" y="279" width="154" height="20" uuid="6ee1b217-764e-491f-a0e4-1f8fd166c3c5"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[CUSTOMER'S SIGNATURE]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="70" y="257" width="100" height="20" uuid="ab59a72b-0aec-4118-ae7e-60208322f8ec"/>
+				<reportElement x="70" y="279" width="100" height="20" uuid="ab59a72b-0aec-4118-ae7e-60208322f8ec"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[RECEIVED BY]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="10" y="277" width="545" height="20" uuid="9131180f-f7fd-45d3-86a7-17f18e37f293"/>
+				<reportElement x="10" y="299" width="545" height="20" uuid="9131180f-f7fd-45d3-86a7-17f18e37f293"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
@@ -728,26 +746,26 @@ ANURADHAPURA]]></text>
 NO COMPLAINTS]]></text>
 			</staticText>
 			<line>
-				<reportElement x="43" y="317" width="170" height="1" uuid="d8458497-0127-4e9a-9e74-4ac16c685370">
+				<reportElement x="43" y="339" width="170" height="1" uuid="d8458497-0127-4e9a-9e74-4ac16c685370">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="73" y="318" width="100" height="20" uuid="a7e37562-7b68-4d7b-b329-51a039f0c376"/>
+				<reportElement x="73" y="340" width="100" height="20" uuid="a7e37562-7b68-4d7b-b329-51a039f0c376"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[MECHANIC]]></text>
 			</staticText>
 			<line>
-				<reportElement x="326" y="317" width="160" height="1" uuid="0d09f9b9-a269-4d7b-8f1c-6091ab846c23">
+				<reportElement x="326" y="339" width="160" height="1" uuid="0d09f9b9-a269-4d7b-8f1c-6091ab846c23">
 					<property name="local_mesure_unitheight" value="pixel"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
 				</reportElement>
 			</line>
 			<staticText>
-				<reportElement x="337" y="318" width="144" height="20" uuid="2fa7d764-cdeb-4a70-bd13-7bb44b6d7520"/>
+				<reportElement x="337" y="340" width="144" height="20" uuid="2fa7d764-cdeb-4a70-bd13-7bb44b6d7520"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font isBold="true"/>
 				</textElement>
