@@ -9,12 +9,15 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface VehicleRepository extends JpaRepository<Vehicle,Integer> {
-    @Query(value = "from Vehicle  where vehicleNumber=?1")
-    Vehicle searchByVehicleNum(String vehicle_number);
+    @Query(value = "from Vehicle v where  v.vehicleNumber   Like CONCAT('%',:vehicle_number,'%')  or v.customer.nic Like CONCAT('%',:vehicle_number,'%') or v.customer.firstName Like CONCAT('%',:vehicle_number,'%') ")
+    List<Vehicle> searchByVehicleNum(@Param("vehicle_number")String vehicle_number);
 
     @Query(value = "from Vehicle  where vehicleId=?1")
     Vehicle searchByVehicleId(int parseInt);
 
     @Query(value = "select  vehicleNumber,presentOdoMeter from PrintJobOrder where serviceJobId=:serviceJobId")
     List<Object[]> searchVehicleNumbers(@Param("serviceJobId")String serviceJobId);
+
+    @Query(value = "from Vehicle v where  v.vehicleNumber=?1")
+    Vehicle searchVehicleDetailsByNumber(String vehicleNumber);
 }

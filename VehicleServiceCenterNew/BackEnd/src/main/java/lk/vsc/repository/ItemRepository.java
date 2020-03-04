@@ -26,4 +26,11 @@ public interface ItemRepository extends JpaRepository<Item,Integer> {
 
     @Query(value = "select mm.modelName,mm.makeName from MakeModel mm,MakeModelDetails mmd where mm.makeModelId=mmd.makeModel.makeModelId and  mmd.item.itemId =:itemId order by mm.makeName")
     List<Object [] > viewMakeModelDetailsForThisItem(@Param("itemId")String itemId);
+
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update Item set item_name=:itemName  where item_id=:itemId",nativeQuery = true)
+    int updateItemName(@Param("itemId")String itemId,@Param("itemName") String itemName);
+
+    @Query(value = "from Item where itemId =:itemId ")
+    Item getAllItems(@Param("itemId")String itemId);
 }

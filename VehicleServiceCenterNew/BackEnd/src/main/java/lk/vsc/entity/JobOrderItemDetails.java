@@ -26,6 +26,9 @@ public class JobOrderItemDetails {
     private String model;
     private String lubeJobType;
     private String itemStatus;
+    private String reOpenStatus;
+
+
 //    @ManyToOne
 //    @OnDelete(action = OnDeleteAction.CASCADE)
 //    private JobClose jobClose;
@@ -109,4 +112,14 @@ public class JobOrderItemDetails {
     public void setLubeJobType(String lubeJobType) {
         this.lubeJobType = lubeJobType;
     }
+
+    public String getReOpenStatus() {
+        return reOpenStatus;
+    }
+
+    public void setReOpenStatus(String reOpenStatus) {
+        this.reOpenStatus = reOpenStatus;
+    }
+
+
 }

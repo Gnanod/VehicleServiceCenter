@@ -25,6 +25,7 @@ public class ServiceIdController {
     @GetMapping(value = "/getLastID")
     public ServiceJob getLastID(){
 
+
         String lastId = idService.getResult();
         ServiceJob s1 = new ServiceJob();
         if (lastId != null) {

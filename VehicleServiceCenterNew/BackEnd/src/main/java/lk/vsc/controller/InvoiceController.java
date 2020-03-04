@@ -2,7 +2,9 @@ package lk.vsc.controller;
 
 
 import lk.vsc.DTO.*;
+import lk.vsc.entity.PerformaInvoice;
 import lk.vsc.entity.ServiceJob;
+import lk.vsc.service.PerformaInvoiceService;
 import lk.vsc.service.ServiceJobService;
 import net.sf.jasperreports.engine.*;
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.io.*;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
@@ -22,6 +25,8 @@ public class InvoiceController {
 
     @Autowired
     private ServiceJobService serviceJobService;
+    @Autowired
+    private PerformaInvoiceService performaInvoiceService;
     private String outputFile;
     @PostMapping(value = "/preformaInvoicePrint")
     public DocumentDto preformaInvoicePrint(@RequestBody JobCloseDTO jobCloseDto) {
@@ -102,6 +107,7 @@ public class InvoiceController {
         parameters.put("phoneNumber", getDetails.getVehicle().getCustomer().getPhoneNumber());
         parameters.put("address", getDetails.getVehicle().getCustomer().getAddress());
         parameters.put("presentOdoMeter",getDetails.getPresentOdoMeter()+" KM");
+        parameters.put("invoiceNum",generatePerformaInvoiceId());
 
         String userHomeDirectory = System.getProperty("user.home");
         String fileName ="PerformaInvoice_"+jobCloseDto.getJobNo()+".pdf";
@@ -125,6 +131,10 @@ public class InvoiceController {
 
             File f = new File(outputFile);
             bytes = downloadPdf(f);
+
+            savePerformaInvoice(jobCloseDto.getJobNo(),jobCloseDto.getItemTotal(),jobCloseDto.getServiceTotal(),grossAmount);
+
+
         } catch (JRException e) {
 
             e.printStackTrace();
@@ -137,6 +147,19 @@ public class InvoiceController {
         DocumentDto d = new DocumentDto();
         d.setPdf(bytes);
         return d;
+    }
+
+    private void savePerformaInvoice(String jobNo, String itemTotal, String serviceTotal, double grossAmount) {
+
+        PerformaInvoice i = new PerformaInvoice();
+        i.setGrossAmount(grossAmount);
+        String performaLastId =generatePerformaInvoiceId();
+        i.setPerformaInvoiceId(performaLastId);
+        i.setItemAmount(Double.parseDouble(itemTotal));
+        i.setServiceAmount(Double.parseDouble(serviceTotal));
+        i.setServiceId(jobNo);
+
+        performaInvoiceService.addPerformaInvoice(i);
     }
 
     public static String getCurrentDate() {
@@ -162,4 +185,41 @@ public class InvoiceController {
         String s = Base64.getEncoder().encodeToString(crunchifyByteStream);
         return s;
     }
+
+
+    public String generatePerformaInvoiceId(){
+
+
+        String lastId = performaInvoiceService.getResult();
+        ServiceJob s1 = new ServiceJob();
+        String finalId=" ";
+        if (lastId != null) {
+
+            String subid = lastId.substring(5);
+            int id = Integer.parseInt(subid);
+            id++;
+            NumberFormat numberFormat = NumberFormat.getIntegerInstance();
+            numberFormat.setMinimumIntegerDigits(4);
+            numberFormat.setGroupingUsed(false);
+            String newID = "P"+getCurrentYear()+numberFormat.format(id);
+            finalId= newID;
+            s1.setServiceJobId(newID);
+
+        } else {
+
+            finalId="P"+getCurrentYear()+"0001";
+//            s1.setServiceJobId("P"+getCurrentYear()+"0001");
+        }
+
+        return finalId;
+    }
+
+    public static String getCurrentYear() {
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy");
+        Date date = new Date();
+        String newDate = dateFormat.format(date);
+        return newDate;
+    }
+
 }

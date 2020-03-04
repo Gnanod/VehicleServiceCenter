@@ -46,7 +46,7 @@ public class VehicleServiceImpl implements VehicleService{
     }
 
     @Override
-    public Vehicle searchByVehicleNumber(String vehicleNumber) {
+    public List<Vehicle> searchByVehicleNumber(String vehicleNumber) {
         return vehicleRepository.searchByVehicleNum(vehicleNumber);
     }
 
@@ -87,6 +87,11 @@ public class VehicleServiceImpl implements VehicleService{
             return null;
         }
 
+    }
+
+    @Override
+    public Vehicle searchVehicleDetailsByNumber(String vehicleNumber) {
+        return vehicleRepository.searchVehicleDetailsByNumber(vehicleNumber);
     }
 
 }

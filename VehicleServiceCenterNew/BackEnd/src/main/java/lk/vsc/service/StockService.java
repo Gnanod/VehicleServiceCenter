@@ -26,4 +26,6 @@ public interface StockService {
     JobCloseDTO searchServiceAndItemDetailsBtServiceId(String serviceId);
 
     JobCloseDTO searchServiceAndItemDetailsBtServiceIdToPerformaInvoice(String serviceId);
+
+
 }

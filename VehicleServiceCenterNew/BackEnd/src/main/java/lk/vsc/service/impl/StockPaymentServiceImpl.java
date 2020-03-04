@@ -86,4 +86,32 @@ public class StockPaymentServiceImpl implements StockPaymentService{
         }
         return l;
     }
+
+    @Override
+    public double getOutCome(String from, String to) {
+        Object ob = stockPaymentRepository.getOutCome(from,to);
+
+        if (ob != null) {
+
+            return Double.parseDouble(ob.toString());
+
+        } else {
+
+            return 0;
+        }
+    }
+
+    @Override
+    public double getIncome(String from, String to) {
+        Object ob = stockPaymentRepository.getIncome(from,to);
+
+        if (ob != null) {
+
+            return Double.parseDouble(ob.toString());
+
+        } else {
+
+            return 0;
+        }
+    }
 }

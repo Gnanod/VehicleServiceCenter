@@ -1,5 +1,7 @@
 package lk.vsc.repository;
 
+import lk.vsc.entity.JobClose;
+import lk.vsc.entity.PerformaInvoice;
 import lk.vsc.entity.Services;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -43,6 +45,26 @@ public interface ServicesRepository extends JpaRepository<Services, Integer> {
     @Modifying(clearAutomatically = true)
     @Query(value = "update service_job set job_status=:jobStatus  where service_job_id=:serviceId",nativeQuery = true)
     int reOpenJob(@Param("serviceId")String serviceId,@Param("jobStatus")String newJobStatus);
+
+
+    @Query(value = "select jo.jobID from JobOrder jo where  jo.serviceId =:serviceId")
+    Object getJobOrderId(@Param("serviceId")String serviceId);
+
+    @Query(value = "select j.item.itemId,j.qty from JobOrderItemDetails j where  j.jobOrder.jobID =:jobId ")
+    List<Object[]> getItemsAccordingToJobId(@Param("jobId")int jobId);
+
+    @Modifying(clearAutomatically = true)
+    @Query(value = "update job_order_item_details set re_open_status='Not Updated'  where job_order_jobid=:jobId and item_item_id =:itemId",nativeQuery = true)
+    void updateReopenItemStatus(@Param("itemId")String itemId,@Param("jobId")int jobId);
+
+    @Query(value = " from JobClose j where  j.date >=:fromdate and j.date<=:todate ")
+    List<JobClose> searchJobCloseToReport(@Param("fromdate")String fromdate,@Param("todate") String todate);
+
+    @Query(value = " from PerformaInvoice p where  p.date >=:fromdate and p.date<=:todate ")
+    List<PerformaInvoice> searchPerformaInvoice(@Param("fromdate")String fromdate, @Param("todate")String todate);
+
+    @Query(value = "select f.serviceId,f.date,f.serviceAmount,f.itemAmount,f.grossAmount,f.serviceDiscount,f.itemDiscount,f.grossDiscount,f.discountedTotalService,f.discountedTotalItems,f.discountedTotalGross,f.totalAmount,f.paymentTypeInvoice from FinalInvoice f where  f.date >=:fromdate and f.date<=:todate ")
+    List<Object[]> searchFinalInvoice(@Param("fromdate")String fromdate,@Param("todate") String todate);
 //    select service_desc from services where service_name='Wax'
 
 

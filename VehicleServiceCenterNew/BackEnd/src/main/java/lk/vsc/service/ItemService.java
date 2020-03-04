@@ -17,4 +17,6 @@ public interface ItemService {
     List<Item> getAllItems();
 
     List<MakeModelDetailsDTO> viewMakeModelDetailsForThisItem(String itemId);
+
+    String updateItemName(Item item);
 }

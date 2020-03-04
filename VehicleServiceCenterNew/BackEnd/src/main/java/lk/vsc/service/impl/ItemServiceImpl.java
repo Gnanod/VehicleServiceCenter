@@ -92,4 +92,15 @@ public class ItemServiceImpl implements ItemService {
         return m;
     }
 
+    @Transactional
+    @Override
+    public String updateItemName(Item item) {
+        int i= itemRepository.updateItemName(item.getItemId(),item.getItemName());
+        if(i>0){
+            return "0";
+        }else{
+            return  null;
+        }
+    }
+
 }

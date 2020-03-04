@@ -3,6 +3,7 @@ package lk.vsc.repository;
 import lk.vsc.entity.StockPayment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import java.util.List;
 
@@ -24,4 +25,11 @@ public interface  StockPaymentRepository extends JpaRepository<StockPayment,Inte
             "where fip.final_invoice_final_invoice_id=fi.final_invoice_id and Year(fip.date)=Year(CURDATE()) " +
             "group by year(fip.date),MONTHNAME(fip.date)",nativeQuery = true)
     List<Object[]> getMonthlyInComeReport();
+
+
+    @Query(value = "select SUM(s.payment) from  stock_payment s where s.date >= :fromout and s.date<=:toout ",nativeQuery = true)
+    Object getOutCome(@Param("fromout")String from, @Param("toout")String to);
+
+    @Query(value = "select SUM(j.payment) from  final_invoice_payment j where j.date >= :fromIn and j.date<=:toIn ",nativeQuery = true)
+    Object getIncome(@Param("fromIn")String from,@Param("toIn") String to);
 }

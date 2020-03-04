@@ -71,4 +71,13 @@ public class ItemController {
         return   itemService.viewMakeModelDetailsForThisItem(itemId);
 
     }
+
+
+
+    @PostMapping(value = "/updateItemName")
+    public String updateItemName(@RequestBody Item item){
+
+        return   itemService.updateItemName(item);
+
+    }
 }

@@ -60,9 +60,9 @@ public class StockController {
 
         List<StockPayment> sp = new ArrayList<>();
         sp.add(p1);
-        System.out.println("Size"+sp.size());
+        System.out.println("Size" + sp.size());
 
-       // s1.setStockPayment(sp);
+        // s1.setStockPayment(sp);
         String s = stockService.addStock(s1);
 
         if (s != null) {
@@ -115,10 +115,24 @@ public class StockController {
     }
 
     @GetMapping(value = "/searchServiceAndItemDetailsBtServiceIdToPerformaInvoice/{serviceId}")
-    public JobCloseDTO     searchServiceAndItemDetailsBtServiceIdToPerformaInvoice(@PathVariable String serviceId) {
+    public JobCloseDTO searchServiceAndItemDetailsBtServiceIdToPerformaInvoice(@PathVariable String serviceId) {
 
         return stockService.searchServiceAndItemDetailsBtServiceIdToPerformaInvoice(serviceId);
     }
+
+
+    @GetMapping(value = "/getOutCome/{from}/{to}")
+    public double getOutCome(@PathVariable String from,@PathVariable String to) {
+
+        return stockPaymentService.getOutCome(from,to);
+    }
+
+    @GetMapping(value = "/getIncome/{from}/{to}")
+    public double getInCome(@PathVariable String from,@PathVariable String to) {
+
+        return stockPaymentService.getIncome(from,to);
+    }
+
 }
 
 

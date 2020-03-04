@@ -52,10 +52,7 @@ public class ServiceJobController {
 
         String msg = "Dear valuable customer, we started servicing your vehicle. -TurismoAuto";
         String number = "94" + phoneNumber.substring(1);
-        System.out.println("Number"+number);
-        System.out.println("password"+password);
-        System.out.println("accountName"+accountName);
-        System.out.println("msg"+msg);
+
         URL textit = null;
         try {
             textit = new URL("http://textit.biz/sendmsg/index.php?id="+accountName+"&pw="+password+"&to="+number +"&text=Dear valuable customer, we started servicing your vehicle. -TurismoAuto");

@@ -1,8 +1,10 @@
 package lk.vsc.service.impl;
+
 import lk.vsc.DTO.VehicleHistoryDTO;
 import lk.vsc.DTO.ViewItemDetailsDTO;
 import lk.vsc.DTO.ViewServicesDTO;
-import lk.vsc.entity.Services;
+import lk.vsc.entity.*;
+import lk.vsc.repository.ItemRepository;
 import lk.vsc.repository.ServicesRepository;
 import lk.vsc.service.ServicesService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +19,8 @@ import java.util.List;
 public class ServicesServiceImpl implements ServicesService {
     @Autowired
     private ServicesRepository servicesRepository;
+    @Autowired
+    private ItemRepository itemRepository;
 
     @Override
     public void deleteService(int serviceId) {
@@ -155,12 +159,57 @@ public class ServicesServiceImpl implements ServicesService {
     public String reOpenJob(String serviceId ,String newJobStatus) {
 
         int i = servicesRepository.reOpenJob(serviceId,newJobStatus);
+        Object jobOrderId = servicesRepository.getJobOrderId(serviceId);
+        List<Object []> arr1 = servicesRepository.getItemsAccordingToJobId(Integer.parseInt(jobOrderId.toString()));
+        for ( Object o[]:arr1
+             ) {
+            Item item = itemRepository.getAllItems(o[0].toString());
+            double newQty = item.getQuantityOnHand()+Double.parseDouble(o[1].toString());
+            item.setQuantityOnHand(newQty);
+            itemRepository.save(item);
+            servicesRepository.updateReopenItemStatus(o[0].toString(),Integer.parseInt(jobOrderId.toString()));
+        }
+
         if(i>0){
             return "0";
         }else{
             return null;
         }
 
+    }
+
+    @Override
+    public  List<JobClose> searchJobCloseToReport(String from, String to) {
+        return servicesRepository.searchJobCloseToReport(from,to);
+    }
+
+    @Override
+    public List<PerformaInvoice> searchPerformaInvoice(String from, String to) {
+        return servicesRepository.searchPerformaInvoice(from,to);
+    }
+
+    @Override
+    public List<FinalInvoice> searchFinalInvoice(String from, String to) {
+        List<Object[]> ob = servicesRepository.searchFinalInvoice(from,to);
+        List<FinalInvoice> f = new ArrayList<>();
+        for (Object o[]: ob
+             ) {
+            FinalInvoice f1 = new FinalInvoice();
+            f1.setServiceId(o[0].toString());
+            f1.setDate(o[1].toString());
+            f1.setServiceAmount(Double.parseDouble(o[2].toString()));
+            f1.setItemAmount(Double.parseDouble(o[3].toString()));
+            f1.setGrossAmount(Double.parseDouble(o[4].toString()));
+            f1.setServiceDiscount(Double.parseDouble(o[5].toString()));
+            f1.setItemDiscount(Double.parseDouble(o[6].toString()));
+            f1.setGrossDiscount(Double.parseDouble(o[7].toString()));
+            f1.setDiscountedTotalService(Double.parseDouble(o[8].toString()));
+            f1.setDiscountedTotalItems(Double.parseDouble(o[9].toString()));
+            f1.setDiscountedTotalGross(Double.parseDouble(o[10].toString()));
+            f1.setTotalAmount(Double.parseDouble(o[11].toString()));
+            f.add(f1);
+        }
+return f;
     }
 
 

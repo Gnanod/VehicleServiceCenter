@@ -16,4 +16,8 @@ public interface StockPaymentService {
     List<MonthlyOutComeReport> getMonthlyOutCome();
 
     List<MonthlyInComeReport> getMonthlyInComeReport();
+
+    double getOutCome(String from, String to);
+
+    double getIncome(String from, String to);
 }

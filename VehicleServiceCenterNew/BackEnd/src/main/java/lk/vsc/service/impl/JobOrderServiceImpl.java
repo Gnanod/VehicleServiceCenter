@@ -27,7 +27,8 @@ public class JobOrderServiceImpl implements JobOrderService {
     private JobOrderItemDetailsRepository jobOrderItemDetailsRepository;
     @Autowired
     private JobCloseRepository jobCloseRepository;
-
+    @Autowired
+    private ServicesRepository servicesRepository;
 
     @Override
     public List<Item> getItemsForJobOrder(String itemName, String makeName, String modelName) {
@@ -100,15 +101,16 @@ public class JobOrderServiceImpl implements JobOrderService {
                     j5.setPrice(joid1.getPrice());
                     j5.setQty(joid1.getQty());
                     j5.setItem(joid1.getItem());
+                    j5.setReOpenStatus("First");
                     JobOrder jo = new JobOrder();
                     jo.setJobID(jobId);
                     j5.setJobOrder(jo);
                     jobOrderItemDetailsRepository.save(j5);
                     Item i1 = joid1.getItem();
-                    Object i2 = itemRepository.getItemDetails(i1.getItemId());
-                    double newQuantity = Double.parseDouble(i2.toString()) - joid1.getQty();
-                    i1.setQuantityOnHand(newQuantity);
-                    Item i = itemRepository.save(i1);
+//                    Object i2 = itemRepository.getItemDetails(i1.getItemId());
+//                    double newQuantity = Double.parseDouble(i2.toString()) - joid1.getQty();
+//                    i1.setQuantityOnHand(newQuantity);
+//                    Item i = itemRepository.save(i1);
 
                 }
 
@@ -121,15 +123,15 @@ public class JobOrderServiceImpl implements JobOrderService {
 
             JobOrder s1 = jobOrderRepository.save(j1);
             if (s1 != null) {
-                List<JobOrderItemDetails> s4 = j1.getJobOrderItemDetails();
-                for (JobOrderItemDetails s2 : s4
-                ) {
-                    Item i1 = s2.getItem();
-                    Object i2 = itemRepository.getItemDetails(i1.getItemId());
-                    double newQuantity = Double.parseDouble(i2.toString()) - i1.getQuantityOnHand();
-                    i1.setQuantityOnHand(newQuantity);
-                    Item i = itemRepository.save(i1);
-                }
+//                List<JobOrderItemDetails> s4 = j1.getJobOrderItemDetails();
+//                for (JobOrderItemDetails s2 : s4
+//                ) {
+//                    Item i1 = s2.getItem();
+//                    Object i2 = itemRepository.getItemDetails(i1.getItemId());
+//                    double newQuantity = Double.parseDouble(i2.toString()) - i1.getQuantityOnHand();
+//                    i1.setQuantityOnHand(newQuantity);
+//                    Item i = itemRepository.save(i1);
+//                }
                 return "9";
             } else {
                 return null;
@@ -276,6 +278,7 @@ public class JobOrderServiceImpl implements JobOrderService {
                 return null;
             }
         }else{
+
             prevJobClose.setItemAmount(jobClose.getJobClose().getItemAmount());
             prevJobClose.setServiceAmount(jobClose.getJobClose().getServiceAmount());
             jobCloseRepository.updateJobClose(jobClose.getJobClose().getItemAmount(),jobClose.getJobClose().getServiceAmount(),jobClose.getJobClose().getJobCloseId());
@@ -283,8 +286,13 @@ public class JobOrderServiceImpl implements JobOrderService {
             List<JobOrderItemDetails> jobOrderItemDetails1 = jobClose.getJobOrderItemDetails();
             List<ServiceJobDetails> serviceJobDetails1 = jobClose.getServiceJobDetails();
 
+            Object jobOrderId = servicesRepository.getJobOrderId(j1.getServiceId());
+
+            List<Object []> currentItem = jobCloseRepository.currentItemAccordingToJoborderId(Integer.parseInt(jobOrderId.toString()));
+
             for (JobOrderItemDetails j2 : jobOrderItemDetails1
             ) {
+
                 jobOrderItemDetailsRepository.updateDetails(j2.getJobOrderServiceDetails(), j2.getQty(), j2.getItemStatus(), j2.getPrice());
                 double qtyOnHand = Double.parseDouble(itemRepository.getItemDetails(j2.getItem().getItemId()).toString());
                 double finalQuantity = qtyOnHand - j2.getQty();

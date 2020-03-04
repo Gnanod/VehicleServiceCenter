@@ -22,10 +22,10 @@ import java.util.*;
 @RequestMapping(value = "/JobOrderController")
 public class JobOrderController {
 
-	//private final String BLANK_A4_FILE_NAME = System.getProperty("user.home") + "/src/Blank_A4.jasper";
-	private final String BLANK_A4_FILE_NAME = System.getProperty("user.home") + "/BackEnd/src/main/java/lk/vsc/jasper/Blank_A4.jasper";
-	//private final String FINAL_INVOICE_FILE_NAME = System.getProperty("user.home") + "/src/FinalInvoice.jasper";
-	private final String FINAL_INVOICE_FILE_NAME = System.getProperty("user.home") + "/BackEnd/src/main/java/lk/vsc/jasper/FinalInvoice.jasper";
+    //private final String BLANK_A4_FILE_NAME = System.getProperty("user.home") + "/src/Blank_A4.jasper";
+    private final String BLANK_A4_FILE_NAME = System.getProperty("user.home") + "/BackEnd/src/main/java/lk/vsc/jasper/Blank_A4.jasper";
+    //private final String FINAL_INVOICE_FILE_NAME = System.getProperty("user.home") + "/src/FinalInvoice.jasper";
+    private final String FINAL_INVOICE_FILE_NAME = System.getProperty("user.home") + "/BackEnd/src/main/java/lk/vsc/jasper/FinalInvoice.jasper";
 
     private String outputFile;
     @Autowired
@@ -109,7 +109,7 @@ public class JobOrderController {
     }
 
     @PostMapping(value = "/downloadJobOrder")
-    public DocumentDto DownloadJobOrder(@RequestBody ServicesDTO serviceJob){
+    public DocumentDto DownloadJobOrder(@RequestBody ServicesDTO serviceJob) {
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         ServiceInvoiceDTO v1 = serviceJob.getServiceInvoice();
@@ -124,7 +124,7 @@ public class JobOrderController {
         parameters.put("customerPhoneNumber", v1.getCustomerPhoneNumber());
         parameters.put("customerAddress", v1.getCustomerAddress());
         parameters.put("total", Double.toString(v1.getTotal()));
-        parameters.put("presentOdoMeter",v1.getPresentOdoMeter()+"KM");
+        parameters.put("presentOdoMeter", v1.getPresentOdoMeter() + "KM");
         String userHomeDirectory = System.getProperty("user.home");
         String fileName = "Service_Bill.pdf";
 
@@ -132,7 +132,7 @@ public class JobOrderController {
         outputFile = userHomeDirectory + File.separatorChar + "Documents/" + fileName;
 
         PrintJobOrder j1 = new PrintJobOrder();
-        j1.setDate(getCurrentDate() );
+        j1.setDate(getCurrentDate());
         j1.setServiceJobId(v1.getInvoiceNumber());
         j1.setTime(getCurrentTime());
         j1.setVehicleNumber(v1.getVehicleNumber());
@@ -140,12 +140,12 @@ public class JobOrderController {
         String s1 = jobOrderService.printJobOrder(j1);
 //        byte[] bytes=null;
         String bytes = null;
-        if(s1!=null) {
+        if (s1 != null) {
 
-        	   ClassLoader classLoader = new JobOrderController().getClass().getClassLoader();
+            ClassLoader classLoader = new JobOrderController().getClass().getClassLoader();
 
-               //get the file from resources
-               //File file = new File(classLoader.getResource(BLANK_A4_FILE_NAME).getFile());
+            //get the file from resources
+            //File file = new File(classLoader.getResource(BLANK_A4_FILE_NAME).getFile());
 
             JasperPrint jasperPrint;
             try {
@@ -180,7 +180,7 @@ public class JobOrderController {
             d.setPdf(bytes);
             return d;
 
-        }else{
+        } else {
 
             return null;
         }
@@ -217,13 +217,13 @@ public class JobOrderController {
     }
 
     @GetMapping(value = "/getJobOrderDetailsAccordingToId/{id}")
-    public JobOrderItemDetails getJobOrderDetailsAccordingToId(@PathVariable int id){
+    public JobOrderItemDetails getJobOrderDetailsAccordingToId(@PathVariable int id) {
         return jobOrderService.getJobOrderDetailsAccordingToId(id);
 
     }
 
     @PostMapping(value = "/saveJobClose")
-    public String saveJobClose(@RequestBody FinalJobCloseDTO jobClose){
+    public String saveJobClose(@RequestBody FinalJobCloseDTO jobClose) {
         return jobOrderService.saveJobClose(jobClose);
 
     }
@@ -279,8 +279,8 @@ public class JobOrderController {
             v.setYear(v1.getYearOfManufacture());
             v.setVehicleNumber(v1.getVehicleNumber());
             v.setServiceTotal(Double.parseDouble(arr[1]));
-                v.setPresentOdometer(arr[2]);
-                v.setJobStatus(arr[3]);
+            v.setPresentOdometer(arr[2]);
+            v.setJobStatus(arr[3]);
             return v;
         } else {
             return null;
@@ -306,9 +306,10 @@ public class JobOrderController {
             j2.setModel(i.getModel());
             j2.setPrice(i.getPrice());
             j2.setItemStatus("Yes");
-            if(i.getLubeJobType()==null){
+            j2.setReOpenStatus("First");
+            if (i.getLubeJobType() == null) {
                 j2.setLubeJobType("-");
-            }else{
+            } else {
                 j2.setLubeJobType(i.getLubeJobType());
             }
 
@@ -322,11 +323,12 @@ public class JobOrderController {
             j3.setQty(i2.getQty());
             j3.setMake(i2.getMake());
             j3.setModel(i2.getModel());
+            j3.setReOpenStatus("First");
             j3.setPrice(i2.getPrice());
             j3.setItemStatus("Yes");
-            if(i2.getLubeJobType()==null){
+            if (i2.getLubeJobType() == null) {
                 j3.setLubeJobType("-");
-            }else{
+            } else {
                 j3.setLubeJobType(i2.getLubeJobType());
             }
             s3.add(j3);
@@ -389,7 +391,7 @@ public class JobOrderController {
             j2.setItemCode(j1.getItem().getItemId());
             j2.setMake(j1.getMake());
             j2.setMaterial(j1.getItem().getItemName());
-            System.out.println("ItemNAme"+j1.getItem().getItemName());
+            System.out.println("ItemNAme" + j1.getItem().getItemName());
             j2.setModel(j1.getModel());
 
             DecimalFormat df = new DecimalFormat("0.00");
@@ -402,7 +404,7 @@ public class JobOrderController {
             j2.setType(j1.getLubeJobType());
             s6.add(j2);
         }
-        System.out.println("SIZE"+s2.size());
+        System.out.println("SIZE" + s2.size());
 
         JRBeanCollectionDataSource s3 = new JRBeanCollectionDataSource(s5);
         JRBeanCollectionDataSource s4 = new JRBeanCollectionDataSource(s6);
@@ -429,11 +431,11 @@ public class JobOrderController {
         String serviceAmount = df.format(jobOrder.getServiceAmount());
         String grossAmount = df.format(jobOrder.getGrossAmount());
 
-        System.out.println("Details Job amount"+detailJobAmount);
+        System.out.println("Details Job amount" + detailJobAmount);
 
         parameters.put("total", total);
         parameters.put("lubeJobAmount", lubeJobAmount);
-        parameters.put("detailJobAmount",detailJobAmount);
+        parameters.put("detailJobAmount", detailJobAmount);
         parameters.put("paymentType", jobOrder.getPaymentType());
         parameters.put("paidAmount", paidAmount);
         parameters.put("creditBalance", creditBalance);
@@ -450,7 +452,6 @@ public class JobOrderController {
         outputFile = userHomeDirectory + File.separatorChar + "Documents/" + fileName;
 
 
-
         //---------------------------------------load data from resources-------------------------------------------------------
         ClassLoader classLoader = new JobOrderController().getClass().getClassLoader();
 
@@ -462,7 +463,7 @@ public class JobOrderController {
         JasperPrint jasperPrint;
         try {
 
-           // jasperPrint = JasperFillManager.fillReport(FINAL_INVOICE_FILE_NAME, parameters, new JREmptyDataSource());
+            // jasperPrint = JasperFillManager.fillReport(FINAL_INVOICE_FILE_NAME, parameters, new JREmptyDataSource());
 
             jasperPrint = JasperFillManager.fillReport(System.getProperty("user.dir") + "/BackEnd/src/main/java/lk/vsc/jasper/FinalInvoice.jasper", parameters, new JREmptyDataSource());
 
@@ -473,7 +474,7 @@ public class JobOrderController {
 
             System.out.println("File Generated: " + outputFile);
             File f = new File(outputFile);
-             bytes = downloadPdf(f);
+            bytes = downloadPdf(f);
 
         } catch (JRException e) {
 
@@ -507,7 +508,7 @@ public class JobOrderController {
     }
 
 
-    public String  downloadPdf(File crunchifyFile) throws IOException {
+    public String downloadPdf(File crunchifyFile) throws IOException {
         FileInputStream crunchifyInputStream = null;
         byte[] crunchifyByteStream = new byte[(int) crunchifyFile.length()];
         try {
@@ -518,17 +519,43 @@ public class JobOrderController {
             e.printStackTrace();
         }
         String s = Base64.getEncoder().encodeToString(crunchifyByteStream);
-        return  s;
+        return s;
     }
 
 
     @GetMapping(value = "/reOpenJob/{serviceId}/{newJobStatus}")
-    public String reOpenJob(@PathVariable String serviceId,@PathVariable String newJobStatus) {
+    public String reOpenJob(@PathVariable String serviceId, @PathVariable String newJobStatus) {
 
-        String s = servicesService1.reOpenJob(serviceId,newJobStatus);
+        String s = servicesService1.reOpenJob(serviceId, newJobStatus);
         return s;
 
     }
 
+    @GetMapping(value = "/searchJobCloseToReport/{from}/{to}")
+    public List<JobClose> searchJobCloseToReport(@PathVariable String from, @PathVariable String to) {
 
+        return servicesService1.searchJobCloseToReport(from, to);
+
+
+    }
+
+
+
+    @GetMapping(value = "/searchPerformaInvoice/{from}/{to}")
+    public List<PerformaInvoice> searchPerformaInvoice(@PathVariable String from, @PathVariable String to) {
+
+        return servicesService1.searchPerformaInvoice(from, to);
+
+
+    }
+
+
+
+    @GetMapping(value = "/searchFinalInvoice/{from}/{to}")
+    public List<FinalInvoice> searchFinalInvoice(@PathVariable String from, @PathVariable String to) {
+
+        return servicesService1.searchFinalInvoice(from, to);
+
+
+    }
 }

@@ -5,13 +5,13 @@ import lk.vsc.entity.Vehicle;
 import java.util.List;
 
 public interface VehicleService {
-    
+
 
     List<Vehicle> getAllVehicle();
 
     Vehicle addVehicle(Vehicle vehicle);
 
-    Vehicle searchByVehicleNumber(String vehicleNumber);
+    List<Vehicle> searchByVehicleNumber(String vehicleNumber);
 
     Vehicle updateVehicle(Vehicle vehicle);
 
@@ -20,6 +20,8 @@ public interface VehicleService {
     Vehicle searchByVehicleId(int parseInt);
 
     Vehicle searchVehicleNumbers(String serviceJobId);
+
+    Vehicle searchVehicleDetailsByNumber(String vehicleNumber);
 
 
 //   Vehicle searchByVehicleNumber(String vehicleNumber);
